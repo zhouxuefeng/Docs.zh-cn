@@ -11,18 +11,18 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 4173a2ef539859031674fb613b25031e3b343c67
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: cff6f171432febac5ec3e7adf9cf77953e0ece2d
+ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>在 ASP.NET Core HTTP.sys web 服务器实现
 
 通过[Tom Dykstra](http://github.com/tdykstra)和[Chris 跨](https://github.com/Tratcher)
 
 > [!NOTE]
-> 本主题仅适用于 ASP.NET 核心 2.0 和更高版本。 在早期版本的 ASP.NET 核心，HTTP.sys 为[WebListener](WebListener.md)。
+> 本主题仅适用于 ASP.NET 核心 2.0 和更高版本。 在早期版本的 ASP.NET 核心，HTTP.sys 为[WebListener](xref:fundamentals/servers/weblistener)。
 
 HTTP.sys 是[ASP.NET Core 的 web 服务器](index.md)，仅在 Windows 上运行。 构建的[Http.Sys 内核模式驱动程序](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)。 HTTP.sys 是一种替代方法[Kestrel](kestrel.md) ，提供了 Kestel 不一些功能。 **HTTP.sys 不能与使用 IIS 或 IIS Express，因为它与不兼容[ASP.NET 核心模块](aspnet-core-module.md)。**
 
@@ -80,7 +80,7 @@ HTTP.sys 时需要的功能中 Kestrel，例如 Windows 身份验证不可用，
 
 * 调用`UseHttpSys`上的扩展方法`WebHostBuilder`中你`Main`方法，指定任何[HTTP.sys 选项](https://github.com/aspnet/HttpSysServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.HttpSys/HttpSysOptions.cs)，你的需要如下面的示例中所示：
 
-  [!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Main&highlight=11-19)]
+  [!code-csharp[](httpsys/sample/Program.cs?name=snippet_Main&highlight=11-19)]
 
 ### <a name="configure-httpsys-options"></a>配置 HTTP.sys 选项
 
@@ -90,7 +90,7 @@ HTTP.sys 时需要的功能中 Kestrel，例如 Windows 身份验证不可用，
 
 可以为整个应用程序替换为以下代码中设置最大并发打开 TCP 连接数*Program.cs*:
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Options&highlight=5)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Options&highlight=5)]
 
 最大连接数为默认情况下的不限 (null)。
 
@@ -107,7 +107,7 @@ public IActionResult MyActionMethod()
 
 下面是一个示例，演示如何配置整个应用程序，每个请求的约束：
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Options&highlight=6)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Options&highlight=6)]
 
 你可以重写中的特定请求上的设置*Startup.cs*:
 
@@ -121,7 +121,7 @@ public IActionResult MyActionMethod()
 
 默认情况下 ASP.NET Core 将绑定到`http://localhost:5000`。 若要配置 URL 前缀和端口，可以使用`UseUrls`扩展方法，`urls`命令行参数时，ASPNETCORE_URLS 环境变量，或`UrlPrefixes`属性[HttpSysOptions](https://github.com/aspnet/HttpSysServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.HttpSys/HttpSysOptions.cs)。 下面的代码示例使用`UrlPrefixes`。
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Main&highlight=17)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Main&highlight=17)]
 
 一个优点`UrlPrefixes`是如果你尝试添加的格式不正确的前缀立即收到一条错误消息。 一个优点`UseUrls`(与共享`urls`和 ASPNETCORE_URLS) 是您可以更轻松地切换 Kestrel 和 HTTP.sys 之间。
 
