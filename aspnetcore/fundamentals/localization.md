@@ -1,8 +1,8 @@
 ---
-title: "全球化和本地化"
+title: "全球化和 ASP.NET Core 的本地化"
 author: rick-anderson
-description: 
-keywords: "ASP.NET 核心"
+description: "了解如何 ASP.NET Core 提供服务和中间件将内容本地化为不同的语言和区域性。"
+keywords: "ASP.NET 核心，本地化、 区域性、 语言、 资源文件、 全球化、 国际化、 区域设置"
 ms.author: riande
 manager: wpickett
 ms.date: 01/14/2017
@@ -11,13 +11,13 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 70f11cc9de8e885745e7d08cb98ac68e3cc8ef95
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: c6c9db21a95131a3d7920054e32004791b499c11
+ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
-# <a name="globalization-and-localization"></a>全球化和本地化
+# <a name="globalization-and-localization-in-aspnet-core"></a>全球化和 ASP.NET Core 的本地化
 
 通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Damien Bowden](https://twitter.com/damien_bod)，[邓 Calixto](https://twitter.com/bartmax)， [Nadeem Afana](https://twitter.com/NadeemAfana)，和[Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
@@ -190,7 +190,7 @@ ASP.NET 核心，可指定两个区域性值，`SupportedCultures`和`SupportedU
 
 在配置本地化`ConfigureServices`方法：
 
-[!code-csharp[Main](localization/sample/Startup.cs?range=45-49)]
+[!code-csharp[Main](localization/sample/Program.cs?name=snippet1)]
 
 * `AddLocalization`将本地化服务添加到服务容器。 上面的代码还将设置"资源"的资源路径。
 
@@ -200,9 +200,9 @@ ASP.NET 核心，可指定两个区域性值，`SupportedCultures`和`SupportedU
 
 ### <a name="localization-middleware"></a>本地化中间件
 
-在请求的当前区域性设置本地化[中间件](middleware.md)。 在中启用本地化中间件`Configure`方法*Startup.cs*文件。 请注意，必须在其中可以检查请求区域性的任何中间件之前配置本地化中间件 (例如， `app.UseMvc()`)。
+在请求的当前区域性设置本地化[中间件](middleware.md)。 在中启用本地化中间件`Configure`方法*Program.cs*文件。 请注意，必须在其中可以检查请求区域性的任何中间件之前配置本地化中间件 (例如， `app.UseMvcWithDefaultRoute()`)。
 
-[!code-csharp[Main](localization/sample/Startup.cs?highlight=13-35&range=123-159)]
+[!code-csharp[Main](localization/sample/Program.cs?name=snippet2)]
 
 `UseRequestLocalization`初始化`RequestLocalizationOptions`对象。 对每个请求列表的`RequestCultureProvider`中`RequestLocalizationOptions`枚举和使用的第一个提供程序已成功确定请求区域性。 默认的提供程序来自`RequestLocalizationOptions`类：
 
@@ -259,25 +259,27 @@ Cookie 格式`c=%LANGCODE%|uic=%LANGCODE%`，其中`c`是`Culture`和`uic`是`UI
 假设你想要让客户在数据库中存储其语言和区域性。 你可以编写一个提供程序来查找用户的这些值。 下面的代码演示如何添加自定义提供程序：
 
 ```csharp
+private const string enUSCulture = "en-US";
+
 services.Configure<RequestLocalizationOptions>(options =>
-   {
-       var supportedCultures = new[]
-       {
-           new CultureInfo("en-US"),
-           new CultureInfo("fr")
-       };
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo(enUSCulture),
+        new CultureInfo("fr")
+    };
 
-       options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
-       options.SupportedCultures = supportedCultures;
-       options.SupportedUICultures = supportedCultures;
+    options.DefaultRequestCulture = new RequestCulture(culture: enUSCulture, uiCulture: enUSCulture);
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
 
-       options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async context =>
-       {
-         // My custom request culture logic
-         return new ProviderCultureResult("en");
-       }));
-   });
-   ```
+    options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async context =>
+    {
+        // My custom request culture logic
+        return new ProviderCultureResult("en");
+    }));
+});
+```
 
 使用`RequestLocalizationOptions`添加或删除本地化提供程序。
 
@@ -289,7 +291,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 *Views/Shared/_SelectLanguagePartial.cshtml*文件添加到`footer`的布局文件，使它将可供所有视图的部分：
 
-[!code-HTML[Main](localization/sample/Views/Shared/_Layout.cshtml?range=48-61&highlight=10)]
+[!code-HTML[Main](localization/sample/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 `SetLanguage`方法会设置区域性 cookie。
 
