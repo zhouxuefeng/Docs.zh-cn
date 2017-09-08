@@ -1,0 +1,8 @@
+<span data-ttu-id="353a0-101">用于生成在 Windows 上的自签名的 SSL 证书，你可以使用 PowerShell cmdlet[的 New-selfsignedcertificate](https://technet.microsoft.com/library/hh848633)。</span><span class="sxs-lookup"><span data-stu-id="353a0-101">For generating self-signed SSL certificates on Windows, you can use the PowerShell cmdlet [New-SelfSignedCertificate](https://technet.microsoft.com/library/hh848633).</span></span> <span data-ttu-id="353a0-102">此外，还有第三方工具，可使你更轻松地生成自签名的证书：</span><span class="sxs-lookup"><span data-stu-id="353a0-102">There are also third-party tools that make it easier for you to generate self-signed certificates:</span></span>
+
+* [<span data-ttu-id="353a0-103">SelfCert</span><span class="sxs-lookup"><span data-stu-id="353a0-103">SelfCert</span></span>](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net)
+* [<span data-ttu-id="353a0-104">Makecert UI</span><span class="sxs-lookup"><span data-stu-id="353a0-104">Makecert UI</span></span>](http://makecertui.codeplex.com/)
+
+<span data-ttu-id="353a0-105">在 macOS 和 Linux 上可以创建自签名的证书使用[OpenSSL](https://www.openssl.org/)。</span><span class="sxs-lookup"><span data-stu-id="353a0-105">On macOS and Linux you can create a self-signed certificate using [OpenSSL](https://www.openssl.org/).</span></span>
+
+<span data-ttu-id="353a0-106">有关详细信息，请参阅[设置 HTTPS 以用于开发](xref:security/https)。</span><span class="sxs-lookup"><span data-stu-id="353a0-106">For more information, see [Setting up HTTPS for development](xref:security/https).</span></span>
