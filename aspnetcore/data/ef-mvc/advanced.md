@@ -11,8 +11,8 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: fa5e0a66f22cc14f34d05481ce2e4381085d122d
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: d1c6ece833672af3ef2003510ef96c4ff0d63fbf
+ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2017
@@ -179,7 +179,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 若要反向工程数据模型，包括从现有数据库的实体类，使用[基架 dbcontext](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext)命令。 请参阅[入门教程](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)。
 
-<a id="dynamic-linq">
+<a id="dynamic-linq"></a>
 ## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>使用动态 LINQ 来简化排序所选内容的代码
 
 [本系列第三个教程](sort-filter-page.md)演示如何通过硬编码中的列名称来编写 LINQ 代码`switch`语句。 具有可供选择的两列，这可正常使用，但如果你有多列的代码无法获得详细。 若要解决该问题，可以使用`EF.Property`方法，以字符串形式指定属性的名称。 若要尝试这种方法，替换`Index`中的方法`StudentsController`替换为以下代码。

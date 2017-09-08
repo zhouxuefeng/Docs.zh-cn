@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: ad34a86c90c06dcddeeba7a0deba95f8057b4513
-ms.sourcegitcommit: def90564eff4adfeed0a8e511e4c201b040e9a5e
+ms.openlocfilehash: 7d216bc07d0a8d739f0cecbc5b571b6144c13e61
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>创建复杂的数据模型的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (5 的 10)
 
@@ -215,7 +215,7 @@ public int InstructorID { get; set; }
 
 你还可以使用`Key`属性如果实体具有其自己的主键，但你想要提供的名称属性是除 classnameID 或 id。
 
-默认情况下 EF 将密钥视为非数据库生成因为列是标识关系。
+默认情况下，EF 将密钥视为非数据库生成因为列是标识关系。
 
 ### <a name="the-instructor-navigation-property"></a>教师导航属性
 
@@ -397,7 +397,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-在本教程中仅为不能具有属性的数据库映射使用 fluent API。 但是，你可以使用 fluent API 指定的格式、 验证和映射规则，你可以通过使用特性执行大多数。 某些属性，如`MinimumLength`不能使用 fluent API 应用。 如前所述，`MinimumLength`不会更改架构，它仅适用于客户端和服务器端验证规则。
+在本教程中，仅为不能具有属性的数据库映射使用 fluent API。 但是，你可以使用 fluent API 指定的格式、 验证和映射规则，你可以通过使用特性执行大多数。 某些属性，如`MinimumLength`不能使用 fluent API 应用。 如前所述，`MinimumLength`不会更改架构，它仅适用于客户端和服务器端验证规则。
 
 一些开发人员更愿意使用 fluent API 以独占方式，以便它们能够获得它们的实体类"清理"。 如果你想，并且有几个仅可由使用 fluent API 中完成的自定义项，可以混合属性和 fluent API，但建议的做法通常是选择这两种方法之一，并使用该一致地尽可能多地。 不要使用这两者时，请注意，每当存在冲突，则 Fluent API 将覆盖属性。
 

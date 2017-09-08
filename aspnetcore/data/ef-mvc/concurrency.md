@@ -11,8 +11,8 @@ ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 4c402aee195d6614733be71c9c422e33553ad646
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: f44a4f842180b4001eb1428316c24fd9cacc39db
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/05/2017
@@ -176,8 +176,6 @@ _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVer
 
 在*Views/Departments/Edit.cshtml*，进行以下更改：
 
-* 删除`<div>`已为基架的元素`RowVersion`字段。
-
 * 添加隐藏的字段以保存`RowVersion`立即之后的隐藏的字段的属性值`DepartmentID`属性。
 
 * 将"选择管理员"选项添加到下拉列表中。
@@ -251,7 +249,7 @@ public async Task<IActionResult> Delete(Department department)
 
 * 添加一条错误消息之间`h2`和`h3`标题。
 
-* 用 FullName 中替换姓氏**管理员**字段。
+* 替换 FullName 中 FirstMidName**管理员**字段。
 
 * 删除 RowVersion 字段。
 

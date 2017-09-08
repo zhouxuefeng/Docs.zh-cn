@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: d04b740f1ded3fb41ef1c3edd0adad276d8fcef0
-ms.sourcegitcommit: d7e0df365a6112240b5560212759b1e3525850a2
+ms.openlocfilehash: a3badbfe365a99593b38fc3846a9984824438f16
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>读取与相关的数据的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (6 的 10)
 
@@ -91,7 +91,7 @@ Contoso 大学示例 web 应用程序演示如何创建使用实体框架核心�
 
 ## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>创建显示 Courses，并将注册一个教师页面
 
-在本部分中可以创建一个控制器和视图 Instructor 实体为了显示教师页：
+在此部分中，可以创建一个控制器和视图 Instructor 实体为了显示教师页：
 
 ![教师索引页](read-related-data/_static/instructors-index.png)
 
@@ -167,7 +167,7 @@ Index 方法替换为以下代码以执行预先加载了相关的数据并将�
 
 在*Views/Instructors/Index.cshtml*，模板代码替换为以下代码。 突出显示所做的更改。
 
-[!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,18-19,41-54,56)]
+[!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,15-19,24,26-31,41-54,56)]
 
 你已对现有代码做出以下更改：
 

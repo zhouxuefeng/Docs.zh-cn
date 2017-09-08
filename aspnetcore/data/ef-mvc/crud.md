@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: b99a58d77d4f1751753ae576ade4bd6dd981fbbf
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 855f060a6404dedff310b288ada9738689069ceb
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>创建、 读取、 更新和删除的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (2 个 10)
 
@@ -40,7 +40,7 @@ Contoso 大学示例 web 应用程序演示如何创建使用实体框架核心�
 
 ## <a name="customize-the-details-page"></a>自定义的详细信息页
 
-学生索引页的基架的代码中省略`Enrollments`属性，因为该属性包含集合。 在**详细信息**将集合的内容显示在 HTML 表的页。
+学生索引页的基架的代码中省略`Enrollments`属性，因为该属性包含集合。 在**详细信息**页上，将集合的内容显示在 HTML 表。
 
 在*Controllers/StudentsController.cs*，有关详细信息的操作方法查看使用`SingleOrDefaultAsync`方法来检索单个`Student`实体。 将调用的代码添加`Include`。 `ThenInclude`和`AsNoTracking`方法，如以下突出显示的代码中所示。
 
@@ -274,7 +274,7 @@ HttpPost 编辑操作方法替换为以下代码。
 
 要释放数据库连接包含的资源，上下文实例必须释放尽可能快地完成此操作使用它。 ASP.NET 核心内置[依赖关系注入](../../fundamentals/dependency-injection.md)将为你负责该任务。
 
-在*Startup.cs*调用[AddDbContext 扩展方法](https://github.com/aspnet/EntityFramework/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs)设置`DbContext`ASP.NET DI 容器中的类。 方法将服务生存期设置为`Scoped`默认情况下。 `Scoped`表示与 web 请求生存时间，一致上下文对象生存期和`Dispose`将 web 请求结束时自动调用方法。
+在*Startup.cs*，你调用[AddDbContext 扩展方法](https://github.com/aspnet/EntityFramework/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs)设置`DbContext`ASP.NET DI 容器中的类。 方法将服务生存期设置为`Scoped`默认情况下。 `Scoped`表示与 web 请求生存时间，一致上下文对象生存期和`Dispose`将 web 请求结束时自动调用方法。
 
 ## <a name="handling-transactions"></a>处理事务
 

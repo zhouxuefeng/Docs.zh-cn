@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 1140f4916ca39cb454eaa41fdf6adfe7ad26cc31
-ms.sourcegitcommit: dfd6af48cf66813eaf04b011cb9341339a751254
+ms.openlocfilehash: bc2896d0eeda7e84cef06ee3f235e637bfe04318
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>排序、 筛选、 分页和分组-ASP.NET 核心 MVC 教程 (3 的 10) 的 EF 核心
 
@@ -116,7 +116,7 @@ http://localhost:5813/Students?SearchString=an
 
 ![学生索引页，带有分页链接](sort-filter-page/_static/paging.png)
 
-在项目文件夹中创建`PaginatedList.cs`，然后将模板代码替换下面的代码。
+在项目文件夹中，创建`PaginatedList.cs`，然后将模板代码替换下面的代码。
 
 [!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
 
@@ -213,7 +213,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 
 创建*SchoolViewModels*文件夹中的*模型*文件夹。
 
-在新的文件夹中，添加一个类文件 EnrollmentDateGroup.cs 和模板代码替换为以下代码：
+在新的文件夹中，将类文件添加*EnrollmentDateGroup.cs*和模板代码替换为以下代码：
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
@@ -247,7 +247,7 @@ LINQ 语句学生实体分组按注册日期，计算每个组中的实体数并
 
 ## <a name="summary"></a>摘要
 
-在本教程中，你已了解如何执行排序、 筛选、 分页和分组。 在下一教程中你将了解如何通过使用迁移来处理数据模型更改。
+在本教程中，你已了解如何执行排序、 筛选、 分页和分组。 在下一步的教程中，你将了解如何通过使用迁移来处理数据模型更改。
 
 >[!div class="step-by-step"]
 [上一页](crud.md)
