@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 6e32ee64970bac5d7f09207e570f543477745b60
-ms.sourcegitcommit: 8cafdd1dd409d5070d227100ba0e094c779ac47b
+ms.openlocfilehash: b9170878e4797c729a94caa47c045c3ca3a3d9b8
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>从 ASP.NET 迁移到 ASP.NET Core 2.0
 
@@ -26,7 +26,6 @@ ms.lasthandoff: 08/28/2017
 ## <a name="prerequisites"></a>先决条件
 
 * [.NET Core 2.0.0 SDK](https://dot.net/core) 或更高版本。
-* 已安装“ASP.NET 和 Web 开发”工作负载的 [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 版本 15.3 或更高版本。
 
 ## <a name="target-frameworks"></a>目标框架
 ASP.NET Core 2.0 项目为开发人员提供了面向 .NET Core、.NET Framework 或同时面向这两者的灵活性。 若要确定最合适的目标框架，请参阅[为服务器应用选择 .NET Core 或 .NET Framework](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)。

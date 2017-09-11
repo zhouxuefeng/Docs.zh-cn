@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: af3b2174c73583832868d2062e6c7ab4689a1229
-ms.sourcegitcommit: 9d3f27a1ee5b7014fb40e4f2ec9b2a9cd744751c
+ms.openlocfilehash: 0285b40cfacb79745d3a6488401677130f55a95b
+ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>ASP.NET 核心 MVC web Api 中的自定义格式化程序
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 08/31/2017
 
 ASP.NET 核心 MVC 通过使用 JSON、 XML 或纯文本格式，web Api 中具有对数据交换的内置支持。 这篇文章演示如何通过创建自定义格式化程序添加对其他格式的支持。
 
-[查看或从 GitHub 下载示例](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample)。
+[查看或从 GitHub 下载示例](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample)。
 
 ## <a name="when-to-use-custom-formatters"></a>何时使用自定义格式化程序
 
@@ -100,7 +100,7 @@ ASP.NET 核心 MVC 通过使用 JSON、 XML 或纯文本格式，web Api 中具�
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅[示例应用程序](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample)，该类可实现简单 vCard 输入和输出格式化程序。  应用程序读取和写入名片类似下面的示例所示：
+请参阅[示例应用程序](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample)，该类可实现简单 vCard 输入和输出格式化程序。  应用程序读取和写入名片类似下面的示例所示：
 
 ```
 BEGIN:VCARD
