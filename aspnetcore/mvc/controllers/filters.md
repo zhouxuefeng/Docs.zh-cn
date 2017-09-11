@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: bf90698bbac850b1917cd93dbf0a5fc5b6792aa0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 6baeb472770daf1d54b2d9ea894fc710f4f40780
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="filters"></a>筛选器
 
@@ -117,7 +117,7 @@ Framework 包括内置基于属性的筛选器可以子类化和自定义。 例
 
 当管道一特定阶段存在多个筛选器时，作用域确定筛选器执行的默认顺序。  全局筛选器括住类筛选器，反过来环绕方法筛选器。 这有时称为"俄语玩具"嵌套层，如作用域中的每一项增加环绕以前的范围内，如[嵌套玩具](https://en.wikipedia.org/wiki/Matryoshka_doll)。 通常情况下，而无需显式确定排序需要获得所需的重写行为。
 
-此嵌套的 Asa 结果*后*的筛选器的代码在相反的顺序运行*之前*代码。 序列如下所示：
+由于这种嵌套，*后*的筛选器的代码在相反的顺序运行*之前*代码。 序列如下所示：
 
 * *之前*全局应用的筛选器的代码
   * *之前*应用到控制器的筛选器的代码

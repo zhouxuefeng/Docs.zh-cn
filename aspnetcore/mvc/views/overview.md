@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: a93ee8165be52e33c2e7da4d3fee2c8225864db9
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 318d8832dadadd6946c7ffe58f9d89aaf68f54fc
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>与 ASP.NET 核心 mvc 视图中呈现的 HTML
 
@@ -39,7 +39,7 @@ ASP.NET 核心 MVC 视图是*.cshtml*文件存储在默认情况下*视图*应�
 
 ## <a name="creating-a-view"></a>创建视图
 
-特定于控制器的视图中创建*视图 / [ControllerName]*文件夹。 控制器之间共享的视图都将置于*/视图/共享*文件夹。 其关联的控制器操作，相同命名的视图文件并添加*.cshtml*文件扩展名。 例如，若要创建的视图*有关*操作*主页*控制器，则你将创建*About.cshtml*文件中  */视图/主页*文件夹。
+特定于控制器的视图中创建*视图 / [ControllerName]*文件夹。 控制器之间共享的视图都将置于*/视图/共享*文件夹。 其关联的控制器操作，相同命名的视图文件并添加*.cshtml*文件扩展名。 例如，若要创建的视图*有关*操作*主页*控制器，则你将创建*About.cshtml*文件中 * /视图/主页*文件夹。
 
 示例视图文件 (*About.cshtml*):
 
@@ -69,14 +69,14 @@ ASP.NET 核心 MVC 视图是*.cshtml*文件存储在默认情况下*视图*应�
 
 当操作返回`View`方法，如下所示`return View();`，操作名称用作视图名称。 例如，如果这从名为"Index"的操作方法调用的则可以等效于传入的"索引"视图名称。 视图名称可以显式传递给方法 (`return View("SomeView");`)。 在这两种情况下，查看发现搜索匹配的视图文件中：
 
-   1. 视图 /<ControllerName>/<ViewName>.cshtml
+   1. 视图 /\<ControllerName > /\<ViewName >.cshtml
 
-   2. 视图/共享/<ViewName>.cshtml
+   2. 视图/共享/\<ViewName >.cshtml
 
 >[!TIP]
 > 我们建议以下只返回的约定`View()`从操作，如果可能，因为它会导致更灵活、 更容易重构代码。
 
-可以提供视图文件路径，而不是视图名称。 在这种情况下， *.cshtml*扩展必须指定为的文件路径的一部分。 路径应为相对于应用程序根目录 (并可以根据需要启动与"/"或"~ /")。 例如：`return View("Views/Home/About.cshtml");`
+可以提供视图文件路径，而不是视图名称。 如果使用从应用程序根目录开始的绝对路径 (根据需要第一页为"/"或"~ /")，则*.cshtml*扩展必须指定为的文件路径的一部分。 例如：`return View("Views/Home/About.cshtml");`。 或者，可以使用中的特定于控制器的目录中的相对路径*视图*目录以指定不同的目录中的视图。 例如：`return View("../Manage/Index");`内*主页*控制器。 同样，你就可以遍历当前的特定于控制器的目录： `return View("./About");`。 请注意，不使用相对路径*.cshtml*扩展。 如前所述，请按照组织视图以反映控制器、 操作和可维护性和清晰性的视图之间的关系的文件结构的最佳做法。
 
 > [!NOTE]
 > [分部视图](partial.md)和[查看组件](view-components.md)使用类似的 （但不是完全相同的） 发现机制。
