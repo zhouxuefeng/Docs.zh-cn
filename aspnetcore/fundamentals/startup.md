@@ -10,15 +10,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 16969386c55ae2fd2ab574c1799a765e74f59278
-ms.sourcegitcommit: 4147d2d29ea50e7e9b87879c572ac2a9fb51798c
+ms.openlocfilehash: 69af91de6d2c48af58bc10a32d8857af18a41b6a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>在 ASP.NET Core 中的应用程序启动
 
-通过[Steve Smith](http://ardalis.com)和[Tom Dykstra](https://github.com/tdykstra/)
+通过[Steve Smith](https://ardalis.com/)和[Tom Dykstra](https://github.com/tdykstra/)
 
 `Startup`类配置服务和应用程序的请求管道。 
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/15/2017
 
 ASP.NET Core 应用需要`Startup`类。 按照约定，`Startup`类命名为"启动"。 指定的启动类名`Main`程序的[WebHostBuilderExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions) [ `UseStartup<TStartup>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_)方法。 请参阅[宿主](xref:fundamentals/hosting)以详细了解`WebHostBuilder`，运行之前`Startup`。
 
-你可以定义单独`Startup`不同环境中，和相应的将会选择一个在运行时类。 如果指定`startupAssembly`中[WebHost 配置](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host)或选项，承载将加载该程序集的启动和搜索`Startup`或`Startup[Environment]`类型。 类中运行该应用程序的当前环境将按优先级排列其名称后缀匹配项，因此，如果*开发*环境，并同时包含`Startup`和`StartupDevelopment`类，`StartupDevelopment`类将为使用。 请参阅[FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs)中`StartupLoader`和[使用多个环境](environments.md#startup-conventions)。
+你可以定义单独`Startup`不同环境中，和相应的将会选择一个在运行时类。 如果指定`startupAssembly`中[WebHost 配置](https://docs.microsoft.com/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host)或选项，承载将加载该程序集的启动和搜索`Startup`或`Startup[Environment]`类型。 类中运行该应用程序的当前环境将按优先级排列其名称后缀匹配项，因此，如果*开发*环境，并同时包含`Startup`和`StartupDevelopment`类，`StartupDevelopment`类将为使用。 请参阅[FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs)中`StartupLoader`和[使用多个环境](environments.md#startup-conventions)。
 
 或者，你可以定义固定`Startup`将通过调用而不考虑环境中使用的类`UseStartup<TStartup>`。 此为推荐方法。
 
@@ -38,9 +38,9 @@ ASP.NET Core 应用需要`Startup`类。 按照约定，`Startup`类命名为"�
 
 ## <a name="the-configureservices-method"></a>ConfigureServices 方法
 
-[ConfigureServices](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_)方法是可选的; 但如果使用，则将不调用之前`Configure`web 主机的方法。 Web 主机可以配置某些服务之前``Startup``调用方法 (请参阅[承载](xref:fundamentals/hosting))。 按照约定，[配置选项](xref:fundamentals/configuration)在此方法中设置。
+[ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_)方法是可选的; 但如果使用，则将不调用之前`Configure`web 主机的方法。 Web 主机可以配置某些服务之前``Startup``调用方法 (请参阅[承载](xref:fundamentals/hosting))。 按照约定，[配置选项](xref:fundamentals/configuration)在此方法中设置。
 
-对于需要大量的安装程序的功能有`Add[Service]`上的扩展方法[IServiceCollection](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection)。 此示例摘自默认网站模板配置应用程序，以将服务用于实体框架、 标识和 MVC:
+对于需要大量的安装程序的功能有`Add[Service]`上的扩展方法[IServiceCollection](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection)。 此示例摘自默认网站模板配置应用程序，以将服务用于实体框架、 标识和 MVC:
 
 [!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 

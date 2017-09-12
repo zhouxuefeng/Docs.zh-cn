@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2e191a7395110cde7ab5b2f19b6154c96fb496e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 4d0302439fbc777c72f00c37a8c852fc0d46300e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>在 ASP.NET 核心中的依赖关系注入简介
 
 <a name=fundamentals-dependency-injection></a>
 
-通过[Steve Smith](http://ardalis.com)和[Scott Addie](https://scottaddie.com)
+通过[Steve Smith](https://ardalis.com/)和[Scott Addie](https://scottaddie.com)
 
 ASP.NET 核心旨在从一开始向上支持，并利用依赖关系注入。 ASP.NET 核心应用程序可以通过让用户启动类中的方法中注入利用内置 framework 服务和应用程序服务可以配置为也注入。 由 ASP.NET Core 提供的默认服务容器提供最小功能集，不用于替换其他容器。
 
@@ -39,7 +39,7 @@ ASP.NET 核心旨在从一开始向上支持，并利用依赖关系注入。 AS
 ASP.NET 核心包括简单的内置容器 (由表示`IServiceProvider`接口)，默认情况下，支持构造函数注入和 ASP.NET 使某些服务可通过 DI。 ASP。NET 的容器引用的类型将作为管理*服务*。 本文中，其余*服务*将引用由 ASP.NET Core IoC 容器的类型。 配置中的内置容器的服务`ConfigureServices`方法在应用程序的`Startup`类。
 
 > [!NOTE]
-> Martin Fowler 上编写大量文章[反转的控件容器和依赖关系注入模式](http://www.martinfowler.com/articles/injection.html)。 Microsoft 模式和实践还具有很好的 description[依赖关系注入](https://msdn.microsoft.com/library/dn178469(v=pandp.30).aspx)。
+> Martin Fowler 上编写大量文章[反转的控件容器和依赖关系注入模式](https://www.martinfowler.com/articles/injection.html)。 Microsoft 模式和实践还具有很好的 description[依赖关系注入](https://msdn.microsoft.com/library/hh323705.aspx)。
 
 > [!NOTE]
 > 本文介绍如何依赖关系注入，适用于所有 ASP.NET 应用程序。 中介绍了在 MVC 控制器中的依赖关系注入[依赖关系注入和控制器](../mvc/controllers/dependency-injection.md)。
@@ -210,7 +210,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 ## <a name="designing-your-services-for-dependency-injection"></a>设计你的服务依赖关系注入
 
-应设计你的服务以使用依赖关系注入获取其协作者。 这意味着避免有状态的静态方法调用使用 (这会导致称为代码告知[静态粘贴](http://deviq.com/static-cling/)) 和你的服务中的相关类的直接实例化。 它可帮助你记住这个短语：[新增是粘附](http://ardalis.com/new-is-glue)，当选择是否若要实例化一个类型或请求通过依赖关系注入。 按照[纯色原则的对象面向设计](http://deviq.com/solid/)，您的类将自然倾向于小型、 分解，和轻松测试。
+应设计你的服务以使用依赖关系注入获取其协作者。 这意味着避免有状态的静态方法调用使用 (这会导致称为代码告知[静态粘贴](http://deviq.com/static-cling/)) 和你的服务中的相关类的直接实例化。 它可帮助你记住这个短语：[新增是粘附](https://ardalis.com/new-is-glue)，当选择是否若要实例化一个类型或请求通过依赖关系注入。 按照[纯色原则的对象面向设计](http://deviq.com/solid/)，您的类将自然倾向于小型、 分解，和轻松测试。
 
 到你的类往往具有太多的依赖关系注入的方式怎么办？ 这通常是登录您的类尝试执行的操作过多，而且可能违反 SRP-[单个责任原则](http://deviq.com/single-responsibility-principle/)。 如果你可以通过将某些其职责移动到新类重构类，请参阅。 请记住，你`Controller`类应关注用户界面问题，因此业务规则和数据访问实现详细信息应保存在适用于这些类中[分离关注事项](http://deviq.com/separation-of-concerns/)。
 
@@ -245,7 +245,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="replacing-the-default-services-container"></a>替换默认服务容器
 
-内置的服务容器旨在提供框架和在其上生成的大多数使用者应用程序的基本需求。 但是，开发人员可以使用其首选容器替换内置的容器。 `ConfigureServices`方法通常返回`void`，但是，如果更改其签名，以便返回`IServiceProvider`，可以配置不同的容器，并将其返回。 没有可用于.NET 的多个 IOC 容器。 在此示例中， [Autofac](http://autofac.org/)使用包。
+内置的服务容器旨在提供框架和在其上生成的大多数使用者应用程序的基本需求。 但是，开发人员可以使用其首选容器替换内置的容器。 `ConfigureServices`方法通常返回`void`，但是，如果更改其签名，以便返回`IServiceProvider`，可以配置不同的容器，并将其返回。 没有可用于.NET 的多个 IOC 容器。 在此示例中， [Autofac](https://autofac.org/)使用包。
 
 首先，安装适当的容器程序包：
 
@@ -317,8 +317,8 @@ public class DefaultModule : Module
 
 * [在 ASP.NET 内核，它们有依赖关系注入 (MSDN) 中编写清理代码](https://msdn.microsoft.com/magazine/mt703433.aspx)
 
-* [容器管理应用程序设计，作： 其中？ 容器属于](http://blogs.msdn.com/b/nblumhardt/archive/2008/12/27/container-managed-application-design-prelude-where-does-the-container-belong.aspx)
+* [容器管理应用程序设计，作： 其中？ 容器属于](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 
 * [显式依赖关系原则](http://deviq.com/explicit-dependencies-principle/)
 
-* [反向的控件容器和依赖关系注入模式](http://www.martinfowler.com/articles/injection.html)(Fowler)
+* [反向的控件容器和依赖关系注入模式](https://www.martinfowler.com/articles/injection.html)(Fowler)

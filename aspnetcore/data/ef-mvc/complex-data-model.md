@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 7d216bc07d0a8d739f0cecbc5b571b6144c13e61
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: a9e255040c300bc5ce55a356e17e6912dbaeaf88
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>创建复杂的数据模型的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (5 的 10)
 
@@ -374,7 +374,7 @@ public Student Student { get; set; }
 
 由于外键不是可以为 null 并且它们一起唯一地标识表的每一行，则无需单独的主键。 *InstructorID*和*CourseID*属性应充当复合主键。 标识到 EF 的复合主键的唯一方法是使用*fluent API* （它不能通过使用属性来完成）。 你将看到如何在下一节中配置的复合主键。
 
-复合密钥可确保该虽然都有一个过程中，以及一个教师的多个行的多个行，不能具有多个行的同一教师和过程。 `Enrollment`联接实体定义其自己的主键，因此可能会出现这种重复项。 若要防止此类重复项，你无法上的外键字段，添加一个唯一索引，或配置`Enrollment`带有复合主键类似于`CourseAssignment`。 有关详细信息，请参阅[索引](https://docs.efproject.net/en/latest/modeling/indexes.html)。
+复合密钥可确保该虽然都有一个过程中，以及一个教师的多个行的多个行，不能具有多个行的同一教师和过程。 `Enrollment`联接实体定义其自己的主键，因此可能会出现这种重复项。 若要防止此类重复项，你无法上的外键字段，添加一个唯一索引，或配置`Enrollment`带有复合主键类似于`CourseAssignment`。 有关详细信息，请参阅[索引](https://docs.microsoft.com/ef/core/modeling/indexes)。
 
 ## <a name="update-the-database-context"></a>更新数据库上下文
 

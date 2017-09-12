@@ -2,7 +2,7 @@
 title: "依赖关系注入到视图"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: 80fb9e43-e4db-4af2-b2a8-e1364a712f69
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 05d64858dd70b45a1e2bb90a86ab3cbdc85264b1
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: ff3ded36a04fdbba0628dc5f223bfd865d58612a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="dependency-injection-into-views"></a>依赖关系注入到视图
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
-ASP.NET 核心支持[依赖关系注入](xref:fundamentals/dependency-injection)到视图。 这可用于查看特定服务，例如本地化或仅对填充视图元素是必需的数据。 你应尝试维护[关注点分离](http://deviq.com/separation-of-concerns)之间控制器和视图。 您的视图显示的数据的大多数应传递在中，从控制器中。
+ASP.NET 核心支持[依赖关系注入](xref:fundamentals/dependency-injection)到视图。 这可用于查看特定服务，例如本地化或仅对填充视图元素是必需的数据。 你应尝试维护[关注点分离](http://deviq.com/separation-of-concerns/)之间控制器和视图。 您的视图显示的数据的大多数应传递在中，从控制器中。
 
 [查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample)
 

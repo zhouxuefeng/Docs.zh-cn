@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: b79d86358a8f1552118fac508c4cc02cf674f169
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 5705e9f879af4be3fe338716a4310bf9f0530039
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>有关 ASP.NET 核心响应压缩中间件
 
@@ -78,11 +78,11 @@ ms.lasthandoff: 08/25/2017
 ## <a name="configuration"></a>配置
 下面的代码演示如何启用与响应压缩中间件与默认 gzip 压缩和默认 MIME 类型。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](response-compression/samples/1.x/StartupBasic.cs?name=snippet1&highlight=3,8)]
 
@@ -112,11 +112,11 @@ Gzip 压缩提供程序默认为最快的压缩级别 (`CompressionLevel.Fastest
 | `CompressionLevel.Optimal`       | 响应应以最佳方式压缩，即使压缩操作将使用更多时间才能完成。                |
 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,10-13)]
 
@@ -135,11 +135,11 @@ Gzip 压缩提供程序默认为最快的压缩级别 (`CompressionLevel.Fastest
 
 您可以替换或追加的响应压缩中间件选项的 MIME 类型。 请注意该通配符 MIME 类型，如`text/*`不受支持。 示例应用程序添加的 MIME 类型`image/svg+xml`和压缩，并提供横幅图像的 ASP.NET Core (*banner.svg*)。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7)]
 
@@ -150,13 +150,13 @@ Gzip 压缩提供程序默认为最快的压缩级别 (`CompressionLevel.Fastest
 
 使用示例应用程序，客户端提交的请求`Accept-Encoding: mycustomcompression`标头。 该中间件使用自定义压缩的实现，并返回响应，其中`Content-Encoding: mycustomcompression`标头。 客户端必须能够解压缩顺序用于工作的自定义压缩实现的自定义编码。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
 [!code-csharp[Main](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
 
@@ -169,7 +169,7 @@ Gzip 压缩提供程序默认为最快的压缩级别 (`CompressionLevel.Fastest
 ![Fiddler 窗口中显示的 Accept-encoding 标头的请求的结果和 mycustomcompression 的值。 变化和的 Content-encoding 标头添加到的响应中。](response-compression/_static/request-custom-compression.png)
 
 ## <a name="compression-with-secure-protocol"></a>使用安全的协议压缩
-可以通过安全连接压缩的响应来控制`EnableForHttps`选项，它默认处于禁用状态。 使用动态生成的页压缩可以导致安全问题如[犯罪](https://en.wikipedia.org/wiki/CRIME_(security_exploit))和[违反](https://en.wikipedia.org/wiki/BREACH_(security_exploit))攻击。
+可以通过安全连接压缩的响应来控制`EnableForHttps`选项，它默认处于禁用状态。 使用动态生成的页压缩可以导致安全问题如[犯罪](https://wikipedia.org/wiki/CRIME_(security_exploit))和[违反](https://wikipedia.org/wiki/BREACH_(security_exploit))攻击。
 
 ## <a name="adding-the-vary-header"></a>添加 Vary 标头
 当压缩响应基于`Accept-Encoding`标头，有可能的多个压缩的版本响应和未压缩的版本。 若要指示客户端和代理服务器缓存，多个版本存在，并且应存储`Vary`标头添加与`Accept-Encoding`值。 在 ASP.NET Core 1.x 添加`Vary`手动完成到响应的标头。 在 ASP.NET Core 2.x，中间件将添加`Vary`压缩响应时自动标头。

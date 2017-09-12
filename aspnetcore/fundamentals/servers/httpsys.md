@@ -11,15 +11,15 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: cff6f171432febac5ec3e7adf9cf77953e0ece2d
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 5ffe6b5d55d88cbcfa62dfacf1e6e896f1304e39
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>在 ASP.NET Core HTTP.sys web 服务器实现
 
-通过[Tom Dykstra](http://github.com/tdykstra)和[Chris 跨](https://github.com/Tratcher)
+通过[Tom Dykstra](https://github.com/tdykstra)和[Chris 跨](https://github.com/Tratcher)
 
 > [!NOTE]
 > 本主题仅适用于 ASP.NET 核心 2.0 和更高版本。 在早期版本的 ASP.NET 核心，HTTP.sys 为[WebListener](xref:fundamentals/servers/weblistener)。
@@ -46,7 +46,7 @@ HTTP.sys 支持以下功能：
 
 HTTP.sys 是用于部署你需要公开直接向 Internet 的服务器，而使用 IIS 的位置。
 
-![HTTP.sys 直接与 Internet 通信](httpsys/_static/httpsys-to-internet.png)
+![HTTP.sys 直接与 Internet 进行通信](httpsys/_static/httpsys-to-internet.png)
 
 由于它在 Http.Sys 上构建，HTTP.sys 不需要反向代理服务器，为了针对攻击提供保护。 Http.Sys 是针对许多类型的攻击提供保护，并提供可靠性、 安全性和功能全面的 web 服务器的可伸缩性的成熟技术。 作为 HTTP 侦听器在 Http.Sys 运行 IIS 本身。 
 
@@ -161,14 +161,14 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 下面是的参考文档*netsh.exe*:
 
-* [Netsh 命令的超文本传输协议 (HTTP)](http://technet.microsoft.com/library/cc725882.aspx)
+* [Netsh 命令的超文本传输协议 (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
 * [UrlPrefix 字符串](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
 以下资源提供了几个方案的详细的说明。 请参阅 HttpListener 的文章也同样适用于 HTTP.sys，因为二者都基于 Http.Sys。
 
-* [如何： 使用 SSL 证书配置端口](http://msdn.microsoft.com/library/ms733791.aspx)
+* [如何： 使用 SSL 证书配置端口](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS 通信-HttpListener 基于托管和客户端证书](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html)这是一个第三方的博客和是相当旧但仍具有有用的信息。
-* [如何： 演练使用 HttpListener 或 Http 服务器非托管代码 （c + +） 为 SSL 简单服务器](http://blogs.msdn.com/b/jpsanders/archive/2009/09/29/walkthrough-using-httplistener-as-an-ssl-simple-server.aspx)这也是有用的信息与较旧的博客。
+* [如何： 演练使用 HttpListener 或 Http 服务器非托管代码 （c + +） 为 SSL 简单服务器](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/)这也是有用的信息与较旧的博客。
 
 以下是一些可以比易于使用的第三方工具*netsh.exe*命令行。 这些不提供的或由 Microsoft 认可。 这些工具以管理员身份运行默认情况下，由于*netsh.exe*本身需要管理员特权。
 
@@ -181,6 +181,6 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 有关更多信息，请参见以下资源：
 
-* [本文的示例应用](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/HttpSys/sample)
+* [本文的示例应用](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample)
 * [HTTP.sys 源代码](https://github.com/aspnet/HttpSysServer/)
 * [承载](xref:fundamentals/hosting)

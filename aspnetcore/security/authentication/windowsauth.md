@@ -2,7 +2,7 @@
 title: "在 ASP.NET 核心中配置 Windows 身份验证"
 author: ardalis
 description: "如何在 ASP.NET 核心中配置 Windows 身份验证"
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 7/5/2017
@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-548ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 008a647295334e957c33c6db7f80687645b3b928
-ms.sourcegitcommit: 69b3255f8b6f5db9e7d21f391420602d7ba9f4db
+ms.openlocfilehash: aa401f956d74680efd3964203af3e8866b129887
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>在 ASP.NET 核心中配置 Windows 身份验证
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/21/2017
 
 Windows 身份验证依赖于操作系统的 ASP.NET Core 应用的用户进行身份验证。 在使用 Active Directory 域标识或其他 Windows 帐户来标识用户的企业网络上运行你的服务器时，你可以使用 Windows 身份验证。 Windows 身份验证是一种安全形式最佳的身份验证适合 intranet 环境用户、 客户端应用程序和 web 服务器属于同一 Windows 域。
 
-[了解有关 Windows 身份验证的详细信息，并将它安装在 iis](https://www.iis.net/configreference/system.webserver/security/authentication/windowsauthentication)。
+[了解有关 Windows 身份验证的详细信息，并将它安装在 iis](https://docs.microsoft.com/iis/configuration/system.webServer/security/authentication/windowsAuthentication/)。
 
 ## <a name="enabling-windows-authentication-in-an-aspnet-core-application"></a>启用 ASP.NET Core 应用程序中的 Windows 身份验证
 
@@ -36,7 +36,7 @@ Visual Studio Web 应用程序模板可以配置为支持 Windows 身份验证�
 ### <a name="using-the-windows-authentication-app-template"></a>使用 Windows 身份验证应用程序模板
 
 在 Visual Studio 中：
-* 创建一个新的 ASP.NET 核心 Web 应用程序。 
+* 创建新的 ASP.NET Core Web 应用程序。 
 * 从模板列表中选择 Web 应用程序。
 * 选择更改身份验证按钮，然后选择**Windows 身份验证**。 
 
@@ -91,7 +91,7 @@ IIS 使用[ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)(A
 
 ![Visual Studio 发布对话框](windowsauth/_static/vs-publish-app.png)
 
-详细了解[发布到 IIS](https://docs.microsoft.com/aspnet/core/publishing/iis)。
+详细了解[发布到 IIS](xref:publishing/iis)。
 
 启动应用程序来验证使用 Windows 身份验证。
 

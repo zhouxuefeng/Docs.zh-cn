@@ -2,7 +2,7 @@
 title: "密钥管理扩展性"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 3606b251-8324-4485-8d52-582a2cd5cffb
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: fb74905660015b9a83503e1f74b25c66ae9df9e3
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: ed84b6dc257d5fd9e4c1cf6106df3c8bd6e14f64
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="key-management-extensibility"></a>密钥管理扩展性
 
@@ -37,11 +37,11 @@ IKey 接口是键的加密系统中的基本表示。 在抽象的意义上，�
 
 * 密钥标识符 (GUID)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 此外，IKey 公开用于创建的 CreateEncryptor 方法[IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor)实例绑定到此密钥。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 此外，IKey 公开用于创建的 CreateEncryptorInstance 方法[IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor)实例绑定到此密钥。
 
@@ -67,11 +67,11 @@ IKeyManager 接口表示负责常规的密钥存储、 检索和操作的对象�
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
-XmlKeyManager 类型是 IKeyManager 的现成具体实现。 它提供了几个有用的功能，包括密钥证书和加密对静止的密钥。 在此系统的密钥将呈现为 XML 元素 (具体而言， [XElement](https://msdn.microsoft.com/library/system.xml.linq.xelement(v=vs.110).aspx))。
+XmlKeyManager 类型是 IKeyManager 的现成具体实现。 它提供了几个有用的功能，包括密钥证书和加密对静止的密钥。 在此系统的密钥将呈现为 XML 元素 (具体而言， [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)。
 
 XmlKeyManager 取决于在完成其任务的过程中的其他几个组件：
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * AlgorithmConfiguration，也就是使用新密钥的算法要求。
 
@@ -81,7 +81,7 @@ XmlKeyManager 取决于在完成其任务的过程中的其他几个组件：
 
 * 提供密钥托管服务 IKeyEscrowSink [可选]。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * IXmlRepository，其中键将保留在存储中的控件。
 
@@ -93,7 +93,7 @@ XmlKeyManager 取决于在完成其任务的过程中的其他几个组件：
 
 以下是高级关系图，表明如何这些组件连接在一起在 XmlKeyManager 内。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
    ![密钥创建](key-management/_static/keycreation2.png)
 
@@ -101,7 +101,7 @@ XmlKeyManager 取决于在完成其任务的过程中的其他几个组件：
 
 在 CreateNewKey 实现中，AlgorithmConfiguration 组件用于创建唯一 IAuthenticatedEncryptorDescriptor，然后序列化为 XML。 如果存在密钥托管接收器，则原始 （未加密） 的 XML 到接收器提供适用于长期存储。 未加密的 XML 然后通过运行 IXmlEncryptor （如果需要） 来生成加密的 XML 文档。 此加密的文档保存到通过 IXmlRepository 长期存储。 （如果配置没有 IXmlEncryptor，未加密的文档被保留在 IXmlRepository。）
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
    ![密钥创建](key-management/_static/keycreation1.png)
 
@@ -111,11 +111,11 @@ XmlKeyManager 取决于在完成其任务的过程中的其他几个组件：
 
 ---
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
    ![密钥检索](key-management/_static/keyretrieval2.png)
    
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
    ![密钥检索](key-management/_static/keyretrieval1.png)
 

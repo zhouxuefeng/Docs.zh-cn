@@ -11,15 +11,15 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 7abfa7ef855eb95e1a27ba6a699dd923c9e4d7c0
-ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
+ms.openlocfilehash: 3b33c13f2385d3b07ba9b6f0bc0fd560abc3735c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>与 ASP.NET 核心 mvc 视图中呈现的 HTML
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 ASP.NET 核心 MVC 控制器可以返回格式化后的结果使用*视图*。
 

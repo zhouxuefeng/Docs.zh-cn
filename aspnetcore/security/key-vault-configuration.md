@@ -10,24 +10,24 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: b9b03dab6446aed7ee875916cd2e64acbb226e8f
-ms.sourcegitcommit: 70089de5bfd8ecd161261aa95faf07a4e1534cf8
+ms.openlocfilehash: 72b6098b2a71957da338ef36beff4808201773f4
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure 密钥保管库配置提供程序
 
 通过[Luke Latham](https://github.com/GuardRex)和[Andrew Stanton 护士](https://github.com/anurse)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 查看或下载 2.x 的示例代码：
 
 * [基本示例](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x)-读取到应用的密钥值。
 * [密钥名称前缀示例](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x)-读取机密值使用密钥名称作为前缀表示版本的应用，这允许你加载一组不同的每个应用程序版本的机密值。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 查看或下载 1.x 的示例代码：
 
@@ -161,4 +161,4 @@ Configuration.Reload();
 * [Microsoft Azure： 密钥保管库](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure： 密钥保管库文档](https://docs.microsoft.com/azure/key-vault/)
 * [如何生成和传输受 HSM 保护密钥的 Azure 密钥保管库](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)
-* [KeyVaultClient 类](https://msdn.microsoft.com/library/microsoft.azure.keyvault.keyvaultclient.aspx)
+* [KeyVaultClient 类](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault.keyvaultclient)

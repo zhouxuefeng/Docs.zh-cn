@@ -11,11 +11,11 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: 4d9d3d863e62373716ecd81b9e1880145a127e9b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 353cd4c18cb2708f2dece5ba2b5271f452379d52
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>使用 ASP.NET Core 的 IIS 模块
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/11/2017
 **跟踪**<br>`FailedRequestsTracingModule` | 是 | [ASP.NET 核心日志记录](xref:fundamentals/logging#the-tracesource-provider)
 **文件缓存**<br>`FileCacheModule` | No | [响应缓存中间件](xref:performance/caching/middleware)
 **HTTP 缓存功能**<br>`HttpCacheModule` | No | [响应缓存中间件](xref:performance/caching/middleware)
-**HTTP 日志记录**<br>`HttpLoggingModule` | 是 | [ASP.NET 核心日志记录](xref:fundamentals/logging)<br>实现： [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging)， [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)， [NLog](https://github.com/NLog/NLog.Extensions.Logging)， [Serilog](https://github.com/serilog/serilog-framework-logging)
+**HTTP 日志记录**<br>`HttpLoggingModule` | 是 | [ASP.NET 核心日志记录](xref:fundamentals/logging)<br>实现： [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging)， [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)， [NLog](https://github.com/NLog/NLog.Extensions.Logging)， [Serilog](https://github.com/serilog/serilog-extensions-logging)
 **HTTP 重定向**<br>`HttpRedirectionModule` | 是 | [URL 重写中间件](xref:fundamentals/url-rewriting)
 **IIS 客户端证书映射身份验证**<br>`IISCertificateMappingAuthenticationModule` | 是 | 
 **IP 和域限制**<br>`IpRestrictionModule` | 是 | 
@@ -84,7 +84,7 @@ WindowsAuthentication | No |
 如果你有一个你想要禁用为应用程序的服务器级别配置的 IIS 模块，可以进行此操作而添加到你*web.config*文件。 将模块保留原位和停用它 （如果可用） 使用配置设置，或者从应用程序中删除模块。
 
 ### <a name="module-deactivation"></a>模块停用
-多个模块提供配置设置，您可以禁用它们，而不从应用程序中删除它们。 这是最简单且最快速方式停用模块。 例如，如果你想要禁用 IIS URL 重写模块，请使用`<httpRedirect>`元素如下所示。 禁用使用配置设置的模块的详细信息，请按照中的链接*子元素*部分[IIS `<system.webServer>` ](https://www.iis.net/configreference/system.webserver)。
+多个模块提供配置设置，您可以禁用它们，而不从应用程序中删除它们。 这是最简单且最快速方式停用模块。 例如，如果你想要禁用 IIS URL 重写模块，请使用`<httpRedirect>`元素如下所示。 禁用使用配置设置的模块的详细信息，请按照中的链接*子元素*部分[IIS `<system.webServer>` ](https://docs.microsoft.com/iis/configuration/system.webServer/)。
 
 ```xml
 <configuration>
@@ -99,9 +99,9 @@ WindowsAuthentication | No |
 
 1. 解锁的服务器级别的模块。 在 IIS 管理器在 IIS 服务器上单击**连接**侧栏。 打开**模块**中**IIS**区域。 单击列表中的模块。 在**操作**侧栏右侧，单击**解锁**。 解锁任意多个模块，因为你打算删除，但*web.config*更高版本。
 
-2. 部署应用程序，而`<modules>`主题中*web.config*。 如果你部署应用时采用*web.config*包含`<modules>`时你尝试解锁部分，而无需具有解锁部分首先在 IIS 管理器，Configuration Manager 的部分将引发异常。 因此，部署应用程序，而`<modules>`部分。
+2. 部署应用程序，而`<modules>`主题中*web.config*。如果你部署应用时采用*web.config*包含`<modules>`时你尝试解锁部分，而无需具有解锁部分首先在 IIS 管理器，Configuration Manager 的部分将引发异常。 因此，部署应用程序，而`<modules>`部分。
 
-3. 解锁`<modules>`部分*web.config*。 在**连接**栏中，单击在网站**站点**。 在**管理**区域中，打开**配置编辑器**。 使用导航控件选择`system.webServer/modules`部分。 在**操作**侧栏右侧，单击到**解锁**部分。
+3. 解锁`<modules>`部分*web.config*。在**连接**栏中，单击在网站**站点**。 在**管理**区域中，打开**配置编辑器**。 使用导航控件选择`system.webServer/modules`部分。 在**操作**侧栏右侧，单击到**解锁**部分。
 
 4. 此时，你将能够添加`<modules>`部分为你*web.config*文件`<remove>`元素从应用程序中删除该模块。 你可以添加多个`<remove>`要移除多个模块元素。 不要忘记，如果你进行*web.config*服务器以便它们可以立即在本地项目上的更改。 删除这种方式的模块不会影响您的服务器上的其他应用的模块使用。
 
@@ -150,6 +150,6 @@ Appcmd.exe delete module MODULE_NAME /app.name:APPLICATION_NAME
 
 ## <a name="resources"></a>资源
 * [发布到 IIS](xref:publishing/iis)
-* [IIS 模块概述](https://www.iis.net/learn/get-started/introduction-to-iis/iis-modules-overview)
+* [IIS 模块概述](https://docs.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [自定义 IIS 7.0 角色和模块](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS`<system.webServer>`](https://www.iis.net/configreference/system.webserver)
+* [IIS`<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)

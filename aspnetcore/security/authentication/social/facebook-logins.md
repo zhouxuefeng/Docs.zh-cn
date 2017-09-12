@@ -2,7 +2,7 @@
 title: "在 ASP.NET Core Facebook 外部登录安装程序"
 author: rick-anderson
 description: "在 ASP.NET Core Facebook 外部登录安装程序"
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 8/1/2017
@@ -11,11 +11,11 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 9554d66712f93df6d2c50503b60162757986e707
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: da019ad3fd6cefa23b8331c98cc36e50ac9c1105
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="configuring-facebook-authentication"></a>配置 Facebook 身份验证
 
@@ -23,11 +23,11 @@ ms.lasthandoff: 08/25/2017
 
 通过[Valeriy Novytskyy](https://github.com/01binary)和[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-本教程演示如何使用户可以使用示例 ASP.NET 核心 2.0 项目上创建其 Facebook 帐户登录[上一页](index.md)。 我们首先按照创建 Facebook 应用程序 ID[官方步骤](https://developers.facebook.com/docs/apps/register)。
+本教程演示如何使用户可以使用示例 ASP.NET 核心 2.0 项目上创建其 Facebook 帐户登录[上一页](index.md)。 我们首先按照创建 Facebook 应用程序 ID[官方步骤](https://www.facebook.com/unsupportedbrowser)。
 
 ## <a name="create-the-app-in-facebook"></a>在 Facebook 中创建应用程序
 
-*  导航到[开发人员的 Facebook](https://developers.facebook.com/apps)页上，并登录。 如果你还没有的 Facebook 帐户，使用**注册 Facebook**创建一个的登录页上的链接。
+*  导航到[开发人员的 Facebook](https://www.facebook.com/unsupportedbrowser)页上，并登录。 如果你还没有的 Facebook 帐户，使用**注册 Facebook**创建一个的登录页上的链接。
 
 * 点击**创建应用**创建一个新的应用程序 id。 右上角的按钮
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/25/2017
 
    `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 添加中的 Facebook 服务`ConfigureServices`中的方法*Startup.cs*文件：
 
@@ -88,7 +88,7 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 
 `AddAuthentication`方法仅应调用即可一次时添加多个身份验证提供程序。 对它的后续调用也可能会覆盖任何以前配置的[AuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions)属性。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 添加在 Facebook 中间件`Configure`中的方法*Startup.cs*文件：
 

@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: a676b695160b7219bd13f3915e291b722eef47c8
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: 44fc8bd647ad869dd029d8ca4ced782962d71020
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET 核心模块配置参考
 
@@ -98,7 +98,7 @@ ASP.NET 核心模块允许你指定中指定的进程的环境变量`processPath
 
 ## <a name="start-up-error-page"></a>启动错误页
 
-如果 ASP.NET 核心模块无法启动后端进程或后端进程启动但不能在配置的端口上侦听时，你将看到了 HTTP 502.5 状态的代码页。 若要禁止显示此页并还原为默认 IIS 502 状态代码页，请使用`disableStartUpErrorPage`属性。 有关配置自定义错误消息的详细信息，请参阅[HTTP 错误`<httpErrors>` ](https://www.iis.net/configreference/system.webserver/httperrors)。
+如果 ASP.NET 核心模块无法启动后端进程或后端进程启动但不能在配置的端口上侦听时，你将看到了 HTTP 502.5 状态的代码页。 若要禁止显示此页并还原为默认 IIS 502 状态代码页，请使用`disableStartUpErrorPage`属性。 有关配置自定义错误消息的详细信息，请参阅[HTTP 错误`<httpErrors>` ](https://docs.microsoft.com/iis/configuration/system.webServer/httpErrors/)。
 
 ![502 状态页](aspnet-core-module/_static/ANCM-502_5.png)
 

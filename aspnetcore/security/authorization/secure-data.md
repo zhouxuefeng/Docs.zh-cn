@@ -10,11 +10,11 @@ ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 7ce59816d106cce9fabd8393ee764454bd0f7f27
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: db05ffb585022c3d9512d32da28c54788f97129c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>使用受授权的用户数据创建 ASP.NET Core 应用
 
@@ -103,7 +103,7 @@ dotnet ef database update
 
 ### <a name="require-ssl-and-authenticated-users"></a>需要 SSL 和身份验证的用户
 
-在`ConfigureServices`方法*Startup.cs*文件中，添加[RequireHttpsAttribute](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/RequireHttpsAttribute/index.html.md#Microsoft.AspNetCore.Mvc.RequireHttpsAttribute.md)授权筛选器：
+在`ConfigureServices`方法*Startup.cs*文件中，添加[RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api)授权筛选器：
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=snippet_SSL&highlight=1)]
 
@@ -161,7 +161,7 @@ dotnet user-secrets set SeedUserPW <PW>
 
 ## <a name="register-the-authorization-handlers"></a>注册的授权处理程序
 
-必须为注册服务使用实体框架核心[依赖关系注入](xref:fundamentals/dependency-injection)使用[AddScoped](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/Extensions/DependencyInjection/ServiceCollectionServiceExtensions/index.html.md#Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped.md)。 `ContactIsOwnerAuthorizationHandler`使用 ASP.NET Core[标识](xref:security/authentication/identity)，这基于实体框架核心。 注册服务集合的处理程序，因此它们将可供`ContactsController`通过[依赖关系注入](xref:fundamentals/dependency-injection)。 将以下代码添加到末尾`ConfigureServices`:
+必须为注册服务使用实体框架核心[依赖关系注入](xref:fundamentals/dependency-injection)使用[AddScoped](https://docs.microsoft.com/aspnet/core/api)。 `ContactIsOwnerAuthorizationHandler`使用 ASP.NET Core[标识](xref:security/authentication/identity)，这基于实体框架核心。 注册服务集合的处理程序，因此它们将可供`ContactsController`通过[依赖关系注入](xref:fundamentals/dependency-injection)。 将以下代码添加到末尾`ConfigureServices`:
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=AuthorizationHandlers)]
 
@@ -264,7 +264,7 @@ dotnet user-secrets set SeedUserPW <PW>
 
 按照这些说明创建初学者应用程序。
 
-* 创建**ASP.NET 核心 Web 应用程序**使用[Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)名为"ContactManager"
+* 创建**ASP.NET 核心 Web 应用程序**使用[Visual Studio 2017](https://www.visualstudio.com/)名为"ContactManager"
 
   * 创建应用程序与**单个用户帐户**。
   * 请将其命名"ContactManager"使你的命名空间将与在此示例中的命名空间使用相匹配。
@@ -321,4 +321,4 @@ dotnet user-secrets set SeedUserPW <PW>
 
 * [ASP.NET 核心授权实验室](https://github.com/blowdart/AspNetAuthorizationWorkshop)。 在本教程中引入的安全功能，此实验室将进入更多详细信息。
 * [在 ASP.NET Core 中的授权： 基于声明的和自定义的简单，角色](index.md)
-* [自定义的基于策略的授权](policies.md)
+* [基于自定义策略的授权](policies.md)

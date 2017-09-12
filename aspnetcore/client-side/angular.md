@@ -12,16 +12,16 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/angular
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50d2e76c472e67c26238abee4f7b0ed64cd043ab
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2c7929976f0c9f8284ab397b1a87d576bcdd15b0
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-angularjs-for-single-page-applications-spas-with-aspnet-core"></a>使用 AngularJS 适用于 ASP.NET Core 的单页面应用程序 (Spa)
 
 
-通过[Venkata Koppaka](http://blog.falafel.com/author/venkata-koppaka/)和[Scott Addie](https://scottaddie.com)
+通过[Venkata Koppaka](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)和[Scott Addie](https://scottaddie.com)
 
 在本文中，你将了解如何构建使用 AngularJS 的 SPA 样式 ASP.NET 应用程序。
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="what-is-angularjs"></a>AngularJS 是什么？
 
-[AngularJS](http://angularjs.org/)是一个现代的 JavaScript 框架，将来自 Google 通常用于使用单页面应用程序 (Spa)。 AngularJS 处于打开状态来源依据 MIT 许可和 AngularJS 的开发进度适用于[其 GitHub 存储库](https://github.com/angular/angular.js)。 库称为角，因为 HTML 使用形角度方括号。
+[AngularJS](https://angularjs.org/)是一个现代的 JavaScript 框架，将来自 Google 通常用于使用单页面应用程序 (Spa)。 AngularJS 处于打开状态来源依据 MIT 许可和 AngularJS 的开发进度适用于[其 GitHub 存储库](https://github.com/angular/angular.js)。 库称为角，因为 HTML 使用形角度方括号。
 
-AngularJS 不是如 jQuery，一个 DOM 操作库，但它使用 jQuery 调用 jQLite 的子集。 AngularJS 主要取决于你可以将其添加到 HTML 标记的声明性 HTML 特性。 你可以在你浏览器使用尝试 AngularJS[代码学校网站](https://www.codeschool.com/courses/shaping-up-with-angular-js)或[W3Schools 网站](https://www.w3schools.com/angular/)。
+AngularJS 不是如 jQuery，一个 DOM 操作库，但它使用 jQuery 调用 jQLite 的子集。 AngularJS 主要取决于你可以将其添加到 HTML 标记的声明性 HTML 特性。 你可以在你浏览器使用尝试 AngularJS[代码学校网站](https://www.codeschool.com/courses/shaping-up-with-angularjs)或[W3Schools 网站](https://www.w3schools.com/angular/)。
 
 本文着重于 AngularJS 与在其中的角发展方向上的一些注意事项。
 
@@ -393,4 +393,4 @@ AngularJS 有内置的路由提供程序来处理基于 SPA （单页面应用�
 
 * [角度文档](https://docs.angularjs.org)
 
-* [角度 2 信息](http://angular.io)
+* [角度 2 信息](https://angular.io/)

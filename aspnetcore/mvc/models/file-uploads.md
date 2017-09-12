@@ -11,15 +11,15 @@ ms.assetid: ebc98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 78cc9cd846f9b0963dbba9069c86ca295f7a32e4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 3d42fd0657bcfb4b0fdab699bbcb572e5736688c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="file-uploads-in-aspnet-core"></a>在 ASP.NET 核心中的文件上载
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 ASP.NET MVC 操作支持使用简单模型绑定较小的文件或流的较大的文件的一个或多个文件上载。
 
@@ -75,7 +75,7 @@ public interface IFormFile
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-使用上载的文件`IFormFile`技术进行处理之前缓冲在内存中或在 web 服务器上的磁盘上。 在操作方法中，`IFormFile`内容进行访问以流的形式。 除了本地文件系统中，文件可以流式传输到[Azure Blob 存储](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs)或[实体框架](https://docs.microsoft.com/ef/core/index)。
+使用上载的文件`IFormFile`技术进行处理之前缓冲在内存中或在 web 服务器上的磁盘上。 在操作方法中，`IFormFile`内容进行访问以流的形式。 除了本地文件系统中，文件可以流式传输到[Azure Blob 存储](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)或[实体框架](https://docs.microsoft.com/ef/core/index)。
 
 若要在使用实体框架的数据库中存储二进制文件数据，定义类型的属性`byte[]`实体上：
 
@@ -197,7 +197,7 @@ The request filtering module is configured to deny a request that exceeds the re
 </system.webServer>
 ```
 
-此设置仅适用于 IIS 中。 Kestrel 上承载时，默认情况下不会出现行为。 有关详细信息，请参阅[请求限制\<requestLimits\>](https://www.iis.net/configreference/system.webserver/security/requestfiltering/requestlimits)。
+此设置仅适用于 IIS 中。 Kestrel 上承载时，默认情况下不会出现行为。 有关详细信息，请参阅[请求限制\<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/)。
 
 ### <a name="null-reference-exception-with-iformfile"></a>与 IFormFile null 引用异常
 

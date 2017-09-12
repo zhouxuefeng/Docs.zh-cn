@@ -2,7 +2,7 @@
 title: "ASP.NET 核心中的路由"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 98756e2c5b336aabcf5155d929160b616baaf2ee
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 431b837dc93abdf305b77615409883fd54b99455
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET 核心中的路由
 
-通过[Ryan Nowak](https://github.com/rynowak)， [Steve Smith](http://ardalis.com)，和[Rick Anderson](https://twitter.com/RickAndMSFT)
+通过[Ryan Nowak](https://github.com/rynowak)， [Steve Smith](https://ardalis.com/)，和[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 路由功能是负责将传入的请求映射到路由处理程序。 路由在 ASP.NET 应用程序中定义并配置应用程序启动时。 路由 （可选） 可以从包含在请求中，URL 中提取值，这些值则可以用于处理请求。 使用 ASP.NET 应用程序中的路由信息，就还能够生成映射到路由处理程序的 Url 的路由的功能。 因此，路由可以查找基于一个 URL 或对应于给定的路由处理程序基于路由处理程序信息的 URL 路由处理程序。
 
@@ -325,9 +325,9 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 
 ## <a name="regular-expressions"></a>正则表达式 
 
-ASP.NET 核心框架就会将`RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant`到正则表达式构造函数。 请参阅[RegexOptions 枚举](https://msdn.microsoft.com/library/system.text.regularexpressions.regexoptions(v=vs.110).aspx)有关这些成员的说明。
+ASP.NET 核心框架就会将`RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant`到正则表达式构造函数。 请参阅[RegexOptions 枚举](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions)有关这些成员的说明。
 
-正则表达式使用分隔符和类似于所使用的路由和 C# 语言的令牌。 正则表达式令牌必须进行转义。 例如，若要使用的正则表达式`^\d{3}-\d{2}-\d{4}$`中路由，它需要用`\`以的键入的字符`\\`C# 源文件中进行转义`\`字符串转义字符 (除非使用[逐字字符串文本](https://msdn.microsoft.com/library/aa691090(v=vs.71).aspx))。 `{` ， `}` ，[和] 字符是需要将它们路由参数分隔符字符进行转义加倍进行转义。  下表显示了正则表达式和转义的版本。
+正则表达式使用分隔符和类似于所使用的路由和 C# 语言的令牌。 正则表达式令牌必须进行转义。 例如，若要使用的正则表达式`^\d{3}-\d{2}-\d{4}$`中路由，它需要用`\`以的键入的字符`\\`C# 源文件中进行转义`\`字符串转义字符 (除非使用[逐字字符串文本](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string)。 `{` ， `}` ，[和] 字符是需要将它们路由参数分隔符字符进行转义加倍进行转义。  下表显示了正则表达式和转义的版本。
 
 | Expression               | 说明 |
 | ----------------- | ------------ | 
@@ -347,7 +347,7 @@ ASP.NET 核心框架就会将`RegexOptions.IgnoreCase | RegexOptions.Compiled | 
 | `^[a-z]{2}$` |  hello | no | 请参阅`^`和`$`上面 |
 | `^[a-z]{2}$` |  123abc456 | no | 请参阅`^`和`$`上面 |
 
-请参阅[.NET Framework 正则表达式](https://msdn.microsoft.com/library/hs600312(v=vs.110).aspx)有关正则表达式语法的详细信息。
+请参阅[.NET Framework 正则表达式](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)有关正则表达式语法的详细信息。
 
 若要将限制为一组已知的可能的值的参数，使用正则表达式。 例如`{action:regex(^(list|get|create)$)}`仅匹配`action`将路由到的值`list`， `get`，或`create`。 如果传递到约束字典，字符串"^ (列表 | get | 创建) $"将等效。 将传入约束字典 （不在模板中的内联） 不匹配的已知的约束之一的约束也被视为正则表达式。
 

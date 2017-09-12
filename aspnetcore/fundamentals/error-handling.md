@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5898892c63e978adfabf9939394fef4ea1848d49
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 96a4fed19887a7a9eba08ec70296147f22e41569
+ms.sourcegitcommit: 368aabde4de3728a8e5a8c016a2ec61f9c0854bf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>ASP.NET 核心中的错误处理简介
 
-通过[Steve Smith](http://ardalis.com)和[Tom Dykstra](https://github.com/tdykstra/)
+通过[Steve Smith](https://ardalis.com/)和[Tom Dykstra](https://github.com/tdykstra/)
 
 本文介绍如何处理 ASP.NET Core 应用中的错误的常见 appoaches。
 
@@ -45,7 +45,7 @@ Put`UseDeveloperExceptionPage`之前你想要捕获异常，如的任何中间�
 
 ![查询字符串参数](error-handling/_static/developer-exception-page-query.png)
 
-此请求没有任何 cookie，但如果它这样做，它们将出现在**Cookie**选项卡。 你可以看到在最后一个选项卡中传递的标头。
+此请求没有任何 cookie，但如果它这样做，它们将出现在**Cookie**选项卡。你可以看到在最后一个选项卡中传递的标头。
 
 ![标头](error-handling/_static/developer-exception-page-headers.png)
 
@@ -111,13 +111,13 @@ if (statusCodePagesFeature != null)
 
 ## <a name="server-exception-handling"></a>服务器异常处理
 
-除了异常处理应用程序中的逻辑[服务器](servers/index.md)承载您的应用程序将执行一些异常处理。 如果之前已发送标头，服务器会捕捉异常则将发送具有没有正文的 500 内部服务器错误响应。 如果已发送标头后，它会捕获异常，则关闭连接。 将服务器处理未由你的应用程序的请求的处理和所发生的任何异常将由服务器的异常处理。 任何自定义错误页或异常处理中间件或已为你的应用程序配置的筛选器将不会影响此行为。
+除了异常处理应用程序中的逻辑[服务器](servers/index.md)承载您的应用程序执行某些异常处理。 如果服务器捕捉异常发送标头之前，服务器将发送具有没有正文的 500 内部服务器错误响应。 如果服务器捕获异常，已发送标头后，服务器会关闭连接。 不处理你的应用程序的请求是由服务器处理的。 出现的任何异常由服务器的异常处理。 任何配置自定义错误页或异常处理中间件或筛选器不会影响此行为。
 
 ## <a name="startup-exception-handling"></a>启动异常处理
 
-仅在承载层可以处理应用程序启动期间发生的异常。 应用程序启动过程中发生的异常可能会影响服务器行为。 例如，如果发生异常，然后才能调用`KestrelServerOptions.UseHttps`，承载层捕获异常，启动服务器，并在非 SSL 端口上显示一个错误页面。 如果该行执行后，将发生异常，错误提供的页面是通过 HTTPS 相反。
+仅在承载层可以处理应用程序启动期间发生的异常。 你可以[配置主机的行为方式中的错误响应在启动期间](hosting.md#detailed-errors)使用`captureStartupErrors`和`detailedErrors`密钥。
 
-你可以[配置主机的行为方式中的错误响应在启动期间](hosting.md#configuring-a-host)使用`CaptureStartupErrors`和`detailedErrors`密钥。
+如果此错误发生后主机地址/端口绑定，承载可以只显示捕获的启动错误的错误页。 如果出于任何原因失败任何绑定，在承载层记录关键异常，dotnet 进程崩溃 (crash)，并不显示任何错误页。
 
 ## <a name="aspnet-mvc-error-handling"></a>ASP.NET MVC 错误处理
 

@@ -2,7 +2,7 @@
 title: "在 ASP.NET 核心中使用 Grunt"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 471112e9-2c33-454b-96fc-32916102ce73
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: df20c3a31fce81ab039ef2f63bf38ed9943c7c6c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8ae50514ce24c7f9e3bb1e347d5d860e1de43c5f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-grunt-in-aspnet-core"></a>在 ASP.NET 核心中使用 Grunt 
 
-通过[了米](http://blog.falafel.com/author/noel-rice/)
+通过[了米](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
 Grunt 是自动化脚本缩减、 TypeScript 编译、 代码质量"链接形式"工具、 CSS 预处理器和几乎任何重复繁琐的工作，需要采取措施来支持客户端开发的 JavaScript 任务运行程序。 尽管 ASP.NET 项目模板默认情况下使用 Gulp Visual Studio 中，完全支持 grunt (请参阅[使用 Gulp](using-gulp.md))。
 

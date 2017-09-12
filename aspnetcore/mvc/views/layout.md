@@ -2,7 +2,7 @@
 title: "布局"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 29f12d1f-9734-48bd-bf1a-cee53a8ab700
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/layout
-ms.openlocfilehash: 9a7f140722548b51bbce33d44389ff5646aa6047
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 25aa5fc730d9076fdcf9d29cb5d9dfa75a246a1a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="layout"></a>布局
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 视图频繁共享 visual 和编程元素。 在本文中，你将了解如何使用通用的布局、 共享指令，以及在 ASP.NET 应用程序运行之前呈现视图的常见代码。
 

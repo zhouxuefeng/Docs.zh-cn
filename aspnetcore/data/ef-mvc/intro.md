@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: b8ef101458e0a6e6284624693689181646ced051
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 949733119b4e3a4b8716f2bcc1f631949d5049bc
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET 核心 MVC 和使用 Visual Studio (第 1 个 10) 的实体框架核心入门
 
@@ -31,7 +31,7 @@ EF 核心 2.0 是 EF 的最新版本，但还没有的 EF 的所有功能 6.x。
 
 > [!NOTE]
 > * 本教程的 ASP.NET 核心 1.1 版本，请参阅[以 PDF 格式在本教程中的 VS 2017 Update 2 版本](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/efmvc/intro/_static/efmvc1.1.pdf)。
-> * 本教程的 Visual Studio 2015 版本，请参阅[以 PDF 格式的 ASP.NET Core 文档 VS 2015 版本](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf)。
+> * 有关本教程的 Visual Studio 2015 版本，请参阅 [PDF 格式的 ASP.NET Core 文档的 VS 2015 版本](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -39,7 +39,7 @@ EF 核心 2.0 是 EF 的最新版本，但还没有的 EF 的所有功能 6.x。
 
 ## <a name="troubleshooting"></a>疑难解答
 
-如果你遇到无法解决的问题，通常可以通过比较你的代码查找解决方案[已完成的项目](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)。 有关常见错误以及如何解决这些列表，请参阅[最后一个教程系列中的故障排除部分](advanced.md#common-errors)。 如果没有找到你那里需要你可以将问题发布到为 StackOverflow.com [ASP.NET Core](http://stackoverflow.com/questions/tagged/asp.net-core)或[EF 核心](http://stackoverflow.com/questions/tagged/entity-framework-core)。
+如果你遇到无法解决的问题，通常可以通过比较你的代码查找解决方案[已完成的项目](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)。 有关常见错误以及如何解决这些列表，请参阅[最后一个教程系列中的故障排除部分](advanced.md#common-errors)。 如果没有找到你那里需要你可以将问题发布到为 StackOverflow.com [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core)或[EF 核心](https://stackoverflow.com/questions/tagged/entity-framework-core)。
 
 > [!TIP] 
 > 这是一系列 10 教程，其中每个基于前面教程中完成。  请考虑在每个成功的教程完成后保存项目的副本。  以后如果遇到问题，你可以开始通过从以前的教程，而不是追溯到整个序列的开头。
@@ -168,7 +168,7 @@ EF 核心 2.0 是 EF 的最新版本，但还没有的 EF 的所有功能 6.x。
 
 ## <a name="create-the-database-context"></a>创建的数据库上下文
 
-协调为给定的数据模型的实体框架功能的主类是数据库上下文类。 通过派生自创建此类`Microsoft.EntityFrameworkCore.DbContext`类。 在代码中你指定数据模型中包含哪些实体。 你还可以自定义某些实体框架行为。 在此项目中类命名为`SchoolContext`。
+协调为给定的数据模型的实体框架功能的主类是数据库上下文类。 将通过从 `Microsoft.EntityFrameworkCore.DbContext` 类派生的方式创建此类。 在代码中你指定数据模型中包含哪些实体。 你还可以自定义某些实体框架行为。 在此项目中类命名为`SchoolContext`。
 
 在项目文件夹中，创建名为的文件夹*数据*。
 
@@ -176,7 +176,7 @@ EF 核心 2.0 是 EF 的最新版本，但还没有的 EF 的所有功能 6.x。
 
 [!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
-此代码将创建`DbSet`每个实体集的属性。 在实体框架术语中，实体集通常对应于数据库表和实体对应于表中的行。
+此代码将创建`DbSet`每个实体集的属性。 在实体框架术语中，实体集通常与数据库表相对应，实体与表中的行相对应。
 
 可以省略`DbSet<Enrollment>`和`DbSet<Course>`语句和其效果相同。 实体框架会将其包含隐式因为`Student`实体引用`Enrollment`实体和`Enrollment`实体引用`Course`实体。
 
@@ -330,7 +330,7 @@ ASP.NET 依赖关系注入将会负责处理传递的一个实例`SchoolContext`
 
 * ID 或 classnameID 命名的实体属性被识别为主键属性。
 
-* 如果它名为属性将被解释为外键属性 *<navigation property name> <primary key property name>*  (例如，`StudentID`为`Student`以来的导航属性`Student`实体的主键是`ID`). 此外可以只需命名外键属性 *<primary key property name>*  (例如，`EnrollmentID`由于`Enrollment`实体的主键是`EnrollmentID`)。
+* 如果它名为属性将被解释为外键属性* <navigation property name> <primary key property name> * (例如，`StudentID`为`Student`以来的导航属性`Student`实体的主键是`ID`). 此外可以只需命名外键属性* <primary key property name> * (例如，`EnrollmentID`由于`Enrollment`实体的主键是`EnrollmentID`)。
 
 可以重写常规行为。 例如，你可以显式指定表名称，正如你此前在本教程中看到。 你可以设置列名称并将任何属性设置为 primary key 或外键，正如在看到[后面的教程](complex-data-model.md)本系列。
 

@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: b2b429ea591809a7a1bc58115c48b8b3ed8e4249
-ms.sourcegitcommit: d7e0df365a6112240b5560212759b1e3525850a2
+ms.openlocfilehash: bf9a5b58d3c0a6a2e90dd4ee9a316de90640c79e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core 教程
 
@@ -72,6 +72,6 @@ ms.lasthandoff: 08/31/2017
 
 <a name="download"></a> 
 ## <a name="how-to-download-a-sample"></a>如何下载示例
-1. [下载 ASP.NET 存储库 zip 文件](https://github.com/aspnet/docs/archive/master.zip)。
+1. [下载 ASP.NET 存储库 zip 文件](https://codeload.github.com/aspnet/Docs/zip/master)。
 1. 解压缩 Docs-master.zip 文件。
 1. 使用示例链接中的 URL 帮助你导航到示例目录。 

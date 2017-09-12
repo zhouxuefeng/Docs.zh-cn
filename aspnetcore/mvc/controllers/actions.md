@@ -11,15 +11,15 @@ ms.assetid: 9da9eb52-8583-4069-af91-155ba3529d7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: b7d6341c0312b3f5f122acfb2ee01210151b33bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>具有 ASP.NET 核心 mvc 控制器处理请求
 
-通过[Steve Smith](http://ardalis.com)和[Scott Addie](https://github.com/scottaddie)
+通过[Steve Smith](https://ardalis.com/)和[Scott Addie](https://github.com/scottaddie)
 
 控制器、 操作和操作结果是开发人员如何构建使用 ASP.NET 核心 MVC 应用程序的基本组成部分。
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/11/2017
 
 控制器类必须具有关联`[NonController]`属性。
 
-控制器应遵循[显式依赖关系原则](http://deviq.com/explicit-dependencies-principle)。 有几个方法来实现这一原则。 如果多个控制器操作需要相同的服务，请考虑使用[构造函数注入](xref:mvc/controllers/dependency-injection#constructor-injection)请求这些依赖关系。 如果仅的单个操作方法必须使用该服务，请考虑使用[操作注入](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)请求依赖项。
+控制器应遵循[显式依赖关系原则](http://deviq.com/explicit-dependencies-principle/)。 有几个方法来实现这一原则。 如果多个控制器操作需要相同的服务，请考虑使用[构造函数注入](xref:mvc/controllers/dependency-injection#constructor-injection)请求这些依赖关系。 如果仅的单个操作方法必须使用该服务，请考虑使用[操作注入](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)请求依赖项。
 
 在**M**odel-**V**查看-**C**ontroller 模式中，控制器负责初始处理的请求，并实例化的模型。 通常情况下，应在模型内执行业务决策。
 

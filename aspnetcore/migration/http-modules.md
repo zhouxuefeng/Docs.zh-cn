@@ -2,7 +2,7 @@
 title: "迁移的 HTTP 处理程序和 ASP.NET Core 中间件的模块"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/07/2016
@@ -11,17 +11,17 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: f99c2751138ac789e7105ff256ce7254e280463e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e14664133abf010b80374036e4855fdff71d1d5f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>迁移的 HTTP 处理程序和 ASP.NET Core 中间件的模块 
 
 通过[Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-这篇文章演示如何迁移现有的 ASP.NET [HTTP 模块和处理程序](https://msdn.microsoft.com/library/bb398986.aspx)到 ASP.NET 核心[中间件](../fundamentals/middleware.md)。
+这篇文章演示如何迁移现有的 ASP.NET [HTTP 模块和处理程序 system.webserver](https://docs.microsoft.com/iis/configuration/system.webserver/)到 ASP.NET 核心[中间件](../fundamentals/middleware.md)。
 
 ## <a name="modules-and-handlers-revisited"></a>模块和处理程序重新访问
 
@@ -31,15 +31,15 @@ ms.lasthandoff: 08/11/2017
 
 **处理程序：**
 
-   * 类实现[IHttpHandler](https://msdn.microsoft.com/library/system.web.ihttphandler.aspx)
+   * 类实现[IHttpHandler](https://docs.microsoft.com/dotnet/api/system.web.ihttphandler)
 
    * 用于使用处理请求的给定的文件名或扩展，如*.report*
 
-   * [配置](https://msdn.microsoft.com/library/46c5ddfy.aspx)中*Web.config*
+   * [配置](https://docs.microsoft.com//iis/configuration/system.webserver/handlers/)中*Web.config*
 
 **模块为：**
 
-   * 类实现[IHttpModule](https://msdn.microsoft.com/library/system.web.ihttpmodule.aspx)
+   * 类实现[IHttpModule](https://docs.microsoft.com/dotnet/api/system.web.ihttpmodule)
 
    * 调用为每个请求
 
@@ -47,11 +47,11 @@ ms.lasthandoff: 08/11/2017
 
    * 无法添加到 HTTP 响应中，或创建自己
 
-   * [配置](https://msdn.microsoft.com/library/ms227673.aspx)中*Web.config*
+   * [配置](https://docs.microsoft.com//iis/configuration/system.webserver/modules/)中*Web.config*
 
 **模块顺序处理传入的请求的顺序取决于：**
 
-   1. [应用程序生命周期](https://msdn.microsoft.com/library/ms227673.aspx)，这是由 ASP.NET 激发的系列事件： [BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx)， [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)等。每个模块可以创建一个或多个事件处理程序。
+   1. [应用程序生命周期](https://msdn.microsoft.com/library/ms227673.aspx)，这是由 ASP.NET 激发的系列事件： [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest)， [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest)等。每个模块可以创建一个或多个事件处理程序。
 
    2. 对于相同的事件中，在中配置的顺序*Web.config*。
 
@@ -167,7 +167,7 @@ HTTP 处理程序如下所示：
 
 ## <a name="loading-middleware-options-using-the-options-pattern"></a>加载使用选项模式的中间件选项
 
-一些模块和处理程序已在存储的配置选项*Web.config*。 但是，在 ASP.NET 核心中新的配置模型使用代替了*Web.config*。
+一些模块和处理程序已在存储的配置选项*Web.config*。但是，在 ASP.NET 核心中新的配置模型使用代替了*Web.config*。
 
 新[配置系统](../fundamentals/configuration.md)为你提供了这些选项，以解决此问题：
 
@@ -245,7 +245,7 @@ HTTP 处理程序如下所示：
 public async Task Invoke(HttpContext context)
 ```
 
-`HttpContext`已显著更改 ASP.NET Core 中。 本部分说明如何将转换的最常用的属性[System.Web.HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)对新`Microsoft.AspNetCore.Http.HttpContext`。
+`HttpContext`已显著更改 ASP.NET Core 中。 本部分说明如何将转换的最常用的属性[System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext)对新`Microsoft.AspNetCore.Http.HttpContext`。
 
 ### <a name="httpcontext"></a>HttpContext
 
@@ -382,7 +382,7 @@ public async Task Invoke(HttpContext httpContext)
 
 ## <a name="additional-resources"></a>其他资源
 
-* [HTTP 处理程序和 HTTP 模块概述](https://msdn.microsoft.com/library/bb398986.aspx)
+* [HTTP 处理程序和 HTTP 模块概述](https://docs.microsoft.com/iis/configuration/system.webserver/)
 
 * [配置](../fundamentals/configuration.md)
 

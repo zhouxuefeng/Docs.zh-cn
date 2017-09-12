@@ -10,21 +10,21 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: aaed75c78a99e59954add959a76a2fd68ea5f3fc
-ms.sourcegitcommit: f2fb0b45284e4f8c4a9c422bec790aede7c1f0ac
+ms.openlocfilehash: 2f99a5d3db84c3fd3f7ebcb8bccd9a4b8bc8e2b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>帐户确认和 ASP.NET Core 中的密码恢复
 
-通过[Rick Anderson](https://twitter.com/RickAndMSFT)
+作者：[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 本教程演示了如何生成具有电子邮件确认及密码重置的 ASP.NET Core 应用。
 
 ## <a name="create-a-new-aspnet-core-project"></a>创建新的 ASP.NET Core 项目
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 此步骤适用于 Windows 上的 Visual Studio。 请参阅下一节有关 CLI 的说明。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/17/2017
 
 ![显示"单个用户帐户单选"所选的新建项目对话框](accconfirm/_static/2.png)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 本教程需要 Visual Studio 2017 或更高版本。
 
@@ -62,7 +62,7 @@ dotnet new mvc --auth Individual
 
 ## <a name="test-new-user-registration"></a>测试新的用户注册
 
-运行应用程序中，选择**注册**链接，并注册用户。 按照运行实体框架核心迁移的说明。 此时，电子邮件的唯一验证是使用[[EmailAddress]](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性。 在提交注册后，登录到应用程序。 更高版本在教程中，我们将更改此以便验证其电子邮件之后才新用户无法登录。
+运行应用程序中，选择**注册**链接，并注册用户。 按照运行实体框架核心迁移的说明。 此时，电子邮件的唯一验证是使用[[EmailAddress]](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute)属性。 在提交注册后，登录到应用程序。 更高版本在教程中，我们将更改此以便验证其电子邮件之后才新用户无法登录。
 
 ## <a name="view-the-identity-database"></a>查看标识数据库
 
@@ -96,12 +96,12 @@ dotnet new mvc --auth Individual
 
 更新`ConfigureServices`需要确认电子邮件：
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=6-9)]
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=13-16)]
 
@@ -145,11 +145,11 @@ info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 
 添加`AuthMessageSenderOptions`到末尾的服务容器`ConfigureServices`中的方法*Startup.cs*文件：
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=18)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 [!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
 ---
@@ -166,14 +166,14 @@ info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 
 #### <a name="configure-sendgrid"></a>配置了 SendGrid
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * 中添加代码*Services/EmailSender.cs*类似于以下配置 SendGrid:
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Services/EmailSender.cs)]
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 * 中添加代码*Services/MessageServices.cs*类似于以下配置 SendGrid:
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
@@ -184,7 +184,7 @@ info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 
 已为帐户确认和密码恢复代码的模板。 查找`[HttpPost] Register`中的方法*AccountController.cs*文件。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 可防止新注册的用户自动登录通过注释掉以下行：
 
@@ -196,7 +196,7 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Controllers/AccountController.cs?highlight=19&name=snippet_Register)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 取消注释的代码，若要启用帐户确认。
 
@@ -239,14 +239,14 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 ![导航栏](accconfirm/_static/x.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 管理页显示与**配置文件**选定选项卡。 **电子邮件**显示一个复选框，表明电子邮件已确认。 
 
 ![管理页](accconfirm/_static/rick2.png)
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 我们将在本教程后面部分讨论此页。
 ![管理页](accconfirm/_static/rick2.png)

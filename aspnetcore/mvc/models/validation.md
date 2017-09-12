@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 514c7770b7f508893a059c1adcf56204160aceda
-ms.sourcegitcommit: 275a5381b6172b4f0b5fcd1d252aff03d3dae166
+ms.openlocfilehash: be130c24f5baf643a4c9493a33ec45bdd4cc66ed
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>ASP.NET 核心 mvc 模型验证简介
 
-通过[Rachel Appel](http://github.com/rachelappel)
+通过[Rachel Appel](https://github.com/rachelappel)
 
 ## <a name="introduction-to-model-validation"></a>模型验证简介
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 08/30/2017
 
 * `[Url]`： 验证该属性具有的 URL 格式。
 
-MVC 支持任何特性的派生自`ValidationAttribute`来进行验证。 在找不到许多有用的验证属性[System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations(v=vs.110).aspx)命名空间。
+MVC 支持任何特性的派生自`ValidationAttribute`来进行验证。 在找不到许多有用的验证属性[System.ComponentModel.DataAnnotations](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations)命名空间。
 
 可能需要更多的功能比内置属性提供的实例。 对于这些时间中，你可以创建自定义验证特性的派生自`ValidationAttribute`或更改您的模型来实现`IValidatableObject`。
 

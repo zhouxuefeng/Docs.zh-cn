@@ -11,11 +11,11 @@ ms.assetid: 016cc836-4c43-45a4-b9a7-9efaf53350df
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/entity-framework-6
-ms.openlocfilehash: e186568e27c067e29985b8a286e26b87c3186ac4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fdc24ed9b6b2d412b09871302b5478da4d81ec28
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-and-entity-framework-6"></a>开始使用 ASP.NET Core 和 Entity Framework 6
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="overview"></a>概述
 
-若要使用 Entity Framework 6，你的项目具有编译针对.NET Framework 中，因为 Entity Framework 6 不支持.NET 核心。 如果您需要跨平台功能将需要升级到[实体框架核心](https://docs.efproject.net)。
+若要使用 Entity Framework 6，你的项目具有编译针对.NET Framework 中，因为 Entity Framework 6 不支持.NET 核心。 如果您需要跨平台功能将需要升级到[实体框架核心](https://docs.microsoft.com/ef/)。
 
 在 ASP.NET Core 应用程序中使用 Entity Framework 6 的建议的方法是将从 EF6 上下文和类库中的模型类项目面向 framework 全功能版。 添加对类库中 ASP.NET Core 项目的引用。 请参见示例[具有从 EF6 和 ASP.NET Core 项目的 Visual Studio 解决方案](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/)。
 

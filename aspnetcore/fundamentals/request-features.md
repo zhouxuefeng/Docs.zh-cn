@@ -2,7 +2,7 @@
 title: "请求中的新 ASP.NET 核心功能"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: d1fbd23c-2ff9-4216-b908-0201ff3afb7c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/request-features
-ms.openlocfilehash: e8d04ef7df34fe1421b2c52f137511fc6baae674
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a10aefe3819fb03019575c36274dd164faf7086c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="request-features-in-aspnet-core"></a>请求中的新 ASP.NET 核心功能
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 Web 服务器实现在接口中定义的与 HTTP 请求和响应相关的详细信息。 服务器实现和中间件使用这些接口来创建和修改应用程序的托管管道。
 
@@ -78,4 +78,4 @@ ASP.NET 核心定义了多个中的 HTTP 功能接口`Microsoft.AspNetCore.Http.
 
 * [中间件](middleware.md)
 
-* [打开.NET (OWIN) 的 Web 界面](owin.md)
+* [.NET 的开放 Web 接口 (OWIN)](owin.md)

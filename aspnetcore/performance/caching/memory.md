@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f872cd0c355f7961ae8628c28c62d3b51c8db2c5
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1e2d43d837ba76c6ef8b5136f3751edb44d6606a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>内存中缓存中 ASP.NET Core 简介
 
-通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [John Luo](https://github.com/JunTaoLuo)，和[Steve Smith](http://ardalis.com)
+通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [John Luo](https://github.com/JunTaoLuo)，和[Steve Smith](https://ardalis.com/)
 
 [查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/11/2017
 
 缓存可以显著提高性能和可伸缩性的应用程序通过减少生成内容所需的工作量。 最适合于不经常更改的数据的缓存工作方式。 缓存可一份很多可以返回的数据比从原始源更快。 你应编写并测试你的应用程序永远不会依赖于缓存的数据。
 
-ASP.NET 核心支持几个不同的缓存。 最简单的缓存基于[IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache)，它表示存储在内存中的 web 服务器的缓存。 在服务器场的多个服务器运行的应用程序应确保使用内存中缓存时，会粘性会话。 粘性会话确保所有客户端的后续请求转到同一台服务器。 例如，Azure Web 应用使用[应用程序请求路由](http://www.iis.net/learn/extensions/planning-for-arr)(ARR) 将所有的后续请求路由到同一台服务器。
+ASP.NET 核心支持几个不同的缓存。 最简单的缓存基于[IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache)，它表示存储在内存中的 web 服务器的缓存。 在服务器场的多个服务器运行的应用程序应确保使用内存中缓存时，会粘性会话。 粘性会话确保所有客户端的后续请求转到同一台服务器。 例如，Azure Web 应用使用[应用程序请求路由](https://www.iis.net/learn/extensions/planning-for-arr)(ARR) 将所有的后续请求路由到同一台服务器。
 
 Web 场中的非粘性会话需要[分布式缓存](distributed.md)以避免缓存一致性问题。 对于某些应用，分布式的缓存可以支持更高版本横向扩展比内存中缓存。 使用分布式的缓存将卸载到外部进程缓存内存。 
 

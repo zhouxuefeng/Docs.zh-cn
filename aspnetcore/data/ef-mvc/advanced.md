@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: d1c6ece833672af3ef2003510ef96c4ff0d63fbf
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 210f8e8b91c2487e5c4b73fdeb6ff0d5aa35c0c5
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>高级的主题的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (10/10)
 
@@ -171,7 +171,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>实体框架核心源代码和开发计划
 
-实体框架核心的源代码位于[https://github.com/aspnet/EntityFramework](https://github.com/aspnet/EntityFramework)。 除了源代码，可以获取每夜生成、 问题跟踪、 功能规范、 设计会议备忘录[在将来的开发路线图](https://github.com/aspnet/EntityFramework/wiki/Roadmap)，和的详细信息。 你可以报告 bug，并可以提供你自己的 EF 源代码的增强功能。
+实体框架核心的源代码位于[https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore)。 除了源代码，可以获取每夜生成、 问题跟踪、 功能规范、 设计会议备忘录[在将来的开发路线图](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)，和的详细信息。 你可以报告 bug，并可以提供你自己的 EF 源代码的增强功能。
 
 尽管源代码处于打开状态，实体框架核心完全支持的 Microsoft 产品。 Microsoft 实体框架团队将控制哪些接受的贡献保持和测试所有代码更改，以确保每个版本的质量。
 

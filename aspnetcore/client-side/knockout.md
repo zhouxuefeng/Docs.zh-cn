@@ -2,7 +2,7 @@
 title: "在 ASP.NET Core Knockout.js MVVM Framework"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: b20e3b23-1c51-47bf-adac-91b5048567e0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/knockout
-ms.openlocfilehash: 87b4fdc86f6bb870ae0a8cc85688a549fd0740ac
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d1c5cbd430587b757bb550f8f04355e67f04eb54
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="knockoutjs-mvvm-framework-in-aspnet-core"></a>在 ASP.NET Core Knockout.js MVVM Framework
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 Knockout 是一种常用的 JavaScript 库，简化复杂的基于数据的用户界面的创建。 它可单独使用或与其他库，例如 jQuery。 其主要目的是要绑定到基础数据模型为 JavaScript 对象，定义的 UI 元素，以便时对 UI 进行更改，将更新模型，反之亦然。 Knockout 便于在 web 应用程序的客户端行为模型-视图-视图模型 (MVVM) 模式的使用。 其中一个必须了解在使用 Knockout 的 MVVM 实现的两个主要概念是可观察对象和绑定。
 
@@ -140,7 +140,7 @@ var viewModel = {
 ko.applyBindings(viewModel);
 ```
 
-请注意，此时我们尚未尚未更新 twitterUrl 转到此 twitter 别名的正确 URL – 只需指向 twitter.com。 另请注意，我们将使用新的 Knockout 函数`computed`，为 twitterUrl。 这是一个可观察到的函数，如果它更改，则将通知任何 UI 元素。 但是，对于其在视图模型具有可访问其他属性，我们需要更改，我们将如何创建视图模型，以便每个属性是其自己的语句。
+请注意，此时我们尚未尚未更新 twitterUrl 转到此 twitter 别名的正确 URL – 只需指向 twitter.com。另请注意，我们将使用新的 Knockout 函数`computed`，为 twitterUrl。 这是一个可观察到的函数，如果它更改，则将通知任何 UI 元素。 但是，对于其在视图模型具有可访问其他属性，我们需要更改，我们将如何创建视图模型，以便每个属性是其自己的语句。
 
 修改后的 viewModel 声明如下所示。 现在，它被声明为函数。 请注意，每个属性是其自己语句现在，以分号结尾。 另请注意，若要访问 twitterAlias 属性值，我们需要执行它，使其引用包含 （）。
 

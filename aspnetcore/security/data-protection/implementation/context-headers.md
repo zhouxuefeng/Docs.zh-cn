@@ -2,7 +2,7 @@
 title: "上下文标头"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 16da0a4f78875ee26fa9ca7c9920b8dafd0ce417
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7befd983f6a45839868639708ec5cf45bf2df35f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="context-headers"></a>上下文标头
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="background-and-theory"></a>背景和理论上
 
-在数据保护系统中，"密钥"意味着可以提供的对象进行身份验证加密服务。 每个键由唯一的 id (GUID) 和它所携带算法信息和 entropic 材料。 其用途是，每个密钥执行唯一平均信息量，但系统不能强制实施的而我们还需要考虑的开发人员可能会通过修改密钥链中的现有密钥的算法信息手动更改密钥链。 若要实现提供这种情况下我们安全要求数据保护系统具有的概念[的加密灵活性](http://research.microsoft.com/apps/pubs/default.aspx?id=121045)，这样，安全地跨多个加密算法使用单个 entropic 值。
+在数据保护系统中，"密钥"意味着可以提供的对象进行身份验证加密服务。 每个键由唯一的 id (GUID) 和它所携带算法信息和 entropic 材料。 其用途是，每个密钥执行唯一平均信息量，但系统不能强制实施的而我们还需要考虑的开发人员可能会通过修改密钥链中的现有密钥的算法信息手动更改密钥链。 若要实现提供这种情况下我们安全要求数据保护系统具有的概念[的加密灵活性](https://www.microsoft.com/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D121045)，这样，安全地跨多个加密算法使用单个 entropic 值。
 
 大多数系统支持的加密灵活性做到这一点包括有关负载之内算法某些标识信息。 算法的 OID 通常是适合于此。 但是，我们遇到的一个问题是有多种方法来指定相同的算法:"AES"(CNG) 托管 Aes、 AesManaged、 AesCryptoServiceProvider、 AesCng 和 （如果有特定的参数） 的 RijndaelManaged 类都确实是相同首先，，我们将需要维护所有这些到正确的 OID 的映射。 如果开发人员想要提供自定义算法 （或甚至另一个实现的 AES ！），他们将需要告诉我们其 OID。 此额外的注册步骤使系统配置特别棘手。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/11/2017
 
 理想情况下，我们无法 K_E 和 K_H 传递全为零的向量。 但是，我们想要避免这种情况，其中基础算法检查存在的共享密钥的安全性执行任何操作 （值得注意的是 DES 和 3DES） 之前，它可以阻止使用如全为零向量的简单或可重复模式。
 
-相反，我们使用 NIST SP800 108 KDF 中计数器模式 (请参阅[NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf)、 秒。 5.1) 具有零长度键、 标签和上下文和作为基础 PRF HMACSHA512。 我们派生 |K_E |+ |K_H |字节的输出，然后将分解结果为 K_E 和 K_H 本身。 数学上，这表示，如下所示。
+相反，我们使用 NIST SP800 108 KDF 中计数器模式 (请参阅[NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf)，sec。 5.1) 具有零长度键、 标签和上下文和作为基础 PRF HMACSHA512。 我们派生 |K_E |+ |K_H |字节的输出，然后将分解结果为 K_E 和 K_H 本身。 数学上，这表示，如下所示。
 
 (K_E | |K_H) = SP800_108_CTR (prf = HMACSHA512，键 =""，标签 =""，上下文 ="")
 

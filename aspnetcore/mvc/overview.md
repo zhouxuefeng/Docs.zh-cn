@@ -2,7 +2,7 @@
 title: "ASP.NET 核心 MVC 的概述"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 3e95ccd8aeda54a050cd656ea0c831fd928f53a2
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 67394b066c18a149a97b957d6478ba8301ea8147
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET 核心 MVC 的概述
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 ASP.NET 核心 MVC 是一个丰富的框架，用于生成 web 应用和 Api 使用模型-视图-控制器设计模式。
 
@@ -153,7 +153,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 }
 ```
 
-框架将处理验证请求数据在客户端和服务器上。 模型类型上指定的验证逻辑添加到以非介入式批注的形式呈现的视图和浏览器中使用采用强制执行[jQuery 验证](http://jqueryvalidation.org/)。
+框架将处理验证请求数据在客户端和服务器上。 模型类型上指定的验证逻辑添加到以非介入式批注的形式呈现的视图和浏览器中使用采用强制执行[jQuery 验证](https://jqueryvalidation.org/)。
 
 ### <a name="dependency-injection"></a>依赖关系注入
 

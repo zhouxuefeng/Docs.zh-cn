@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 9301b99aed8fcb3bef91abf0fb269c4052cdb7e2
-ms.sourcegitcommit: 87900dffec8ad84a0f74357b23343e215f354dcb
+ms.openlocfilehash: 543399d99af127f943f7e9119fb5d84c8c5bc499
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core 中的 Razor 页面介绍
 
@@ -28,7 +28,7 @@ Razor 页面是 ASP.NET Core MVC 的一个新功能，它可以使基于页面�
 
 ## <a name="aspnet-core-20-prerequisites"></a>ASP.NET Core 2.0 必备组件
 
-安装 [.NET Core](https://dot.net/core) 2.0.0 或更高版本。
+安装 [.NET Core](https://www.microsoft.com/net/core) 2.0.0 或更高版本。
 
 若要使用 Visual Studio，则使用以下工作负载安装 [Visual Studio](https://www.visualstudio.com/vs/) 15.3 或更高版本：
 
@@ -222,7 +222,7 @@ Razor 页面中的视图搜索包含“页面”文件夹。 用于 MVC 控制�
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/_ViewImports.cshtml)]
 
-本教程的后续部分中将介绍 `@namespace`。 `@addTagHelper` 指令将[内置标记帮助程序](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/)引入“页面”文件夹中的所有页面。
+本教程的后续部分中将介绍 `@namespace`。 `@addTagHelper` 指令将[内置标记帮助程序](xref:mvc/views/tag-helpers/builtin-th/Index)引入“页面”文件夹中的所有页面。
 
 <a name="namespace"></a>
 

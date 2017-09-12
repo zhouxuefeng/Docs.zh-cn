@@ -11,15 +11,15 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc
-ms.openlocfilehash: ccdceed927d90a1f3201be9d9f92ebb4f2f66e66
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2bd689626e867e0ea82fbebdf92447a6029aa35b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>从 ASP.NET MVC 迁移到 ASP.NET 核心 MVC
 
-通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Daniel Roth](https://github.com/danroth27)， [Steve Smith](http://ardalis.com)，和[Scott Addie](https://scottaddie.com)
+通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Daniel Roth](https://github.com/danroth27)， [Steve Smith](https://ardalis.com/)，和[Scott Addie](https://scottaddie.com)
 
 这篇文章演示如何开始迁移到 ASP.NET MVC 项目[ASP.NET 核心 MVC](../mvc/overview.md)。 在过程中，会突出显示许多已更改利用 ASP.NET MVC 的内容。 从 ASP.NET MVC 迁移是一个多步骤过程，本文涵盖初始安装程序、 基本控制器和视图、 静态内容和客户端依赖关系。 其他文章涵盖迁移配置和标识代码在许多 ASP.NET MVC 项目中找到。
 
@@ -138,9 +138,9 @@ ms.lasthandoff: 08/11/2017
 
 旧 ASP.NET MVC 项目使用[Bootstrap](http://getbootstrap.com/)其 Bootstrap 文件中的样式和存储*内容*和*脚本*文件夹。 该模板后，生成旧的 ASP.NET MVC 项目，该引用布局文件中的 Bootstrap (*Views/Shared/_Layout.cshtml*)。 你也可以将复制*bootstrap.js*和*bootstrap.css*文件从 ASP.NET MVC 项目合并为*wwwroot*文件夹中新的项目中，但这种方法不使用用于管理 ASP.NET Core 中的客户端依赖项的改进的机制。
 
-在新的项目中，我们将添加对 Bootstrap （和其他客户端库），它使用支持[Bower](http://bower.io/):
+在新的项目中，我们将添加对 Bootstrap （和其他客户端库），它使用支持[Bower](https://bower.io/):
 
-* 添加[Bower](http://bower.io/)名为配置文件*bower.json*与项目根目录 (在项目中，右键单击，然后**添加 > 新项 > Bower 配置文件**)。 添加[Bootstrap](http://getbootstrap.com/)和[jQuery](https://jquery.com/)文件 （请参阅下面突出显示的行）。
+* 添加[Bower](https://bower.io/)名为配置文件*bower.json*与项目根目录 (在项目中，右键单击，然后**添加 > 新项 > Bower 配置文件**)。 添加[Bootstrap](http://getbootstrap.com/)和[jQuery](https://jquery.com/)文件 （请参阅下面突出显示的行）。
 
   [!code-json[Main](mvc/sample/bower.json?highlight=5-6)]
 

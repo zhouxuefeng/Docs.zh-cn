@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f16af1184a29b891a9aab0b38ab833836c326c44
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: 97013d06273c0993b74cdacfa16cb0d655c73667
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>在 ASP.NET 核心，使用示例演练中的创作标记帮助程序
 
-通过[Rick Anderson](https://twitter.com/RickAndMSFT)
+作者：[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample)
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 08/23/2017
 
 **注意：**
 
-* 有关标记帮助程序 Pascal 大小写形式类和属性的名称转换为其[降低 kebab 用例](http://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101#12273101)。 因此，若要使用`MailTo`属性中，你将使用`<email mail-to="value"/>`等效。
+* 有关标记帮助程序 Pascal 大小写形式类和属性的名称转换为其[降低 kebab 用例](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)。 因此，若要使用`MailTo`属性中，你将使用`<email mail-to="value"/>`等效。
 
 * 最后一行将已完成的内容设置我们按最小方式功能标记帮助器。
 
@@ -193,7 +193,7 @@ ms.lasthandoff: 08/23/2017
     
     **注意：**
     
-    * 如前所述，标记帮助程序会将转换 Pascal 大小写形式 C# 类名称和属性的标记帮助程序到[降低 kebab 用例](http://c2.com/cgi/wiki?KebabCase)。 因此，若要使用`WebsiteInformationTagHelper`在 Razor，你将编写`<website-information />`。
+    * 如前所述，标记帮助程序会将转换 Pascal 大小写形式 C# 类名称和属性的标记帮助程序到[降低 kebab 用例](http://wiki.c2.com/?KebabCase)。 因此，若要使用`WebsiteInformationTagHelper`在 Razor，你将编写`<website-information />`。
     
     * 显式未识别具有的目标元素`[HtmlTargetElement]`特性，因此默认的`website-information`将加载目标。 如果您应用以下属性 （请注意它不 kebab 这种情况，但与类名称匹配）：
     
@@ -209,7 +209,7 @@ ms.lasthandoff: 08/23/2017
     
     * 自结束的元素没有任何内容。 对于此示例中，Razor 标记将使用自结束标记，但将创建的标记帮助程序[部分](http://www.w3.org/TR/html5/sections.html#the-section-element)元素 (它不是自结束，并且你正在编写中的内容`section`元素)。 因此，你需要设置`TagMode`到`StartTagAndEndTag`写入输出。 或者，你可以注释行设置`TagMode`和写入与结束标记的标记。 （示例标记提供更高版本在本教程中）。
     
-    * `$` （美元符号） 在下面的一行使用[内插字符串](https://msdn.microsoft.com/library/Dn961160.aspx):
+    * `$` （美元符号） 在下面的一行使用[内插字符串](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
     ```cshtml
     $@"<ul><li><strong>Version:</strong> {Info.Version}</li>
@@ -272,11 +272,11 @@ ms.lasthandoff: 08/23/2017
 4.  运行应用程序，并浏览到主页。 在条件中的标记`div`将不会呈现。 将查询的字符串追加`?approved=true`到的 URL (例如， `http://localhost:1235/Home/Index?approved=true`)。 `approved`设置为 true，条件将显示标记。
 
 >[!NOTE]
->使用[nameof](https://msdn.microsoft.com/library/dn986596.aspx)运算符来指定为目标，而不是指定的字符串，就像处理以粗体显示标记帮助器属性：
+>使用[nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof)运算符来指定为目标，而不是指定的字符串，就像处理以粗体显示标记帮助器属性：
 >
 >[!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
 >
->[Nameof](https://msdn.microsoft.com/library/dn986596.aspx)运算符将保护该代码应它曾重构 (我们可能想要将名称更改为`RedCondition`)。
+>[Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof)运算符将保护该代码应它曾重构 (我们可能想要将名称更改为`RedCondition`)。
 
 ### <a name="avoiding-tag-helper-conflicts"></a>避免标记帮助器冲突
 
@@ -289,7 +289,7 @@ ms.lasthandoff: 08/23/2017
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
     >[!NOTE]
-    >`AutoLinkerHttpTagHelper`类目标`p`元素，并使用[正则表达式](https://msdn.microsoft.com/library/system.text.regularexpressions.regex.aspx)创建定位点。
+    >`AutoLinkerHttpTagHelper`类目标`p`元素，并使用[正则表达式](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)创建定位点。
 
 2.  将以下标记添加到末尾*Views/Home/Contact.cshtml*文件：
 

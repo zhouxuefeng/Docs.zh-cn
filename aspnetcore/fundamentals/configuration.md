@@ -11,17 +11,17 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 39e76b14af85de34b8443bf4e04d18d13ad2aa90
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: a14bc7fbcdac9acddfdab4fcd6e40385ca48bcc4
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 <a name=fundamentals-configuration></a>
 
   # <a name="configuration-in-aspnet-core"></a>ASP.NET 核心中配置
 
-[Rick Anderson](https://twitter.com/RickAndMSFT)，[标记 Michaelis](http://intellitect.com/author/mark-michaelis/)， [Steve Smith](http://ardalis.com)，和[Daniel Roth](https://github.com/danroth27)
+[Rick Anderson](https://twitter.com/RickAndMSFT)，[标记 Michaelis](http://intellitect.com/author/mark-michaelis/)， [Steve Smith](https://ardalis.com/)，和[Daniel Roth](https://github.com/danroth27)
 
 配置 API 提供一种方法配置应用程序中基于名称-值对的列表。 在运行时从多个源读取配置。 名称-值对可以分组到多级的层次结构。 有配置提供程序：
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/08/2017
 * [Azure 密钥保管库](xref:security/key-vault-configuration)
 * 自定义提供程序，你安装或在创建
 
-每个配置值将映射到字符串键。 若要反序列化到自定义设置的内置绑定支持[POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)对象 （具有属性的简单.NET 类）。
+每个配置值将映射到字符串键。 若要反序列化到自定义设置的内置绑定支持[POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object)对象 （具有属性的简单.NET 类）。
 
 [查看或下载示例代码](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample)
 
@@ -356,6 +356,6 @@ A *web.config*文件是必需的当你在 IIS 或 IIS Express 应用程序承载
 ### <a name="additional-resources"></a>其他资源
 
 * [使用多个环境](environments.md)
-* [安全存储在开发过程中的应用程序机密](../security/app-secrets.md)
+* [在开发期间安全存储应用密钥](../security/app-secrets.md)
 * [依赖关系注入](dependency-injection.md)
 * [Azure 密钥保管库配置提供程序](xref:security/key-vault-configuration)

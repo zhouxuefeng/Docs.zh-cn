@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd69e008a81abc4f6785d93b89823c03e1a7df83
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: c3f7792d7458013f837a48ca2caa459f35658f02
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>在 ASP.NET Core 中的窗体中使用标记帮助器简介
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 08/11/2017
 
 * 生成 HTML [\<窗体 >](https://www.w3.org/TR/html401/interact/forms.html) `action`的 MVC 控制器操作或命名的路由的属性值
 
-* 生成隐藏[请求验证令牌](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)以防止跨站点请求伪造 (一起使用时`[ValidateAntiForgeryToken]`HTTP Post 操作方法中的属性)
+* 生成隐藏[请求验证令牌](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)以防止跨站点请求伪造 (一起使用时`[ValidateAntiForgeryToken]`HTTP Post 操作方法中的属性)
 
 * 提供`asp-route-<Parameter Name>`属性，其中`<Parameter Name>`添加到路由值。 `routeValues`参数`Html.BeginForm`和`Html.BeginRouteForm`提供类似的功能。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/11/2017
     </form>
    ```
 
-MVC 运行时生成`action`属性从窗体标记帮助器属性的值`asp-controller`和`asp-action`。 窗体标记帮助器还会生成隐藏[请求验证令牌](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)以防止跨站点请求伪造 (一起使用时`[ValidateAntiForgeryToken]`HTTP Post 操作方法中的属性)。 一个纯 HTML 窗体防止跨站点请求伪造会很困难，窗体标记帮助器提供此服务为你。
+MVC 运行时生成`action`属性从窗体标记帮助器属性的值`asp-controller`和`asp-action`。 窗体标记帮助器还会生成隐藏[请求验证令牌](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)以防止跨站点请求伪造 (一起使用时`[ValidateAntiForgeryToken]`HTTP Post 操作方法中的属性)。 一个纯 HTML 窗体防止跨站点请求伪造会很困难，窗体标记帮助器提供此服务为你。
 
 ### <a name="using-a-named-route"></a>使用命名的路由
 
@@ -61,7 +61,7 @@ MVC 运行时生成`action`属性从窗体标记帮助器属性的值`asp-contro
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-中的视图的许多*视图/帐户*文件夹 (在创建与新的 web 应用程序时生成*单个用户帐户*) 包含[asp 路由 returnurl](http://docs.asp.net/en/latest/mvc/views/working-with-forms.html#the-form-tag-helper)属性：
+中的视图的许多*视图/帐户*文件夹 (在创建与新的 web 应用程序时生成*单个用户帐户*) 包含[asp 路由 returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms)属性：
 
 <!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [2]}} -->
 
@@ -88,11 +88,11 @@ MVC 运行时生成`action`属性从窗体标记帮助器属性的值`asp-contro
 
 * 生成`id`和`name`中指定的表达式名称的 HTML 特性`asp-for`属性。 `asp-for="Property1.Property2"` 与 `m => m.Property1.Property2` 相等。 该表达式的名称是用途`asp-for`属性值。 请参阅[表达式名称](#expression-names)部分以了解更多信息。
 
-* 设置 HTML`type`属性值根据模型类型和[数据注释](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)特性应用于模型属性
+* 设置 HTML`type`属性值根据模型类型和[数据注释](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)特性应用于模型属性
 
 * 将不会覆盖 HTML`type`时指定了一个属性值
 
-* 生成[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)验证属性从[数据注释](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)特性应用于模型属性
+* 生成[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)验证属性从[数据注释](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)特性应用于模型属性
 
 * 具有与重叠的 HTML 帮助器功能`Html.TextBoxFor`和`Html.EditorFor`。 请参阅**输入标记帮助器的 HTML 帮助器替代**部分了解详细信息。
 
@@ -121,7 +121,7 @@ Type expected
 |Single、Double|类型 ="number"|
 
 
-下表显示某些常见[数据注释](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)输入的标记帮助器将映射到特定的输入类型 （列出不是每个验证属性） 的属性：
+下表显示某些常见[数据注释](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)输入的标记帮助器将映射到特定的输入类型 （列出不是每个验证属性） 的属性：
 
 
 |特性|输入的类型|
@@ -260,7 +260,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 `Textarea Tag Helper`标记帮助程序是类似于输入标记帮助器。
 
-* 生成`id`和`name`特性和的模型中的数据验证属性[ \<textarea >](http://www.w3.org/wiki/HTML/Elements/textarea)元素。
+* 生成`id`和`name`特性和的模型中的数据验证属性[ \<textarea >](https://www.w3.org/wiki/HTML/Elements/textarea)元素。
 
 * 提供强类型化。
 
@@ -324,7 +324,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 ### <a name="the-validation-message-tag-helper"></a>验证消息标记帮助器
 
-* 将添加[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"`属性设为[跨越](https://developer.mozilla.org/docs/Web/HTML/Element/span)元素，它将附加在指定的模型属性的输入字段上的验证错误消息。   客户端验证错误时， [jQuery](https://jquery.com/)显示中的错误消息`<span>`元素。
+* 将添加[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"`属性设为[跨越](https://developer.mozilla.org/docs/Web/HTML/Element/span)元素，它将附加在指定的模型属性的输入字段上的验证错误消息。 客户端验证错误时， [jQuery](https://jquery.com/)显示中的错误消息`<span>`元素。
 
 * 验证还会在服务器。 客户端可能已禁用 JavaScript，仅可以在服务器端执行一些验证。
 
@@ -594,12 +594,12 @@ HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup)视图模型
 
 * [HTML 窗体元素](https://www.w3.org/TR/html401/interact/forms.html)
 
-* [请求验证令牌](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [请求验证令牌](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
 
 * [模型绑定](../models/model-binding.md)
 
 * [模型验证](../models/validation.md)
 
-* [数据注释](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)
+* [数据注释](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)
 
 * [代码片段此文档](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)。

@@ -2,7 +2,7 @@
 title: "使用分布式缓存"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -11,15 +11,15 @@ ms.assetid: 870f082d-6d43-453d-b311-45f3aeb4d2c5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: 09a1a30de38b9eb40d4fa6a684a7d43ac3e0413c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: abf680fef9de175082c1e4f4cebc2b9648f18a28
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="working-with-a-distributed-cache"></a>使用分布式缓存
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 分布式的缓存可以提高性能和可伸缩性的 ASP.NET Core 应用，尤其是在托管在云中或服务器场环境中。 此文章介绍了如何使用 ASP.NET 核心内置的分布式的缓存抽象和实现。
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="using-a-redis-distributed-cache"></a>使用 Redis 分布式缓存
 
-[Redis](http://redis.io)是一个开放源代码内存中数据存储区，通常用来作为分布式缓存。 你可以在本地，使用它，并且你可以配置[Azure Redis 缓存](https://azure.microsoft.com/services/cache/)为你的 Azure 托管的 ASP.NET Core 应用。 ASP.NET Core 应用程序将配置为使用缓存实现`RedisDistributedCache`实例。
+[Redis](https://redis.io/)是一个开放源代码内存中数据存储区，通常用来作为分布式缓存。 你可以在本地，使用它，并且你可以配置[Azure Redis 缓存](https://azure.microsoft.com/services/cache/)为你的 Azure 托管的 ASP.NET Core 应用。 ASP.NET Core 应用程序将配置为使用缓存实现`RedisDistributedCache`实例。
 
 配置中的 Redis 实现`ConfigureServices`和通过请求的实例应用程序代码中访问它`IDistributedCache`（请参阅上面的代码）。
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 08/11/2017
 [!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
-> 若要在本地计算机上安装 Redis，安装 chocolatey 程序包[http://chocolatey.org/packages/redis-64/](http://chocolatey.org/packages/redis-64/)并运行`redis-server`从命令提示符。
+> 若要在本地计算机上安装 Redis，安装 chocolatey 程序包[https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/)并运行`redis-server`从命令提示符。
 
 ## <a name="using-a-sql-server-distributed-cache"></a>使用 SQL Server 分布式缓存
 

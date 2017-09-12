@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 451a548403c8fa0ed2befeb6969a3ee28fe34790
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: baf1a979e4f18cbc7818f78b866e6cb6958efccf
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>在 ASP.NET Core Kestrel web 服务器实现简介
 
-通过[Tom Dykstra](http://github.com/tdykstra)， [Chris 跨](https://github.com/Tratcher)，和[Stephen Halter](https://twitter.com/halter73)
+通过[Tom Dykstra](https://github.com/tdykstra)， [Chris 跨](https://github.com/Tratcher)，和[Stephen Halter](https://twitter.com/halter73)
 
 Kestrel 是一个跨平台[ASP.NET Core 的 web 服务器](index.md)基于[libuv](https://github.com/libuv/libuv)，跨平台的异步 I/O 库。 Kestrel 是默认情况下，ASP.NET Core 项目模板中包含的 web 服务器。 
 
@@ -32,11 +32,11 @@ Kestrel 支持以下功能：
 
 Kestrel 支持所有平台和.NET 核心支持的版本。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [查看或下载 2.x 的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample2)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [查看或下载 1.x 的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample1)
 
@@ -44,27 +44,27 @@ Kestrel 支持所有平台和.NET 核心支持的版本。
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>何时使用反向代理使用 Kestrel
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-你可以通过本身或与使用 Kestrel*反向代理服务器*，如 IIS、 Nginx 或 Apache。 从 Internet 接收 HTTP 请求和一些初步处理后将其转发给 Kestrel 的反向代理服务器。
+可以单独使用 Kestrel，也可以将其与反向代理服务器（如 IIS、Nginx 或 Apache）结合使用。 反向代理服务器接收到来自 Internet 的 HTTP 请求，并在进行一些初步处理后将这些请求转发到 Kestrel。
 
-![Kestrel 直接与无反向代理服务器的 Internet 通信](kestrel/_static/kestrel-to-internet2.png)
+![Kestrel 直接与 Internet 通信，不使用反向代理服务器](kestrel/_static/kestrel-to-internet2.png)
 
-![Kestrel 与通过反向代理服务器，如 IIS、 Nginx 或 Apache Internet 间接通信](kestrel/_static/kestrel-to-internet.png)
+![Kestrel 通过反向代理服务器（如 IIS、Nginx 或 Apache）间接与 Internet 进行通信](kestrel/_static/kestrel-to-internet.png)
 
-任一配置&mdash;有反向代理服务器无&mdash;如果 Kestrel 公开仅到内部网络也可以使用。
+如果仅向内部网络公开 Kestrel，可以使用任一配置（无需考虑是否使用反向代理服务器）。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-如果你的应用程序接受请求只能从内部网络，你可以单独使用 Kestrel。
+如果应用程序仅接受来自内部网络的请求，则可以单独使用 Kestrel。
 
 ![Kestrel 直接与你的内部网络进行通信](kestrel/_static/kestrel-to-internal.png)
 
-如果公开到 Internet 应用程序，则必须使用 IIS、 Nginx 或作为 Apache*反向代理服务器*。 从 Internet 接收 HTTP 请求和一些初步处理后将其转发给 Kestrel 的反向代理服务器。
+如果将应用程序公开到 Internet，则必须将 IIS、Nginx 或 Apache 用作反向代理服务器。 反向代理服务器接收到来自 Internet 的 HTTP 请求，并在进行一些初步处理后将这些请求转发到 Kestrel。
 
-![Kestrel 与通过反向代理服务器，如 IIS、 Nginx 或 Apache Internet 间接通信](kestrel/_static/kestrel-to-internet.png)
+![Kestrel 通过反向代理服务器（如 IIS、Nginx 或 Apache）间接与 Internet 进行通信](kestrel/_static/kestrel-to-internet.png)
 
-反向代理是出于安全原因的边缘部署 （从 Internet 的流量到公开） 所必需的。 1.x 版的 Kestrel 没有防御攻击的完整补集。 这包括但不限于适当超时、 大小限制和并发连接限制。
+反向代理是出于安全原因的边缘部署 （从 Internet 的流量到公开） 所必需的。 Kestrel 的 1.x 版本不包含对防御攻击的充分补充。 这包括但不限于适当超时、 大小限制和并发连接限制。
 
 ---
 
@@ -79,7 +79,7 @@ Kestrel 支持所有平台和.NET 核心支持的版本。
 
 ## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>如何在 ASP.NET Core 应用中使用 Kestrel
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/)包包含在[Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage)。
 
@@ -91,7 +91,7 @@ Kestrel 支持所有平台和.NET 核心支持的版本。
 
 [!code-csharp[](kestrel/sample2/Program.cs?name=snippet_DefaultBuilder&highlight=9-16)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 安装[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) NuGet 包。
 
@@ -103,13 +103,13 @@ Kestrel 支持所有平台和.NET 核心支持的版本。
 
 ### <a name="kestrel-options"></a>Kestrel 选项
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Kestrel web 服务器的约束配置选项，在面向 Internet 的部署中尤其有用。 下面是一些你可以设置的限制：
 
-- 最大客户端连接
-- 最大请求正文大小
-- 最小的请求正文数据速率
+- 客户端最大连接数
+- 请求正文最大大小
+- 请求正文最小数据速率
 
 你设置这些约束和中的其他人`Limits`属性[KestrelServerOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerOptions.cs)类。 `Limits`属性包含的实例[KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs)类。 
 
@@ -166,7 +166,7 @@ public IActionResult MyActionMethod()
 * [KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs)
 * [ListenOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/ListenOptions.cs)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 有关 Kestrel 选项的信息，请参阅[KestrelServerOptions 类](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.server.kestrel.kestrelserveroptions)。
 
@@ -174,7 +174,7 @@ public IActionResult MyActionMethod()
 
 ### <a name="endpoint-configuration"></a>终结点配置
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 默认情况下 ASP.NET Core 将绑定到`http://localhost:5000`。 配置 URL 前缀和 Kestrel 通过调用侦听的端口`Listen`或`ListenUnixSocket`方法`KestrelServerOptions`。 (`UseUrls`、`urls`命令行参数，并且还工作 ASPNETCORE_URLS 环境变量但还有一些记下限制[本文稍后的](#useurls-limitations)。)
 
@@ -213,7 +213,7 @@ public IActionResult MyActionMethod()
 
 如果你使用 IIS，IIS 的 URL 绑定重写通过调用设置的任何绑定`Listen`或`UseUrls`。 有关详细信息，请参阅[简介 ASP.NET 核心模块](aspnet-core-module.md)。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 默认情况下 ASP.NET Core 将绑定到`http://localhost:5000`。 你可以配置 URL 前缀和 Kestrel 使用侦听的端口`UseUrls`扩展方法，`urls`命令行参数或 ASP.NET 核心配置系统。 有关这些方法的详细信息，请参阅[宿主](../../fundamentals/hosting.md)。 有关当你使用 IIS 的反向代理 URL 绑定的工作原理的信息，请参阅[ASP.NET 核心模块](aspnet-core-module.md)。 
 
@@ -223,7 +223,7 @@ public IActionResult MyActionMethod()
 
 如果调用`UseUrls`或使用`urls`命令行自变量或 ASPNETCORE_URLS 环境变量，URL 前缀可以处于任何以下格式。 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 HTTP URL 的前缀有效，则为Kestrel 不支持 SSL，当通过使用配置 URL 绑定`UseUrls`。
 
@@ -264,7 +264,7 @@ HTTP URL 的前缀有效，则为Kestrel 不支持 SSL，当通过使用配置 U
 
   当`localhost`Kestrel 尝试将绑定到 IPv4 和 IPv6 环回接口的指定。 如果请求的端口中使用任一环回接口上的其他服务，则 Kestrel 将无法启动。 如果任一环回接口而不可用任何其他原因 （通常是因为不支持 IPv6 的大多数，） Kestrel 记录一个警告。 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * 使用的端口号的 IPv4 地址
 
@@ -347,12 +347,12 @@ var host = new WebHostBuilder()
 
 有关更多信息，请参见以下资源：
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * [示例应用程序 2.x](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample2)
 * [Kestrel 源代码](https://github.com/aspnet/KestrelHttpServer)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * [1.x 的示例应用](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample1)
 * [Kestrel 源代码](https://github.com/aspnet/KestrelHttpServer)

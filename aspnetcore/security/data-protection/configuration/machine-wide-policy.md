@@ -2,7 +2,7 @@
 title: "计算机范围的策略"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 513726e209401d158ac98d5874942765751ac07d
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7ada940acfbb7fb0887fd7c0cd722bf62f211248
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="machine-wide-policy"></a>计算机范围的策略
 
@@ -77,4 +77,4 @@ Windows 上运行时，数据保护系统具有有限的支持用于设置默认
 如果 EncryptionType 具有任何其他值 （null / 空），则数据保护系统将在启动时引发异常。
 
 >[!WARNING]
-> 在配置涉及类型名称 （EncryptionAlgorithmType、 ValidationAlgorithmType、 KeyEscrowSinks） 的默认策略设置时，类型必须是应用程序。 在实践中，这意味着，对于在桌面 CLR 上运行的应用程序，其中包含这些类型的程序集应 GACed。 有关 ASP.NET 核心上运行的应用程序[.NET 核心](https://microsoft.com/net/core)，应安装包含这些类型的包。
+> 在配置涉及类型名称 （EncryptionAlgorithmType、 ValidationAlgorithmType、 KeyEscrowSinks） 的默认策略设置时，类型必须是应用程序。 在实践中，这意味着，对于在桌面 CLR 上运行的应用程序，其中包含这些类型的程序集应 GACed。 有关 ASP.NET 核心上运行的应用程序[.NET 核心](https://www.microsoft.com/net/core)，应安装包含这些类型的包。

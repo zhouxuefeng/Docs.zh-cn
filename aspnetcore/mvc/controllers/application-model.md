@@ -11,15 +11,15 @@ ms.assetid: 4eb7e52f-5665-41a4-a3e3-e348d07337f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 18046389becd17135ff831e71e700244d48552d3
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1a5d461809afeef0f485fd3a665250631d855b36
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="working-with-the-application-model"></a>使用应用程序模型
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 ASP.NET 核心 MVC 定义*应用程序模型*表示的 MVC 应用程序的组件。 你可以读取和处理此模型来修改 MVC 元素的行为方式。 默认情况下，MVC 遵循特定的约定来确定哪些类被视为控制器，这些类的方法是操作，以及参数和路由的行为方式。 你可以自定义此行为，以满足您的应用程序需要通过创建你自己的约定和全局或作为属性应用它们。
 
@@ -70,13 +70,13 @@ ASP.NET 核心 MVC 加载应用程序模型时使用的提供程序模式，通�
 
 某些内置行为实现的`DefaultApplicationModelProvider`。 此提供程序负责构造[ `ControllerModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel)，它又引用[ `ActionModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel)， [ `PropertyModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel)，和[`ParameterModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel)实例。 `DefaultApplicationModelProvider`类是内部框架实现详细信息，可以将在以后发生更改。 
 
-`AuthorizationApplicationModelProvider`负责应用与关联的行为`AuthorizeFilter`和`AllowAnonymousFilter`属性。 [了解有关这些属性的详细信息](https://docs.microsoft.com/aspnet/core/security/authorization/simple)。
+`AuthorizationApplicationModelProvider`负责应用与关联的行为`AuthorizeFilter`和`AllowAnonymousFilter`属性。 [了解有关这些属性的详细信息](xref:security/authorization/simple)。
 
-`CorsApplicationModelProvider`实现与关联的行为`IEnableCorsAttribute`和`IDisableCorsAttribute`，和`DisableCorsAuthorizationFilter`。 [了解有关 CORS 的详细信息](https://docs.microsoft.com/aspnet/core/security/cors)。
+`CorsApplicationModelProvider`实现与关联的行为`IEnableCorsAttribute`和`IDisableCorsAttribute`，和`DisableCorsAuthorizationFilter`。 [了解有关 CORS 的详细信息](xref:security/cors)。
 
 ## <a name="conventions"></a>约定
 
-应用程序模型定义约定抽象，提供更简单的方法自定义比重写整个模型或提供程序模型的行为。 这些抽象映射是推荐的方法，以修改您的应用程序的行为。 约定提供让你可以编写将动态应用自定义项的代码的方法。 虽然[筛选器](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters)提供一种修改框架的行为，自定义设置让你能够控制整个应用连接在一起。
+应用程序模型定义约定抽象，提供更简单的方法自定义比重写整个模型或提供程序模型的行为。 这些抽象映射是推荐的方法，以修改您的应用程序的行为。 约定提供让你可以编写将动态应用自定义项的代码的方法。 虽然[筛选器](xref:mvc/controllers/filters)提供一种修改框架的行为，自定义设置让你能够控制整个应用连接在一起。
 
 提供了以下约定：
 
@@ -85,7 +85,7 @@ ASP.NET 核心 MVC 加载应用程序模型时使用的提供程序模式，通�
 * [`IActionModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
 * [`IParameterModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
 
-通过将它们添加到 MVC 选项或通过实现应用约定`Attribute`s 并将它们应用到控制器、 操作或操作参数 (类似于[ `Filters` ](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters))。 与筛选器，不同应用程序正在启动，不每个请求的一部分时，将仅执行约定。
+通过将它们添加到 MVC 选项或通过实现应用约定`Attribute`s 并将它们应用到控制器、 操作或操作参数 (类似于[ `Filters` ](xref:mvc/controllers/filters))。 与筛选器，不同应用程序正在启动，不每个请求的一部分时，将仅执行约定。
 
 ### <a name="sample-modifying-the-applicationmodel"></a>示例： 修改 ApplicationModel
 
@@ -159,7 +159,7 @@ ASP.NET 核心 MVC 加载应用程序模型时使用的提供程序模式，通�
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> 你可以添加到约定你[中间件](https://docs.microsoft.com/aspnet/core/fundamentals/middleware)通过访问`MvcOptions`使用`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> 你可以添加到约定你[中间件](xref:fundamentals/middleware)通过访问`MvcOptions`使用`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
 
 此示例适用于未使用其中控制器的名称中包含"Namespace"的属性路由的路由此约定。 以下控制器演示了此约定：
 
@@ -170,7 +170,7 @@ ASP.NET 核心 MVC 加载应用程序模型时使用的提供程序模式，通�
 ASP.NET 核心 MVC 使用 ASP.NET Web API 2 中不同的约定集。 使用自定义的约定，可以修改 ASP.NET 核心 MVC 应用程序的行为，使其与 Web API 应用的一致。 Microsoft 附带[WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/)专为此目的。
 
 > [!NOTE]
-> 详细了解[从 ASP.NET Web API 迁移](https://docs.microsoft.com/aspnet/core/migration/webapi))。
+> 详细了解[从 ASP.NET Web API 迁移](xref:migration/webapi)。
 
 若要使用 Web API 兼容性填充码，你需要将包添加到你的项目，然后通过调用将约定添加到 MVC`AddWebApiConventions`中`Startup`:
 
@@ -199,7 +199,7 @@ services.AddMvc().AddWebApiConventions();
 
 ### <a name="routes"></a>路由
 
-`UseWebApiRoutesAttribute`控件是否`WebApiApplicationModelConvention`应用控制器约定。 启用时，此约定用于添加对支持[区域](https://docs.microsoft.com/aspnet/core/mvc/controllers/areas)为该路由。
+`UseWebApiRoutesAttribute`控件是否`WebApiApplicationModelConvention`应用控制器约定。 启用时，此约定用于添加对支持[区域](xref:mvc/controllers/areas)为该路由。
 
 兼容性包包括一组的约定，除了`System.Web.Http.ApiController`基类来替换提供的 Web API。 这允许你为 Web API 和继承编写的控制器从其`ApiController`以按照已设计会在 ASP.NET 核心 MVC 运行时的工作。 此基本控制器类修饰的所有`UseWebApi*`上面列出的属性。 `ApiController`公开属性、 方法和与 Web API 中兼容的结果类型。
 

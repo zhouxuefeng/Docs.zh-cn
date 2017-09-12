@@ -11,15 +11,15 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: bcd225875cfe2a544581c331231c704094780ea3
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 93e8b99e7fbac88aabd347c077d923214ba7aebe
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>在 ASP.NET Core WebListener web 服务器实现
 
-通过[Tom Dykstra](http://github.com/tdykstra)和[Chris 跨](https://github.com/Tratcher)
+通过[Tom Dykstra](https://github.com/tdykstra)和[Chris 跨](https://github.com/Tratcher)
 
 > [!NOTE]
 > 本主题仅适用于 ASP.NET Core 1.x。 在 ASP.NET 核心 2.0 中，名为 WebListener [HTTP.sys](httpsys.md)。
@@ -48,7 +48,7 @@ WebListener 支持以下功能：
 
 WebListener 可用于部署需要公开直接向 Internet 的服务器，而使用 IIS。
 
-![Weblistener 直接与 Internet 通信](weblistener/_static/weblistener-to-internet.png)
+![Weblistener 直接与 Internet 进行通信](weblistener/_static/weblistener-to-internet.png)
 
 由于它在 Http.Sys 上构建，WebListener 不需要反向代理服务器，为了针对攻击提供保护。 Http.Sys 是针对许多类型的攻击提供保护，并提供可靠性、 安全性和功能全面的 web 服务器的可伸缩性的成熟技术。 作为 HTTP 侦听器在 Http.Sys 运行 IIS 本身。 
 
@@ -62,7 +62,7 @@ WebListener 也是一个不错的选择为内部部署时你需要它提供你�
 
 ### <a name="configure-windows-server"></a>配置 Windows Server
 
-* 安装版本的.NET 应用程序要求，如[.NET 核心](https://go.microsoft.com/fwlink/?LinkID=827524)或.NET Framework 4.5.1。
+* 安装版本的.NET 应用程序要求，如[.NET 核心](https://download.microsoft.com/download/0/A/3/0A372822-205D-4A86-BFA7-084D2CBE9EDF/DotNetCore.1.0.1-SDK.1.0.0.Preview2-003133-x64.exe)或.NET Framework 4.5.1。
 
 * 预先注册 URL 前缀绑定到 WebListener，以及设置 SSL 证书
 
@@ -80,7 +80,7 @@ WebListener 也是一个不错的选择为内部部署时你需要它提供你�
 
 * 安装 NuGet 程序包[Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/)。 这也将安装[Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/)作为依赖项。
 
-* 调用[ `UseWebListener` ](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Hosting/WebHostBuilderKestrelExtensions/index.html#Microsoft.AspNetCore.Hosting.WebHostBuilderWebListenerExtensions.UseWebListener.md)上的扩展方法[WebHostBuilder](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Hosting/WebHostBuilder/index.html#Microsoft.AspNetCore.Hosting.WebHostBuilder.md)中你`Main`方法，指定任何 WebListener[选项](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs)和[设置](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs)，你的需要如下面的示例中所示：
+* 调用[ `UseWebListener` ](https://docs.microsoft.com/aspnet/core/api)上的扩展方法[WebHostBuilder](https://docs.microsoft.com/aspnet/core/api)中你`Main`方法，指定任何 WebListener[选项](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs)和[设置](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs)，你的需要如下面的示例中所示：
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
@@ -152,14 +152,14 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 下面是官方的参考文档：
 
-* [Netsh 命令的超文本传输协议 (HTTP)](http://technet.microsoft.com/library/cc725882.aspx)
+* [Netsh 命令的超文本传输协议 (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
 * [UrlPrefix 字符串](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
 以下资源提供了几个方案的详细的说明。 请参阅文章`HttpListener`同样适用于`WebListener`，如二者都基于 Http.Sys。
 
-* [如何： 使用 SSL 证书配置端口](http://msdn.microsoft.com/library/ms733791.aspx)
+* [如何： 使用 SSL 证书配置端口](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS 通信-HttpListener 基于托管和客户端证书](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html)这是一个第三方的博客和是相当旧但仍具有有用的信息。
-* [如何： 演练使用 HttpListener 或 Http 服务器非托管代码 （c + +） 为 SSL 简单服务器](http://blogs.msdn.com/b/jpsanders/archive/2009/09/29/walkthrough-using-httplistener-as-an-ssl-simple-server.aspx)这也是有用的信息与较旧的博客。
+* [如何： 演练使用 HttpListener 或 Http 服务器非托管代码 （c + +） 为 SSL 简单服务器](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/)这也是有用的信息与较旧的博客。
 * [如何设置 SSL 与.NET 核心 WebListener？](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)
 
 以下是一些可以更方便地使用比 netsh.exe 命令行的第三方工具。 这些不提供的或由 Microsoft 认可。 由于 netsh.exe 本身需要管理员权限时，默认情况下中, 以管理员身份运行工具。
@@ -167,7 +167,7 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 * [http.sys Manager](http://httpsysmanager.codeplex.com/)提供有关列表的 UI 和配置 SSL 证书和选项，前缀保留，和证书信任列表。 
 * [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx)允许列表或配置 SSL 证书和 URL 前缀。 UI 是更完善比 http.sys 管理器，并公开一些更多配置选项，但其他方面，它提供类似的功能。 它不能创建新的证书信任列表 (CTL)，但可以分配现有的。
 
-对于生成自签名的 SSL 证书，Microsoft 提供了命令行工具： [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968)和 PowerShell cmdlet[的 New-selfsignedcertificate](https://technet.microsoft.com/library/hh848633)。 此外，还有第三方用户界面工具，可使你更轻松地生成自签名的 SSL 证书：
+对于生成自签名的 SSL 证书，Microsoft 提供了命令行工具： [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968)和 PowerShell cmdlet[的 New-selfsignedcertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate)。 此外，还有第三方用户界面工具，可使你更轻松地生成自签名的 SSL 证书：
 
 * [SelfCert](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net)
 * [Makecert UI](http://makecertui.codeplex.com/)

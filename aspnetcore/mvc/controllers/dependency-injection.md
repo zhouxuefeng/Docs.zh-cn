@@ -2,7 +2,7 @@
 title: "依赖关系注入到控制器"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 371fb0f721797e4d8f7a26858ae0a709cb5cd39e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: b83bd4a24ccf7e90e9df06d6a8e229a2d5c6699a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>依赖关系注入到控制器
 
 <a name=dependency-injection-controllers></a>
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 ASP.NET 核心 MVC 控制器应请求其构造函数通过显式及其依赖项。 在某些情况下，单个控制器操作可能需要一种服务，并且它不会使有意义的控制器级别请求。 在这种情况下，你还可以选择中插入一项服务作为上的操作方法的参数。
 
@@ -29,7 +29,7 @@ ASP.NET 核心 MVC 控制器应请求其构造函数通过显式及其依赖项�
 
 ## <a name="dependency-injection"></a>依赖关系注入
 
-依赖关系注入是一种遵循[依赖反向原则](http://deviq.com/dependency-inversion-principle)，并允许应用程序由组成的松散耦合的模块。 ASP.NET Core 提供的内置支持[依赖关系注入](../../fundamentals/dependency-injection.md)，这使应用程序更易于测试和维护。
+依赖关系注入是一种遵循[依赖反向原则](http://deviq.com/dependency-inversion-principle/)，并允许应用程序由组成的松散耦合的模块。 ASP.NET Core 提供的内置支持[依赖关系注入](../../fundamentals/dependency-injection.md)，这使应用程序更易于测试和维护。
 
 ## <a name="constructor-injection"></a>构造函数注入
 
@@ -70,7 +70,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceP
 ![服务器问候语](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> 请参阅[测试控制器逻辑](testing.md)若要了解如何显式请求依赖关系[http://deviq.com/explicit-dependencies-principle](http://deviq.com/explicit-dependencies-principle)控制器中使代码可以轻松地测试。
+> 请参阅[测试控制器逻辑](testing.md)若要了解如何显式请求依赖关系[http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/)控制器中使代码可以轻松地测试。
 
 ASP.NET 核心内置的依赖关系注入支持拥有仅请求服务的类的单个构造函数。 如果你有多个构造函数，您会收到一个异常内容如下：
 

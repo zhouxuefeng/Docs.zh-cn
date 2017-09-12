@@ -11,15 +11,15 @@ ms.assetid: ebd98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 8dae9cf1597ae2bddf2943af4a7ab9d50620825b
-ms.sourcegitcommit: 26166785ad181a8519cb008800d71d96499b0499
+ms.openlocfilehash: 2b95073bc0972908d0c0b2158a036e4374c7df4d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="custom-model-binding"></a>自定义模型绑定
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 模型绑定允许要直接使用模型 （传递类型中作为方法自变量），而是比 HTTP 请求的控制器操作。 模型联编程序由处理传入的请求数据和应用程序模型之间的映射。 开发人员可以通过实现自定义模型联编程序 （但通常情况下，你无需编写自己的提供程序） 扩展的内置模型绑定功能。
 
@@ -137,4 +137,4 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 自定义模型联编程序：
 - 不应尝试设置状态代码或返回结果 （例如，404 未找到）。 如果模型绑定失败，[操作筛选器](xref:mvc/controllers/filters)或中的操作方法本身逻辑应处理的错误。
 - 是用于消除重复代码，并从操作方法的跨领域问题最有用。
-- 通常不应将字符串转换为自定义类型， [ `TypeConverter` ](https://msdn.microsoft.com/library/ayybcxe5.aspx)通常是更好的选择。
+- 通常不应将字符串转换为自定义类型， [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter)通常是更好的选择。

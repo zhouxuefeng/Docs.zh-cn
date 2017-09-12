@@ -11,15 +11,15 @@ ms.assetid: dd4135ec-2b15-410c-b3fb-3d12eed4a1ac
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: d5b2bd0200082000aeaf8015cfff9c8c1ec1bdd9
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: e8a464e75dea3a0ec08c13a11888884e6bb6a4c7
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>在 ASP.NET 核心的测试控制器逻辑
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 小型，其注重用户界面顾虑，应为在 ASP.NET MVC 应用程序中的控制器。 处理非 UI 问题的大型控制器会测试和维护更加困难。
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 09/05/2017
 如果你在编写自定义筛选器、 路由等，您应该单元测试，但不是作为你的测试上的特定控制器操作的一部分。 应在隔离中对它们进行了测试。
 
 > [!TIP]
-> [创建和使用 Visual Studio 运行单元测试](https://www.visualstudio.com/get-started/code/create-and-run-unit-tests-vs)。
+> [创建和使用 Visual Studio 运行单元测试](https://www.visualstudio.com/docs/code/create-and-run-unit-tests-vs)。
 
 若要演示单元测试，请查看以下控制器。 它显示集体讨论会话的列表，并允许新集体讨论会话，以使用 POST 创建：
 

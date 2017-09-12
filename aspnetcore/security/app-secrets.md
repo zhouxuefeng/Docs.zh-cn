@@ -2,7 +2,7 @@
 title: "安全存储在开发 ASP.NET Core 应用程序机密"
 author: rick-anderson
 description: "演示如何在开发过程中安全地存储机密"
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 7/14/2017
@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 99a1129549d6b9802315c7e5accfa22907994a41
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 56214c2fbdca84591c5c1a6b7f2451f33ee64ef0
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>安全存储在 ASP.NET Core 在开发过程中的应用程序机密
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="secret-manager"></a>密码管理器
 
-密钥管理器工具存储在项目树之外的开发工作的敏感数据。 密码管理器工具是一个项目工具，可以用于存储机密信息，以便[.NET 核心](https://microsoft.com/net/core)在开发过程中的项目。 使用密钥管理器工具中，可以将应用程序机密关联与特定项目，并共享跨多个项目。
+密钥管理器工具存储在项目树之外的开发工作的敏感数据。 密码管理器工具是一个项目工具，可以用于存储机密信息，以便[.NET 核心](https://www.microsoft.com/net/core)在开发过程中的项目。 使用密钥管理器工具中，可以将应用程序机密关联与特定项目，并共享跨多个项目。
 
 >[!WARNING]
 > 密码管理器工具不加密存储的密码，并不被视为受信任存储区。 它是仅限开发目的。 键和值存储在用户配置文件目录中的 JSON 配置文件中。

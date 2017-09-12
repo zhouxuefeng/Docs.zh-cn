@@ -11,17 +11,17 @@ ms.assetid: 94c988f9-95fd-425d-b37e-7f846598c6d4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 4282e992ea80420181f9d7a2e3d6a55d6614c4de
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 128612eb2f7c6c8fdd0cc01f10b8e522df46dcf6
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>简介事半功倍的样式应用程序、 Sass，和在 ASP.NET 核心中出色的字体
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
-Web 应用程序的用户有越来越高的期望时设置的样式和总体体验。 现代 web 应用程序频繁地利用丰富的工具和框架用于定义和管理其外观和感觉以一致的方式。 框架喜欢[Bootstrap](http://getbootstrap.com/)可以地长定义一组通用的样式和网站的布局选项。 但是，大多数重要站点还受益于能够有效地定义和维护样式和级联样式表 (CSS) 文件，以及能够轻松访问帮助使站点的接口更直观的非图像图标。 就是在此处的支持语言和工具[较少](http://lesscss.org/)和[Sass](http://sass-lang.com/)，库等，以及将[字体出色](http://fortawesome.github.io/Font-Awesome/)，进入。
+Web 应用程序的用户有越来越高的期望时设置的样式和总体体验。 现代 web 应用程序频繁地利用丰富的工具和框架用于定义和管理其外观和感觉以一致的方式。 框架喜欢[Bootstrap](http://getbootstrap.com/)可以地长定义一组通用的样式和网站的布局选项。 但是，大多数重要站点还受益于能够有效地定义和维护样式和级联样式表 (CSS) 文件，以及能够轻松访问帮助使站点的接口更直观的非图像图标。 就是在此处的支持语言和工具[较少](http://lesscss.org/)和[Sass](http://sass-lang.com/)，库等，以及将[字体出色](http://fontawesome.io/)，进入。
 
 ## <a name="css-preprocessor-languages"></a>CSS 预处理器语言
 

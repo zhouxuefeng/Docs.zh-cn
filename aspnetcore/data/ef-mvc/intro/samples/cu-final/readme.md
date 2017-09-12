@@ -4,7 +4,7 @@ Contoso 大学演示如何在 ASP.NET 核心 MVC web 应用程序中使用实体
 
 ## <a name="build-it-from-scratch"></a>中的从头开始生成
 
-你可以按照中的步骤来生成应用程序[一系列教程](https://docs.asp.net/en/latest/data/ef-mvc/intro.html)。
+你可以按照中的步骤来生成应用程序[一系列教程](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro)。
 
 ## <a name="download-it"></a>下载它
 

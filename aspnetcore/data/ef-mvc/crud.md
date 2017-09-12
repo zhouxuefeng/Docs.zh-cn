@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 855f060a6404dedff310b288ada9738689069ceb
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 87aa7e63b1a08e457c5fdcbc052bfa039b8d2175
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>创建、 读取、 更新和删除的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (2 个 10)
 
@@ -122,7 +122,7 @@ http://localhost:1230/Instructor/Index?id=1&CourseID=2021
 
 你删除`ID`从`Bind`特性，因为 ID 是 SQL Server 将插入行时自动设置的主键值。 来自用户的输入不设置的 ID 值。
 
-除`Bind`属性，try catch 块将仅对基架的代码所做的更改。 如果异常派生自`DbUpdateException`是捕捉到正在保存所做的更改时，将显示一般错误消息。 `DbUpdateException`由外部的应用程序，而不是编程错误，有时会导致异常，因此建议用户以重试。 尽管在此示例中未实现，但生产质量应用程序会将异常记录。 有关详细信息，请参阅**要深入探索日志**主题中[监视和遥测 （构建真实世界云应用程序与 Azure）](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)。
+除`Bind`属性，try catch 块将仅对基架的代码所做的更改。 如果异常派生自`DbUpdateException`是捕捉到正在保存所做的更改时，将显示一般错误消息。 `DbUpdateException`由外部的应用程序，而不是编程错误，有时会导致异常，因此建议用户以重试。 尽管在此示例中未实现，但生产质量应用程序会将异常记录。 有关详细信息，请参阅**要深入探索日志**主题中[监视和遥测 （构建真实世界云应用程序与 Azure）](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)。
 
 `ValidateAntiForgeryToken`属性有助于防止跨站点请求伪造 (CSRF) 攻击。 令牌自动注入到按查看[FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper)和由用户提交表单时，将包括。 验证的令牌`ValidateAntiForgeryToken`属性。 有关 CSRF 的详细信息，请参阅[反请求伪造](../../security/anti-request-forgery.md)。
 
@@ -274,7 +274,7 @@ HttpPost 编辑操作方法替换为以下代码。
 
 要释放数据库连接包含的资源，上下文实例必须释放尽可能快地完成此操作使用它。 ASP.NET 核心内置[依赖关系注入](../../fundamentals/dependency-injection.md)将为你负责该任务。
 
-在*Startup.cs*，你调用[AddDbContext 扩展方法](https://github.com/aspnet/EntityFramework/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs)设置`DbContext`ASP.NET DI 容器中的类。 方法将服务生存期设置为`Scoped`默认情况下。 `Scoped`表示与 web 请求生存时间，一致上下文对象生存期和`Dispose`将 web 请求结束时自动调用方法。
+在*Startup.cs*，你调用[AddDbContext 扩展方法](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs)设置`DbContext`ASP.NET DI 容器中的类。 方法将服务生存期设置为`Scoped`默认情况下。 `Scoped`表示与 web 请求生存时间，一致上下文对象生存期和`Dispose`将 web 请求结束时自动调用方法。
 
 ## <a name="handling-transactions"></a>处理事务
 

@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: c6c9db21a95131a3d7920054e32004791b499c11
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: 2a760343566d2c2be591983e20830b5207a2199b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>全球化和 ASP.NET Core 的本地化
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/08/2017
 
 使用 ASP.NET Core 创建多语言的网站将允许你的站点来访问更多的人。 ASP.NET Core 提供服务和中间件将本地化为不同的语言和区域性。
 
-国际化涉及[全球化](https://msdn.microsoft.com/library/aa292081(v=vs.71).aspx)和[本地化](https://msdn.microsoft.com/library/aa292137(v=vs.71).aspx)。 全球化是设计支持不同的区域性的应用程序的过程。 全球化添加输入、 显示和一组定义与特定的地理区域相关的语言脚本的输出的支持。
+国际化涉及[全球化](https://docs.microsoft.com/dotnet/api/system.globalization)和[本地化](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization)。 全球化是设计支持不同的区域性的应用程序的过程。 全球化添加输入、 显示和一组定义与特定的地理区域相关的语言脚本的输出的支持。
 
 本地化是调整的全球化的应用，你已经处理进行了本地化分析，为特定的区域性/区域设置的过程。  有关详细信息请参阅**全球化和本地化条款**接近本文档的结尾。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="make-the-apps-content-localizable"></a>使可本地化的应用程序的内容
 
-ASP.NET 核心中引入`IStringLocalizer`和`IStringLocalizer<T>`已设计为可提高工作效率，开发本地化应用程序时。 `IStringLocalizer`使用[ResourceManager](https://msdn.microsoft.com/library/system.resources.resourcemanager(v=vs.110).aspx)和[ResourceReader](https://msdn.microsoft.com/library/system.resources.resourcereader(v=vs.110).aspx)在运行时提供区域性特定资源。 简单接口具有一个索引器和`IEnumerable`用于返回本地化的字符串。 `IStringLocalizer`不要求你在资源文件中存储的默认语言字符串。 你可以开发针对本地化应用程序并不需要在开发的早期创建资源文件。 下面的代码演示如何包装本地化的字符串"有关 Title"。
+ASP.NET 核心中引入`IStringLocalizer`和`IStringLocalizer<T>`已设计为可提高工作效率，开发本地化应用程序时。 `IStringLocalizer`使用[ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager)和[ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader)在运行时提供区域性特定资源。 简单接口具有一个索引器和`IEnumerable`用于返回本地化的字符串。 `IStringLocalizer`不要求你在资源文件中存储的默认语言字符串。 你可以开发针对本地化应用程序并不需要在开发的早期创建资源文件。 下面的代码演示如何包装本地化的字符串"有关 Title"。
 
 [!code-csharp[Main](localization/sample/Controllers/AboutController.cs)]
 
@@ -65,7 +65,7 @@ ASP.NET 核心中引入`IStringLocalizer`和`IStringLocalizer<T>`已设计为可
 
 ## <a name="view-localization"></a>视图本地化
 
-`IViewLocalizer`服务提供的本地化的字符串[视图](http://docs.asp.net/projects/mvc/en/latest/views/index.html)。 `ViewLocalizer`类实现此接口，并找到视图文件路径中的资源的位置。 下面的代码演示如何使用的默认实现`IViewLocalizer`:
+`IViewLocalizer`服务提供的本地化的字符串[视图](https://docs.microsoft.com/aspnet/core)。 `ViewLocalizer`类实现此接口，并找到视图文件路径中的资源的位置。 下面的代码演示如何使用的默认实现`IViewLocalizer`:
 
 [!code-HTML[Main](localization/sample/Views/Home/About.cshtml)]
 
@@ -124,7 +124,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures 和 SupportedUICultures
 
-ASP.NET 核心，可指定两个区域性值，`SupportedCultures`和`SupportedUICultures`。 [CultureInfo](https://msdn.microsoft.com/library/system.globalization.cultureinfo(v=vs.110).aspx)对象`SupportedCultures`确定得到的依赖于区域性的函数，如日期、 时间、 数字和货币格式的结果。 `SupportedCultures`此外确定文本、 大小写约定和字符串比较的排序顺序。 请参阅[CultureInfo.CurrentCulture](https://msdn.microsoft.com/library/system.globalization.cultureinfo.currentculture%28v=vs.110%29.aspx)有关服务器如何获取区域性的详细信息。 `SupportedUICultures`确定就会转换字符串 (从*.resx*文件) 按查找[ResourceManager](https://msdn.microsoft.com/library/system.resources.resourcemanager(v=vs.110).aspx)。 `ResourceManager`只需查找区域性特定字符串由决定`CurrentUICulture`。 .NET 中的每个线程都具有`CurrentCulture`和`CurrentUICulture`对象。 ASP.NET 核心呈现依赖于区域性的函数时检查这些值。 例如，如果当前线程的区域性设置为"EN-US"（英语，美国），`DateTime.Now.ToLongDateString()`显示"星期四，2016 年 2 月 18，"，但如果`CurrentCulture`设置为"ES-ES"（西班牙语、 西班牙） 则输出将为"jueves，18 de febrero de 2016"。
+ASP.NET 核心，可指定两个区域性值，`SupportedCultures`和`SupportedUICultures`。 [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo)对象`SupportedCultures`确定得到的依赖于区域性的函数，如日期、 时间、 数字和货币格式的结果。 `SupportedCultures`此外确定文本、 大小写约定和字符串比较的排序顺序。 请参阅[CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture)有关服务器如何获取区域性的详细信息。 `SupportedUICultures`确定就会转换字符串 (从*.resx*文件) 按查找[ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager)。 `ResourceManager`只需查找区域性特定字符串由决定`CurrentUICulture`。 .NET 中的每个线程都具有`CurrentCulture`和`CurrentUICulture`对象。 ASP.NET 核心呈现依赖于区域性的函数时检查这些值。 例如，如果当前线程的区域性设置为"EN-US"（英语，美国），`DateTime.Now.ToLongDateString()`显示"星期四，2016 年 2 月 18，"，但如果`CurrentCulture`设置为"ES-ES"（西班牙语、 西班牙） 则输出将为"jueves，18 de febrero de 2016"。
 
 ## <a name="working-with-resource-files"></a>使用资源文件
 
@@ -214,7 +214,7 @@ ASP.NET 核心，可指定两个区域性值，`SupportedCultures`和`SupportedU
 
 ### <a name="querystringrequestcultureprovider"></a>QueryStringRequestCultureProvider
 
-某些应用程序，将使用查询字符串来设置[区域性和 UI 区域性](https://msdn.microsoft.com/library/system.globalization.cultureinfo.aspx#Current)。 对于使用 cookie 或接受语言标头方法的应用程序，向 URL 添加查询字符串可用于调试和测试代码。 默认情况下，`QueryStringRequestCultureProvider`注册为第一个本地化提供程序在`RequestCultureProvider`列表。 将查询字符串参数`culture`和`ui-culture`。 下面的示例设置西班牙语/墨西哥的特定区域性 （语言和区域）：
+某些应用程序，将使用查询字符串来设置[区域性和 UI 区域性](https://msdn.microsoft.com/library/system.globalization.cultureinfo.aspx)。 对于使用 cookie 或接受语言标头方法的应用程序，向 URL 添加查询字符串可用于调试和测试代码。 默认情况下，`QueryStringRequestCultureProvider`注册为第一个本地化提供程序在`RequestCultureProvider`列表。 将查询字符串参数`culture`和`ui-culture`。 下面的示例设置西班牙语/墨西哥的特定区域性 （语言和区域）：
 
    `http://localhost:5000/?culture=es-MX&ui-culture=es-MX`
 
@@ -303,7 +303,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 本地化你的应用程序的过程还要求通常在现代软件开发中使用的字符集相关的一个基本的了解并与之关联的问题的了解。 尽管所有计算机将文本都存储为数字 （代码），不同的系统都存储使用不同数量的相同文本。 在本地化过程是指转换特定区域性或区域设置的应用程序用户界面 (UI)。
 
-[可本地化性](https://msdn.microsoft.com/library/aa292135(v=vs.71).aspx)是中间的过程，用于验证的全球化的应用是否准备好进行本地化。
+[可本地化性](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review)是中间的过程，用于验证的全球化的应用是否准备好进行本地化。
 
 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)设置格式的区域性名称为"<languagecode2>-< country/regioncode2 >"，其中<languagecode2>是语言代码，< country/regioncode2 > 是子区域性代码。 例如，`es-CL`为西班牙语 （智利）`en-US`为英语 （美国） 和`en-AU`以表示英语 （澳大利亚）。 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)是两个字母小写区域性代码与语言相关 ISO 639 和两个字母大写子区域性代码关联的国家或地区与 ISO 3166 的组合。  请参阅[语言区域性名称](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx)。
 
@@ -322,5 +322,5 @@ services.Configure<RequestLocalizationOptions>(options =>
 ## <a name="additional-resources"></a>其他资源
 
 * [Localization.StarterWeb 项目](https://github.com/aspnet/entropy)文章中使用。
-* [Visual Studio 中的资源文件](https://msdn.microsoft.com/library/xbx3z216(v=vs.110).aspx#VSResFiles)
-* [.Resx 文件中的资源](https://msdn.microsoft.com/library/xbx3z216(v=vs.110).aspx#ResourcesFiles)
+* [Visual Studio 中的资源文件](https://docs.microsoft.com/cpp/windows/resource-files-visual-studio)
+* [.Resx 文件中的资源](https://docs.microsoft.com/dotnet/framework/resources/working-with-resx-files-programmatically)

@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4124f71f30b758d82a6bf641328a8d5abf779f2
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 50c3085c28be4e6ddc4a732aba489ce871ab9ab1
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET 核心模块简介
 
-通过[Tom Dykstra](http://github.com/tdykstra)， [Rick Strahl](https://github.com/RickStrahl)，和[Chris 跨](https://github.com/Tratcher) 
+通过[Tom Dykstra](https://github.com/tdykstra)， [Rick Strahl](https://github.com/RickStrahl)，和[Chris 跨](https://github.com/Tratcher) 
 
 ASP.NET 核心模块 (ANCM) 允许您在 IIS 中，后面的应用程序中运行 ASP.NET 核心的很好地 （安全、 可管理性，还有很多） 使用 IIS 和使用[Kestrel](kestrel.md)为很好地 （在非常短），并获取从一次这两种技术的优势。 **ANCM 仅适用于 Kestrel;它与不兼容 WebListener (在 ASP.NET Core 1.x) 或 HTTP.sys （在 2.x)。** 
 
@@ -62,11 +62,11 @@ ASP.NET 核心模块必须安装在 IIS 服务器上和在 IIS Express 在开发
 
 ### <a name="install-the-iisintegration-nuget-package"></a>安装 IISIntegration NuGet 包
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/)包包含在 ASP.NET Core metapackages ([Microsoft.AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore/)和[Microsoft.AspNetCore.All](xref:fundamentals/metapackage)). 如果不使用 metapackages 之一时，安装`Microsoft.AspNetCore.Server.IISIntegration`单独。 `IISIntegration`包是读取广播 ANCM 设置你的应用程序通过环境变量的互操作性包。 环境变量提供配置信息，例如要侦听的端口。 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 在你的应用程序，安装[Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/)。 `IISIntegration`包是读取广播 ANCM 设置你的应用程序通过环境变量的互操作性包。 环境变量提供配置信息，例如要侦听的端口。 
 
@@ -74,13 +74,13 @@ ASP.NET 核心模块必须安装在 IIS 服务器上和在 IIS Express 在开发
 
 ### <a name="call-useiisintegration"></a>调用 UseIISIntegration
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 `UseIISIntegration`上的扩展方法[ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder)使用 IIS 运行时自动调用。
 
 如果你不使用 ASP.NET Core metapackages 之一，但尚未安装`Microsoft.AspNetCore.Server.IISIntegration`包，则会收到运行时错误。 如果调用`UseIISIntegration`显式，获取一个编译时错误，如果未安装此包。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 应用程序中`Main`方法中，调用`UseIISIntegration`上的扩展方法[ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder)。 
 
@@ -92,11 +92,11 @@ ASP.NET 核心模块必须安装在 IIS 服务器上和在 IIS Express 在开发
 
 ### <a name="ancm-port-binding-overrides-other-port-bindings"></a>ANCM 端口绑定将替代其他端口绑定
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ANCM 生成要分配给后端进程的动态端口。 `UseIISIntegration`方法拾取此动态端口，并配置要侦听的 Kestrel `http://locahost:{dynamicPort}/`。 此设置将替代其他 URL 配置，如调用到`UseUrls`或[Kestrel 的侦听 API](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration)。 因此，你不必调用`UseUrls`或 Kestrel 的`Listen`API 使用 ANCM 时。 如果调用`UseUrls`或`Listen`，Kestrel 在运行不含 IIS 应用程序时指定的端口上侦听。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ANCM 生成要分配给后端进程的动态端口。 `UseIISIntegration`方法拾取此动态端口，并配置要侦听的 Kestrel `http://locahost:{dynamicPort}/`。 此设置将替代其他 URL 配置，如调用到`UseUrls`。 因此，你不必调用`UseUrls`当你使用 ANCM。 如果调用`UseUrls`，Kestrel 在运行不含 IIS 应用程序时指定的端口上侦听。
 
@@ -118,5 +118,5 @@ ASP.NET 核心模块的配置存储在*Web.config*位于应用程序的根文件
 
 * [本文的示例应用](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)
 * [ASP.NET 核心模块的源代码](https://github.com/aspnet/AspNetCoreModule)
-* [ASP.NET 核心模块配置参考](../../hosting/aspnet-core-module.md)
+* [ASP.NET Core 模块配置参考](../../hosting/aspnet-core-module.md)
 * [发布到 IIS](../../publishing/iis.md)

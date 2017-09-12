@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 300e90912a03980d1dcde2edaf34677d80cab136
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 0dbe5e3567bb4feea7e56cff3dcf75be5df88310
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>用于创建具有 ASP.NET Core 的单页面应用程序使用 JavaScriptServices
 
@@ -33,9 +33,9 @@ ms.lasthandoff: 08/11/2017
 JavaScriptServices 是 ASP.NET Core 的客户端技术的集合。 其目标是将 ASP.NET Core 定位为开发人员的首选服务器端平台，用于构建 Spa。
 
 JavaScriptServices 包含三个不同的 NuGet 包：
-* [Microsoft.AspNetCore.NodeServices](http://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
-* [Microsoft.AspNetCore.SpaServices](http://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
-* [Microsoft.AspNetCore.SpaTemplates](http://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
+* [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
+* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
+* [Microsoft.AspNetCore.SpaTemplates](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
 
 这些包的作用是如果你：
 * 在服务器上运行 JavaScript
@@ -75,7 +75,7 @@ SpaServices 提供有用的基础结构，如所示：
 * [.NET 核心 SDK](https://www.microsoft.com/net/download/core) 1.0 （或更高版本）
     * 如果你在 Windows 上，这可以安装通过选择 Visual Studio 2017 **.NET 核心跨平台开发**工作负荷。
 
-* [Microsoft.AspNetCore.SpaServices](http://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet 包
+* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet 包
 
 <a name="server-prerendering"></a>
 
@@ -87,7 +87,7 @@ ASP.NET 核心[标记帮助程序](xref:mvc/views/tag-helpers/intro)由 SpaServi
 
 ### <a name="prerequisites"></a>先决条件
 
-安装以下项：
+安装以下组件：
 * [aspnet 预呈现](https://www.npmjs.com/package/aspnet-prerendering)npm 包：
 
     ```console
@@ -144,7 +144,7 @@ ASP.NET 核心[标记帮助程序](xref:mvc/views/tag-helpers/intro)由 SpaServi
 
 ### <a name="prerequisites"></a>先决条件
 
-安装以下项：
+安装以下组件：
 * [aspnet webpack](https://www.npmjs.com/package/aspnet-webpack) npm 包：
 
     ```console
@@ -171,7 +171,7 @@ Webpack 开发人员中间件注册到中的以下代码通过 HTTP 请求管道
 
 ### <a name="prerequisites"></a>先决条件
 
-安装以下项：
+安装以下组件：
 * [webpack 热 middleware](https://www.npmjs.com/package/webpack-hot-middleware) npm 包：
 
     ```console
@@ -208,7 +208,7 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 
 ### <a name="prerequisites"></a>先决条件
 
-安装以下项：
+安装以下组件：
 * 客户端路由 npm 包。 使用角作为示例：
 
     ```console

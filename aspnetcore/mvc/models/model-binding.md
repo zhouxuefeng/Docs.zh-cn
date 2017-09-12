@@ -2,7 +2,7 @@
 title: "模型绑定"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 930ea062ffb914cbd4f1500308b813167c1f601b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 597d4058a410e0b5991b1d5a74c9fc7bfe8171b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="model-binding"></a>模型绑定
 
-通过[Rachel Appel](http://github.com/rachelappel)
+通过[Rachel Appel](https://github.com/rachelappel)
 
 ## <a name="introduction-to-model-binding"></a>模型绑定简介
 
@@ -103,7 +103,7 @@ MVC 包含某些特性，可用于将定向到不同的源其默认模型绑定�
 > 可以有最多一个参数，每个操作使用修饰`[FromBody]`。 ASP.NET 核心 MVC 运行时委托责任的格式化程序读取请求流。 一旦参数读取请求流，它通常不是可以读取请求流再次为其他绑定`[FromBody]`参数。
 
 > [!NOTE]
-> `JsonInputFormatter`是默认的格式化程序和基于[Json.NET](http://www.newtonsoft.com/json)。
+> `JsonInputFormatter`是默认的格式化程序和基于[Json.NET](https://www.newtonsoft.com/json)。
 
 ASP.NET 选择基于输入格式化程序[内容类型](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html)标头和类型的参数，除非没有应用于它否则指定的特性。 如果你想要使用的 XML 或另一种格式必须配置在*Startup.cs*文件，但你可能会首先必须获取对引用`Microsoft.AspNetCore.Mvc.Formatters.Xml`使用 NuGet。 启动代码应如下所示：
 

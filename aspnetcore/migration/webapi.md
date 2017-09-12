@@ -2,7 +2,7 @@
 title: "从 ASP.NET Web API 迁移"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 4f0564b4-ed4e-4e1e-9755-c1144d21a0ef
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/webapi
-ms.openlocfilehash: 55125e711a8b04f5a363ba965ab2223da02aab78
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2dd2d40aef3803ad2f75504920a1174fee5c2444
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-from-aspnet-web-api"></a>从 ASP.NET Web API 迁移
 
-通过[Steve Smith](http://ardalis.com)和[Scott Addie](https://scottaddie.com)
+通过[Steve Smith](https://ardalis.com/)和[Scott Addie](https://scottaddie.com)
 
 Web Api 是覆盖广泛的客户端，包括浏览器和移动设备的 HTTP 服务。 ASP.NET 核心 MVC 包括用于构建提供构建 web 应用程序的单个、 一致的方式的 Web Api 的支持。 在本文中，我们将演示将从 ASP.NET Web API 的 Web API 实现迁移到 ASP.NET 核心 MVC 所需的步骤。
 
@@ -27,7 +27,7 @@ Web Api 是覆盖广泛的客户端，包括浏览器和移动设备的 HTTP 服
 
 ## <a name="review-aspnet-web-api-project"></a>检查 ASP.NET Web API 项目
 
-本文章将使用示例项目中， *ProductsApp*文章中创建[Getting Started with ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)作为其起点。 在该项目中，一个简单的 ASP.NET Web API 项目，如下所示配置。
+本文章将使用示例项目中， *ProductsApp*文章中创建[Getting Started with ASP.NET Web API](https://docs.microsoft.com/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)作为其起点。 在该项目中，一个简单的 ASP.NET Web API 项目，如下所示配置。
 
 在*Global.asax.cs*，调用了`WebApiConfig.Register`:
 
@@ -38,7 +38,7 @@ Web Api 是覆盖广泛的客户端，包括浏览器和移动设备的 HTTP 服
 [!code-csharp[Main](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
-此类配置[的属性路由](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)，不过它实际上并没有用于在项目中。 它还将配置由 ASP.NET Web API 的路由表。 在这种情况下，ASP.NET Web API 应 Url 以匹配格式*/api/ {controller} / {id}*，与*{id}*正在可选。
+此类配置[的属性路由](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)，不过它实际上并没有用于在项目中。 它还将配置由 ASP.NET Web API 的路由表。 在这种情况下，ASP.NET Web API 应 Url 以匹配格式*/api/ {controller} / {id}*，与*{id}*正在可选。
 
 *ProductsApp*项目包括一个简单的控制器，它继承自`ApiController`和公开两个方法：
 

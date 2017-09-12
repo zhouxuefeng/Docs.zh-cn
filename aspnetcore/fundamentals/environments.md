@@ -11,15 +11,15 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 5e41920c9745f903d33fa25922727e920c1efc26
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: 8f8612fd9c92370d9b0a86572dca654a6a034916
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="working-with-multiple-environments"></a>使用多个环境
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 ASP.NET Core 提供用于跨多个环境，如开发、 过渡和生产控制应用行为的支持。 使用环境变量以指示运行时环境中，允许应用程序配置为该环境。
 
@@ -27,7 +27,7 @@ ASP.NET Core 提供用于跨多个环境，如开发、 过渡和生产控制应
 
 ## <a name="development-staging-production"></a>开发，暂存生产
 
-ASP.NET 核心引用特定[环境变量](https://github.com/aspnet/Home/wiki/Environment-Variables)，`ASPNETCORE_ENVIRONMENT`来描述中当前运行应用程序的环境。 可以设置此变量您喜欢的任何值，而三个值由约定： `Development`， `Staging`，和`Production`。 你会发现以下示例中使用的值和 ASP.NET Core 提供模板。
+ASP.NET 核心引用特定[环境变量](https://github.com/aspnet/Home/wiki)，`ASPNETCORE_ENVIRONMENT`来描述中当前运行应用程序的环境。 可以设置此变量您喜欢的任何值，而三个值由约定： `Development`， `Staging`，和`Production`。 你会发现以下示例中使用的值和 ASP.NET Core 提供模板。
 
 当前的环境设置可以检测到以编程方式从应用程序中。 此外，你可以使用环境[标记帮助器](../mvc/views/tag-helpers/index.md)包括中的某些部分你[视图](../mvc/views/index.md)基于当前的应用程序环境。
 

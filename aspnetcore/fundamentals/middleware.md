@@ -11,17 +11,17 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 84c357ebbf28dffc4382f6c648921210e72ac854
-ms.sourcegitcommit: 26166785ad181a8519cb008800d71d96499b0499
+ms.openlocfilehash: 80e27c94b3c60a181c45f8e006126a7e7dd3d425
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET 核心中间件基础知识
 
 <a name=fundamentals-middleware></a>
 
-通过[Rick Anderson](https://twitter.com/RickAndMSFT)和[Steve Smith](http://ardalis.com)
+通过[Rick Anderson](https://twitter.com/RickAndMSFT)和[Steve Smith](https://ardalis.com/)
 
 [查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)
 
@@ -228,6 +228,6 @@ public class MyMiddleware
 ## <a name="resources"></a>资源
 
 * [在本文档中使用的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)
-* [迁移 HTTP 模块到中间件](../migration/http-modules.md)
+* [将 HTTP 模块迁移到中间件](../migration/http-modules.md)
 * [应用程序启动](startup.md)
 * [请求功能](request-features.md)

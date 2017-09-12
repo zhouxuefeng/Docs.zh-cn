@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/community
-ms.openlocfilehash: 162544dbf370e0516df1aea1c5ed049de9a62c97
-ms.sourcegitcommit: 8d39e02aa2c416b880646f807a2baf41d6296bcf
+ms.openlocfilehash: 4900e34a2f8036bb997dd368a921c79410f77a33
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="community-oss-authentication-options"></a>社区 OSS 身份验证选项
 
@@ -31,4 +31,4 @@ ms.lasthandoff: 08/25/2017
 | [OpenIddict](https://github.com/openiddict/openiddict-core) | 能够轻松使用 ASP.NET Core 的 OpenID Connect 服务器  |
 | [PwdLess](https://github.com/pwdless/pwdless) | 有关 ASP.NET 核心的简单的、 无状态的不需要密码身份验证  |
 
-若要获取你在此处添加的提供商[编辑此页](https://github.com/aspnet/Docs/edit/master/aspnetcore/security/authentication/community.md)。
+若要获取你在此处添加的提供商[编辑此页](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Faspnet%2FDocs%2Fedit%2Fmaster%2Faspnetcore%2Fsecurity%2Fauthentication%2Fcommunity.md)。

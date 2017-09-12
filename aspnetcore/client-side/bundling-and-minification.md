@@ -11,11 +11,11 @@ ms.assetid: d54230f9-8e5f-4861-a29c-1d3a14e0b0d9
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 810d89798330aeb1c387ec85eb05b1f4efde167a
-ms.sourcegitcommit: 275a5381b6172b4f0b5fcd1d252aff03d3dae166
+ms.openlocfilehash: d8512bdd49b61019f22a49900bdd65086d821a6b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="bundling-and-minification-in-aspnet-core"></a>绑定和缩减中 ASP.NET 核心
 
@@ -91,8 +91,8 @@ MVC 项目模板提供`bundleconfig.json`配置文件用于定义每个捆绑包
 * minify-输出的缩减选项键入。 **可选**，*默认值-`minify: { enabled: true }`*
   * 每个输出文件类型有配置选项。
     * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/jsminifier)
-    * [HTML Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/htmlminifier)
+    * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [HTML Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
 * includeInProject-将生成的文件添加到项目文件。 **可选**，*默认-false*
 * sourceMaps-生成捆绑的文件的源映射。 **可选**，*默认-false*
 

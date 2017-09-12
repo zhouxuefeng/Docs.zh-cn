@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05ea4d5f0a0be08cbbdd114320d3544aae054dd2
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: bd617a99ad348c545cbf50f6aa461ca8f456d3a8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>在 ASP.NET 核心中使用 Gulp 简介 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/11/2017
 * 小于编译或 SASS 文件复制到 CSS。
 * 编译 CoffeeScript 或 TypeScript 文件添加到 JavaScript。
 
-A*任务运行程序*是一种工具，可以自动进行这些例程开发任务和的详细信息。 Visual Studio 为两个流行的基于 JavaScript 的任务流道提供内置支持： [Gulp](http://gulpjs.com)和[Grunt](using-grunt.md)。
+A*任务运行程序*是一种工具，可以自动进行这些例程开发任务和的详细信息。 Visual Studio 为两个流行的基于 JavaScript 的任务流道提供内置支持： [Gulp](https://gulpjs.com/)和[Grunt](using-grunt.md)。
 
 ## <a name="gulp"></a>Gulp
 
@@ -266,7 +266,7 @@ IntelliSense 提供了代码完成、 参数说明和其他功能来提高工作
 
 ![IntelliSense 的 gulp](using-gulp/_static/08-IntelliSense.png)
 
-Intellisense 的详细信息，请参阅[JavaScript IntelliSense](https://msdn.microsoft.com/library/bb385682)。
+Intellisense 的详细信息，请参阅[JavaScript IntelliSense](https://docs.microsoft.com/visualstudio/ide/javascript-intellisense)。
 
 ## <a name="development-staging-and-production-environments"></a>开发、 过渡和生产环境
 

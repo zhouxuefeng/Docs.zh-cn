@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 735c53ab8a01d995c4945a95705ee9adb2fcdf02
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 05a92c4eee6b26e49831c11e1251aedba87ed717
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL 重写在 ASP.NET 核心中的中间件
 
@@ -62,11 +62,11 @@ A *URL 重写*是服务器端操作，以提供来自不同资源地址的资源
 ## <a name="extension-and-options"></a>扩展和选项
 建立 URL 重写，并将规则重定向通过创建的实例`RewriteOptions`类使用的每个规则的扩展方法。 链接你想要处理它们的顺序中的多个规则。 `RewriteOptions`如将其添加到请求管道与传递到该 URL 重写中间件`app.UseRewriter(options);`。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1)]
 
@@ -75,11 +75,11 @@ A *URL 重写*是服务器端操作，以提供来自不同资源地址的资源
 ### <a name="url-redirect"></a>URL 重定向
 使用`AddRedirect`将请求重定向。 第一个参数包含为匹配的路径中的传入 URL 你正则表达式。 第二个参数是替换字符串。 第三个参数，如果存在，则指定的状态代码。 如果未指定的状态代码，则默认为 302 （找到），指示该资源暂时移动或替换。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=2)]
 
@@ -122,11 +122,11 @@ app.UseRewriter(options);
 ### <a name="url-rewrite"></a>URL 重写
 使用`AddRewrite`创建用于 Url 重写规则。 第一个参数将包含有关在传入的 URL 路径匹配你正则表达式。 第二个参数是替换字符串。 第三个参数， `skipRemainingRules: {true|false}`，是否要跳过其他重写规则，如果在应用的当前规则指示该中间件。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=6)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=3)]
 
@@ -166,13 +166,13 @@ app.UseRewriter(options);
 ### <a name="apache-modrewrite"></a>Apache mod_rewrite
 应用与 Apache mod_rewrite 规则`AddApacheModRewrite`。 请确保规则将文件部署的应用程序。 有关详细信息和 mod_rewrite 规则的示例，请参阅[Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/)。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 A`StreamReader`用于读取从规则*ApacheModRewrite.txt*规则文件。
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=1,7)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 第一个参数的取值应`IFileProvider`，这可通过提供[依赖关系注入](dependency-injection.md)。 `IHostingEnvironment`注入提供`ContentRootFileProvider`。 第二个参数是你的规则文件，即路径*ApacheModRewrite.txt*示例应用中。
 
@@ -221,15 +221,15 @@ A`StreamReader`用于读取从规则*ApacheModRewrite.txt*规则文件。
 * TIME_YEAR
 
 ### <a name="iis-url-rewrite-module-rules"></a>IIS URL 重写模块规则
-若要使用适用于 IIS URL 重写模块的规则，请使用`AddIISUrlRewrite`。 请确保规则将文件部署的应用程序。 不直接使用的中间件你*web.config*文件在 Windows Server IIS 上运行时。 使用 IIS，这些规则应存储之外你*web.config*以避免与 IIS 重写模块冲突。 有关详细信息和 IIS URL 重写模块规则的示例，请参阅[使用 Url 重写模块 2.0](https://www.iis.net/learn/extensions/url-rewrite-module/using-url-rewrite-module-20)和[URL 重写模块配置引用](https://www.iis.net/learn/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)。
+若要使用适用于 IIS URL 重写模块的规则，请使用`AddIISUrlRewrite`。 请确保规则将文件部署的应用程序。 不直接使用的中间件你*web.config*文件在 Windows Server IIS 上运行时。 使用 IIS，这些规则应存储之外你*web.config*以避免与 IIS 重写模块冲突。 有关详细信息和 IIS URL 重写模块规则的示例，请参阅[使用 Url 重写模块 2.0](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20)和[URL 重写模块配置引用](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 A`StreamReader`用于读取从规则*IISUrlRewrite.xml*规则文件。
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=2,8)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 第一个参数的取值应`IFileProvider`，而第二个参数是将 XML 规则文件，即路径*IISUrlRewrite.xml*示例应用中。
 
@@ -249,7 +249,7 @@ A`StreamReader`用于读取从规则*IISUrlRewrite.xml*规则文件。
 
 #### <a name="unsupported-features"></a>不支持的功能
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 发布的中间件与 ASP.NET 核心 2.x 不支持以下 IIS URL 重写模块功能：
 * 出站规则
@@ -257,7 +257,7 @@ A`StreamReader`用于读取从规则*IISUrlRewrite.xml*规则文件。
 * 通配符
 * LogRewrittenUrl
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 发布的中间件与 ASP.NET 核心 1.x 不支持以下 IIS URL 重写模块功能：
 * 全局规则
@@ -305,11 +305,11 @@ A`StreamReader`用于读取从规则*IISUrlRewrite.xml*规则文件。
 | `RuleResult.EndResponse`             | 停止应用规则和发送响应                       |
 | `RuleResult.SkipRemainingRules`      | 停止应用规则并将上下文发送到下一步的中间件 |
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=6)]
 
@@ -317,11 +317,11 @@ A`StreamReader`用于读取从规则*IISUrlRewrite.xml*规则文件。
 
 示例应用演示的方法，将路径的请求重定向结束的*.xml*。 如果发出请求`/file.xml`，重定向到`/xmlfiles/file.xml`。 状态代码设置为 301 （永久移动）。 有关重定向，你必须显式设置响应; 的状态代码否则为返回 200 （正常） 状态代码和重定向不会发生客户端上。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet2)]
 
@@ -334,11 +334,11 @@ A`StreamReader`用于读取从规则*IISUrlRewrite.xml*规则文件。
 ### <a name="irule-based-rule"></a>基于 IRule 的规则
 使用`Add(IRule)`派生自的类中实现您自己的规则逻辑`IRule`。 使用`IRule`基础上使用基于方法的规则方法提供了更大的灵活性。 在派生的类可能包括构造函数，其中你可以传入的参数`ApplyRule`方法。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=10-11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=7-8)]
 
@@ -346,11 +346,11 @@ A`StreamReader`用于读取从规则*IISUrlRewrite.xml*规则文件。
 
 示例应用程序中的参数的值`extension`和`newPath`会检查，以满足几个条件。 `extension`必须包含一个值，和的值必须为*.png*， *.jpg*，或*.gif*。 如果`newPath`无效，`ArgumentException`引发。 如果发出请求*image.png*，重定向到`/png-images/image.png`。 如果发出请求*image.jpg*，重定向到`/jpg-images/image.jpg`。 状态代码设置为 301 （永久移动），和`context.Result`设置为停止处理规则和发送响应。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet2)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/RewriteRule.cs?name=snippet1)]
 
@@ -381,8 +381,8 @@ A`StreamReader`用于读取从规则*IISUrlRewrite.xml*规则文件。
 * [.NET 中的正则表达式](/dotnet/articles/standard/base-types/regular-expressions)
 * [正则表达式语言 - 快速参考](/dotnet/articles/standard/base-types/quick-ref)
 * [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/)
-* [用于 Url 重写模块 2.0 （IIS)](https://www.iis.net/learn/extensions/url-rewrite-module/using-url-rewrite-module-20)
-* [URL 重写模块配置参考](https://www.iis.net/learn/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
+* [用于 Url 重写模块 2.0 （IIS)](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20)
+* [URL 重写模块配置参考](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
 * [IIS URL 重写模块论坛](https://forums.iis.net/1152.aspx)
 * [保持简单 URL 结构](https://support.google.com/webmasters/answer/76329?hl=en)
 * [10 URL 重写提示和技巧](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/)

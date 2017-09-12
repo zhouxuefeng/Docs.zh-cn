@@ -11,15 +11,15 @@ ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: d30af6edc31fbce2ebb77c57be3fd78231c54b50
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 02018299c9bd1d194c2c70c14f518786e803d572
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>在 ASP.NET Core 中测试的集成
 
-通过[Steve Smith](http://ardalis.com)
+通过[Steve Smith](https://ardalis.com/)
 
 集成测试可确保应用程序的组件组合在一起时正常工作。 ASP.NET 核心支持的集成测试使用单元测试框架和内置测试 web 宿主可以用于处理请求而无需网络开销。
 
@@ -130,7 +130,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 此重构，以下确信，web 应用程序仍然正常工作和前面一样，因为所有通过集成测试。
 
 > [!NOTE]
-> 它是一个好办法之后完成重构，你的测试都通过将所做的更改提交到源代码管理。 如果您一起练习测试驱动开发，[考虑向你红-绿-重构循环添加提交](http://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development)。
+> 它是一个好办法之后完成重构，你的测试都通过将所做的更改提交到源代码管理。 如果您一起练习测试驱动开发，[考虑向你红-绿-重构循环添加提交](https://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development)。
 
 ## <a name="resources"></a>资源
 

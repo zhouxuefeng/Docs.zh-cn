@@ -9,15 +9,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: 466453bff68f3e0da8b90924edb13095c7548db5
-ms.sourcegitcommit: 4f075f2c22c5a4b5345ffa759be4365824110788
+ms.openlocfilehash: 3c0f90dd9894c362c0d7fef5d1f1da076991605c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>阻止在 ASP.NET 核心中的跨网站请求伪造 (XSRF/CSRF) 攻击
 
-[Steve Smith](http://ardalis.com/)， [Fiyaz Hasan](https://twitter.com/FiyazBinHasan)，和[Rick Anderson](https://twitter.com/RickAndMSFT)
+[Steve Smith](https://ardalis.com/)， [Fiyaz Hasan](https://twitter.com/FiyazBinHasan)，和[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>防伪阻止哪些攻击？
 
@@ -354,7 +354,7 @@ CSRF 攻击依赖于发送与每个请求都会到该域的域关联的 cookie �
 
 ### <a name="user-tokens"></a>用户令牌
 
-基于令牌的身份验证不存储在服务器上的会话。 相反，当用户登录时它们颁发一个令牌 （不 antiforgery 令牌）。 此令牌包含验证令牌所需的所有数据。 它还包含用户信息，请在窗体的[声明](https://msdn.microsoft.com/library/ff359101.aspx)。 当用户想要访问要求进行身份验证的服务器资源时，令牌将发送至的其他授权标头中的持有者 {令牌} 形式的服务器。 这使得应用程序无状态，因为在每个后续请求令牌中传递请求服务器端验证。 此令牌不是*加密*; 而是*编码*。 服务器端都可以解码令牌来访问令牌中的原始信息。 若要在后续请求中发送令牌，则可以或者将其存储在浏览器的本地存储中或在一个 cookie。 你无需担心 XSRF 漏洞，如果你的令牌存储在本地存储中，但当的令牌存储在一个 cookie，它会成为问题。
+基于令牌的身份验证不存储在服务器上的会话。 相反，当用户登录时它们颁发一个令牌 （不 antiforgery 令牌）。 此令牌包含验证令牌所需的所有数据。 它还包含用户信息，请在窗体的[声明](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model)。 当用户想要访问要求进行身份验证的服务器资源时，令牌将发送至的其他授权标头中的持有者 {令牌} 形式的服务器。 这使得应用程序无状态，因为在每个后续请求令牌中传递请求服务器端验证。 此令牌不是*加密*; 而是*编码*。 服务器端都可以解码令牌来访问令牌中的原始信息。 若要在后续请求中发送令牌，则可以或者将其存储在浏览器的本地存储中或在一个 cookie。 你无需担心 XSRF 漏洞，如果你的令牌存储在本地存储中，但当的令牌存储在一个 cookie，它会成为问题。
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>在一个域中托管多个应用程序
 

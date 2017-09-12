@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bdc93b2c06b7f0314b5bf49e0e3ea5aa3c1eb3cf
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8b451bde1e3180d12781d55113638cc1a99182c8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>简介中 ASP.NET Core 的会话和应用程序状态
 
-通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Steve Smith](http://ardalis.com)，和[Diana LaRose](https://github.com/DianaLaRose)
+通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Steve Smith](https://ardalis.com/)，和[Diana LaRose](https://github.com/DianaLaRose)
 
 HTTP 是无状态的协议。 Web 服务器将每个 HTTP 请求作为独立的请求，并不会保留用户从以前的请求的值。 本文讨论保留应用程序和请求之间的会话状态的不同方式。 
 
@@ -42,7 +42,7 @@ ASP.NET 核心通过提供包含会话 ID，它使用每个请求向服务器发
 <a name="temp"></a>
 ### <a name="tempdata"></a>TempData
 
-ASP.NET 核心 MVC 公开[TempData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller#Microsoft_AspNetCore_Mvc_Controller_TempData)属性[控制器](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)。 此属性存储数据，直到读取它。 `Keep`和`Peek`方法可以用于检查而无需删除数据。 `TempData`当超过单个请求所需要的数据，则很适合用于重定向。 `TempData`是基于会话状态。 
+ASP.NET 核心 MVC 公开[TempData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller#Microsoft_AspNetCore_Mvc_Controller_TempData)属性[控制器](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)。 此属性可存储数据，直至数据被读取。 `Keep` 和 `Peek` 方法可用于检查数据，而不执行删除。 `TempData`当超过单个请求所需要的数据，则很适合用于重定向。 `TempData`是基于会话状态。 
 
 ## <a name="cookie-based-tempdata-provider"></a>基于 cookie 的 TempData 提供程序 
 
@@ -58,7 +58,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-使用编码的 cookie 数据[Base64UrlTextEncoder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.authentication.base64urltextencoder)。 因为 cookie 被加密，并分块，一个 cookie 大小限制不适用于。 未压缩的 cookie 数据，因为压缩 encryped 数据会导致安全问题如[犯罪](https://en.wikipedia.org/wiki/CRIME_(security_exploit))和[违反](https://en.wikipedia.org/wiki/BREACH_(security_exploit))攻击。 基于 cookie 的 TempData 提供程序的详细信息，请参阅[CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs)。
+使用编码的 cookie 数据[Base64UrlTextEncoder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.authentication.base64urltextencoder)。 因为 cookie 被加密，并分块，一个 cookie 大小限制不适用于。 未压缩的 cookie 数据，因为压缩 encryped 数据会导致安全问题如[犯罪](https://wikipedia.org/wiki/CRIME_(security_exploit))和[违反](https://wikipedia.org/wiki/BREACH_(security_exploit))攻击。 基于 cookie 的 TempData 提供程序的详细信息，请参阅[CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs)。
 
 ### <a name="query-strings"></a>查询字符串
 

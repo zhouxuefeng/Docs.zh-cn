@@ -11,11 +11,11 @@ ms.assetid: f0930c68-4d17-4748-adbf-801e17601eb6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/index
-ms.openlocfilehash: d030b4f16727080488056c9cde48c31a14a166bf
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: df3c1f0c2768b89c3ea5dc901782170c530a542e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="hosting-and-deployment-overview-for-aspnet-core-apps"></a>ASP.NET Core 应用的托管和部署概述
 
@@ -57,7 +57,7 @@ ASP.NET Core 应用是一个控制台应用，在服务器启动时必须启动�
 
 除了将输出从 `dotnet publish` 复制到服务器以外，部署通常还需要其他任务。 例如，你可能想要在“发布”文件夹中包含其他文件，或者从文件夹中排除一些文件。 Visual Studio 使用 MSBuild 进行 Web 部署，用户可以自定义 MSBuild 以在部署期间执行其他任务。 有关详细信息，请参阅 [Visual Studio 中的发布配置文件](xref:publishing/web-publishing-vs)和[使用 MSBuild 和 Team Foundation Build](http://msbuildbook.com/) 一书。
 
-可以使用[发布 Web 功能](xref:tutorials/publish-to-azure-webapp-using-vs)或使用[内置 Git 支持](xref:publishing/azure-continuous-deployment)从 Visual Studio 直接部署到 Azure App Service。 Visual Studio Team Services 支持[对 Azure App Service 进行持续部署](https://www.visualstudio.com/en-us/docs/build/aspnet/core/quick-to-azure)。
+可以使用[发布 Web 功能](xref:tutorials/publish-to-azure-webapp-using-vs)或使用[内置 Git 支持](xref:publishing/azure-continuous-deployment)从 Visual Studio 直接部署到 Azure App Service。 Visual Studio Team Services 支持[对 Azure App Service 进行持续部署](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)。
 
 ## <a name="additional-resources"></a>其他资源
 

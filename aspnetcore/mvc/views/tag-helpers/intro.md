@@ -11,15 +11,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b1de37d93f5dca2d6b6be24c429b5971692e17e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 53a31ed8ca6ff24a19a33a56c3a896aa58cbb62a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>在 ASP.NET 核心中的标记帮助器简介 
 
-通过[Rick Anderson](https://twitter.com/RickAndMSFT)
+作者：[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>标记帮助器有哪些？
 
@@ -151,7 +151,7 @@ IntelliSense 语句结束允许您输入 tab 键完成语句的选定值：
 
 ![图像](intro/_static/labelaspfor2.png)
 
-你可以输入 Visual Studio *CompleteWord*快捷方式 (Ctrl + 空格键是[默认](https://msdn.microsoft.com/library/da5kh0wa.aspx)) 置于双引号 ("")，，您现在在 C# 中，就像你将 C# 类中一样。 IntelliSense 显示页面模型上的所有方法和属性。 方法和属性有该属性类型是因为`ModelExpression`。 在下图中，我将编辑`Register`视图中，因此`RegisterViewModel`可用。
+你可以输入 Visual Studio *CompleteWord*快捷方式 (Ctrl + 空格键是[默认](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio)在双引号 ("")，，您现在在 C# 中，就像你将 C# 类中一样。 IntelliSense 显示页面模型上的所有方法和属性。 方法和属性有该属性类型是因为`ModelExpression`。 在下图中，我将编辑`Register`视图中，因此`RegisterViewModel`可用。
 
 ![图像](intro/_static/intellemail.png)
 
@@ -169,7 +169,7 @@ IntelliSense 将列出的属性和方法可用于在页上的模型。 丰富智
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-在 (`@`) 符号通知 Razor 这是代码的开始位置。 下面的两个参数 ("FirstName"和"第一个名称:") 都是字符串，因此[IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx)无法提供帮助。 最后一个自变量：
+在 (`@`) 符号通知 Razor 这是代码的开始位置。 下面的两个参数 ("FirstName"和"第一个名称:") 都是字符串，因此[IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense)无法提供帮助。 最后一个自变量：
 
 ```html
 new {@class="caption"}
@@ -245,7 +245,7 @@ Visual Studio 编辑器可帮助您编写**所有**的寄存器窗体，而 Visu
 
 * Web 服务器控件使用的类型转换器将字符串转换为对象。 通过标记帮助程序，您可以以本机方式在 C# 中，因此无需进行类型转换。
 
-* Web 服务器控件使用[System.ComponentModel](https://msdn.microsoft.com/library/system.componentmodel%28v=vs.110%29.aspx)实现组件和控件的运行时和设计时行为。 `System.ComponentModel`包括基类和实现属性和类型转换器、 绑定到数据源，以及授权组件的接口。 相比之下，到标记帮助程序，通常派生自`TagHelper`，和`TagHelper`基类公开只有两种方法，`Process`和`ProcessAsync`。
+* Web 服务器控件使用[System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel)实现组件和控件的运行时和设计时行为。 `System.ComponentModel`包括基类和实现属性和类型转换器、 绑定到数据源，以及授权组件的接口。 相比之下，到标记帮助程序，通常派生自`TagHelper`，和`TagHelper`基类公开只有两种方法，`Process`和`ProcessAsync`。
 
 ## <a name="customizing-the-tag-helper-element-font"></a>自定义标记帮助器元素字体
 
