@@ -2,7 +2,7 @@
 title: "Microsoft 帐户外部登录设置"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 08/24/2017
@@ -11,11 +11,11 @@ ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: cc2d119ae2f7cf06ed0ea4b8a91fd8fa15804468
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: 70cbeea15199498c592307dccc125e60206dadbf
+ms.sourcegitcommit: b02db6da115e55140da91b67355aaf56aae1703f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="configuring-microsoft-account-authentication"></a>配置 Microsoft 帐户身份验证
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/08/2017
 
 * 对于此教程的目的，清除**指导安装程序**复选框。
 
-* 点击**创建**继续**注册**页：
+* 点击**创建**继续**注册**页。 提供**名称**并记下的值**应用程序 Id**，其中使用即`ClientId`教程后面：
 
 ![注册页](index/_static/MicrosoftDevAppReg.png)
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 09/08/2017
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 添加 Microsoft 帐户服务`ConfigureServices`中的方法*Startup.cs*文件：
 
@@ -92,7 +92,7 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 
 `AddAuthentication`方法仅应调用即可一次时添加多个身份验证提供程序。 对它的后续调用也可能会覆盖任何以前配置的[AuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions)属性。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 添加在 Microsoft 帐户中间件`Configure`中的方法*Startup.cs*文件：
 

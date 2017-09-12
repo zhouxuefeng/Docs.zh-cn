@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 5718336868f3ee5ab08162ae2bc885c695d19a1d
-ms.sourcegitcommit: f3366461010da37981cf7fc092b9b9613eb4ca89
+ms.openlocfilehash: 72802830660ddcf479e540de7cfc33a07c49dc23
+ms.sourcegitcommit: b02db6da115e55140da91b67355aaf56aae1703f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>在 ASP.NET Core 上的标识简介
 
@@ -38,7 +38,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
  
     ![“新建项目”对话框](identity/_static/01-mvc.png)
     
-    # <a name="net-core-clitabnetcore-cli"></a>[.NET 核心 CLI](#tab/netcore-cli)
+    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
     如果使用.NET 核心 CLI，创建新的项目使用``dotnet new mvc --auth Individual``。 这将创建一个新的项目与 Visual Studio 将创建相同的标识模板代码。
  
     创建的项目包含`Microsoft.AspNetCore.Identity.EntityFrameworkCore`包，其中将保持的标识数据和架构与 SQL Server 使用[实体框架核心](https://docs.efproject.net)。
@@ -48,19 +48,33 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
 2.  配置标识服务，并添加中的中间件`Startup`。
 
     标识服务添加到中的应用程序`ConfigureServices`中的方法`Startup`类：
- 
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=configureservices&highlight=7-9,13-34)]
+
+    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+    
+    [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
     
     这些服务都提供给应用程序通过[依赖关系注入](xref:fundamentals/dependency-injection)。
- 
+    
+    通过调用情况下，启用应用程序的标识`UseAuthentication`中`Configure`方法。 `UseAuthentication`添加了身份验证[中间件](xref:fundamentals/middleware)向请求管道。
+    
+    [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
+    
+    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+    
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-34)]
+    
+    这些服务都提供给应用程序通过[依赖关系注入](xref:fundamentals/dependency-injection)。
+    
     通过调用情况下，启用应用程序的标识`UseIdentity`中`Configure`方法。 `UseIdentity`添加了基于 cookie 的身份验证[中间件](xref:fundamentals/middleware)向请求管道。
- 
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=configure&highlight=21)]
- 
+        
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
+    
+    ---
+     
     有关进程的应用程序启动的详细信息，请参阅[应用程序启动](xref:fundamentals/startup)。
 
 3.  创建一个用户。
- 
+
     启动应用程序，然后单击**注册**链接。
 
     如果这是你要执行此操作的第一个时间，你可能需要运行迁移。 应用程序会提示您**应用迁移**:
@@ -76,7 +90,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
     
     当用户单击**注册**链接，``Register``上调用操作``AccountController``。 ``Register``操作通过调用创建用户`CreateAsync`上`_userManager`对象 (提供给``AccountController``通过依赖关系注入):
  
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=register&highlight=11)]
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
     如果已成功创建用户，用户记录通过调用``_signInManager.SignInAsync``。
 
@@ -86,7 +100,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
  
     用户可以通过单击登录**登录**链接顶部的站点，或可能的登录页导航它们，如果用户尝试访问要求获得授权的站点的一部分。 当用户提交的登录页中上, 窗体``AccountController````Login``调用操作。
 
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=login&highlight=13-14)]
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
     ``Login``操作调用``PasswordSignInAsync``上``_signInManager``对象 (提供给``AccountController``通过依赖关系注入)。
  
@@ -96,15 +110,23 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
  
     单击**注销**链接调用`LogOut`操作。
  
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=logout&highlight=7)]
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
  
     前面的代码调用上面`_signInManager.SignOutAsync`方法。 `SignOutAsync`方法清除在 cookie 中存储的用户的声明。
  
 6.  配置。
 
     标识具有一些你可以在应用程序的启动类中重写的默认行为。 不需要配置``IdentityOptions``如果你使用的默认行为。
- 
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=configureservices&highlight=13-34)]
+
+    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+    
+    [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
+    
+    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+    
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=13-34)]
+
+    ---
     
     有关如何配置标识的详细信息，请参阅[配置标识](xref:security/authentication/identity-configuration)。
     
@@ -112,7 +134,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
  
 7.  查看数据库。
 
-    如果你的应用使用 SQL Server 数据库 （默认在 Windows 上以及为 Visual Studio 用户），你可以查看数据库中创建的应用。 你可以使用**SQL Server Management Studio**。 或者，从 Visual Studio 中，选择**视图** -> **SQL Server 对象资源管理器**。 连接到**(localdb) \MSSQLLocalDB**。 名称匹配的数据库 **aspnet-<*的你的项目名称*>-<*日期字符串*> * * 显示。
+    如果你的应用使用 SQL Server 数据库 （默认在 Windows 上以及为 Visual Studio 用户），你可以查看数据库中创建的应用。 你可以使用**SQL Server Management Studio**。 或者，从 Visual Studio 中，选择**视图** -> **SQL Server 对象资源管理器**。 连接到**(localdb) \MSSQLLocalDB**。 名称匹配的数据库* *aspnet-<*的你的项目名称*>-<*日期字符串*> * * 显示。
 
     ![在 AspNetUsers 数据库表的上下文菜单](identity/_static/04-db.png)
     
@@ -136,7 +158,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
 
 ## <a name="next-steps"></a>后续步骤
 
-* [迁移的身份验证和标识](xref:migration/identity)
+* [迁移身份验证和标识](xref:migration/identity)
 * [帐户确认和密码恢复](xref:security/authentication/accconfirm)
-* [与 SMS 的双因素身份验证](xref:security/authentication/2fa)
-* [启用使用 Facebook、 Google 和其他外部提供程序的身份验证](xref:security/authentication/social/index)
+* [使用 SMS 进行双因素身份验证](xref:security/authentication/2fa)
+* [使用 Facebook、Google 和其他外部提供程序启用身份验证](xref:security/authentication/social/index)
