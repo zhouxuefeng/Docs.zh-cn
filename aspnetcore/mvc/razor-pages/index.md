@@ -1,20 +1,20 @@
 ---
 title: "ASP.NET Core 中的 Razor 页面介绍"
 author: Rick-Anderson
-description: "ASP.NET Core 中的 Razor 页面概述"
+description: "本文档提供有关使用 ASP.NET Core 中的 Razor 页面轻松开发聚焦于页的方案概述。"
 keywords: "ASP.NET Core, Razor 页面"
 ms.author: riande
 manager: wpickett
-ms.date: 08/15/2017
+ms.date: 09/12/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 543399d99af127f943f7e9119fb5d84c8c5bc499
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e9678279db85ec03616e693b9772c6ee71c4fef8
+ms.sourcegitcommit: d2f705f7a8ef2c1a940f590e4de188621fd48d2a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core 中的 Razor 页面介绍
 
@@ -30,7 +30,7 @@ Razor 页面是 ASP.NET Core MVC 的一个新功能，它可以使基于页面�
 
 安装 [.NET Core](https://www.microsoft.com/net/core) 2.0.0 或更高版本。
 
-若要使用 Visual Studio，则使用以下工作负载安装 [Visual Studio](https://www.visualstudio.com/vs/) 15.3 或更高版本：
+如果在使用 Visual Studio，请使用以下工作负载安装 [Visual Studio](https://www.visualstudio.com/vs/) 2017 版本 15.3 或更高版本：
 
 * **ASP.NET 和 Web 开发**
 * **.NET Core 跨平台开发**
@@ -63,15 +63,15 @@ Razor 页面是 ASP.NET Core MVC 的一个新功能，它可以使基于页面�
 
 Startup.cs 中已启用 Razor 页面：
 
-[!code-cs[main](index/sample/RazorPagesIntro/Startup.cs?name=Startup)]
+[!code-cs[main](index/sample/RazorPagesIntro/Startup.cs?name=snippet_Startup)]
 
 请考虑一个基本页面：<a name="OnGet"></a>
 
 [!code-cshtml[main](index/sample/RazorPagesIntro/Pages/Index.cshtml)]
 
-上述代码看上去类似于一个 Razor 视图文件。 不同之处在于 `@page` 指令。 `@page` 使文件转换为一个 MVC 操作 ，这意味着它将直接处理请求，而无需通过控制器处理。 `@page` 必须是页面上的第一个 Razor 指令。 `@page` 将影响其他 Razor 构造的行为。 [@functions](xref:mvc/views/razor#functions) 指令启用函数级内容。
+上述代码看上去类似于一个 Razor 视图文件。 不同之处在于 `@page` 指令。 `@page` 使文件转换为一个 MVC 操作 ，这意味着它将直接处理请求，而无需通过控制器处理。 `@page` 必须是页面上的第一个 Razor 指令。 `@page` 将影响其他 Razor 构造的行为。
 
-下面的两个文件显示了相似的页面，而此页面将 `PageModel` 置于单独的文件中。 Pages/Index2.cshtml 文件：
+将在以下两个文件中显示使用 `PageModel` 类的类似页面。 Pages/Index2.cshtml 文件：
 
 [!code-cshtml[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml)]
 
@@ -81,8 +81,6 @@ Pages/Index2.cshtml.cs“代码隐藏”文件：
 
 按照惯例，`PageModel` 类文件的名称与追加 .cs 的 Razor 页面文件名称相同。 例如，前面的 Razor 页面的名称为 Pages/Index2.cshtml。 包含 `PageModel` 类的文件的名称为 Pages/Index2.cshtml.cs。
 
-对于简单的页面，可以混合使用 `PageModel` 类和 Razor 标记。 对于更为复杂的代码，最好保持页面模型代码的独立性。
-
 页面的 URL 路径的关联由页面在文件系统中的位置决定。 下表显示了 Razor 页面路径及匹配的 URL：
 
 | 文件名和路径               | 匹配的 URL |
@@ -90,7 +88,7 @@ Pages/Index2.cshtml.cs“代码隐藏”文件：
 | */Pages/Index.cshtml* | `/` 或 `/Index` |
 | */Pages/Contact.cshtml* | `/Contact` |
 | */Pages/Store/Contact.cshtml* | `/Store/Contact` |
-| */Pages/Store/Index.cshtml* | `/Store` 或 `/Store/Index`  |
+| */Pages/Store/Index.cshtml* | `/Store` 或 `/Store/Index` |
 
 注意：
 
@@ -115,9 +113,9 @@ Pages/Create.cshtml 视图文件：
 
 Pages/Create.cshtml.cs 代码隐藏视图文件：
 
-[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=ALL)]
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_ALL)]
 
-按照惯例，`PageModel` 类称为 `<PageName>Model`并且它与页面位于同一个命名空间中。 从使用 `@functions` 定义处理程序的页面到使用 `PageModel` 类的页面无需转换很多更改。
+按照惯例，`PageModel` 类称为 `<PageName>Model`并且它与页面位于同一个命名空间中。
 
 使用 `PageModel` 代码隐藏文件支持单元测试，但是需要你编写显式构造函数和类。 未使用 `PageModel` 代码隐藏文件的页面支持运行时编译，这在开发过程中可以作为一种优势。  <!-- review: advantage because you can make changes and refresh the browser without explicitly compiling the app -->
 
@@ -130,7 +128,7 @@ Pages/Create.cshtml.cs 代码隐藏视图文件：
 
 之前的 `OnPostAsync` 方法：
 
-[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=OnPostAsync)]
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_OnPostAsync)]
 
 `OnPostAsync` 的基本流：
 
@@ -145,18 +143,9 @@ Pages/Create.cshtml.cs 代码隐藏视图文件：
 
 `Customer` 属性使用 `[BindProperty]` 特性来选择加入模型绑定。
 
-[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=PageModel&highlight=10-11)]
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
 默认情况下，Razor 页面只绑定带有非 GET 谓词的属性。 绑定属性可以减少需要编写的代码量。 绑定通过使用相同的属性显示窗体字段 (`<input asp-for="Customer.Name" />`) 来减少代码，并接受输入。
-
-下面的代码显示了合并后的创建页面版本：
-
-[!code-cshtml[main](index/sample/RazorPagesContacts/Pages/CreateCombined.cshtml)]
-
-我们将使用页面的一个新功能，而不使用 `@model`。 默认情况下，生成的 `Page` 派生类是模型。 结合使用视图模型和 Razor 视图是最佳做法。 借助页面，可以自动获取一个视图模型。
-
-主要的变化是将构造函数注入替换为注入的 (`@inject`) 属性。 此页面使用 [@inject](xref:mvc/views/razor#inject) 实现[构造函数依存关系注入](xref:mvc/controllers/dependency-injection#constructor-injection)。 `@inject` 声明生成并初始化 `OnPostAsync` 中使用的 `Db` 属性。 在处理程序方法运行前设置注入的 (`@inject`) 属性。
-
 
 主页 (Index.cshtml)：
 
@@ -168,7 +157,7 @@ Index.cshtml.cs 隐藏文件：
 
 Index.cshtml 文件包含以下标记来创建每个联系人项的编辑链接：
 
-```html
+```cshtml
 <a asp-page="./Edit" asp-route-id="@contact.Id">edit</a>
 ```
 
@@ -236,7 +225,7 @@ _ViewImports.cshtml 中包含 `@namespace` 指令后，指定的命名空间将�
 
 例如，代码隐藏文件 Pages/Customers/Edit.cshtml.cs 显式设置命名空间：
 
-[!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/Edit.cshtml.cs?name=namespace)]
+[!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/Edit.cshtml.cs?name=snippet_namespace)]
 
 Pages/_ViewImports.cshtml 文件设置以下命名空间：
 
@@ -250,9 +239,7 @@ Pages/_ViewImports.cshtml 文件设置以下命名空间：
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Create.cshtml?highlight=2)]
 
-更新后的页面：
-
-Pages/Create.cshtml 视图文件：
+更新后的 Pages/Create.cshtml 视图文件：
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/Customers/Create.cshtml?highlight=2)]
 
@@ -264,9 +251,9 @@ Pages/Create.cshtml 视图文件：
 
 之前显示的 `Create` 页面使用 `RedirectToPage`：
 
-[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=OnPostAsync&highlight=10)]
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_OnPostAsync&highlight=10)]
 
-应用包含以下文件/文件夹结构
+应用具有以下文件/文件夹结构：
 
 * /Pages
 
@@ -304,8 +291,9 @@ ASP.NET 在[控制器](https://docs.microsoft.com/aspnet/core/api/microsoft.aspn
 
 `[TempData]` 是 ASP.NET Core 2.0 中的新属性，在控制器和页面上受支持。
 
-下面的代码使用 `TempData` 设置 `Message` 的值。
-[!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateDot.cshtml.cs?highlight=10-11,27-28&name=snippetTemp)]
+下面的代码使用 `TempData` 设置 `Message` 的值：
+
+[!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateDot.cshtml.cs?highlight=10-11,25&name=snippet_Temp)]
 
 Pages/Customers/Index.cshtml 文件中的以下标记使用 `TempData` 显示 `Message` 的值。
 
@@ -349,7 +337,6 @@ public string Message { get; set; }
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateRoute.cshtml?highlight=1)]
 
-
 前面的路由将处理程序放在了 URL 路径中，而不是查询字符串中。 `handler` 前面的 `?` 表示路由参数为可选。
 
 可以使用 `@page` 将其他段和参数添加到页面的路由中。 其中的任何内容均会被追加到页面的默认路由中。 不支持使用绝对路径或虚拟路径更改页面的路由（例如 `"~/Some/Other/Path"`）。
@@ -358,7 +345,7 @@ public string Message { get; set; }
 
 若要配置高级选项，请在 MVC 生成器上使用 `AddRazorPagesOptions` 扩展方法：
 
-[!code-cs[main](index/sample/RazorPagesContacts/StartupAdvanced.cs?name=snippet1)]
+[!code-cs[main](index/sample/RazorPagesContacts/StartupAdvanced.cs?name=snippet_1)]
 
 目前，可以使用 `RazorPagesOptions` 设置页面的根目录，或者为页面添加应用程序模型约定。 我们希望将来可以通过这种方式实现更多扩展功能。
 
