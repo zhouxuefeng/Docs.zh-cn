@@ -2,7 +2,7 @@
 title: "启用跨源请求 (CORS)"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 05/17/2017
@@ -11,11 +11,11 @@ ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: 44936c6db8a003a61091ec9a7fd3be5786d89b5b
-ms.sourcegitcommit: 8cafdd1dd409d5070d227100ba0e094c779ac47b
+ms.openlocfilehash: e441ce1c50139a5b33865eec8e8d99764258730d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>启用跨源请求 (CORS)
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 08/28/2017
 
 浏览器安全阻止到另一个域进行 AJAX 请求 web 页。 此限制称为*同源策略*，，可防止恶意站点读取另一个站点中的敏感数据。 但是，有时你可能想要允许对你的 web API 进行的跨源请求其他站点。
 
-[跨域资源共享](http://www.w3.org/TR/cors/)(CORS) 是一种 W3C 标准，允许服务器放宽了同源策略。 使用 CORS，服务器可以显式允许某些跨源请求时拒绝其他人。 CORS 是更安全、 更灵活比早期技术如[JSONP](http://en.wikipedia.org/wiki/JSONP)。 本主题演示如何在 ASP.NET Core 应用程序中启用 CORS。
+[跨域资源共享](http://www.w3.org/TR/cors/)(CORS) 是一种 W3C 标准，允许服务器放宽了同源策略。 使用 CORS，服务器可以显式允许某些跨源请求时拒绝其他人。 CORS 是更安全、 更灵活比早期技术如[JSONP](https://wikipedia.org/wiki/JSONP)。 本主题演示如何在 ASP.NET Core 应用程序中启用 CORS。
 
 ## <a name="what-is-same-origin"></a>什么是"相同源"？
 

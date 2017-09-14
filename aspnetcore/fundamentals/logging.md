@@ -12,23 +12,23 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15abe93d881aed3b6950a859dc9445ec50ee9bb5
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>在 ASP.NET 核心中日志记录的简介
 
-通过[Steve Smith](http://ardalis.com)和[Tom Dykstra](https://github.com/tdykstra)
+通过[Steve Smith](https://ardalis.com/)和[Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET 核心支持适用于各种日志记录提供程序的日志记录 API。 内置提供程序允许你将日志发送到一个或多个目标，而第三方日志记录框架中，您可以插入。 这篇文章演示如何在代码中使用的内置日志记录 API 和提供程序。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample)
 
@@ -50,7 +50,7 @@ ASP.NET 核心不提供异步记录器方法因为日志记录应该速度较快
 
 ## <a name="how-to-add-providers"></a>如何添加提供程序
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 日志记录提供程序采用与创建的消息`ILogger`对象和显示或将其存储。 例如，控制台提供程序显示在控制台中，消息和 Azure 应用程序服务提供商可以将其存储在 Azure blob 存储。
 
@@ -62,7 +62,7 @@ ASP.NET 核心不提供异步记录器方法因为日志记录应该速度较快
 
 [!code-csharp[](logging/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 日志记录提供程序采用与创建的消息`ILogger`对象和显示或将其存储。 例如，控制台提供程序显示在控制台中，消息和 Azure 应用程序服务提供商可以将其存储在 Azure blob 存储。
 
@@ -213,7 +213,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 [!code-csharp[](logging/sample//Core/LoggingEvents.cs?name=snippet_LoggingEvents)]
 
-事件 ID 是一个整数值，可用于将一组记录的事件与另一个相关联。 例如的日志，以将项添加到购物车可能是事件 ID 1000，并且可能事件 ID 为 1001年的日志，以完成购买。
+事件 ID 是一个整数值，可用于将一组记录的事件与另一个相关联。 例如的日志，以将项添加到购物车可能是事件 ID 1000，并且可能事件 ID 为 1001年的日志，以完成购买。。
 
 在日志记录输出中，可能存储在一个字段或文本消息，具体取决于提供程序中包含的事件 ID。  调试提供程序不会显示事件 Id，但控制台提供程序在显示这些方括号分类之后：
 
@@ -244,7 +244,7 @@ _logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
 Parameter values: parm1, parm2
 ```
 
-日志记录框架进行消息中以使日志记录提供程序用来实现这种方式的格式设置[语义的日志记录，也称为结构化日志记录](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)。 因为参数本身传递到日志记录系统，而不仅仅是格式化的消息字符串，日志记录提供程序可以将参数值存储为除了消息字符串的字段。 例如，如果你将定向到 Azure 表存储，你的日志输出和记录器方法调用如下所示：
+日志记录框架进行消息中以使日志记录提供程序用来实现这种方式的格式设置[语义的日志记录，也称为结构化日志记录](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)。 因为参数本身传递到日志记录系统，而不仅仅是格式化的消息字符串，日志记录提供程序可以将参数值存储为除了消息字符串的字段。 例如，如果你将定向到 Azure 表存储，你的日志输出和记录器方法调用如下所示：
 
 ```csharp
 _logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
@@ -269,7 +269,7 @@ System.Exception: Item not found exception.
 
 ## <a name="log-filtering"></a>日志筛选
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 你可以指定特定的提供程序和类别或对所有提供程序或所有类别的最小日志级别。  因此不要获取显示或存储，与该提供程序，不传递的最低级别上深化任何日志。 
 
@@ -351,7 +351,7 @@ System.Exception: Item not found exception.
 
 [!code-csharp[](logging/sample2/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 某些日志记录提供程序，你可以指定当写入到存储媒体或忽略日志基于日志级别和类别。
 
@@ -381,13 +381,13 @@ System.Exception: Item not found exception.
 
 下面的代码使控制台提供程序的作用域：
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 在*Program.cs*:
 
 [!code-csharp[](logging/sample2/Program.cs?name=snippet_Scopes&highlight=4)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 在*Startup.cs*:
 
@@ -422,13 +422,13 @@ ASP.NET 核心附带以下提供程序：
 
 [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console)提供程序包将日志输出发送到控制台。 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddConsole()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddConsole()
@@ -459,13 +459,13 @@ loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 
 在 Linux 上，此提供程序写入的日志传输到*/var/log/message*。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddDebug()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddDebug()
@@ -480,13 +480,13 @@ loggerFactory.AddDebug()
 
 对于面向 ASP.NET Core 1.1.0 应用，或更高版本， [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource)提供程序包可以实现事件跟踪。 在 Windows 上，它使用[ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803)。 提供程序是跨平台的但不有任何事件收集和显示尚未为 Linux 或 macOS 的工具。 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddEventSourceLogger()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddEventSourceLogger()
@@ -514,7 +514,7 @@ loggerFactory.AddEventSourceLogger()
   New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
   ```
 
-* 添加 ETW 提供程序[CLR](https://msdn.microsoft.com/library/ff357718)，ASP.NET 核心和其他根据需要。 ASP.NET 核心提供程序 GUID 是`3ac73b97-af73-50e9-0822-5da4367920d0`。 
+* 添加 ETW 提供程序[CLR](https://docs.microsoft.com/dotnet/framework/performance/clr-etw-providers)，ASP.NET 核心和其他根据需要。 ASP.NET 核心提供程序 GUID 是`3ac73b97-af73-50e9-0822-5da4367920d0`。 
 
   ```powershell
   Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
@@ -536,13 +536,13 @@ loggerFactory.AddEventSourceLogger()
 
 [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog)提供程序包将日志输出发送到 Windows 事件日志中。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddEventLog()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddEventLog()
@@ -555,15 +555,15 @@ loggerFactory.AddEventLog()
 <a id="tracesource"></a>
 ### <a name="the-tracesource-provider"></a>TraceSource 提供程序
 
-[Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource)提供程序包使用[System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx)库和提供程序。
+[Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource)提供程序包使用[System.Diagnostics.TraceSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracesource)库和提供程序。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddTraceSource(sourceSwitchName);
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddTraceSource(sourceSwitchName);
@@ -573,7 +573,7 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 [AddTraceSource 重载](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.tracesourcefactoryextensions)使传入一个源开关和跟踪侦听器。
 
-若要使用此提供程序，应用程序必须在.NET Framework （而不是.NET Core） 上运行。 使用提供程序，可以将消息路由到各种[侦听器](https://msdn.microsoft.com/library/4y5y10s7)，如[TextWriterTraceListener](https://msdn.microsoft.com/library/system.diagnostics.textwritertracelistener)示例应用程序中使用。
+若要使用此提供程序，应用程序必须在.NET Framework （而不是.NET Core） 上运行。 使用提供程序，可以将消息路由到各种[侦听器](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/trace-listeners)，如[TextWriterTraceListener](https://docs.microsoft.com/dotnet/api/system.diagnostics.textwritertracelistenerr)示例应用程序中使用。
 
 下面的示例将配置`TraceSource`日志的提供程序`Warning`和更高版本到控制台窗口的消息。
 
@@ -584,14 +584,14 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices)提供程序包将日志写入文本文件 Azure App Service 应用程序的文件系统中和为[blob 存储](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage)在 Azure 存储帐户。 提供程序是仅适用于应用程序的目标 ASP.NET 核心 1.1.0 或更高版本。 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 > [!NOTE]
 > ASP.NET 核心 2.0 处于预览状态。  部署到 Azure App Service 时，可能无法运行的最新预览版本创建的应用。 当发布 ASP.NET 核心 2.0 后时，在 Azure App Service 上运行 2.0 应用程序和 Azure 应用程序服务提供程序将按此处所指示方式工作。
 
 无需安装的提供程序包或调用`AddAzureWebAppDiagnostics`扩展方法。  将应用部署到 Azure App Service，该提供程序时自动提供给你的应用程序。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 loggerFactory.AddAzureWebAppDiagnostics();
@@ -621,9 +621,9 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 * [NLog](https://github.com/NLog/NLog.Extensions.Logging) -NLog 库的提供程序
 
-* [Serilog](https://github.com/serilog/serilog-framework-logging) -Serilog 库的提供程序
+* [Serilog](https://github.com/serilog/serilog-extensions-logging) -Serilog 库的提供程序
 
-某些第三方框架可以执行[语义的日志记录，也称为结构化日志记录](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)。
+某些第三方框架可以执行[语义的日志记录，也称为结构化日志记录](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)。
 
 使用第三方框架是类似于使用内置提供程序之一： 将 NuGet 包添加到你的项目，对调用扩展方法`ILoggerFactory`。 有关详细信息，请参阅每个框架文档。
 

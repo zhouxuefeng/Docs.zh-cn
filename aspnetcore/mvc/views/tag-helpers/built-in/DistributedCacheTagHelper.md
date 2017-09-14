@@ -11,11 +11,11 @@ ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a022
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper
-ms.openlocfilehash: b6e0beca0833b1dbe0843e8f8848b976726cc7b0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2b260624fb2d85ab1a2625511397bcb4a85b6e77
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="distributed-cache-tag-helper"></a>分布式的缓存标记帮助器
 
@@ -52,14 +52,14 @@ ms.lasthandoff: 08/11/2017
 ```cshtml
 <distributed-cache name="my-distributed-cache-unique-key-101">
     Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</distributed-cache>
 ```
 
 ## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>分布式缓存标记帮助器 IDistributedCache 实现
 
 有的两个实现`IDistributedCache`内置到 ASP.NET 核心。  一个基于**Sql Server**和其他基于**Redis**。 以下名为"使用分布式缓存"引用的资源处找不到这些实现的详细信息。 这两个实现涉及设置的实例`IDistributedCache`中 ASP.NET Core **startup.cs**。
 
-那里没有标记特性专门与使用相关联的任何特定实现`IDistributedCache`。
+没有专门与使用的任何特定实现标记特性`IDistributedCache`。
 
 
 
