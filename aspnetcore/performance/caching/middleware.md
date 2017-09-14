@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 7790f38dda61eabd3cbbc6088ad455c07289b739
-ms.sourcegitcommit: 70089de5bfd8ecd161261aa95faf07a4e1534cf8
+ms.openlocfilehash: 4013619f738b3b8b58e45d9dfd205e7b75e056b4
+ms.sourcegitcommit: 029dd7fbc0793e84b9ed91f2b45624bbc187fb32
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>响应缓存在 ASP.NET 核心中的中间件
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 08/23/2017
 ## <a name="configuration"></a>配置
 在`ConfigureServices`，将该中间件添加到服务集合。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](middleware/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](middleware/samples/1.x/Startup.cs?name=snippet1&highlight=3)]
 
@@ -42,11 +42,11 @@ ms.lasthandoff: 08/23/2017
 
 配置应用程序以使用与中间件`UseResponseCaching`扩展方法，将该中间件添加到请求处理管道。 示例应用添加[ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2)最多 10 秒钟来缓存可缓存响应的响应的标头。 该示例发送[ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4)标头来配置用于缓存的响应仅当该中间件[ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4)的后续请求的标头与原始请求相匹配。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](middleware/samples/2.x/Program.cs?name=snippet1&highlight=8)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](middleware/samples/1.x/Startup.cs?name=snippet2&highlight=3)]
 
@@ -125,7 +125,7 @@ if (responseCachingFeature != null)
 * `Set-Cookie`标头不能存在。
 * `Vary`标头参数必须是有效且不等于`*`。
 * `Content-Length`标头值 (如果设置) 必须与匹配的响应正文的大小。
-* `HttpSendFileFeature`未使用。
+* [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature)未使用。
 * 响应不能为指定的陈旧`Expires`标头和`max-age`和`s-maxage`缓存指令。
 * 响应缓冲会成功，从而响应的大小小于已配置或默认`SizeLimit`。
 * 响应必须是可根据缓存[RFC 7234](https://tools.ietf.org/html/rfc7234)规范。 例如，`no-store`指令必须在请求或响应标头字段中存在。 请参阅*第 3 部分： 在缓存中存储响应*的[RFC 7234](https://tools.ietf.org/html/rfc7234)有关详细信息。

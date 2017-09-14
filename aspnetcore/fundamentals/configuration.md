@@ -11,15 +11,15 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: a14bc7fbcdac9acddfdab4fcd6e40385ca48bcc4
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 041bb04a3a3699a166a03338865da154403d8c07
+ms.sourcegitcommit: f535ce61c6a5e615bc6399b5d763c734396231f4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/13/2017
 ---
 <a name=fundamentals-configuration></a>
 
-  # <a name="configuration-in-aspnet-core"></a>ASP.NET 核心中配置
+# <a name="configuration-in-aspnet-core"></a>ASP.NET 核心中配置
 
 [Rick Anderson](https://twitter.com/RickAndMSFT)，[标记 Michaelis](http://intellitect.com/author/mark-michaelis/)， [Steve Smith](https://ardalis.com/)，和[Daniel Roth](https://github.com/danroth27)
 
@@ -66,7 +66,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 它是通常具有不同的配置设置的不同的环境，例如，开发、 测试和生产。 `CreateDefaultBuilder` ASP.NET Core 2.x 应用程序中的扩展方法 (或使用`AddJsonFile`和`AddEnvironmentVariables`直接在 ASP.NET Core 1.x 应用程序) 将配置提供程序添加用于读取 JSON 文件和系统配置源：
 
 * *appsettings.json*
-* * appsettings。\<EnvironmentName >.json
+* *appsettings。\<EnvironmentName >.json*
 * 环境变量
 
 请参阅[AddJsonFile](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.jsonconfigurationextensions)有关参数的说明。 `reloadOnChange`仅支持在 ASP.NET 核心 1.1 和更高版本。 
