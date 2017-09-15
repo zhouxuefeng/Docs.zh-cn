@@ -1,0 +1,7 @@
+## <a name="next-steps"></a><span data-ttu-id="f980d-101">后续步骤</span><span class="sxs-lookup"><span data-stu-id="f980d-101">Next steps</span></span>
+
+* [<span data-ttu-id="f980d-102">使用 Swagger 的 ASP.NET Web API 帮助页</span><span class="sxs-lookup"><span data-stu-id="f980d-102">ASP.NET Web API Help Pages using Swagger</span></span>](xref:tutorials/web-api-help-pages-using-swagger)
+* [<span data-ttu-id="f980d-103">路由到控制器操作</span><span class="sxs-lookup"><span data-stu-id="f980d-103">Routing to Controller Actions</span></span>](xref:mvc/controllers/routing)
+* <span data-ttu-id="f980d-104">有关部署 API 的信息，请参阅[发布和部署](xref:publishing/index)。</span><span class="sxs-lookup"><span data-stu-id="f980d-104">For information about deploying your API, see [Publishing and Deployment](xref:publishing/index).</span></span>
+* <span data-ttu-id="f980d-105">[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)。</span><span class="sxs-lookup"><span data-stu-id="f980d-105">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample).</span></span> <span data-ttu-id="f980d-106">请参阅[如何下载](xref:tutorials/index#how-to-download-a-sample)。</span><span class="sxs-lookup"><span data-stu-id="f980d-106">See [how to download](xref:tutorials/index#how-to-download-a-sample).</span></span>
+* [<span data-ttu-id="f980d-107">Postman</span><span class="sxs-lookup"><span data-stu-id="f980d-107">Postman</span></span>](https://www.getpostman.com/)
