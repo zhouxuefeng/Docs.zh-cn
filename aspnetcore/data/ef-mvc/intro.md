@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 949733119b4e3a4b8716f2bcc1f631949d5049bc
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 6bde59ddbf153ada36034765b390892ec2ed5997
+ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/17/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET 核心 MVC 和使用 Visual Studio (第 1 个 10) 的实体框架核心入门
 
@@ -30,7 +30,7 @@ Contoso 大学示例 web 应用程序演示如何创建使用 Entity Framework (
 EF 核心 2.0 是 EF 的最新版本，但还没有的 EF 的所有功能 6.x。 有关如何 EF 之间进行选择 6.x 和 EF 核心，请参阅[EF 核心 vs。EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/)。 如果你选择 EF 6.x 时，请参阅[本系列教程的上一个版本](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)。
 
 > [!NOTE]
-> * 本教程的 ASP.NET 核心 1.1 版本，请参阅[以 PDF 格式在本教程中的 VS 2017 Update 2 版本](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/efmvc/intro/_static/efmvc1.1.pdf)。
+> * 本教程的 ASP.NET 核心 1.1 版本，请参阅[以 PDF 格式在本教程中的 VS 2017 Update 2 版本](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf)。
 > * 有关本教程的 Visual Studio 2015 版本，请参阅 [PDF 格式的 ASP.NET Core 文档的 VS 2015 版本](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf)。
 
 ## <a name="prerequisites"></a>先决条件
@@ -80,7 +80,7 @@ EF 核心 2.0 是 EF 的最新版本，但还没有的 EF 的所有功能 6.x。
 
 * 单击“确定” 
 
-  ![新建 ASP.NET 项目对话框](intro/_static/new-aspnet.png)
+  ![“新建 ASP.NET 项目”对话框](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>设置站点样式
 
@@ -204,7 +204,7 @@ ASP.NET 核心实现[依赖关系注入](../../fundamentals/dependency-injection
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-连接字符串指定 SQL Server LocalDB 数据库。 LocalDB 是 SQL Server Express 数据库引擎的轻量级版本，用于应用程序开发，不生产环境中使用。 LocalDB 按需启动和运行在用户模式下，因此没有复杂配置。 默认情况下，创建 LocalDB *.mdf*数据库中的文件`C:/Users/<user>`目录。
+连接字符串指定 SQL Server LocalDB 数据库。 LocalDB 是 SQL Server Express 数据库引擎的轻量级版本，用于应用程序开发，不生产环境中使用。 LocalDB 按需启动并在用户模式下运行，因此没有复杂的配置。 默认情况下，创建 LocalDB *.mdf*数据库中的文件`C:/Users/<user>`目录。
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>添加代码以初始化测试数据的数据库
 
@@ -242,7 +242,7 @@ CRUD 操作方法和视图的自动创建被称为基架。 基架与不同从�
 
 * 右键单击**控制器**文件夹中的**解决方案资源管理器**和选择**添加 > 新建基架项**。
 
-* 在**添加 MVC 依赖项**对话框中，选择**最小依赖关系**，然后选择**添加**。
+* 在“添加 MVC 依赖项”对话框中，选择“最小依赖项”，然后选择“添加”。
 
   ![添加依赖项](intro/_static/add-depend.png)
 

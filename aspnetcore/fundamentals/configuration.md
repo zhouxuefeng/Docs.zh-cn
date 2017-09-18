@@ -1,5 +1,5 @@
 ---
-title: "ASP.NET 核心中配置"
+title: "ASP.NET Core 中的配置"
 author: rick-anderson
 description: "了解如何使用配置 API 将来自多个源 ASP.NET Core 应用配置。"
 keywords: "ASP.NET 核心，配置中，JSON 配置"
@@ -11,15 +11,13 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 041bb04a3a3699a166a03338865da154403d8c07
-ms.sourcegitcommit: f535ce61c6a5e615bc6399b5d763c734396231f4
+ms.openlocfilehash: 7d591259587766a932a14bb030c76274101d16ac
+ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/14/2017
 ---
-<a name=fundamentals-configuration></a>
-
-# <a name="configuration-in-aspnet-core"></a>ASP.NET 核心中配置
+# <a name="configuration-in-aspnet-core"></a>ASP.NET Core 中的配置
 
 [Rick Anderson](https://twitter.com/RickAndMSFT)，[标记 Michaelis](http://intellitect.com/author/mark-michaelis/)， [Steve Smith](https://ardalis.com/)，和[Daniel Roth](https://github.com/danroth27)
 
@@ -287,7 +285,7 @@ public void CanBindObjectTree()
 
 [!code-json[Main](configuration/sample/CustomConfigurationProvider/appsettings.json)]
 
-显示以下消息：
+将显示以下内容：
 
 ```console
 key1=value_from_ef_1
@@ -358,4 +356,4 @@ A *web.config*文件是必需的当你在 IIS 或 IIS Express 应用程序承载
 * [使用多个环境](environments.md)
 * [在开发期间安全存储应用密钥](../security/app-secrets.md)
 * [依赖关系注入](dependency-injection.md)
-* [Azure 密钥保管库配置提供程序](xref:security/key-vault-configuration)
+* [Azure Key Vault 配置提供程序](xref:security/key-vault-configuration)

@@ -5,17 +5,17 @@ description: "介绍如何使用 ASP.NET Core 创建并运行简单的 Hello Wor
 keywords: "ASP.NET Core, 教程, 入门"
 ms.author: riande
 manager: wpickett
-ms.date: 08/07/2017
+ms.date: 08/30/2017
 ms.topic: get-started-article
 ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: 3399df3958093da9117b013736b1cb370fd6beb2
-ms.sourcegitcommit: 297ee5d2f3b3b24eb8a2c4a25195c9e2973cb91b
+ms.openlocfilehash: f7852f0dddb0585089f5ccd8f4c865f5b87b049b
+ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="getting-started-with-aspnet-core"></a>ASP.NET Core 入门
 
@@ -28,21 +28,26 @@ ms.lasthandoff: 08/14/2017
 
    在 macOS 和 Linux 上，打开终端窗口。 在 Windows 上，打开命令提示符。
 
-   ```terminal
-   mkdir aspnetcoreapp
-   cd aspnetcoreapp
-   dotnet new web
-   ```
+    ```terminal
+    dotnet new razor -o aspnetcoreapp
+    ```
     
 4. 运行应用。
 
-   如有需要，`dotnet run` 命令会首先生成应用。
+    使用以下命令运行应用：
 
-   ```terminal
-   dotnet run
-   ```
+    ```terminal
+    cd aspnetcoreapp
+    dotnet run
+    ```
 
-5. 浏览到 `http://localhost:5000`
+5. 浏览到 [http://localhost:5000](http://localhost:5000)
+
+6. 打开 Pages/About.cshtml 并将页面修改为显示消息“Hello, world! The time on the server is @DateTime.Now”：
+
+    [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+
+7. 浏览到 [http://localhost:5000/About](http://localhost:5000/About) 并验证更改。
 
 ### <a name="next-steps"></a>后续步骤
 

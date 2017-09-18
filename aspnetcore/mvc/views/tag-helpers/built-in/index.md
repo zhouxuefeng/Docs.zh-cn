@@ -5,25 +5,25 @@ description: "ASP.NET Core 内置标记帮助程序"
 keywords: "ASP.NET Core, 标记帮助程序"
 ms.author: riande
 manager: wpickett
-ms.date: 7/11/2017
+ms.date: 09/13/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 3f47cc571eff0c522aaf6543de58f158835384d4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e7c8c64283ca3740698300689b10497f984cfd3e
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core 内置标记帮助程序
 
 作者：[Peter Kellner](http://peterkellner.net) 
 
-ASP.NET Core 框架包括许多标记帮助程序，可帮助提高编写可靠代码的工作效率。 本部分概述所有内置标记帮助程序。
+ASP.NET Core 包括了许多内置标记帮助程序以用于提高生产力。 本部分对内置标记帮助程序进行了概述。
 
 > [!NOTE]
-> 有些内置标记帮助程序未在此讨论，因为它们由 [Razor](xref:mvc/views/razor) 查看引擎在内部使用。 这包括扩展到网站根路径的 ~ 字符的标记帮助程序。
+> 有些内置标记帮助程序未在此处讨论，因为它们由 [Razor](xref:mvc/views/razor) 视图引擎在内部使用。 这包括针对扩展到网站根路径的 ~ 字符所适用的标记帮助程序。
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>内置 ASP.NET Core 标记帮助程序
 
@@ -37,13 +37,13 @@ ASP.NET Core 框架包括许多标记帮助程序，可帮助提高编写可靠�
 
 [comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormActionTagHelper)**
 
-[comment]: **[FormTagTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormTagHelper)**
+**[表单标记帮助程序](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
 **[图像标记帮助程序](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**
 
-[comment]: **[InputTagHelper](xref:mvc/views/tag-helpers/builtin-th/InputTagHelper)**
+**[输入标记帮助程序](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
-[comment]: **[LabelTagHelper](xref:mvc/views/tag-helpers/builtin-th/LabelTagHelper)**
+**[标签标记帮助程序](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
 [comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/LinkTagHelper)**
 
@@ -51,21 +51,15 @@ ASP.NET Core 框架包括许多标记帮助程序，可帮助提高编写可靠�
 
 [comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/ScriptTagTagHelper)**
 
-[comment]: **[SelectTagHelper](xref:mvc/views/tag-helpers/builtin-th/SelectTagTagHelper)**
+**[选择标记帮助程序](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 
-[comment]: **[TextAreaTagHelper](xref:mvc/views/tag-helpers/builtin-th/TextAreaTagHelper)**
+**[文本区标记帮助程序](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
 
-[comment]: **[ValidationMessageTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationMessageTagHelper)**
+**[验证消息标记帮助程序](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
 
-[comment]: **[ValidationSummaryTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationSummaryTagHelper)**  
-  
-  
-<!--
+**[验证摘要标记帮助程序](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
 
-## Additional Resources
+## <a name="additional-resources"></a>其他资源
 
-REQUIRED These must be xref links, not relative, that is ../../
-* [Client-Side Development](../../../client-side/index.md)
-
-* [Tag Helpers](xref:mvc/views/tag-helpers/intro)
--->
+* [客户端开发](xref:client-side/index)
+* [标记帮助程序](xref:mvc/views/tag-helpers/intro)
