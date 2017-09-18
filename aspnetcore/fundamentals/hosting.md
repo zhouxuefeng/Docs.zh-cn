@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1a789ff1bc6b3e3af99419e7d74d3fb46bb2345
-ms.sourcegitcommit: 368aabde4de3728a8e5a8c016a2ec61f9c0854bf
+ms.openlocfilehash: 4eb57cf80399abdb7c6d05546ea2b0d5718c56c3
+ms.sourcegitcommit: 0a3f215b4f665afc6f2678642968eea698102346
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>在 ASP.NET Core 中承载
 
@@ -34,7 +34,7 @@ ASP.NET Core 应用配置和启动*主机*，即负责应用程序启动和生�
 
 `CreateDefaultBuilder`执行以下任务：
 
-* 配置[Kestrel](servers/kestrel.md)为 web 服务器。
+* 配置[Kestrel](servers/kestrel.md)为 web 服务器。 有关 Kestrel 默认选项，请参阅[Kestrel 选项部分中 ASP.NET Core Kestrel web 服务器实现](xref:fundamentals/servers/kestrel#kestrel-options)。
 * 将内容的根设置为[Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory)。
 * 从加载可选配置：
   * *appsettings.json*。
@@ -43,7 +43,7 @@ ASP.NET Core 应用配置和启动*主机*，即负责应用程序启动和生�
   * 环境变量。
   * 命令行参数。
 * 配置[日志记录](xref:fundamentals/logging)与控制台和调试输出[日志筛选](xref:fundamentals/logging#log-filtering)日志记录配置部分中指定的规则*appsettings.json*或*appsettings。{环境}.json*文件。
-* 当运行 IIS 之后，通过配置的基路径和服务器应对其侦听时使用的端口启用 IIS 集成[ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)。 该模块创建 Kestrel 和 IIS 之间的反向代理。 此外可以配置应用到[捕获启动错误](#capture-startup-errors)。
+* 当运行 IIS 之后，可让[IIS 集成](xref:publishing/iis)通过配置的基路径和端口服务器应对其侦听时使用[ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)。 该模块将创建 IIS 和 Kestrel 之间的反向代理。 此外可以配置应用到[捕获启动错误](#capture-startup-errors)。 有关 IIS 默认选项，请参阅[IIS 选项部分中的主机与 IIS 的 Windows 上的 ASP.NET 核心](xref:publishing/iis#iis-options)。
 
 *内容根*确定主机搜索内容的文件，如 MVC 视图文件的位置。 默认内容根是[Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory)。 这会导致从根文件夹中启动应用时将 web 项目的根文件夹用作内容的根 (例如，调用[dotnet 运行](/dotnet/core/tools/dotnet-run)项目文件夹中)。 这是默认值中使用[Visual Studio](https://www.visualstudio.com/)和[dotnet 新模板](/dotnet/core/tools/dotnet-new)。
 

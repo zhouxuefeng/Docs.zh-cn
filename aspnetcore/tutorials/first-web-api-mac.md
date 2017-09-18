@@ -1,21 +1,21 @@
 ---
 title: "使用 ASP.NET Core 和 Visual Studio for Mac 创建 Web API"
-author: rick-anderson
 description: "使用 ASP.NET Core MVC 和 Visual Studio for Mac 创建 Web API"
-keywords: "ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, 服务, HTTP"
+author: rick-anderson
 ms.author: riande
-manager: wpickett
-ms.date: 5/24/2017
+ms.date: 09/15/2017
 ms.topic: get-started-article
-ms.assetid: 830b4af5-ed14-1638-7734-764a6f13a8f6
-ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 08619d3b4ab2d6fdb04794dcbafac0b696dd8504
-ms.sourcegitcommit: 3273675dad5ac3e1dc1c589938b73db3f7d6660a
+helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
+ms.technology: aspnet
+keywords: "ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, 服务, HTTP"
+manager: wpickett
+ms.openlocfilehash: 992059f7abd7650f82c1307acf3ba3219a6fcbb5
+ms.sourcegitcommit: 0a3f215b4f665afc6f2678642968eea698102346
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>使用 ASP.NET Core MVC 和 Visual Studio for Mac 创建 Web API
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 08/28/2017
 
 ### <a name="add-a-model-class"></a>添加模型类
 
-模型是表示应用程序中的数据的对象。 在此示例中，唯一的一个模型是待办事项。
+模型是表示应用程序中的数据的对象。 在此示例中，唯一的模型是待办事项。
 
 添加名为“Models”的文件夹。 在解决方案资源管理器中，右键单击项目。 选择“添加” > “新建文件夹”。 将文件夹命名为“Models”。
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 08/28/2017
 
 ### <a name="create-the-database-context"></a>创建数据库上下文
 
-数据库上下文是为给定数据模型协调实体框架功能的主类。 将通过从 `Microsoft.EntityFrameworkCore.DbContext` 类派生的方式创建此类。
+数据库上下文是为给定数据模型协调 Entity Framework 功能的主类。 将通过从 `Microsoft.EntityFrameworkCore.DbContext` 类派生的方式创建此类。
 
 将 `TodoContext` 类添加到“Models”文件夹。
 
@@ -127,13 +127,13 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="implement-the-other-crud-operations"></a>实现其他的 CRUD 操作
 
-我们将向控制器添加 `Create`、`Update` 和 `Delete` 方法。 这些是主题的变体，因此只提供代码并突出显示主要的差异。 添加或更改代码后生成项目。
+我们将向控制器添加 `Create`、`Update` 和 `Delete` 方法。 这些是主题的变体，因此在这里只提供代码并突出显示主要的差异。 添加或更改代码后生成项目。
 
 ### <a name="create"></a>创建
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-[`[HttpPost]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/HttpPostAttribute/index.html) 属性指示这是 HTTP POST 方法。 [`[FromBody]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/FromBodyAttribute/index.html) 属性告诉 MVC 从 HTTP 请求正文获取待办事项的值。
+这是 HTTP POST 方法，由 [`[HttpPost]`](https://docs.microsoft.com/aspnet/core/api) 特性指示的。 [`[FromBody]`](https://docs.microsoft.com/aspnet/core/api) 特性告诉 MVC 从 HTTP 请求正文获取待办事项的值。
 
 `CreatedAtRoute` 方法返回 201 响应，这是在服务器上创建新资源的 HTTP POST 方法的标准响应。 `CreatedAtRoute` 还会向响应添加位置标头。 位置标头指定新建的待办事项的 URI。 请参阅 [10.2.2 201 已创建](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 08/28/2017
 * 选择“正文”单选按钮
 * 选择“原始”单选按钮
 * 将类型设置为 JSON
-* 在键值编辑器中，输入一个待办事项，例如：
+* 在键值编辑器中，输入一个待办事项，例如
 
 ```json
 {
@@ -163,7 +163,7 @@ ms.lasthandoff: 08/28/2017
 
 ![Postman 控制台的“标头”选项卡](first-web-api/_static/pmget.png)
 
-可以使用此位置标头 URI 访问刚刚创建的资源。 请回顾创建名为 `"GetTodo"` 路由时使用的 `GetById` 方法：
+可以使用此位置标头 URI 访问刚刚创建的资源。 重新调用创建名为 `"GetTodo"` 路由时使用的 `GetById` 方法：
 
 ```csharp
 [HttpGet("{id}", Name = "GetTodo")]
@@ -174,7 +174,7 @@ public IActionResult GetById(string id)
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
-`Update` 与 `Create` 类似，但是使用 HTTP PUT。 响应是 [204（无内容）](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)。 根据 HTTP 规范，PUT 请求需要客户端发送整个更新的实体，而不仅仅是增量。 若要支持部分更新，请使用 HTTP PATCH。
+`Update` 与 `Create` 类似，但是使用的是 HTTP PUT。 响应是 [204（无内容）](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)。 根据 HTTP 规范，PUT 请求需要客户端发送整个更新的实体，而不仅仅是增量。 若要支持部分更新，请使用 HTTP PATCH。
 
 ```json
 {
@@ -200,4 +200,4 @@ public IActionResult GetById(string id)
 * 有关部署 API 的信息，请参阅[发布和部署](../publishing/index.md)。
 * [查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)
 * [Postman](https://www.getpostman.com/)
-* [Fiddler](http://www.fiddler2.com/fiddler2/)
+* [Fiddler](https://www.telerik.com/download/fiddler)

@@ -3,7 +3,7 @@
 前面的代码：
 
 * 定义空控制器类。 在接下来的部分中，我们将添加方法来实现 API。
-* 构造函数使用[依赖关系注入](xref:fundamentals/dependency-injection)将数据库上下文 (`TodoContext `) 注入到控制器中。 数据库上下文将在控制器中的每个 [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) 方法中使用。
+* 构造函数使用[依赖关系注入](xref:fundamentals/dependency-injection)将数据库上下文 (`TodoContext `) 注入到控制器中。 数据库上下文将在控制器中的每个 [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) 方法中使用。
 * 构造函数将一个项（如果不存在）添加到内存数据库。
 
 ## <a name="getting-to-do-items"></a>获取待办事项

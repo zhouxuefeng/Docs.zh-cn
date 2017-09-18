@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 734dad7778eba41780f9d3ac0685879687288d47
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: ed1ad71b6b1395bce1dd287e86e499e23446f190
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>向 Razor 页面添加验证
 
@@ -24,13 +24,13 @@ ms.lasthandoff: 08/13/2017
 
 ## <a name="validation"></a>验证
 
-软件开发的一个关键原则被称为 [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself)（即“不要自我重复”）。 Razor 页面鼓励进行仅指定一次功能的开发，且功能在整个应用中反映。 DRY 有助于减少应用中的代码量。 DRY 使代码更加不易出错，且更易于测试和维护。
+软件开发的一个关键原则被称为 [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself)（即“不要自我重复”）。 Razor 页面鼓励进行仅指定一次功能的开发，且功能在整个应用中反映。 DRY 有助于减少应用中的代码量。 DRY 使代码更加不易出错，且更易于测试和维护。
 
 Razor 页面和 Entity Framework 提供的验证支持是 DRY 原则的极佳示例。 验证规则在模型类中的某处以声明方式指定，且在应用的所有位置强制执行。
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>将验证规则添加到电影模型
 
-打开 Movie.cs 文件。 [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) 提供一组内置验证特性，可通过声明方式应用于类或属性。 DataAnnotations 还包含 `DataType` 等格式特性，有助于格式设置但不提供验证。
+打开 Movie.cs 文件。 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) 提供一组内置验证特性，可通过声明方式应用于类或属性。 DataAnnotations 还包含 `DataType` 等格式特性，有助于格式设置但不提供验证。
 
 更新 `Movie` 类以使用 `Required`、`StringLength`、`RegularExpression` 和 `Range` 验证特性。
 
@@ -49,7 +49,7 @@ Razor 页面和 Entity Framework 提供的验证支持是 DRY 原则的极佳示
 ![带有多个 jQuery 客户端验证错误的电影视图表单](validation/_static/val.png)
 
 > [!NOTE]
-> 可能无法在 `Price` 字段中输入小数点或逗号。 若要使 [jQuery 验证](http://jqueryvalidation.org/)支持使用逗号（“,”）表示小数点及使用非美国英语日期格式的非英语区域设置，必须执行使应用全球化的步骤。 有关详细信息，请参阅[其他资源](#additional-resources)。 目前只能输入整数，例如 10。
+> 可能无法在 `Price` 字段中输入小数点或逗号。 若要使 [jQuery 验证](https://jqueryvalidation.org/)支持使用逗号（“,”）表示小数点及使用非美国英语日期格式的非英语区域设置，必须执行使应用全球化的步骤。 有关详细信息，请参阅[其他资源](#additional-resources)。 目前只能输入整数，例如 10。
 
 请注意表单如何自动呈现每个包含无效值的字段中的验证错误消息。 客户端（使用 JavaScript 和 jQuery）和服务器端（若用户禁用 JavaScript）都必定会遇到这些错误。
 
@@ -83,7 +83,7 @@ Razor 页面和 Entity Framework 提供的验证支持是 DRY 原则的极佳示
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
-[输入标记帮助程序](xref:mvc/views/working-with-forms)使用 [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) 特性并在客户端生成 jQuery 验证所需的 HTML 特性。 [验证标记帮助程序](xref:mvc/views/working-with-forms#the-validation-tag-helpers)用于显示验证错误。 有关详细信息，请参阅[验证](xref:mvc/models/validation)。
+[输入标记帮助程序](xref:mvc/views/working-with-forms)使用 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) 特性并在客户端生成 jQuery 验证所需的 HTML 特性。 [验证标记帮助程序](xref:mvc/views/working-with-forms#the-validation-tag-helpers)用于显示验证错误。 有关详细信息，请参阅[验证](xref:mvc/models/validation)。
 
 “创建”和“编辑”页面中没有验证规则。 仅可在 `Movie` 类中指定验证规则和错误字符串。 这些验证规则将自动应用于编辑 `Movie` 模型的 Razor 页面。
 

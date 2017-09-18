@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: b2e447cac0012ac41d06a70b1452c7d0523546cf
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: 028d6d3246908a9cd44a6834449d2fdbc9cae0b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC 和 Visual Studio for Mac 入门
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 08/23/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-本教程需要 [.NET Core 2.0.0 SDK](https://dot.net/core) 或更高版本。 请参阅适用于 ASP.NET Core 1.1 版本的 [PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf)。
+本教程需要 [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 或更高版本。 请参阅适用于 ASP.NET Core 1.1 版本的 [PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf)。
 
 安装以下组件：
 
-- [.NET Core 2.0.0 SDK](https://dot.net/core) 或更高版本
+- [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 或更高版本
 - [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/23/2017
 
 ### <a name="launch-the-app"></a>启动应用
 
-在 Visual Studio 中，选择“运行”>“开始执行(不调试)”以启动应用。 Visual Studio 启动 [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview)，启动浏览器并导航到 `http://localhost:port`，其中的“端口”是随机选择的端口号。
+在 Visual Studio 中，选择“运行”>“开始执行(不调试)”以启动应用。 Visual Studio 启动 [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview)，启动浏览器并导航到 `http://localhost:port`，其中的“端口”是随机选择的端口号。
 
 ![具有新项目的浏览器](start-mvc/b1.png)
 

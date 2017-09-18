@@ -11,11 +11,11 @@ ms.assetid: 2707c7a8-2350-4304-9856-fda58e5c0a16
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/azure-continuous-deployment
-ms.openlocfilehash: b576ef6bce3b211afe7465f33dfe62c25dac1f62
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a9efad38b1c75bd3a186b4ec85861357ecf744b9
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>使用 Visual Studio 和 Git 将 ASP.NET Core 持续部署到 Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/11/2017
 另请参阅 [Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)（使用 VSTS 生成并通过持续部署发布到 Azure Web 应用），其中演示如何使用 Visual Studio Team Services 为 [Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/) 配置持续交付 (CD) 工作流。 Team Services 中的 Azure 持续交付简化了用于将应用更新发布到 Azure App Service 的可靠部署管道的设置。 可以从 Azure 门户配置管道以生成、运行测试、部署到过渡槽，然后部署到生产。
 
 > [!NOTE]
-> 若要完成本教程，需要一个 Microsoft Azure 帐户。 如果没有帐户，可[激活 MSDN 订户权益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或[注册免费试用版](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)。
+> 若要完成本教程，需要一个 Microsoft Azure 帐户。 如果没有帐户，可[激活 MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或[注册免费试用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -34,9 +34,9 @@ ms.lasthandoff: 08/11/2017
 
 * [Visual Studio](https://www.visualstudio.com)
 
-* [ASP.NET Core](http://go.microsoft.com/fwlink/?LinkId=627627)（运行时和工具）
+* [ASP.NET Core](https://download.microsoft.com/download/F/6/E/F6ECBBCC-B02F-424E-8E03-D47E9FA631B7/DotNetCore.1.0.1-VS2015Tools.Preview2.0.3.exe)（运行时和工具）
 
-* 用于 Windows 的 [Git](http://git-scm.com/downloads)
+* 用于 Windows 的 [Git](https://git-scm.com/downloads)
 
 ## <a name="create-an-aspnet-core-web-app"></a>创建 ASP.NET Core Web 应用
 

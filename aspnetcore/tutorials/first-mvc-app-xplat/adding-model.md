@@ -11,11 +11,11 @@ ms.assetid: 8dc28498-eeee-4666-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: 054ef316461447ab651cca8c4f324e7b4e98f856
-ms.sourcegitcommit: d9e2c99c837078fcac0e315025f8fbfbd45ea6e8
+ms.openlocfilehash: c68466a645687b6fe0193e9deec2f32632e6f0e7
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 [!INCLUDE[adding-model1](../../includes/mvc-intro/adding-model1.md)]
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 08/28/2017
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
-数据库需要 `ID` 字段作为主键。 
+数据库需要 `ID` 字段以获取主键。 
 
 生成应用以确认没有任何错误，最后将 Model 添加到你的 MVC 应用。
 
@@ -68,7 +68,7 @@ dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMo
 * 电影控制器 (Controllers/MoviesController.cs)
 * “创建”、“删除”、“详细信息”、“编辑”和“索引”页面的 Razor 视图文件 (Views/Movies/\*.cshtml)
 
-自动创建 [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)（创建、读取、更新和删除）操作方法和视图的过程称为“搭建基架”。 你很快就会拥有一个功能完备的 Web 应用程序，并且你可以使用它管理电影数据库。
+自动创建 [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete)（创建、读取、更新和删除）操作方法和视图的过程称为“搭建基架”。 你很快就会拥有一个功能完备的 Web 应用程序，并且你可以使用它管理电影数据库。
 
 [!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 

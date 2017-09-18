@@ -11,11 +11,11 @@ ms.assetid: 50922cf1-ca58-4006-9236-99b7ff2dd0cf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/nano-server
-ms.openlocfilehash: affd5bb36f33aab5cdff6904016b628794462d97
-ms.sourcegitcommit: 26166785ad181a8519cb008800d71d96499b0499
+ms.openlocfilehash: 39e9dea5b3cbd43f41f8a9bceb5d5f8eb6adb16d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>ASP.NET Core 与 Nano Server 上运行的 IIS
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 09/01/2017
 
 ## <a name="introduction"></a>介绍
 
-Nano Server 是 Windows Server 2016 中的一个安装选项，它占用内存较小、提供更强的安全性，并提供比服务器核心或完全服务器更出色的服务。 请参阅官方 [Nano Server 文档](https://technet.microsoft.com/library/mt126167.aspx)获取更多详细信息，并获取 180 天评估版本的下载链接。 
+Nano Server 是 Windows Server 2016 中的一个安装选项，它占用内存较小、提供更强的安全性，并提供比服务器核心或完全服务器更出色的服务。 请参阅官方 [Nano Server 文档](https://docs.microsoft.com/windows-server/get-started/getting-started-with-nano-server)获取更多详细信息，并获取 180 天评估版本的下载链接。 
 
 可通过三个简单的方法来试用 Nano Server。 使用 MS 帐户登录时：
 
@@ -106,7 +106,7 @@ Install-NanoServerPackage -Name Microsoft-NanoServer-IIS-Package
 
 ## <a name="installing-the-aspnet-core-module-ancm"></a>安装 ASP.NET Core 模块 (ANCM)
 
-ASP.NET Core 模块是一个 IIS 7.5+ 模块，它负责 ASP.NET Core HTTP 侦听器的进程管理，并将请求代理到它所管理的进程。 目前，为 IIS 安装 ASP.NET Core 模块的过程为手动操作。 需要在常规（而不是 Nano）计算机上安装 [.NET Core Windows Server 托管捆绑包](https://aka.ms/dotnetcore.2.0.0-windowshosting)。 在常规计算机上安装捆绑包之后，需要将以下文件复制到之前创建的文件共享。
+ASP.NET Core 模块是一个 IIS 7.5+ 模块，它负责 ASP.NET Core HTTP 侦听器的进程管理，并将请求代理到它所管理的进程。 目前，为 IIS 安装 ASP.NET Core 模块的过程为手动操作。 需要在常规（而不是 Nano）计算机上安装 [.NET Core Windows Server 托管捆绑包](https://download.microsoft.com/download/B/1/D/B1D7D5BF-3920-47AA-94BD-7A6E48822F18/DotNetCore.2.0.0-WindowsHosting.exe)。 在常规计算机上安装捆绑包之后，需要将以下文件复制到之前创建的文件共享。
 
 在使用 IIS 的常规（而不是 Nano）服务器上，运行以下复制命令：
 

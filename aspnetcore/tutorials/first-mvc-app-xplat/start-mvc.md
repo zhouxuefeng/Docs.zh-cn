@@ -11,11 +11,11 @@ ms.assetid: 1d18b589-1638-4dc6-1638-fb0f41998d78
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 82ce5bbc695b190759ac2c05cdceebb5f7854eb7
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: cfce91271ca21dd800fb68a14389606ce6d835f5
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>Mac、Linux 或 Windows 上的 ASP.NET Core MVC 入门
 
@@ -31,11 +31,11 @@ ms.lasthandoff: 08/23/2017
 
 ## <a name="install-vs-code-and-net-core"></a>安装 VS Code 和 .NET Core
 
-本教程需要 [.NET Core 2.0.0 SDK](https://dot.net/core) 或更高版本。 请参阅适用于 ASP.NET Core 1.1 版本的 [PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf)。
+本教程需要 [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 或更高版本。 请参阅适用于 ASP.NET Core 1.1 版本的 [PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf)。
 
 安装以下组件：
 
-* [.NET Core 2.0.0 SDK](https://dot.net/core) 或更高版本。
+* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 或更高版本。
 * [Visual Studio Code](https://code.visualstudio.com)
 * VS Code [C# 扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 
@@ -75,9 +75,9 @@ VS Code 启动 [Kestrel](xref:fundamentals/servers/kestrel) Web 服务器并运�
 - [集成终端](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [键盘快捷键](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Mac 键盘快捷键](https://go.microsoft.com/fwlink/?linkid=832143)
-  - [Linux 键盘快捷键](https://go.microsoft.com/fwlink/?linkid=832144)
-  - [Windows 键盘快捷键](https://go.microsoft.com/fwlink/?linkid=832145)
+  - [Mac 键盘快捷键](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [Linux 键盘快捷键](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+  - [Windows 键盘快捷键](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 >[!div class="step-by-step"]
 [下一篇 - 添加控制器](adding-controller.md)

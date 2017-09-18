@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 9636e0e51e506d294ffb50a21165195c9d04fe20
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 283a3869300b83235197951cbbee92a82532c6e3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC 和 Visual Studio 入门
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/25/2017
 
 安装 Visual Studio Community 2017。 选择社区下载。 如果已安装 Visual Studio 2017，请跳过此步骤。
 
-* [Visual Studio 2017 主页安装程序](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Visual Studio 2017 主页安装程序](https://www.visualstudio.com/)
 
 运行安装程序，然后选择以下工作负荷：
 
@@ -98,7 +98,7 @@ Visual Studio 为刚刚创建的 MVC 项目使用默认模板。 输入项目名
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![运行应用](start-mvc/_static/1.png)
 
-* Visual Studio 启动 [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) 并运行你的应用。 请注意，地址栏显示 `localhost:port#`，而不显示 `example.com`。 这是因为 `localhost` 是本地计算机的标准主机名。 Visual Studio 创建 Web 项目时，为 Web 服务器使用随机端口。 在上图中，端口号为 5000。 运行应用时，会看到不同的端口号。
+* Visual Studio 启动 [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) 并运行你的应用。 请注意，地址栏显示 `localhost:port#`，而不显示 `example.com`。 这是因为 `localhost` 是本地计算机的标准主机名。 Visual Studio 创建 Web 项目时，为 Web 服务器使用随机端口。 在上图中，端口号为 5000。 运行应用时，会看到不同的端口号。
 * 使用“Ctrl+F5”启动应用（非调试模式）后，可执行代码更改、保存文件、刷新浏览器和查看代码更改等操作。 许多开发人员更喜欢使用非调试模式快速启动应用并查看更改。
 * 可以从“调试”菜单项中以调试或非调试模式启动应用：
 
@@ -108,7 +108,7 @@ Visual Studio 为刚刚创建的 MVC 项目使用默认模板。 输入项目名
 
 ![IIS Express](start-mvc/_static/iis_express.png)
 
-默认模板提供可用的“主页”、“关于”和“联系人”链接。 上面的浏览器图未显示这些链接。 可能需要单击导航图标才能显示这些链接，具体取决于浏览器的大小。
+默认模板提供可用的“主页”、“关于”和“联系”链接。 上面的浏览器图像未显示这些链接。 根据浏览器的大小，可能需要单击导航图标才能显示这些链接。
 
 ![右上角的导航图标](start-mvc/_static/2.png)
 

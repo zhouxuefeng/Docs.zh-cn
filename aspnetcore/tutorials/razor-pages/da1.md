@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 8b2018bbf83cbb4b5c9139605fbb97d1c5be959f
-ms.sourcegitcommit: f2fb0b45284e4f8c4a9c422bec790aede7c1f0ac
+ms.openlocfilehash: 39b65f8af8304fabc6cf8d9a27992043f1e381a0
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="updating-the-generated-pages"></a>更新生成的页面
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 08/17/2017
 
   Visual Studio 添加 `using System.ComponentModel.DataAnnotations;`。
 
-我们将在下一教程中介绍 [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)。 [Display](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayattribute.aspx) 特性指定要显示的字段名称的内容（本例中应为“Release Date”，而不是“ReleaseDate”）。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) 特性指定数据的类型（日期），使字段中存储的时间信息不会显示。
+我们将在下一教程中介绍 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6)。 [Display](https://docs.microsoft.com//aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) 特性指定要显示的字段名称的内容（本例中应为“Release Date”，而不是“ReleaseDate”）。 [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) 特性指定数据的类型（日期），使字段中存储的时间信息不会显示。
 
 浏览到 Pages/Movies，并将鼠标悬停在“编辑”链接上以查看目标 URL。
 

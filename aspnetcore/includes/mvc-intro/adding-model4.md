@@ -6,7 +6,7 @@
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_1)] 
 
-构造函数使用[依赖关系注入](xref:fundamentals/dependency-injection)将数据库上下文 (`MvcMovieContext `) 注入到控制器中。 数据库上下文将在控制器中的每个 [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) 方法中使用。
+构造函数使用[依赖关系注入](xref:fundamentals/dependency-injection)将数据库上下文 (`MvcMovieContext `) 注入到控制器中。 数据库上下文将在控制器中的每个 [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) 方法中使用。
 
 <a name=strongly-typed-models-keyword-label></a>
 

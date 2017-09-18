@@ -11,18 +11,18 @@ ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: f7852f0dddb0585089f5ccd8f4c865f5b87b049b
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: c81e1328fda6d1652ab937bd580be2342924d241
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core"></a>ASP.NET Core 入门
 
 > [!NOTE]
 > 这些说明适用于 ASP.NET Core 的最新版本。 想要从早期版本开始？ 请参阅[本教程的 1.1 版本](xref:getting-started-1.1)。
 
-1. 安装 [.NET Core](https://microsoft.com/net/core/)。
+1. 安装 [.NET Core](https://www.microsoft.com/net/core/)。
 
 2. 创建新的 .NET Core 项目。
 
