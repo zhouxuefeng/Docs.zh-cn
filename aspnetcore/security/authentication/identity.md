@@ -5,17 +5,17 @@ description: "ASP.NET Core 应用上使用标识"
 keywords: "ASP.NET 核心，标识，授权安全"
 ms.author: riande
 manager: wpickett
-ms.date: 7/7/2017
+ms.date: 07/07/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 5a76cac1d64718b9dece3a3201db06c8192fb6f3
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 0c17daa96bc69dc0b8393811a4dfe0e5dc4a1884
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>在 ASP.NET Core 上的标识简介
 
@@ -160,5 +160,5 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
 
 * [迁移身份验证和标识](xref:migration/identity)
 * [帐户确认和密码恢复](xref:security/authentication/accconfirm)
-* [使用 SMS 进行双因素身份验证](xref:security/authentication/2fa)
-* [使用 Facebook、Google 和其他外部提供程序启用身份验证](xref:security/authentication/social/index)
+* [使用 SMS 设置双因素身份验证](xref:security/authentication/2fa)
+* [启用使用 Facebook、Google 和其他外部提供程序的身份验证](xref:security/authentication/social/index)

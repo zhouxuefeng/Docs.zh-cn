@@ -5,17 +5,17 @@ description: "使用 Visual Studio for Mac 创建 ASP.NET Core MVC/实体框架�
 keywords: "ASP.NET Core, MVC, 实体框架, Visual Studio"
 ms.author: riande
 manager: wpickett
-ms.date: 6/26/2017
+ms.date: 06/26/2017
 ms.topic: article
 ms.assetid: 959ff4ca-be2d-4444-acac-789e787146f3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-mac/index
-ms.openlocfilehash: 009b002a0718f110e0e866d0fcbe9e9da0b79d79
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1a0e4a5df45b3385ef44894d57030c886e0c47c5
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-for-mac"></a>使用 Visual Studio for Mac 创建 ASP.NET Core MVC Web 应用
 

@@ -2,7 +2,7 @@
 title: "上下文标头"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 7befd983f6a45839868639708ec5cf45bf2df35f
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5688ff2c36907231f88d45cef4ae1b1c60ab44ab
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="context-headers"></a>上下文标头
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/12/2017
 
 ## <a name="background-and-theory"></a>背景和理论上
 
-在数据保护系统中，"密钥"意味着可以提供的对象进行身份验证加密服务。 每个键由唯一的 id (GUID) 和它所携带算法信息和 entropic 材料。 其用途是，每个密钥执行唯一平均信息量，但系统不能强制实施的而我们还需要考虑的开发人员可能会通过修改密钥链中的现有密钥的算法信息手动更改密钥链。 若要实现提供这种情况下我们安全要求数据保护系统具有的概念[的加密灵活性](https://www.microsoft.com/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D121045)，这样，安全地跨多个加密算法使用单个 entropic 值。
+在数据保护系统中，"密钥"意味着可以提供的对象进行身份验证加密服务。 每个键由唯一的 id (GUID) 和它所携带算法信息和 entropic 材料。 其用途是，每个密钥执行唯一平均信息量，但系统不能强制实施的而我们还需要考虑的开发人员可能会通过修改密钥链中的现有密钥的算法信息手动更改密钥链。 若要实现提供这种情况下我们安全要求数据保护系统具有的概念[的加密灵活性](https://www.microsoft.com/en-us/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/)，这样，安全地跨多个加密算法使用单个 entropic 值。
 
 大多数系统支持的加密灵活性做到这一点包括有关负载之内算法某些标识信息。 算法的 OID 通常是适合于此。 但是，我们遇到的一个问题是有多种方法来指定相同的算法:"AES"(CNG) 托管 Aes、 AesManaged、 AesCryptoServiceProvider、 AesCng 和 （如果有特定的参数） 的 RijndaelManaged 类都确实是相同首先，，我们将需要维护所有这些到正确的 OID 的映射。 如果开发人员想要提供自定义算法 （或甚至另一个实现的 AES ！），他们将需要告诉我们其 OID。 此额外的注册步骤使系统配置特别棘手。
 

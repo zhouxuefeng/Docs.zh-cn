@@ -5,16 +5,16 @@ description: "详细信息 Razor 语法"
 keywords: "ASP.NET 核心 Razor"
 ms.author: riande
 manager: wpickett
-ms.date: 07/4/2017
+ms.date: 07/04/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 7648bc2ac7b9efd1653725cda749d6cd271bae77
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fff2f98592473a9baf6a2d4e360fec3026b7210d
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET 核心的 razor 语法
 
@@ -36,7 +36,7 @@ Razor 是才能嵌入到网页的服务器基于代码的标记语法。 Razor �
 
 ## <a name="razor-syntax"></a>Razor 语法
 
-Razor 支持 C#，并使用`@`转换到 C# 的 HTML 中的符号。 Razor C# 表达式的计算结果，并将它们呈现的 HTML 输出中。 为 C# 或 Razor 特定标记，可以从 HTML 转换 razor。 当`@`符号后跟[Razor 保留关键字](#razor-reserved-keywords)转为 Razor 特定标记，否则它可以转换为纯 C#。
+Razor 支持 C#，并使用`@`转换到 C# 的 HTML 中的符号。 Razor C# 表达式的计算结果，并将它们呈现的 HTML 输出中。 Razor 可以从 HTML 转换为 C# 或 Razor 特定标记。 当`@`符号后跟[Razor 保留关键字](#razor-reserved-keywords)转为 Razor 特定标记，否则它可以转换为纯 C#。
 
 <a name=escape-at-label></a>
 
@@ -494,7 +494,7 @@ Razor 页公开`Model`属性访问的模型传递到页。
 
 当传递"[Rick@contoso.com](mailto:Rick@contoso.com)"模型中：
 
-   请参阅[布局](layout.md)有关详细信息。
+   请参阅[布局](layout.md)了解详细信息。
 
 ### `@inject`
 

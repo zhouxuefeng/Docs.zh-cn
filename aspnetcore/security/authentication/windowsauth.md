@@ -2,20 +2,20 @@
 title: "在 ASP.NET 核心中配置 Windows 身份验证"
 author: ardalis
 description: "如何在 ASP.NET 核心中配置 Windows 身份验证"
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 7/5/2017
+ms.date: 07/05/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-548ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/windowsauth
-ms.openlocfilehash: aa401f956d74680efd3964203af3e8866b129887
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f724584b43eb2be105cc8a207d5c7b6fec558881
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>在 ASP.NET 核心中配置 Windows 身份验证
 
@@ -40,7 +40,7 @@ Visual Studio Web 应用程序模板可以配置为支持 Windows 身份验证�
 * 从模板列表中选择 Web 应用程序。
 * 选择更改身份验证按钮，然后选择**Windows 身份验证**。 
 
-运行该应用。 用户名已显示在顶部的应用程序的权限。
+运行应用。 用户名已显示在顶部的应用程序的权限。
 
 ![Windows 身份验证浏览器屏幕快照](windowsauth/_static/browser-screenshot.png)
 
