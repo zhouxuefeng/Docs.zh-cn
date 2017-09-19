@@ -11,11 +11,11 @@ ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 92136a6e5db68b4d7e5245e38960e4a1f01bfb73
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 647ab48fb83c5e2c79b5de371173bc644c65d831
+ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/17/2017
 ---
 # <a name="aspnet-web-api-help-pages-using-swagger"></a>使用 Swagger 的 ASP.NET Web API 帮助页
 
@@ -25,11 +25,11 @@ ms.lasthandoff: 09/05/2017
 
 对于构建消费应用程序的开发人员来说，了解 API 的各种方法是一个挑战。
 
-使用包含 .NET Core 实现 [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) 的 [Swagger](http://swagger.io) 为 Web API 生成优秀的文档和帮助页与添加多个 NuGet 包并修改 Startup.cs 一样简单。
+使用包含 .NET Core 实现 [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) 的 [Swagger](https://swagger.io/) 为 Web API 生成优秀的文档和帮助页与添加多个 NuGet 包并修改 Startup.cs 一样简单。
 
 * [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) 是一个开源项目，用于生成 ASP.NET Core Web API 的 Swagger 文档。
 
-* [Swagger](http://swagger.io) 是 RESTful API 的一种计算机可读表示形式，为交互式文档、客户端 SDK 生成和可发现性提供支持。
+* [Swagger](https://swagger.io/) 是 RESTful API 的一种计算机可读表示形式，为交互式文档、客户端 SDK 生成和可发现性提供支持。
 
 本教程以[使用 ASP.NET Core MVC 和 Visual Studio 构建你的第一个 Web API](xref:tutorials/first-web-api) 为示例进行构建。 如果想要按步骤操作，请在 [https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample) 中下载该示例。
 
@@ -275,7 +275,7 @@ UI 由生成的 JSON 文件驱动，还包含以下这些注释：
 
 ### <a name="data-annotations"></a>数据注释
 
-使用 `System.ComponentModel.DataAnnotations` 中找到的属性来修饰 API 控制器，以帮助驱动 Swagger UI 组件。
+使用 `System.ComponentModel.DataAnnotations` 中找到的属性来修饰模型，以帮助驱动 Swagger UI 组件。
 
 将 `[Required]` 属性添加到 `TodoItem` 类的 `Name` 属性：
 

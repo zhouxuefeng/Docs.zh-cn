@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 351f3519643bc88fc3dd1c4fbac1c144c6837523
-ms.sourcegitcommit: 0a70706a3814d2684f3ff96095d1e8291d559cc7
+ms.openlocfilehash: 48e67add785fc1d7e79c659565afb1ec68c1defb
+ms.sourcegitcommit: f531d90646b9d261c5fbbffcecd6ded9185ae292
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>使用 IIS 在 Windows 上为 ASP.NET Core 设置托管环境，并对其进行部署
 
@@ -66,22 +66,38 @@ ms.lasthandoff: 08/22/2017
 
 ## <a name="install-web-deploy-when-publishing-with-visual-studio"></a>使用 Visual Studio 进行发布时安装 Web 部署
 
-如果要使用 Web 部署在 Visual Studio 中部署应用程序，请在托管系统上安装最新版本的 Web 部署。 要安装 Web 部署，可以使用 [Web 平台安装程序 (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) 或直接从 [Microsoft 下载中心](https://www.microsoft.com/search/result.aspx?q=webdeploy&form=dlc)获取安装程序。 建议使用 WebPI。 WebPI 为托管提供程序提供独立的安装程序和配置。
+如果要使用 Web 部署在 Visual Studio 中部署应用程序，请在托管系统上安装最新版本的 Web 部署。 要安装 Web 部署，可以使用 [Web 平台安装程序 (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) 或直接从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=43717)获取安装程序。 建议使用 WebPI。 WebPI 为托管提供程序提供独立的安装程序和配置。
 
 ## <a name="application-configuration"></a>应用程序配置
 
 ### <a name="enabling-the-iisintegration-components"></a>启用 IISIntegration 组件
 
-在应用程序依赖项中加入对 Microsoft.AspNetCore.Server.IISIntegration 包的依赖项。 通过向 WebHostBuilder() 添加 .UseIISIntegration() 扩展方法，将 IIS 集成中间件合并到应用程序中。 请注意，调用 .UseIISIntegration() 的代码不会影响代码可移植性。
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+典型的 Program.cs 调用 [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) 以开始设置主机。 `CreateDefaultBuilder` 将 [Kestrel](xref:fundamentals/servers/kestrel) 配置为 Web 服务器，并通过配置 [ASP.NET Core 模块](xref:fundamentals/servers/aspnet-core-module)的基路径和端口来实现 IIS 集成：
+
+```csharp
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        ...
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+在应用程序依赖项中加入对 Microsoft.AspNetCore.Server.IISIntegration 包的依赖项[](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/)。 通过向 WebHostBuilder 添加 UseIISIntegration 扩展方法，将 IIS 集成中间件合并到应用程序中：
 
 ```csharp
 var host = new WebHostBuilder()
     .UseKestrel()
-    .UseContentRoot(Directory.GetCurrentDirectory())
     .UseIISIntegration()
-    .UseStartup<Startup>()
-    .Build();
+    ...
 ```
+
+`UseKestrel` 和 `UseIISIntegration` 均为必需。 调用 UseIISIntegration 的代码不会影响代码可移植性。 如果应用不以 IIS 为背景运行（例如，应用直接在 Kestrel 上运行），则 `UseIISIntegration` 无操作。
+
+---
+
+有关托管的详细信息，请参阅 [ASP.NET Core 中的托管](xref:fundamentals/hosting)。
 
 ### <a name="setting-iisoptions-for-the-iisintegration-service"></a>为 IISIntegration 服务设置 IISOptions
 
@@ -154,7 +170,7 @@ web.config 文件可配置 ASP.NET Core 模块并提供其他 IIS 配置。 web.
 ![“发布”对话框页](iis/_static/pub-dialog.png)
 
 ### <a name="web-deploy-outside-of-visual-studio"></a>在 Visual Studio 之外使用 Web 部署
-也可以在 Visual Studio 之外从命令行使用 Web 部署。 有关详细信息，请参阅 [Web Deployment Tool](https://technet.microsoft.com/library/dd568996(WS.10).aspx)（Web 部署工具）。
+也可以在 Visual Studio 之外从命令行使用 Web 部署。 有关详细信息，请参阅 [Web Deployment Tool](https://docs.microsoft.com/iis/publish/using-web-deploy/use-the-web-deployment-tool)（Web 部署工具）。
 
 ### <a name="alternatives-to-web-deploy"></a>Web 部署的替代方法
 如果不希望使用 Web 部署或未使用 Visual Studio，可使用多种其他方法将应用程序移动到托管系统，如 Xcopy、Robocopy 或 PowerShell。 Visual Studio 用户可以使用[发布示例](https://github.com/aspnet/vsweb-publish/blob/master/samples/samples.md)。
@@ -185,12 +201,12 @@ web.config 文件可配置 ASP.NET Core 模块并提供其他 IIS 配置。 web.
 
 * 运行 [Powershell 脚本](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1)，创建合适的注册表项（如 `.\Provision-AutoGenKeys.ps1 DefaultAppPool`）。 这会将密钥存储在注册表中，并使用 DPAPI 和计算机范围的密钥进行保护。
 * 配置 IIS 应用程序池以加载用户配置文件。 此设置位于应用程序池“高级设置”下的“进程模型”部分。 将“加载用户配置文件”设置为 `True`。 这会将密钥存储在用户配置文件目录下，并使用 DPAPI 和特定于用户帐户（用于应用池）的密钥的进行保护。
-* 调整应用程序代码，[将文件系统用作密钥环存储](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview)。 使用 X509 证书保护密钥环，并确保该证书是受信任的证书。 例如，如果它是自签名证书，则必须将它放置于受信任的根存储中。
+* 调整应用程序代码，[将文件系统用作密钥环存储](xref:security/data-protection/configuration/overview)。 使用 X509 证书保护密钥环，并确保该证书是受信任的证书。 例如，如果它是自签名证书，则必须将它放置于受信任的根存储中。
 
 当在 Web 场中使用 IIS 时：
 
 * 使用所有计算机都可以访问的文件共享。
-* 将 X509 证书部署到每台计算机。  [通过代码配置数据保护](https://docs.asp.net/en/latest/security/data-protection/configuration/overview.html)。
+* 将 X509 证书部署到每台计算机。  [通过代码配置数据保护](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview)。
 
 ### <a name="1-create-a-data-protection-registry-hive"></a>1.创建数据保护注册表配置单元
 
@@ -244,7 +260,7 @@ ASP.NET 应用程序使用的数据保护密钥存储在应用程序外部的注
 
 ## <a name="configuration-of-iis-with-webconfig"></a>使用 web.config 配置 IIS
 
-对于那些应用于反向代理配置的 IIS 功能，IIS 配置仍受 web.config 的 `<system.webServer>` 部分影响。 例如，用户可能在系统级别配置了 IIS 以便使用动态压缩，但可通过应用的 web.config 文件中的 `<urlCompression>` 元素为应用禁用该设置。 有关详细信息，请参阅 [`<system.webServer>` 的配置参考](https://www.iis.net/configreference/system.webserver)、[ASP.NET Core Module Configuration Reference](xref:hosting/aspnet-core-module)（ASP.NET Core 模块配置参考）和 [Using IIS Modules with ASP.NET Core](xref:hosting/iis-modules)（配合使用 IIS 模块与 ASP.NET Core）。 如果需要为在独立应用程序池中运行的单个应用设置环境变量（IIS 10.0+ 中支持此操作），请参阅 IIS 参考文档的[环境变量 \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) 主题中的“AppCmd.exe 命令”部分。
+对于那些应用于反向代理配置的 IIS 功能，IIS 配置仍受 web.config 的 `<system.webServer>` 部分影响。 例如，用户可能在系统级别配置了 IIS 以便使用动态压缩，但可通过应用的 web.config 文件中的 `<urlCompression>` 元素为应用禁用该设置。 有关详细信息，请参阅 [`<system.webServer>` 的配置参考](https://docs.microsoft.com/iis/configuration/system.webServer/)、[ASP.NET Core Module Configuration Reference](xref:hosting/aspnet-core-module)（ASP.NET Core 模块配置参考）和 [Using IIS Modules with ASP.NET Core](xref:hosting/iis-modules)（配合使用 IIS 模块与 ASP.NET Core）。 如果需要为在独立应用程序池中运行的单个应用设置环境变量（IIS 10.0+ 中支持此操作），请参阅 IIS 参考文档的[环境变量 \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) 主题中的“AppCmd.exe 命令”部分。
 
 ## <a name="configuration-sections-of-webconfig"></a>web.config 的配置节
 
@@ -509,6 +525,6 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 * [ASP.NET Core 简介](../index.md)
 
-* [Microsoft IIS 官方网站](http://www.iis.net/)
+* [Microsoft IIS 官方网站](https://www.iis.net/)
 
-* [Microsoft TechNet 库：Windows Server](https://technet.microsoft.com/library/bb625087.aspx)
+* [Microsoft TechNet 库：Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)

@@ -11,11 +11,11 @@ ms.assetid: 8dc28498-00ee-4d66-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 8d0bebc22e1cfdc6d9b213d0c3159a7dab988020
-ms.sourcegitcommit: 0bd3f6ec577c648dd777877e97572ec2da1b36c4
+ms.openlocfilehash: 7469546494ec54bfe36bc5bd2f5f9702889ddf4a
+ms.sourcegitcommit: 2e61e287e220eddd5f3f4cd9147aa6417cfd9236
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/12/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -70,7 +70,7 @@ Visual Studio 将创建：
 * 电影控制器 (Controllers/MoviesController.cs)
 * “创建”、“删除”、“详细信息”、“编辑”和“索引”页面的 Razor 视图文件 (Views/Movies/&ast;.cshtml)
 
-自动创建数据库上下文和 [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)（创建、读取、更新和删除）操作方法和视图的过程称为“搭建基架”。 你很快将具有功能完整的 Web 应用程序，可使用此应用程序管理电影数据库。
+自动创建数据库上下文和 [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete)（创建、读取、更新和删除）操作方法和视图的过程称为“搭建基架”。 你很快将具有功能完整的 Web 应用程序，可使用此应用程序管理电影数据库。
 
 如果运行应用并单击“Mvc 电影”链接，则将出现以下类似的错误：
 
@@ -93,7 +93,7 @@ System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity id
 * 添加初始迁移。
 * 使用初始迁移来更新数据库。
 
-从“工具”菜单中，选择“NuGet 包管理器”>“包管理器控制台”。
+从“工具”菜单中，选择“NuGet 包管理器”>“程序包管理器控制台”。
 
 <!-- following image shared with uid: tutorials/razor-pages/model -->
   ![PMC 菜单](adding-model/_static/pmc.png)
@@ -106,7 +106,7 @@ Add-Migration Initial
 Update-Database
 ```
 
-注意：如果 PMC 存在任何问题，请参阅 [CLI 方法](#cli)。
+请注意：如果在使用 `Install-Package` 命令时收到错误，请打开 NuGet 包管理器并搜索 `Microsoft.EntityFrameworkCore.Tools` 包。 通过此操作，可以安装包或检查是否已安装包。 或者，如果 PMC 存在任何问题，请参阅 [CLI 方法](#cli)。
 
 `Add-Migration` 命令创建代码以创建初始数据库架构。 此架构基于（Data/MvcMovieContext.cs 文件中的）`DbContext` 中指定的模型。 `Initial` 参数用于为迁移命名。 可以使用任意名称，但是按照惯例应选择描述迁移的名称。 有关详细信息，请参阅[迁移简介](xref:data/ef-mvc/migrations#introduction-to-migrations)。
 

@@ -11,11 +11,11 @@ ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 14ce45f0cd15b2de39f722767df076d2c0313787
-ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
+ms.openlocfilehash: 0c0ec1c7c1408b0460c594a47a3e5738cd170d5f
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>使用 Visual Studio 将 ASP.NET Core Web 应用发布到 Azure App Service
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/11/2017
 
 ## <a name="set-up-the-development-environment"></a>设置开发环境
 
-* 安装 [.NET Core 和 Visual Studio 工具](http://go.microsoft.com/fwlink/?LinkID=798306)。
+* 安装最新版本的 [Azure SDK for Visual Studio](https://www.visualstudio.com/vs/azure-tools/)。 如果没有 Visual Studio，SDK 将进行安装。
 
 * 验证 [Azure 帐户](https://portal.azure.com/)。 可[创建免费的 Azure 帐户](https://azure.microsoft.com/pricing/free-trial/)或[激活 Visual Studio 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
@@ -95,7 +95,7 @@ Visual Studio 随即创建解决方案。
 
 * 为应用提供唯一名称。 
 
-* 选择一个 MSDN 订阅。
+* 选择订阅。
 
 * 选择“新建...”来创建资源组，并输入新资源组的名称。
 
@@ -160,7 +160,7 @@ Visual Studio 将返回到“创建应用服务”对话框。
 
 * 编辑“Pages/About.cshtml”Razor 页面并更改其内容。 例如，可以将段落修改为显示“Hello ASP.NET Core!”：
 
-    [!code-html[关于](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+    [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * 右键单击项目，然后再次选择“发布...”。
 
