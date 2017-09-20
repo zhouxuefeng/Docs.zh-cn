@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: a9e255040c300bc5ce55a356e17e6912dbaeaf88
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: dde50f766dc9842089cbb0561b8bd6e2d8e7c34f
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>创建复杂的数据模型的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (5 的 10)
 
@@ -41,27 +41,27 @@ Contoso 大学示例 web 应用程序演示如何创建使用实体框架核心�
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-`DataType`属性用于指定比数据库内部类型更具体的数据类型。 在这种情况下，我们只想跟踪的日期，不的日期和时间。 `DataType`枚举提供了许多数据类型，例如日期、 时间、 电话号码、 货币、 电子邮件地址，和的详细信息。 `DataType`属性还可以启用应用程序以自动提供特定类型的功能。 例如，`mailto:`链接可以为创建`DataType.EmailAddress`，和日期选择器可提供用于`DataType.Date`在支持 HTML5 的浏览器中。 `DataType`属性发出 HTML 5 `data-` HTML 5 浏览器可以理解的 (读作的数据 dash) 属性。 `DataType`属性不提供任何验证。
+`DataType` 特性用于指定比数据库内部类型更具体的数据类型。 在这种情况下，我们只想跟踪的日期，不的日期和时间。 `DataType`枚举提供了许多数据类型，例如日期、 时间、 电话号码、 货币、 电子邮件地址，和的详细信息。 应用程序还可通过 `DataType` 特性自动提供类型特定的功能。 例如，可以为 `DataType.EmailAddress` 创建 `mailto:` 链接，并且可以在支持 HTML5 的浏览器中为 `DataType.Date` 提供日期选择器。 `DataType`属性发出 HTML 5 `data-` HTML 5 浏览器可以理解的 (读作的数据 dash) 属性。 `DataType`属性不提供任何验证。
 
-`DataType.Date`未指定的日期的显示格式。 默认情况下，根据基于服务器的 CultureInfo 的默认格式显示数据字段。
+`DataType.Date` 不指定显示日期的格式。 默认情况下，根据基于服务器的 CultureInfo 的默认格式显示数据字段。
 
-`DisplayFormat`特性用于显式指定的日期格式：
+`DisplayFormat` 特性用于显式指定日期格式：
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-`ApplyFormatInEditMode`设置指定的格式设置也应该将应用时的值显示在文本框中以进行编辑。 （你可能不想，对于某些域-例如，货币值，你可能不想在文本框中的货币符号以进行编辑。）
+`ApplyFormatInEditMode` 设置指定在文本框中显示值以进行编辑时也应用格式。 （你可能不想，对于某些域-例如，货币值，你可能不想在文本框中的货币符号以进行编辑。）
 
 你可以使用`DisplayFormat`属性通过本身，但它通常是使用一个好办法`DataType`还属性。 `DataType`属性传达数据而不是如何在屏幕上呈现其的语义，并提供就不会使用了以下好处`DisplayFormat`:
 
 * 浏览器可以启用 HTML5 功能 （例如以显示一个日历控件、 区域设置相对应的货币符号、 电子邮件链接，某些客户端输入验证，等等。）。
 
-* 默认情况下，浏览器将呈现使用基于你的区域设置的正确格式的数据。
+* 默认情况下，浏览器将根据区域设置采用正确的格式呈现数据。
 
 有关详细信息，请参阅[\<输入 > 标记帮助器文档](../../mvc/views/working-with-forms.md#the-input-tag-helper)。
 
-再次运行学生索引页，并请注意，注册日期不再显示时间。 相同将为真，使用学生模型的任何视图。
+运行应用程序，转到学生索引页，请注意，注册日期不再显示时间。 相同将为真，使用学生模型的任何视图。
 
 ![显示日期而无需时间的学生索引页](complex-data-model/_static/dates-no-times.png)
 
@@ -97,7 +97,7 @@ dotnet ef database update
 
 实体框架使用的迁移文件名称的前缀的时间戳以整理迁移。 你可以在运行 update-database 命令中之前, 创建多个迁移，然后所有迁移应用中已创建的顺序。
 
-运行创建页中，并输入任一名称超过 50 个字符。 单击创建时，客户端验证将显示一条错误消息。
+运行应用程序中，选择**学生**选项卡上，单击**新建**，并输入任一名称超过 50 个字符。 当你单击**创建**，客户端验证显示一条错误消息。
 
 ![学生索引页显示的字符串长度错误](complex-data-model/_static/string-length-errors.png)
 
@@ -483,11 +483,11 @@ dotnet ef database update
 
 运行应用，以导致`DbInitializer.Initialize`方法运行并填充新数据库。
 
-更早版本，就像在 SSOX 中打开数据库并展开**表**节点以查看是否已创建的所有表。 （如果您还有 SSOX 打开从较早的时间，请单击刷新按钮。）
+更早版本，就像在 SSOX 中打开数据库并展开**表**节点以查看是否已创建的所有表。 (如果仍有 SSOX 打开从较早的时间，请单击**刷新**按钮。)
 
 ![在 SSOX 中的表](complex-data-model/_static/ssox-tables.png)
 
-运行应用程序来触发设定种子数据库初始值设定项代码。
+运行应用，以触发设定种子数据库初始值设定项代码。
 
 右键单击**CourseAssignment**表，然后选择**查看数据**以验证它中有数据。
 

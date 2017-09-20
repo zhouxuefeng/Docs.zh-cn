@@ -11,11 +11,11 @@ ms.assetid: 41dc0db7-6f17-453e-aba6-633430609c74
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 3c86dea145d2d4dec10c77e008f511cfe67975f9
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 6102b426cb5aff78fedb9389df229cd8100e4f36
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>继承的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (9 的 10)
 
@@ -131,7 +131,7 @@ dotnet ef database update
 
 ## <a name="test-with-inheritance-implemented"></a>使用继承实现进行测试
 
-运行站点并尝试各种页面。 一切相同像以前一样。
+运行应用程序并尝试各种页面。 一切相同像以前一样。
 
 在**SQL Server 对象资源管理器**，展开**数据连接/SchoolContext**然后**表**，并查看已被取代学生和教师表Person 表。 打开 Person 表设计器，您看到它具有所有用于将 Student 与教师表中的列。
 

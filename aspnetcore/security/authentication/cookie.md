@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: 60ac318cb47b5a5b4c651c88e60d43772ce59958
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: b728c3d62b59f28f1d020b6f3732918a1fcdf4eb
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>使用 Cookie 而无需 ASP.NET 核心标识的身份验证
 
@@ -29,7 +29,7 @@ ASP.NET 核心 1.x 提供 cookie[中间件](../../fundamentals/middleware.md#fun
 
 ## <a name="adding-and-configuring"></a>添加和配置
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 完成以下步骤：
 
@@ -51,7 +51,7 @@ ASP.NET 核心 1.x 提供 cookie[中间件](../../fundamentals/middleware.md#fun
             });
     ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 完成以下步骤：
 
@@ -94,13 +94,13 @@ ASP.NET 核心 1.x 提供 cookie[中间件](../../fundamentals/middleware.md#fun
 
 若要创建一个保存你的用户信息的 cookie，您必须先构造[ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)保存你想要在 cookie 进行序列化信息。 一旦合适`ClaimsPrincipal`对象，请调用以下命令，在控制器方法：
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignInAsync("MyCookieAuthenticationScheme", principal);
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignInAsync("MyCookieAuthenticationScheme", principal);
@@ -116,13 +116,13 @@ await HttpContext.Authentication.SignInAsync("MyCookieAuthenticationScheme", pri
 
 若要注销当前用户，并删除其 cookie，调用以下命令，在你的控制器：
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignOutAsync("MyCookieAuthenticationScheme");
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignOutAsync("MyCookieAuthenticationScheme");
@@ -147,7 +147,7 @@ Task ValidateAsync(CookieValidatePrincipalContext context);
 
 ASP.NET 核心标识作为的一部分实现这一检查其`SecurityStampValidator`。 示例如下所示：
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 public static class LastChangedValidator
@@ -187,7 +187,7 @@ services.AddAuthentication("MyCookieAuthenticationScheme")
         });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 public static class LastChangedValidator
@@ -236,7 +236,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 
 [CookieAuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.cookieauthenticationoptions)类附带了各种配置选项，以微调正在创建的 cookie。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ASP.NET 核心 2.x 统一的 Api，用于配置 cookie。 Api 标记为过时，1.x 和新`Cookie`类型的属性`CookieBuilder`中引入了`CookieAuthenticationOptions`类。 建议你迁移到 2.x Api。
 
@@ -271,7 +271,7 @@ services.AddAuthentication()
         });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * `ClaimsIssuer`是要用于的颁发者[颁发者](https://docs.microsoft.com/dotnet/api/system.security.claims.claim.issuer)上创建的中间件任何声明的属性。
 
@@ -306,7 +306,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 
 你可能希望在浏览器会话之间保持并希望身份识别和将其传输的 cookie 的绝对过期时间的 cookie 到期时间。 此持久性仅应使用显式用户同意的情况下，通过"记住我"复选框上登录名或类似机制来启用。 你可以通过执行以下操作`AuthenticationProperties`参数`SignInAsync`时，调用方法[签名标识中和创建 cookie](xref:security/authentication/cookie#security-authentication-cookie-middleware-creating-a-cookie)。 例如: 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignInAsync(
@@ -320,7 +320,7 @@ await HttpContext.SignInAsync(
 
 `AuthenticationProperties`类，在前面的代码段中，使用驻留在`Microsoft.AspNetCore.Authentication`命名空间。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignInAsync(
@@ -340,7 +340,7 @@ await HttpContext.Authentication.SignInAsync(
 
 <a name="security-authentication-absolute-expiry"></a>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 await HttpContext.SignInAsync(
@@ -352,7 +352,7 @@ await HttpContext.SignInAsync(
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 await HttpContext.Authentication.SignInAsync(

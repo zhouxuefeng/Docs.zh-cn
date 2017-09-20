@@ -11,11 +11,11 @@ ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: f44a4f842180b4001eb1428316c24fd9cacc39db
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: fc6b218034183a9153c1ef22c99d920a942d2d09
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>处理并发冲突的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (10 的第 8)
 
@@ -184,9 +184,7 @@ _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVer
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>在编辑页中测试并发冲突
 
-运行该站点，然后单击以转到部门索引页的部门。
-
-右键单击**编辑**英语部门和选择的超链接**新选项卡中打开**，然后单击**编辑**英语部门的超链接。 两个浏览器选项卡现在显示的相同信息。
+运行应用并转到部门索引页。 右键单击**编辑**英语部门和选择的超链接**新选项卡中打开**，然后单击**编辑**英语部门的超链接。 两个浏览器选项卡现在显示的相同信息。
 
 更改第一个浏览器选项卡中的字段，然后单击**保存**。
 
@@ -255,7 +253,7 @@ public async Task<IActionResult> Delete(Department department)
 
 * 添加的隐藏的字段`RowVersion`属性。
 
-运行部门索引页。 右键单击**删除**英语部门和选择的超链接**新选项卡中打开**，然后在第一个选项卡中单击**编辑**英语部门的超链接。
+运行应用并转到部门索引页。 右键单击**删除**英语部门和选择的超链接**新选项卡中打开**，然后在第一个选项卡中单击**编辑**英语部门的超链接。
 
 在第一个窗口中，更改一个值，然后单击**保存**:
 

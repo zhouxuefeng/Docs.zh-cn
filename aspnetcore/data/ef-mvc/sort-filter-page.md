@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 9de39ce59633036c0dd850a7552bd3f4806c5431
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 149af0ce88d55527a42ba3b88d40047a61d510c9
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>排序、 筛选、 分页和分组-ASP.NET 核心 MVC 教程 (3 的 10) 的 EF 核心
 
@@ -67,7 +67,7 @@ Contoso 大学示例 web 应用程序演示如何创建使用实体框架核心�
 
 此代码使用中的信息`ViewData`属性设置超链接与相应的查询字符串值。
 
-运行页面并单击**姓氏**和**注册日期**列标题，以验证该排序工作原理。
+运行应用程序中，选择**学生**卡，然后单击**姓氏**和**注册日期**列标题，以验证该排序工作原理。
 
 ![名称顺序中的学生索引页](sort-filter-page/_static/name-order.png)
 
@@ -94,9 +94,9 @@ Contoso 大学示例 web 应用程序演示如何创建使用实体框架核心�
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-此代码使用`<form>`[标记帮助器](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/intro)添加搜索文本框和按钮。 默认情况下，`<form>`标记帮助器提交 post，这意味着，参数作为进行传递 HTTP 消息正文中，不能在 URL 查询字符串的窗体数据。 指定 HTTP GET 时，窗体数据是在 URL 中作为查询字符串传递，这使得用户能够创建 URL 的书签。 操作未导致更新时，将收到 W3C 准则，则建议你应使用。
+此代码使用`<form>`[标记帮助器](xref:mvc/views/tag-helpers/intro)添加搜索文本框和按钮。 默认情况下，`<form>`标记帮助器提交 post，这意味着，参数作为进行传递 HTTP 消息正文中，不能在 URL 查询字符串的窗体数据。 指定 HTTP GET 时，窗体数据是在 URL 中作为查询字符串传递，这使得用户能够创建 URL 的书签。 操作未导致更新时，将收到 W3C 准则，则建议你应使用。
 
-运行页面，输入搜索字符串，然后单击搜索以验证筛选正常工作。
+运行应用程序中，选择**学生**选项卡上，输入搜索字符串，然后单击搜索以验证筛选是否正常工作。
 
 ![使用筛选的学生索引页](sort-filter-page/_static/filtering.png)
 
@@ -193,7 +193,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 </a>
 ```
 
-运行页面。
+运行应用并转到学生页。
 
 ![学生索引页，带有分页链接](sort-filter-page/_static/paging.png)
 
@@ -241,7 +241,7 @@ LINQ 语句学生实体分组按注册日期，计算每个组中的实体数并
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-运行应用并单击**有关**链接。 每个注册日期的学生计数显示在表格中。
+运行应用并转到关于页面。 每个注册日期的学生计数显示在表格中。
 
 ![有关页面](sort-filter-page/_static/about.png)
 

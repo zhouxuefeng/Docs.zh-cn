@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 87aa7e63b1a08e457c5fdcbc052bfa039b8d2175
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 3393bb90d170cfc572d2307ec18f1a8e25bdce59
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>创建、 读取、 更新和删除的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (2 个 10)
 
@@ -156,7 +156,7 @@ public class Student
 
 中的代码*Views/Students/Create.cshtml*使用`label`， `input`，和`span`（用于验证消息） 标记的每个字段的帮助程序。
 
-通过选择运行页面**学生**选项卡上，单击**新建**。
+运行应用程序中，选择**学生**卡，然后单击**新建**。
 
 输入名称和日期。 请尝试输入无效的日期，如果你的浏览器，可以做到这一点。 （某些浏览器强制你要使用日期选取器。）然后单击**创建**可查看错误消息。
 
@@ -222,7 +222,7 @@ HttpPost 编辑操作方法替换为以下代码。
 
 ### <a name="test-the-edit-page"></a>测试的编辑页
 
-运行应用程序并选择**学生**选项卡，然后单击**编辑**超链接。
+运行应用程序中，选择**学生**选项卡，然后单击**编辑**超链接。
 
 ![学生编辑页](crud/_static/student-edit.png)
 
@@ -264,7 +264,7 @@ HttpPost 编辑操作方法替换为以下代码。
 
 [!code-html[](intro/samples/cu/Views/Students/Delete.cshtml?range=7-9&highlight=2)]
 
-通过选择运行页面**学生**选项卡上，单击**删除**超链接：
+运行应用程序中，选择**学生**卡，然后单击**删除**超链接：
 
 ![删除确认页面](crud/_static/student-delete.png)
 

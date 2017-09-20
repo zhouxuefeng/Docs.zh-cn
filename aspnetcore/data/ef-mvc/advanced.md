@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 210f8e8b91c2487e5c4b73fdeb6ff0d5aa35c0c5
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 70434d1c814af2a96493027c6a2ad87845cd5cae
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>高级的主题的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (10/10)
 
@@ -61,7 +61,7 @@ Contoso 大学示例 web 应用程序演示如何创建使用实体框架核心�
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
-运行关于页面。 它显示它以前的相同数据。
+运行应用并转到关于页面。 它显示它以前的相同数据。
 
 ![有关页面](advanced/_static/about.png)
 
@@ -109,7 +109,7 @@ Contoso 大学示例 web 应用程序演示如何创建使用实体框架核心�
 
 打开*StudentsController.cs*并在`Details`方法上设置断点`if (student == null)`语句。
 
-在调试模式下运行应用程序，并请转到详细信息页上的一名学生。
+在调试模式下运行应用，并请转到详细信息页上的一名学生。
 
 转到**输出**显示调试窗口输出，并查看的查询：
 

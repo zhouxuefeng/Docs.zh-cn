@@ -2,7 +2,7 @@
 title: "定位点标记帮助器 |Microsoft 文档"
 author: pkellner
 description: "演示如何使用定位点标记帮助器"
-keywords: "ASP.NET 核心，标记帮助器"
+keywords: "ASP.NET Core, 标记帮助程序"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -11,15 +11,15 @@ ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/AnchorTagHelper
-ms.openlocfilehash: f08e6a5288076d56b55843f1872bcfa8104f3923
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fdb91836699b4dd334499cffa6c4c3961c5c020f
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="anchor-tag-helper"></a>定位点标记帮助器
 
-通过[Peter Kellner](http://peterkellner.net) 
+作者：[Peter Kellner](http://peterkellner.net) 
 
 定位点标记帮助程序增强了 HTML 定位点 (`<a ... ></a>`) 通过添加新属性的标记。 生成的链接 (上`href`标记) 创建使用新的属性。 该 URL 可以包括可选的协议 （如 https)。
 
@@ -215,7 +215,7 @@ app.UseMvc(routes =>
 
         * *主页*
 
-          * *Index.cshtml*
+          * Index.cshtml
           
           * *AboutBlog.cshtml*
           

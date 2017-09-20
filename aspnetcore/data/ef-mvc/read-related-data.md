@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a3badbfe365a99593b38fc3846a9984824438f16
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: e818411f2cc568afdfd0612a6367dc3e257d0dd7
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>读取与相关的数据的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (6 的 10)
 
@@ -85,7 +85,7 @@ Contoso 大学示例 web 应用程序演示如何创建使用实体框架核心�
   @Html.DisplayFor(modelItem => item.Department.Name)
   ```
 
-运行页面 （选择 Contoso 大学主页页面上的课程选项卡） 若要查看使用部门名称列表。
+运行应用并选择**课程**选项卡以查看使用部门名称的列表。
 
 ![课程索引页](read-related-data/_static/courses-index.png)
 
@@ -203,7 +203,7 @@ Index 方法替换为以下代码以执行预先加载了相关的数据并将�
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-运行应用程序并选择教师选项卡。没有相关的 OfficeAssignment 实体时，该页将显示相关的 OfficeAssignment 实体以及的空表单元格的 Location 属性。
+运行应用并选择**教师**选项卡。没有相关的 OfficeAssignment 实体时，该页将显示相关的 OfficeAssignment 实体以及的空表单元格的 Location 属性。
 
 ![未选择任何项教师索引页](read-related-data/_static/instructors-index-no-selection.png)
 
@@ -213,7 +213,7 @@ Index 方法替换为以下代码以执行预先加载了相关的数据并将�
 
 此代码读取`Courses`要显示的课程列表的视图模型的属性。 它还提供了**选择**超链接，以便将发送到所选课程 ID`Index`操作方法。
 
-运行页面，然后选择一个教师。 此时你会看到一个网格，其中显示分配给所选教师的课程，对于每个课程中，你将看到分配部门的名称。
+刷新页面并选择一个教师。 此时你会看到一个网格，其中显示分配给所选教师的课程，对于每个课程中，你将看到分配部门的名称。
 
 ![选择教师索引页教师](read-related-data/_static/instructors-index-instructor-selected.png)
 
@@ -223,7 +223,7 @@ Index 方法替换为以下代码以执行预先加载了相关的数据并将�
 
 此代码读取为了显示学生课程中注册的列表视图模型的注册属性。
 
-运行页面，然后选择一个教师。 然后选择要查看的已注册的学生和其年级列表的课程。
+再次刷新页面并选择一个教师。 然后选择要查看的已注册的学生和其年级列表的课程。
 
 ![教师索引页教师和所选课程](read-related-data/_static/instructors-index.png)
 
@@ -237,7 +237,7 @@ Index 方法替换为以下代码以执行预先加载了相关的数据并将�
 
 新代码将删除*ThenInclude*方法的代码中检索 instructor 实体调用注册数据。 如果选择教师和课程，突出显示的代码检索所选的课程，注册实体和每个注册的学生实体。
 
-立即运行教师索引页，你将看到在页上，显示的内容不会改变，虽然已经更改了如何检索的数据。
+运行应用程序，请转到教师索引页现在和你将看到任何区别中的页上，显示的内容，不过你已更改如何检索的数据。
 
 ## <a name="summary"></a>摘要
 

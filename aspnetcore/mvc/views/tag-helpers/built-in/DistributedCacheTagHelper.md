@@ -2,7 +2,7 @@
 title: "分布式缓存标记帮助器 |Microsoft 文档"
 author: pkellner
 description: "演示如何使用缓存标记帮助器"
-keywords: "ASP.NET 核心，标记帮助器"
+keywords: "ASP.NET Core, 标记帮助程序"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -12,14 +12,14 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper
 ms.openlocfilehash: 2b260624fb2d85ab1a2625511397bcb4a85b6e77
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="distributed-cache-tag-helper"></a>分布式的缓存标记帮助器
 
-通过[Peter Kellner](http://peterkellner.net) 
+作者：[Peter Kellner](http://peterkellner.net) 
 
 
 分布式缓存标记帮助器提供的功能可以显著提高通过缓存到分布式的缓存源其内容的 ASP.NET Core 应用的性能。
