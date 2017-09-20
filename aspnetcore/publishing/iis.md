@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 48e67add785fc1d7e79c659565afb1ec68c1defb
-ms.sourcegitcommit: f531d90646b9d261c5fbbffcecd6ded9185ae292
+ms.openlocfilehash: 8ffadc1dede4053faa129a3b224aace901e70e14
+ms.sourcegitcommit: ad01283f299d346cf757c4f4744c48634dc27e73
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>使用 IIS 在 Windows 上为 ASP.NET Core 设置托管环境，并对其进行部署
 
@@ -99,21 +99,22 @@ var host = new WebHostBuilder()
 
 有关托管的详细信息，请参阅 [ASP.NET Core 中的托管](xref:fundamentals/hosting)。
 
-### <a name="setting-iisoptions-for-the-iisintegration-service"></a>为 IISIntegration 服务设置 IISOptions
+### <a name="iis-options"></a>IIS 选项
 
-要配置 IISIntegration 服务选项，请在 ConfigureServices 中加入适用于 IISOptions 的服务配置。
+要配置 IISIntegration 服务选项，请在 ConfigureServices 中加入适用于 IISOptions 的服务配置：
 
 ```csharp
-services.Configure<IISOptions>(options => {
-  ...
+services.Configure<IISOptions>(options => 
+{
+    ...
 });
 ```
 
-| 选项 | 设置|
-| --- | --- | 
-| AutomaticAuthentication | 如果为“true”，身份验证中间件更改到达的请求用户，并响应一般挑战。 如果为“false”，身份验证中间件仅在 theAuthenticationScheme 显式指示时提供标识和响应挑战 |
-| ForwardClientCertificate | 如果为“true”，且存在 `MS-ASPNETCORE-CLIENTCERT` 请求头，则填充 `ITLSConnectionFeature`。 |
-| ForwardWindowsAuthentication | 如果为“true”，身份验证中间件尝试使用平台处理程序 Windows 身份验证进行身份验证。 如果为“false”，不会添加身份验证中间件。 |
+| 选项                         | 默认 | 设置 |
+| ------------------------------ | ------- | ------- |
+| `AutomaticAuthentication`      | `true`  | 若为 `true`，身份验证中间件将设置 `HttpContext.User` 并响应一般质询。 若为 `false`，身份验证中间件仅提供标识 (`HttpContext.User`) 并在 `AuthenticationScheme` 显式请求时响应质询。 必须在 IIS 中启用 Windows 身份验证使 `AutomaticAuthentication` 得以运行。 |
+| `AuthenticationDisplayName`    | `null`  | 设置在登录页上向用户显示的显示名。 |
+| `ForwardClientCertificate`     | `true`  | 若为 `true`，且存在 `MS-ASPNETCORE-CLIENTCERT` 请求头，则填充 `HttpContext.Connection.ClientCertificate`。 |
 
 ### <a name="webconfig"></a>web.config
 
