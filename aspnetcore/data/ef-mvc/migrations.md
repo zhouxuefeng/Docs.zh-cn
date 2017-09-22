@@ -2,7 +2,7 @@
 title: "ASP.NET 核心 MVC 与 EF 核心-迁移-4 的 10"
 author: tdykstra
 description: "在本教程中，你开始使用 EF 核心迁移功能用于管理 ASP.NET 核心 MVC 应用程序中的数据模型更改。"
-keywords: "ASP.NET 核心，实体框架核心，迁移"
+keywords: "ASP.NET Core, Entity Framework Core, 迁移"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
@@ -11,11 +11,11 @@ ms.assetid: 81f6c9c2-a819-4f3a-97a4-4b0503b56c26
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 4d81099d1ab97a8a49d96657153a54aa96dd6bf8
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 638bef0cda14f53a326c66c6a5da3f3c1bb762c6
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>迁移的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (10 的第 4)
 
@@ -31,11 +31,11 @@ Contoso 大学示例 web 应用程序演示如何创建使用实体框架核心�
 
 保持数据库与数据模型同步此方法适用很好地部署到生产应用程序之前。 在生产它通常存储数据，你想要保留，并不想丢失的所有内容每次运行应用程序时进行了更改，例如添加新列。 EF 核心迁移功能启用 EF 更新数据库架构，而不是创建新的数据库，从而解决了此问题。
 
-## <a name="entity-framework-core-nuget-packages-for-migrations"></a>迁移的实体框架核心 NuGet 包
+## <a name="entity-framework-core-nuget-packages-for-migrations"></a>用于进行迁移的 Entity Framework Core NuGet 包
 
 若要使用迁移，你可以使用**程序包管理器控制台**(PMC) 或命令行界面 (CLI)。  这些教程介绍如何使用 CLI 命令。 有关 PMC 信息位于[本教程末尾](#pmc)。
 
-中提供了命令行界面 (CLI) 的 EF 工具[Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet)。 若要安装此包，将其添加到`DotNetCliToolReference`中的集合*.csproj*文件，如下所示。 **注意：**必须安装此包通过编辑*.csproj*文件; 不能使用`install-package`命令或包管理器 GUI。 你可以编辑*.csproj*通过右键单击中的项目名称的文件**解决方案资源管理器**并选择**编辑 ContosoUniversity.csproj**。
+[Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) 中提供了适用于命令行接口 (CLI) 的 EF 工具。 若要安装此包，将其添加到`DotNetCliToolReference`中的集合*.csproj*文件，如下所示。 注意：必须通过编辑 .csproj 文件来安装此包；不能使用 `install-package` 命令或程序包管理器 GUI。 你可以编辑*.csproj*通过右键单击中的项目名称的文件**解决方案资源管理器**并选择**编辑 ContosoUniversity.csproj**。
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
   

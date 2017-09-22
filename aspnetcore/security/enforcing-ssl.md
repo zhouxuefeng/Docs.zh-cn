@@ -10,22 +10,22 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/enforcing-ssl
-ms.openlocfilehash: 35554939bd574b2826053004ed437bee46154c2b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e8e7d4a69fd681534fb313ff113805bfd6a6d44e
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="enforcing-ssl-in-an-aspnet-core-app"></a>在 ASP.NET Core 应用程序实施 SSL
 
-通过[Rick Anderson](https://twitter.com/RickAndMSFT)
+作者：[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 本文档说明如何：
 
 - 要求将 SSL 用于所有请求 （仅适用于 HTTPS 请求）。
 - 所有 HTTP 请求重都定向到 HTTPS。
 
-## <a name="require-ssl"></a>要求使用 SSL
+## <a name="require-ssl"></a>要求 SSL
 
 [RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute)用于要求 SSL。 你可以修饰控制器或具有此特性的方法，或可以将其应用全局如下所示：
 

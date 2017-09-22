@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 8f8612fd9c92370d9b0a86572dca654a6a034916
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: b66ef7e3626effff1c66c37a86865699fa8866f9
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="working-with-multiple-environments"></a>使用多个环境
 
@@ -100,7 +100,7 @@ $Env:ASPNETCORE_ENVIRONMENT = "Development"
 
 **每个 IIS 应用程序池**
 
-如果你需要设置环境变量单个运行的应用程序在独立的应用程序池 （IIS 10.0 + 支持），请参阅*AppCmd.exe 命令*部分[环境变量\<environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe)在 IIS 中的主题参考文档。
+如果需要为在独立应用程序池中运行的单个应用设置环境变量（IIS 10.0+ 中支持此操作），请参阅 IIS 参考文档的[环境变量 \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) 主题中的“AppCmd.exe 命令”部分。
 
 ### <a name="macos"></a>macOS
 设置 macOS 的当前环境，可以进行串联时运行该应用程序;
@@ -160,4 +160,4 @@ ASP.NET 内核提供了大量的功能和允许开发人员能够轻松地控制
 
 * [配置](configuration.md)
 
-* [标记帮助器简介](../mvc/views/tag-helpers/intro.md)
+* [标记帮助程序简介](../mvc/views/tag-helpers/intro.md)

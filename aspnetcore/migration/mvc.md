@@ -2,7 +2,7 @@
 title: "从 ASP.NET MVC 迁移到 ASP.NET 核心 MVC"
 author: ardalis
 description: 
-keywords: "ASP.NET 核心，MVC，迁移"
+keywords: "ASP.NET Core, MVC, 迁移"
 ms.author: riande
 manager: wpickett
 ms.date: 03/07/2017
@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc
-ms.openlocfilehash: 2bd689626e867e0ea82fbebdf92447a6029aa35b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 385ab7dfea5b92687a427bdfe9558462227113b1
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>从 ASP.NET MVC 迁移到 ASP.NET 核心 MVC
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 09/12/2017
 
 * 添加**MVC 控制器类**同名*HomeController.cs*到*控制器*文件夹。
 
-![添加新项对话框](mvc/_static/add_mvc_ctl.png)
+![“添加新项”对话框](mvc/_static/add_mvc_ctl.png)
 
 * 添加*视图*文件夹。
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 09/12/2017
 
 * 添加*Index.cshtml*到 MVC 视图页*视图/主页*文件夹。
 
-![添加新项对话框](mvc/_static/view.png)
+![“添加新项”对话框](mvc/_static/view.png)
 
 项目结构如下所示：
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 09/12/2017
 <h1>Hello world!</h1>
 ```
 
-运行该应用。
+运行应用。
 
 ![Web 应用程序在 Microsoft Edge 中打开](mvc/_static/hello-world.png)
 

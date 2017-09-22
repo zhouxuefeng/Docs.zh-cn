@@ -11,11 +11,11 @@ ms.assetid: ef7dad2a-7029-4ae5-8f06-1fbebedccaa4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: 913eda69f88ef05a990d9465024f4fa6b08cd1b7
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: c361af7d336fc0f7651e5d2f28d71515e2949c65
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="key-management-and-lifetime"></a>密钥管理和生存期
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/11/2017
 
 2. 如果用户配置文件可用，密钥会保留到"%localappdata%\asp.net\dataprotection-keys"文件夹中。 此外，如果操作系统是 Windows，它们将在 rest 使用 DPAPI 加密。
 
-3. 如果在 IIS 中托管的应用程序，密钥会保留到 HKLM 注册表仅对辅助进程帐户是 ACLed 某个特殊的注册表项中。 使用 DPAPI 对静止加密密钥。
+3. 如果在 IIS 中托管的应用程序，密钥会保留到 HKLM 注册表仅对辅助进程帐户是 ACLed 某个特殊的注册表项中。 使用 DPAPI 对密钥静态加密。
 
 4. 如果没有这些条件与之匹配，则密钥不会保留在当前进程之外。 关闭进程，所有生成密钥将会丢失。
 
