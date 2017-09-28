@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 39b65f8af8304fabc6cf8d9a27992043f1e381a0
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 290d752ea5f177348ff3e749cc125e946ae6e763
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="updating-the-generated-pages"></a>更新生成的页面
 
@@ -34,7 +34,6 @@ ms.lasthandoff: 09/12/2017
 
   ![上下文菜单中显示“快速操作和重构”。](da1/qa.png)
 
-
 选择 `using System.ComponentModel.DataAnnotations;`
 
   ![使用列表顶部的 System.ComponentModel.DataAnnotations](da1/da.png)
@@ -47,9 +46,9 @@ ms.lasthandoff: 09/12/2017
 
 ![鼠标悬停在“编辑”链接上的浏览器窗口，显示了 http://localhost:1234/Movies/Edit/5 的链接 URL](da1/edit7.png)
 
-“编辑”、“详细信息”和“删除”链接是在 Pages/Movies/Index.cshtml 文件中由[定位标记帮助程序](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper)生成的。
+“编辑”、“详细信息”和“删除”链接是在 Pages/Movies/Index.cshtml 文件中由[定位标记帮助程序](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)生成的。
 
-[!code-cshtml[Main](razor-pages-start\snapshot_sample\RazorPagesMovie\Pages\Movie\Index.cshtml?highlight=16-18&range=32-)]
+[!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
 [标记帮助程序](xref:mvc/views/tag-helpers/intro)使服务器端代码可以在 Razor 文件中参与创建和呈现 HTML 元素。 在前面的代码中，`AnchorTagHelper` 从 Razor 页面（路由是相对的）、`asp-page` 和路由 ID (`asp-route-id`) 动态生成 HTML `href` 特性值。 有关详细信息，请参阅[页面的 URL 生成](xref:mvc/razor-pages/index#url-generation-for-pages)。
 
@@ -61,7 +60,6 @@ ms.lasthandoff: 09/12/2017
   <a href="/Movies/Details?id=1">Details</a> |
   <a href="/Movies/Delete?id=1">Delete</a>
 </td>
-
 ```
 
 动态生成的链接通过查询字符串传递电影 ID（例如 `http://localhost:5000/Movies/Details?id=2`）。 
@@ -86,7 +84,7 @@ ms.lasthandoff: 09/12/2017
 
 在 Pages/Movies/Edit.cshtml.cs 文件中更新 `OnPostAsync` 方法。 下列突出显示的代码显示了更改：
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movie/Edit.cshtml.cs?name=snippet1&highlight=17-24)]
+[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet1&highlight=16-23)]
 
 之前的代码仅检测当第一个并发客户端删除电影以及第二个并发客户端对电影发布更改时的并发异常。
 
@@ -101,7 +99,7 @@ ms.lasthandoff: 09/12/2017
 
 ### <a name="posting-and-binding-review"></a>发布和绑定审阅
 
-检查 Pages/Movies/Edit.cshtml.cs 文件：[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movie/Edit.cshtml.cs?name=snippet2)]
+检查 *Pages/Movies/Edit.cshtml.cs* 文件：[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
 
 当对 Movies/Edit 页面进行 HTTP GET 请求时（例如 `http://localhost:5000/Movies/Edit/2`）：
 
@@ -113,10 +111,10 @@ ms.lasthandoff: 09/12/2017
 
 * 此页面上的表单值将绑定到 `Movie` 属性。 `[BindProperty]` 特性会启用[模型绑定](xref:mvc/models/model-binding)。
 
-```csharp
-[BindProperty]
-public Movie Movie { get; set; }
-```
+  ```csharp
+  [BindProperty]
+  public Movie Movie { get; set; }
+  ```
 
 * 如果模型状态中存在错误（例如，`ReleaseDate` 无法被转换为日期），则会使用已提交的值再次发布表单。
 * 如果没有模型错误，则电影已保存。
