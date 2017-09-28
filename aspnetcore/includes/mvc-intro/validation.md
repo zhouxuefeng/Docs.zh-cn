@@ -6,7 +6,7 @@
 
 ## <a name="keeping-things-dry"></a>坚持 DRY 原则
 
-MVC 的设计原则之一是 [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself)（“不要自我重复”）。 ASP.NET MVC 支持你仅指定一次功能或行为，然后使它应用到整个应用中。 这可以减少所需编写的代码量，并使编写的代码更少出错，更易于测试和维护。
+MVC 的设计原则之一是 [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself)（“不要自我重复”）。 ASP.NET MVC 支持你仅指定一次功能或行为，然后使它应用到整个应用中。 这可以减少所需编写的代码量，并使编写的代码更少出错，更易于测试和维护。
 
 MVC 和 Entity Framework Core Code First 提供的验证支持是 DRY 原则在实际操作中的极佳示例。 可以在一个位置（模型类中）以声明方式指定验证规则，并且在应用中的所有位置强制执行。
 
@@ -31,13 +31,13 @@ MVC 和 Entity Framework Core Code First 提供的验证支持是 DRY 原则在�
 ![带有多个 jQuery 客户端验证错误的电影视图表单](../../tutorials/first-mvc-app/validation/_static/val.png)
 
 > [!NOTE]
-> 可能无法在 `Price` 字段中输入小数点或逗号。 若要使 [jQuery 验证](http://jqueryvalidation.org/)支持使用逗号（“,”）表示小数点的的非英语区域设置，以及支持非美国英语日期格式，必须执行使应用全球化的步骤。 有关详细信息，请参阅[其他资源](#additional-resources)。 目前只能输入整数，例如 10。
+> 可能无法在 `Price` 字段中输入小数点或逗号。 若要使 [jQuery 验证](https://jqueryvalidation.org/)支持使用逗号（“,”）表示小数点的的非英语区域设置，以及支持非美国英语日期格式，必须执行使应用全球化的步骤。 有关详细信息，请参阅[其他资源](#additional-resources)。 目前只能输入整数，例如 10。
 
 请注意表单如何自动呈现每个包含无效值的字段中相应的验证错误消息。 客户端（使用 JavaScript 和 jQuery）和服务器端（若用户禁用 JavaScript）都必定会遇到这些错误。
 
 明显的好处在于不需要在 `MoviesController` 类或 Create.cshtml 视图中更改单个代码行来启用此验证 UI。 在本教程前面创建的控制器和视图会自动选取验证规则，这些规则是通过在 `Movie` 模型类的属性上使用验证特性所指定的。 使用 `Edit` 操作方法测试验证后，即已应用相同的验证。
 
-存在客户端验证错误时，不会将表单数据发送到服务器。 可通过使用 [Fiddler 工具](http://www.telerik.com/fiddler)或 [F12 开发人员工具](https://dev.windows.com/microsoft-edge/platform/documentation/f12-devtools-guide/)在 `HTTP Post` 方法中设置断点来对此进行验证。
+存在客户端验证错误时，不会将表单数据发送到服务器。 可通过使用 [Fiddler 工具](http://www.telerik.com/fiddler)或 [F12 开发人员工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)在 `HTTP Post` 方法中设置断点来对此进行验证。
 
 ## <a name="how-validation-works"></a>验证工作原理
 
@@ -65,7 +65,7 @@ MVC 和 Entity Framework Core Code First 提供的验证支持是 DRY 原则在�
 
 [!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
-[输入标记帮助程序](xref:mvc/views/working-with-forms)使用 [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) 特性，并在客户端上生成 jQuery 验证所需的 HTML 特性。 [验证标记帮助程序](xref:mvc/views/working-with-forms#the-validation-tag-helpers)用于显示验证错误。 有关详细信息，请参阅[验证](xref:mvc/models/validation)。
+[输入标记帮助程序](xref:mvc/views/working-with-forms)使用 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) 特性，并在客户端上生成 jQuery 验证所需的 HTML 特性。 [验证标记帮助程序](xref:mvc/views/working-with-forms#the-validation-tag-helpers)用于显示验证错误。 有关详细信息，请参阅[验证](xref:mvc/models/validation)。
 
 此方法真正好的一点是：无论是控制器还是 `Create` 视图模板都不知道强制实施的实际验证规则或显示的特定错误消息。 仅可在 `Movie` 类中指定验证规则和错误字符串。 这些相同的验证规则自动应用于 `Edit` 视图和可能创建用于编辑模型的任何其他视图模板。
 

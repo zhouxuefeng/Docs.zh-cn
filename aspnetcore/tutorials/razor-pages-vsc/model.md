@@ -5,16 +5,16 @@ description: "使用 Visual Studio for Mac 在 ASP.NET Core 中向 Razor 页面�
 keywords: "ASP.NET Core, Razor 页面, Razor, MVC, 模型"
 ms.author: riande
 manager: wpickett
-ms.date: 8/27/2017
+ms.date: 08/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 39b069f8c81ca9460abc33b32b0bcc27118939cb
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 445c13542bd4a7561eb6aa509b1aabe47cb45468
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>使用 Visual Studio for Mac 在 ASP.NET Core 中向 Razor 页面应用添加模型
 
@@ -42,7 +42,8 @@ ms.lasthandoff: 08/29/2017
 * 选择“文件”>“打开文件”，然后选择 RazorPagesMovie.csproj 文件。
 * 按照以下代码中突出显示的内容添加 `<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />`：
 
-[!code-xml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/RazorPagesMovie.cli.csproj?highlight=10)] [!INCLUDE[model 3](../../includes/RP/model3.md)]
+[!code-xml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/RazorPagesMovie.cli.csproj?highlight=10)]
+[!INCLUDE[model 3](../../includes/RP/model3.md)]
 
 <a name="scaffold"></a>
 ### <a name="scaffold-the-movie-model"></a>搭建“电影”模型的基架

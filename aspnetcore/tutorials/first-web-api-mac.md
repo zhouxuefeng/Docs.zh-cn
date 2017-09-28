@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 uid: tutorials/first-web-api-mac
 helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
 ms.technology: aspnet
-keywords: "ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, 服务, HTTP"
+keywords: "ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, 服务, HTTP 服务"
 manager: wpickett
-ms.openlocfilehash: 992059f7abd7650f82c1307acf3ba3219a6fcbb5
-ms.sourcegitcommit: 0a3f215b4f665afc6f2678642968eea698102346
+ms.openlocfilehash: 6835cdefcc001452a3ffc8f4fd6a2f55f7274692
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>使用 ASP.NET Core MVC 和 Visual Studio for Mac 创建 Web API
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 09/18/2017
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-这是 HTTP POST 方法，由 [`[HttpPost]`](https://docs.microsoft.com/aspnet/core/api) 特性指示的。 [`[FromBody]`](https://docs.microsoft.com/aspnet/core/api) 特性告诉 MVC 从 HTTP 请求正文获取待办事项的值。
+这是 HTTP POST 方法，由 [`[HttpPost]`](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) 特性指示的。 [`[FromBody]`](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) 特性告诉 MVC 从 HTTP 请求正文获取待办事项的值。
 
 `CreatedAtRoute` 方法返回 201 响应，这是在服务器上创建新资源的 HTTP POST 方法的标准响应。 `CreatedAtRoute` 还会向响应添加位置标头。 位置标头指定新建的待办事项的 URI。 请参阅 [10.2.2 201 已创建](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。
 

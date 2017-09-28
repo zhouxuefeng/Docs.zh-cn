@@ -1,5 +1,5 @@
 
-我们将在下一教程中介绍 [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)。 [Display](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayattribute.aspx) 特性指定要显示的字段名称的内容（本例中应为“Release Date”，而不是“ReleaseDate”）。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) 特性指定数据的类型（日期），使字段中存储的时间信息不会显示。
+我们将在下一教程中介绍 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6)。 [Display](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) 特性指定要显示的字段名称的内容（本例中应为“Release Date”，而不是“ReleaseDate”）。 [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) 特性指定数据的类型（日期），使字段中存储的时间信息不会显示。
 
 浏览到 `Movies` 控制器，并将鼠标指针悬停在“编辑”链接上以查看目标 URL。
 
@@ -35,7 +35,7 @@ ASP.NET Core 将 `http://localhost:1234/Movies/Edit/4` 转换为对 `Movies` 控
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
-`[Bind]` 特性是防止[过度发布](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)的一种方法。 只应在 `[Bind]` 特性中包含想要更改的属性。 有关详细信息，请参阅 [Protect your controller from over-posting](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)（防止控制器过度发布）。 [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) 提供了一种替代方法以防止过度发布。
+`[Bind]` 特性是防止[过度发布](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)的一种方法。 只应在 `[Bind]` 特性中包含想要更改的属性。 有关详细信息，请参阅 [Protect your controller from over-posting](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)（防止控制器过度发布）。 [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) 提供了一种替代方法以防止过度发布。
 
 请注意第二个 `Edit` 操作方法的前面是 `[HttpPost]` 特性。
 
@@ -89,7 +89,7 @@ ASP.NET Core 将 `http://localhost:1234/Movies/Edit/4` 转换为对 `Movies` 控
 * [标记帮助程序简介](xref:mvc/views/tag-helpers/intro)
 * [创作标记帮助程序](xref:mvc/views/tag-helpers/authoring)
 * [反请求伪造](xref:security/anti-request-forgery)
-* 防止控制器[过度发布](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)
+* 防止控制器[过度发布](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [表单标记帮助程序](xref:mvc/views/working-with-forms)
 * [输入标记帮助程序](xref:mvc/views/working-with-forms)

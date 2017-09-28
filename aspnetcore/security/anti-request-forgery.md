@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3c0f90dd9894c362c0d7fef5d1f1da076991605c
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: d7df8f91e88290509c8751a4b69804b60138846e
+ms.sourcegitcommit: 31a979c5d45fd3ed38aa13ef17cddb3389721588
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/25/2017
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>阻止在 ASP.NET 核心中的跨网站请求伪造 (XSRF/CSRF) 攻击
 
@@ -134,9 +134,8 @@ ASP.NET 核心防 request 伪造默认数据保护配置
 </form>
 ```
 
+在每个前面的情况下，ASP.NET Core 将添加类似于以下的隐藏的表单字段：
 ```html
-In each of the preceding cases, ASP.NET Core will add a hidden form field similar to the following:
-
 <input name="__RequestVerificationToken" type="hidden" value="CfDJ8NrAkSldwD9CpLRyOtm6FiJB1Jr_F3FQJQDvhlHoLNJJrLA6zaMUmhjMsisu2D2tFkAiYgyWQawJk9vNm36sYP1esHOtamBEPvSk1_x--Sg8Ey2a-d9CV2zHVWIN9MVhvKHOSyKqdZFlYDVd69XYx-rOWPw3ilHGLN6K0Km-1p83jZzF0E4WU5OGg5ns2-m9Yw" />
 ```
 

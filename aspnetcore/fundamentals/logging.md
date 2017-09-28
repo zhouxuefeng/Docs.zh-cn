@@ -2,7 +2,7 @@
 title: "在 ASP.NET 核心中的日志记录"
 author: ardalis
 description: "引入了日志记录框架中 ASP.NET Core。 有关每个内置的日志记录提供程序和一些常用的第三方提供程序链接中包含的部分。"
-keywords: "ASP.NET 核心，日志记录，日志记录提供程序，Microsoft.Extensions.Logging、 ILogger、 ILoggerFactory、 LogLevel、 WithFilter、 TraceSource、 事件日志、 EventSource，作用域"
+keywords: "ASP.NET 核心，日志记录，日志记录 providers,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,scopes"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 10/14/2016
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ca81f01fe1c5026514eafedf852b4bc8f3b6fd21
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>在 ASP.NET 核心中日志记录的简介
 

@@ -5,16 +5,16 @@ description: "利用 Visual Studio for Mac 在 ASP.NET Core 中开始使用 Razo
 keywords: "ASP.NET Core, Razor 页面, 基架, Entity Framework Core, EF, EF Core, 数据库, mac, macOS, Visual Studio for Mac"
 ms.author: riande
 manager: wpickett
-ms.date: 7/27/2017
+ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: 56ff18589d189b0d2760c761c58b5b030d02940b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 9431e8160011d1485925db5cc4f9f83bf7381e97
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-for-mac"></a>借助 Visual Studio for Mac 在 ASP.NET Core 中开始使用 Razor 页面
 

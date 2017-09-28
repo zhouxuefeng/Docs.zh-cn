@@ -6,7 +6,7 @@
 
 HTTP 终结点是 Web 应用程序中可定向的 URL（例如 `http://localhost:1234/HelloWorld`），其中结合了所用的协议 `HTTP`、TCP 端口等 Web 服务器的网络位置 `localhost:1234`，以及目标 URI `HelloWorld`。
 
-第一条注释指出这是一个 [HTTP GET](http://www.w3schools.com/tags/ref_httpmethods.asp) 方法，它通过向基 URL 追加“/HelloWorld/”进行调用。 第二条注释指定一个 [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) 方法，它通过向 URL 追加“/HelloWorld/Welcome/”进行调用。 本教程稍后将使用基架引擎生成 `HTTP POST` 方法。
+第一条注释指出这是一个 [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) 方法，它通过向基 URL 追加“/HelloWorld/”进行调用。 第二条注释指定一个 [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) 方法，它通过向 URL 追加“/HelloWorld/Welcome/”进行调用。 本教程稍后将使用基架引擎生成 `HTTP POST` 方法。
 
 在非调试模式下运行应用，并将“HelloWorld”追加到地址栏中的路径。 `Index` 方法返回一个字符串。
 
@@ -46,7 +46,7 @@ MVC 根据入站 URL 调用控制器类（及其中的操作方法）。 MVC 所
 
 ![显示“你好 Rick，NumTimes 为 4”应用程序响应的浏览器窗口](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-在上图中，未使用 URL 段 (`Parameters`)，且 `name` 和 `numTimes` 参数作为[查询字符串](http://en.wikipedia.org/wiki/Query_string)进行传递。 上述 URL 中的 `?`（问号）为分隔符，后接查询字符串。 `&` 字符用于分隔查询字符串。
+在上图中，未使用 URL 段 (`Parameters`)，且 `name` 和 `numTimes` 参数作为[查询字符串](https://wikipedia.org/wiki/Query_string)进行传递。 上述 URL 中的 `?`（问号）为分隔符，后接查询字符串。 `&` 字符用于分隔查询字符串。
 
 将 `Welcome` 方法替换为以下代码：
 
