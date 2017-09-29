@@ -2,7 +2,7 @@
 title: "创建本机移动应用程序的后端服务"
 author: ardalis
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 3b6a32f2-5af9-4ede-9b7f-17ab300526d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 7b2b35b1519badbc8b8fbddab97a0c6336926185
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: be1cd9f4fe41f1a79669975cb6a89439cdd9e5c7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="creating-backend-services-for-native-mobile-applications"></a>创建本机移动应用程序的后端服务
 
@@ -46,8 +46,6 @@ ToDoRest 应用支持列出、 添加、 删除和更新待办事项。 每个�
 ![编辑项对话框](native-mobile-backend/_static/todo-android-edit-item.png)
 
 此示例是默认配置为使用后端服务托管在 developer.xamarin.com，这允许只读操作。 若要针对在计算机上运行的下一节中创建的 ASP.NET Core 应用测试一下，你将需要更新应用程序的`RestUrl`常量。 导航到`ToDoREST`项目，然后打开*Constants.cs*文件。 替换`RestUrl`具有包含您的计算机的 IP 的 URL 地址 （不 localhost 或 127.0.0.1，因为此地址用于从设备模拟器中不是从您的计算机）。 包括的端口号 (5000)。 若要测试的设备中运行你的服务，请确保你没有活动的防火墙阻止访问此端口。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 // URL of REST service (Xamarin ReadOnly Service)

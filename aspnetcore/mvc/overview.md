@@ -1,8 +1,8 @@
 ---
 title: "ASP.NET 核心 MVC 的概述"
 author: ardalis
-description: 
-keywords: ASP.NET Core,
+description: "了解如何 ASP.NET 核心 MVC 是用于生成 web 应用的丰富的框架和 Api 使用模型-视图-控制器设计模式。"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 67394b066c18a149a97b957d6478ba8301ea8147
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET 核心 MVC 的概述
 
@@ -92,8 +92,6 @@ routes.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id
 
 *属性路由*使您能够指定的修饰控制器和操作具有定义应用程序的路由的属性的路由信息。 这意味着旁边的控制器和操作与它们关联放置的 route 定义。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [1, 4]}} -->
-
 ```csharp
 [Route("api/[controller]")]
 public class ProductsController : Controller
@@ -118,8 +116,6 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 ASP.NET 核心 MVC 支持[验证](models/validation.md)的修饰模型对象具有数据批注验证属性。 验证特性之前值发布到服务器，客户端检查以及调用之前的控制器操作在服务器上。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [4, 5, 8, 9]}} -->
-
 ```csharp
 using System.ComponentModel.DataAnnotations;
 public class LoginViewModel
@@ -138,8 +134,6 @@ public class LoginViewModel
 ```
 
 进行的控制器操作：
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [3]}} -->
 
 ```csharp
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
@@ -161,17 +155,15 @@ ASP.NET Core 提供的内置支持[依赖关系注入 (DI)](../fundamentals/depe
 
 你的应用程序还可以使用[依赖关系注入视图中文件](views/dependency-injection.md)，使用`@inject`指令：
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1]}} -->
-
-```html
+```cshtml
 @inject SomeService ServiceName
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>@ServiceName.GetTitle</title>
+    <title>@ServiceName.GetTitle</title>
 </head>
 <body>
-  <h1>@ServiceName.GetTitle</h1>
+    <h1>@ServiceName.GetTitle</h1>
 </body>
 </html>
 ```
@@ -185,7 +177,6 @@ ASP.NET Core 提供的内置支持[依赖关系注入 (DI)](../fundamentals/depe
 [Authorize]
    public class AccountController : Controller
    {
-
 ```
 
 ### <a name="areas"></a>区域
@@ -224,7 +215,7 @@ Framework 包括内置的支持通过 HTTP 内容协商支持[格式设置数据
 
 例如，下面的视图定义的类型的模型`IEnumerable<Product>`:
 
-```html
+```cshtml
 @model IEnumerable<Product>
 <ul>
     @foreach (Product p in Model)
@@ -240,9 +231,7 @@ Framework 包括内置的支持通过 HTTP 内容协商支持[格式设置数据
 
 有许多内置的标记帮助器常见任务-例如，创建窗体、 链接、 加载资产和详细的和甚至更多的可用在公共 GitHub 存储库并作为 NuGet 程序包。 在使用 C# 中，创作标记帮助程序和它们目标基于元素名称、 属性名称或父标记的 HTML 元素。 例如，内置 LinkTagHelper 可以用于创建链接到`Login`操作`AccountsController`:
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [3]}} -->
-
-```html
+```cshtml
 <p>
     Thank you for confirming your email.
     Please <a asp-controller="Account" asp-action="Login">Click here to Log in</a>.
@@ -251,9 +240,7 @@ Framework 包括内置的支持通过 HTTP 内容协商支持[格式设置数据
 
 `EnvironmentTagHelper`可用来在你的运行时环境，如开发、 过渡或生产的视图 （例如，原始或缩减） 中包括不同的脚本：
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1, 3, 4, 9]}} -->
-
-```html
+```cshtml
 <environment names="Development">
     <script src="~/lib/jquery/dist/jquery.js"></script>
 </environment>

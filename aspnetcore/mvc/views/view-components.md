@@ -11,11 +11,11 @@ ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: bb8a889c66ec9ca0c0aec7b4a4184d7c19858d78
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 1ca140a8b43d16789403ac1862d4c3c1a1f62448
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="view-components"></a>查看组件
 
@@ -221,8 +221,6 @@ ms.lasthandoff: 09/22/2017
 * 将优先级参数更改为三个或更少因此 priority 视图不返回。
 * 暂时重命名*Views/Todo/Components/PriorityList/Default.cshtml*到*1Default.cshtml*。
 * 测试应用程序，您将收到以下错误：
-
-   <!-- literal_block {"ids": [], "xml:space": "preserve"} -->
 
    ```
    An unhandled exception occurred while processing the request.

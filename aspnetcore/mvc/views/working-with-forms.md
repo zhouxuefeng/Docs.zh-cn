@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fe774a1ae02ab5ea168c19045fcc8664c0273a6
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: ff6fee6eee539fc77b6c6180a816daa760202848
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>在 ASP.NET Core 中的窗体中使用标记帮助器简介
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 09/22/2017
      <!-- Input and Submit elements -->
      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
     </form>
-   ```
+```
 
 MVC 运行时生成`action`属性从窗体标记帮助器属性的值`asp-controller`和`asp-action`。 窗体标记帮助器还会生成隐藏[请求验证令牌](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)以防止跨站点请求伪造 (一起使用时`[ValidateAntiForgeryToken]`HTTP Post 操作方法中的属性)。 一个纯 HTML 窗体防止跨站点请求伪造会很困难，窗体标记帮助器提供此服务为你。
 
@@ -63,13 +63,11 @@ MVC 运行时生成`action`属性从窗体标记帮助器属性的值`asp-contro
 
 中的视图的许多*视图/帐户*文件夹 (在创建与新的 web 应用程序时生成*单个用户帐户*) 包含[asp 路由 returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms)属性：
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [2]}} -->
-
-```none
+```cshtml
 <form asp-controller="Account" asp-action="Login"
      asp-route-returnurl="@ViewData["ReturnUrl"]"
      method="post" class="form-horizontal" role="form">
-   ```
+```
 
 >[!NOTE]
 >利用内置的模板，`returnUrl`仅将在您尝试访问的授权的资源但不是进行身份验证或授权时自动填充。 当试图未经授权的访问时，安全中间件将你重定向至登录页与`returnUrl`设置。
@@ -82,7 +80,7 @@ MVC 运行时生成`action`属性从窗体标记帮助器属性的值`asp-contro
 
 ```HTML
 <input asp-for="<Expression Name>" />
-   ```
+```
 
 输入的标记帮助器：
 
@@ -157,7 +155,7 @@ Type expected
        <button type="submit">Register</button>
      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
    </form>
-   ```
+```
 
 应用于数据注释`Email`和`Password`属性生成的模型的元数据。 输入标记帮助器使用的模型元数据并生成[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*`属性 (请参阅[模型验证](../models/validation.md))。 这些属性描述验证程序可以将附加到的输入字段。 这提供了非介入式 HTML5 和[jQuery](https://jquery.com/)验证。 非介入式属性具有格式`data-val-rule="Error Message"`，其中规则是验证规则的名称 (如`data-val-required`， `data-val-email`，`data-val-maxlength`等。)如果此属性中提供了一条错误消息，它显示的值为`data-val-rule`属性。 也有属性的窗体`data-val-ruleName-argumentName="argumentValue"`，例如，提供有关的规则的其他详细信息`data-val-maxlength-max="1024"`。
 
@@ -209,7 +207,7 @@ Type expected
 
 ```HTML
 <input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="" />
-   ```
+```
 
 ### <a name="expression-names-and-collections"></a>表达式名称和集合
 
@@ -225,7 +223,7 @@ public IActionResult Edit(int id, int colorIndex)
        ViewData["Index"] = colorIndex;
        return View(GetPerson(id));
    }
-   ```
+```
 
 以下 Razor 显示如何访问特定`Color`元素：
 
@@ -274,8 +272,6 @@ public IActionResult Edit(int id, int colorIndex)
 
 生成的以下 HTML:
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [2, 3, 4, 5, 6, 7, 8]}} -->
-
 ```HTML
 <form method="post" action="/Demo/RegisterTextArea">
   <textarea data-val="true"
@@ -314,7 +310,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 ```HTML
 <label for="Email">Email Address</label>
-   ```
+```
 
 标签标记帮助器生成`for`"Email"，是的 ID 属性值与关联`<input>`元素。 标记帮助程序生成一致`id`和`for`元素以便能够正确关联。 在此示例中的标题来自`Display`属性。 如果该模型未包含`Display`属性标题将该表达式的属性名称。
 
@@ -334,7 +330,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 ```HTML
 <span asp-validation-for="Email"></span>
-   ```
+```
 
 验证消息标记帮助器将生成以下 HTML:
 
@@ -382,8 +378,6 @@ public IActionResult Edit(int id, int colorIndex)
 
 生成的 HTML （如果该模型为有效）：
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [2, 3, 8, 9, 12, 13]}} -->
-
 ```HTML
 <form action="/DemoReg/Register" method="post">
   <div class="validation-summary-valid" data-valmsg-summary="true">
@@ -427,13 +421,11 @@ HTTP POST`Index`方法会显示所选内容：
 
 `Index`视图：
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
+[!code-cshtml[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
 这将生成以下 html 代码虽然 （使用"CA"选择):
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [2, 3, 4, 5, 6]}} -->
-
-```HTML
+```html
 <form method="post" action="/">
      <select id="Country" name="Country">
        <option value="MX">Mexico</option>
@@ -443,7 +435,7 @@ HTTP POST`Index`方法会显示所选内容：
        <br /><button type="submit">Register</button>
      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
    </form>
-   ```
+```
 
 > [!NOTE]
 > 我们不建议使用`ViewBag`或`ViewData`与选择标记帮助器。 视图模型是在提供 MVC 元数据更加可靠和通常更不容易出错。
@@ -472,8 +464,6 @@ HTTP POST`Index`方法会显示所选内容：
 
 生成的以下 HTML:
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [4, 5]}} -->
-
 ```HTML
   <form method="post" action="/Home/IndexEnum">
          <select data-val="true" data-val-required="The EnumCountry field is required."
@@ -488,7 +478,7 @@ HTTP POST`Index`方法会显示所选内容：
          <br /><button type="submit">Register</button>
          <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
     </form>
-   ```
+```
 
 ### <a name="option-group"></a>选项组
 
@@ -503,8 +493,6 @@ HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup)视图模型
 ![选项组示例](working-with-forms/_static/grp.png)
 
 生成的 HTML 中：
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}} -->
 
 ```HTML
  <form method="post" action="/Home/IndexGroup">
@@ -536,8 +524,6 @@ HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup)视图模型
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
 生成的以下 HTML:
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [3]}} -->
 
 ```HTML
 <form method="post" action="/Home/IndexMultiSelect">
@@ -572,8 +558,6 @@ HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup)视图模型
 [!code-HTML[Main](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
 正确`<option>`将选择的元素 (包含`selected="selected"`属性) 具体取决于当前`Country`值。
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [5]}} -->
 
 ```HTML
  <form method="post" action="/Home/IndexEmpty">

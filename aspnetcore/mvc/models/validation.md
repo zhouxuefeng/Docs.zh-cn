@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET 核心 mvc 模型验证"
-author: rick-anderson
-description: "引入了 ASP.NET 核心 mvc 模型验证。"
+author: rachelappel
+description: "了解有关 ASP.NET 核心 mvc 模型验证。"
 keywords: "ASP.NET 核心，MVC，验证"
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0874d3b677cee2859da9eb85b0573811abbed12a
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: efbc68e898cadd06d61fa69914fe08f3a12ba802
+ms.sourcegitcommit: 8b5733f1cd5d2c2b6d432bf82fcd4be2d2d6b2a3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>ASP.NET 核心 mvc 模型验证简介
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 09/22/2017
 
 下面是带批注`Movie`模型从的应用程序存储有关电影和电视节目的信息。 大多数属性都需要和多个字符串属性具有长度要求。 此外，没有在此处的数值范围限制`Price`从 0 到 $999.99，以及自定义验证特性的属性。
 
-[!code-csharp[Main](validation/sample/Movie.cs?range=6-31)]
+[!code-csharp[Main](validation/sample/Movie.cs?range=6-29)]
 
 只需读取通过模型将显示有关此应用程序，从而更便于维护代码的数据的规则。 下面是几个常用的内置验证特性：
 
@@ -61,6 +61,18 @@ ms.lasthandoff: 09/22/2017
 MVC 支持任何特性的派生自`ValidationAttribute`来进行验证。 在找不到许多有用的验证属性[System.ComponentModel.DataAnnotations](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations)命名空间。
 
 可能需要更多的功能比内置属性提供的实例。 对于这些时间中，你可以创建自定义验证特性的派生自`ValidationAttribute`或更改您的模型来实现`IValidatableObject`。
+
+## <a name="notes-on-the-use-of-the-required-attribute"></a>必需的特性的使用说明
+
+可以为非 null[值类型](/dotnet/csharp/language-reference/keywords/value-types)(如`decimal`， `int`， `float`，和`DateTime`) 是本质上是必需的不需要`Required`属性。 该应用程序执行的不可以为 null 的类型的标记的任何服务器端验证检查`Required`。
+
+MVC 模型绑定，并不关心的验证和验证特性，拒绝包含缺少的值或非 null 的类型的空白窗体字段提交。 在缺少`BindRequired`属性上的目标属性中，模型绑定忽略缺少数据不可为 null 的类型，其中的表单域不存在从传入的窗体数据。
+
+[BindRequired 属性](/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute)(另请参阅[自定义模型具有属性的绑定行为](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) 有助于确保窗体数据是否完整。 当应用于一个属性，以及模型绑定系统将需要该属性的值。 应用于类型时，模型绑定系统将要求提供的所有该类型的属性的值。
+
+当你使用[可以为 Null\<T > 类型](/dotnet/csharp/programming-guide/nullable-types/)(例如，`decimal?`或`System.Nullable<decimal>`) 并将其标记`Required`，就像该属性是标准的可以为 null 类型 （对于执行服务器端验证检查示例中， `string`)。
+
+客户端验证对应于一个模型属性，已标记为窗体字段需要值`Required`和尚未标记为不可为 null 的类型属性`Required`。 `Required`可以用于控制客户端验证错误消息。
 
 ## <a name="model-state"></a>模型状态
 
@@ -104,15 +116,15 @@ MVC 将继续验证域，直到达到最大错误 (默认情况下为 200) 数�
 
 你必须具有正确的 JavaScript 脚本引用的视图中的客户端验证工作如下所示准备好。
 
-[!code-html[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
+[!code-cshtml[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
 
-[!code-html[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
+[!code-cshtml[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
 MVC 使用除了从模型属性的类型元数据的验证属性以验证数据并显示使用 JavaScript 的任何错误消息。 当你使用 MVC 来呈现从模型使用的窗体元素[标记帮助程序](xref:mvc/views/tag-helpers/intro)或[HTML 帮助器](xref:mvc/views/overview)它会将添加 HTML 5[数据特性](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes)中验证，需要为窗体元素下面所示。 MVC 生成`data-`内置和自定义属性的属性。 你可以使用如下所示的相关标记帮助器客户端上显示验证错误：
 
-[!code-html[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
+[!code-cshtml[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
-上面的标记帮助器呈现的 HTML 下面。 请注意， `data-` HTML 中的属性输出对应的验证属性`ReleaseDate`属性。 `data-val-required`属性下面包含的错误消息，如果用户在发行日期字段中，未填满，该消息显示在随附的说明显示`<span>`元素。
+上面的标记帮助器呈现的 HTML 下面。 请注意， `data-` HTML 中的属性输出对应的验证属性`ReleaseDate`属性。 `data-val-required`属性下面包含的错误消息，如果用户在发行日期字段中，未填满，该消息显示在随附的说明显示**\<跨越 >**元素。
 
 ```html
 <form action="/Movies/Create" method="post">
@@ -147,11 +159,11 @@ MVC 确定基于.NET 数据类型的属性，可能使用重写的类型属性�
 
 ```html
 <input class="form-control" type="datetime"
-data-val="true"
-data-val-classicmovie="Classic movies must have a release year earlier than 1960."
-data-val-classicmovie-year="1960"
-data-val-required="The ReleaseDate field is required."
-id="ReleaseDate" name="ReleaseDate" value="" />
+    data-val="true"
+    data-val-classicmovie="Classic movies must have a release year earlier than 1960."
+    data-val-classicmovie-year="1960"
+    data-val-required="The ReleaseDate field is required."
+    id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
 非介入式验证将使用中的数据`data-`属性来显示错误消息。 但是，jQuery 不知道有关规则或消息之前将它们添加到 jQuery 的`validator`对象。 这下面添加一个名为方法的示例中所示`classicmovie`包含自定义客户端验证代码，以便 jQuery`validator`对象。

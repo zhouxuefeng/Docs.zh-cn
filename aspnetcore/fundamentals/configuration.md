@@ -11,15 +11,15 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 7d591259587766a932a14bb030c76274101d16ac
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 379030df4ca91a38fce251aeaab9c5dfaf11e915
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core 中的配置
 
-[Rick Anderson](https://twitter.com/RickAndMSFT)，[标记 Michaelis](http://intellitect.com/author/mark-michaelis/)， [Steve Smith](https://ardalis.com/)，和[Daniel Roth](https://github.com/danroth27)
+[Rick Anderson](https://twitter.com/RickAndMSFT)，[标记 Michaelis](http://intellitect.com/author/mark-michaelis/)， [Steve Smith](https://ardalis.com/)， [Daniel Roth](https://github.com/danroth27)，和[Luke Latham](https://github.com/guardrex)
 
 配置 API 提供一种方法配置应用程序中基于名称-值对的列表。 在运行时从多个源读取配置。 名称-值对可以分组到多级的层次结构。 有配置提供程序：
 
@@ -295,55 +295,187 @@ key3=value_from_json_3
 
 ## <a name="commandline-configuration-provider"></a>命令行配置提供程序
 
-下面的示例使最后一个命令行配置提供程序：
+[命令行配置提供程序](/aspnet/core/api/microsoft.extensions.configuration.commandline.commandlineconfigurationprovider)接收命令行自变量在运行时配置的键 / 值对。
 
-[!code-csharp[Main](configuration/sample/CommandLine/Program.cs)]
+[查看或下载命令行配置示例](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample/CommandLine)
+
+### <a name="setting-up-the-provider"></a>设置提供程序
+
+# <a name="basic-configurationtabbasicconfiguration"></a>[基本配置](#tab/basicconfiguration)
+
+若要激活命令行配置，请调用`AddCommandLine`实例上的扩展方法[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder):
+
+[!code-csharp[Main](configuration/sample_snapshot/CommandLine/Program.cs?highlight=18,21)]
+
+运行代码，将显示以下输出：
+
+```console
+MachineName: MairaPC
+Left: 1980
+```
+
+键 / 值对的自变量传递命令行上更改的值`Profile:MachineName`和`App:MainWindow:Left`:
+
+```console
+dotnet run Profile:MachineName=BartPC App:MainWindow:Left=1979
+```
+
+控制台窗口会显示：
+
+```console
+MachineName: BartPC
+Left: 1979
+```
+
+若要重写使用命令行配置提供其他配置提供程序配置，调用`AddCommandLine`中的最后一个`ConfigurationBuilder`:
+
+[!code-csharp[Main](configuration/sample_snapshot/CommandLine/Program2.cs?range=11-16&highlight=1,5)]
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+典型的 ASP.NET Core 2.x 应用程序使用的静态简便方法`CreateDefaultBuilder`来生成主机：
+
+[!code-csharp[Main](configuration/sample_snapshot/Program.cs?highlight=12)]
+
+`CreateDefaultBuilder`加载从的可选配置*appsettings.json*， *appsettings。 {环境}.json*，[用户机密](xref:security/app-secrets)(在`Development`环境)，环境变量和命令行参数。 最后调用命令行配置提供程序。 上次调用提供程序允许在运行时以替代配置设置的其他配置提供程序传递的命令行自变量调用更早版本。
+
+请注意，对于*appsettings*文件`reloadOnChange`已启用。 命令行自变量被重写，如果匹配的配置值在*appsettings*文件在应用启动后已更改。
+
+> [!NOTE]
+> 作为使用的替代方法`CreateDefaultBuilder`方法，使用创建主机[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)和手动生成配置[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder)中 ASP.NET Core 支持 2.x。 请参阅 ASP.NET Core 1.x 选项卡的详细信息。
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+创建[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder)并调用`AddCommandLine`要使用命令行配置提供程序方法。 上次调用提供程序允许在运行时以替代配置设置的其他配置提供程序传递的命令行自变量调用更早版本。 向其应用配置[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)与`UseConfiguration`方法：
+
+[!code-csharp[Main](configuration/sample_snapshot/CommandLine/Program2.cs?highlight=11,15,19)]
+
+---
+
+### <a name="arguments"></a>参数
+
+在命令行上传递自变量必须符合以下表所示的两种格式之一。
+
+| 参数格式                                                     | 示例        |
+| ------------------------------------------------------------------- | :------------: |
+| 单个参数： 用一个等号分隔的键-值对 (`=`) | `key1=value`   |
+| 两个参数的序列： 键 / 值对，并用空格分隔    | `/key1 value1` |
+
+**单个自变量**
+
+值必须跟一个等号 (`=`)。 该值可以为 null (例如， `mykey=`)。
+
+键可能具有的前缀。
+
+| 键前缀               | 示例         |
+| ------------------------ | :-------------: |
+| 没有任何前缀                | `key1=value1`   |
+| 单一短划线 (`-`) &#8224; | `-key2=value2`  |
+| 两个短划线 (`--`)        | `--key3=value3` |
+| 正斜杠 (`/`)      | `/key4=value4`  |
+
+&#8224;具有单个仪表前缀的键 (`-`) 必须在提供[切换映射](#switch-mappings)、 下面所述。
+
+示例命令：
+
+```console
+dotnet run key1=value1 -key2=value2 --key3=value3 /key4=value4
+```
+
+注意： 如果`-key1`不存在于[切换映射](#switch-mappings)赋予配置提供程序，`FormatException`引发。
+
+**两个自变量的序列**
+
+值不能为 null，并且必须符合以空格分隔的密钥。
+
+密钥必须具有的前缀。
+
+| 键前缀               | 示例         |
+| ------------------------ | :-------------: |
+| 单一短划线 (`-`) &#8224; | `-key1 value1`  |
+| 两个短划线 (`--`)        | `--key2 value2` |
+| 正斜杠 (`/`)      | `/key3 value3`  |
+
+&#8224;具有单个仪表前缀的键 (`-`) 必须在提供[切换映射](#switch-mappings)、 下面所述。
+
+示例命令：
+
+```console
+dotnet run -key1 value1 --key2 value2 /key3 value3
+```
+
+注意： 如果`-key1`不存在于[切换映射](#switch-mappings)赋予配置提供程序，`FormatException`引发。
+
+### <a name="duplicate-keys"></a>重复键
+
+如果提供了重复的键，则使用最后一个键 / 值对。
+
+### <a name="switch-mappings"></a>切换映射
+
+手动生成配置时`ConfigurationBuilder`，你可以根据需要提供交换机映射字典`AddCommandLine`方法。 交换机映射可用于提供密钥名称更换逻辑。
+
+当使用交换机映射字典时，字典将检查与提供的命令行自变量的键匹配的键。 如果在字典中找到命令行的键，字典值 （密钥更换） 传递回来，以便将配置设置。 交换机映射是所必需的任何命令行的键，加上单个短划线 (`-`)。
+
+切换映射字典键规则：
+
+* 交换机必须以短划线开头 (`-`) 或双短划线 (`--`)。
+* 交换机映射字典不能包含重复键。
+
+在下面的示例中，`GetSwitchMappings`方法允许你使用单个仪表的命令行自变量 (`-`) 密钥前缀，并避免前导子项的前缀。
+
+[!code-csharp[Main](configuration/sample/CommandLine/Program.cs?highlight=10-19,32)]
+
+未提供命令行参数，字典提供给`AddInMemoryCollection`设置配置值。 使用以下命令运行该应用程序：
+
+```console
+dotnet run
+```
+
+控制台窗口会显示：
+
+```console
+MachineName: RickPC
+Left: 1980
+```
 
 使用以下方法来配置设置中传递：
 
 ```console
-dotnet run /Profile:MachineName=Bob /App:MainWindow:Left=1234
+dotnet run /Profile:MachineName=DahliaPC /App:MainWindow:Left=1984
 ```
 
-这将显示：
+控制台窗口会显示：
 
 ```console
-Hello Bob
-Left 1234
+MachineName: DahliaPC
+Left: 1984
 ```
 
-`GetSwitchMappings`方法允许你使用`-`而非`/`和它中抽出前导子项前缀。 例如: 
+创建交换机映射字典后，它包含下表中显示的数据。
+
+| 键            | 值                 |
+| -------------- | --------------------- |
+| `-MachineName` | `Profile:MachineName` |
+| `-Left`        | `App:MainWindow:Left` |
+
+若要演示密钥切换使用字典，请运行以下命令：
 
 ```console
-dotnet run -MachineName=Bob -Left=7734
+dotnet run -MachineName=ChadPC -Left=1988
 ```
 
-显示：
+将交换的命令行的键。 控制台窗口会显示的配置值`Profile:MachineName`和`App:MainWindow:Left`:
 
 ```console
-Hello Bob
-Left 7734
+MachineName: ChadPC
+Left: 1988
 ```
-
-命令行自变量必须包含 （它可以为 null） 的值。 例如: 
-
-```console
-dotnet run /Profile:MachineName=
-```
-
-是可以的但
-
-```console
-dotnet run /Profile:MachineName
-```
-
-引发异常的结果。 如果你指定为其中没有相应的交换机映射的-或--命令行开关前缀，则将引发异常。
 
 ## <a name="the-webconfig-file"></a>Web.config 文件
 
 A *web.config*文件是必需的当你在 IIS 或 IIS Express 应用程序承载。 *web.config*开启 AspNetCoreModule IIS 启动你的应用中。 中的设置*web.config*启用 IIS 来启动你的应用和配置其他 IIS 设置和模块中 AspNetCoreModule。 如果你使用的 Visual Studio 将删除*web.config*，Visual Studio 将创建一个新。
 
-### <a name="additional-notes"></a>附加说明
+## <a name="additional-notes"></a>附加说明
 
 * 依赖关系注入 (DI) 未设置截止日期之后`ConfigureServices`调用。
 * 配置系统不是 DI 感知。
@@ -351,9 +483,10 @@ A *web.config*文件是必需的当你在 IIS 或 IIS Express 应用程序承载
   * `IConfigurationRoot`用于根节点。 可以触发重新加载。
   * `IConfigurationSection`表示一个节的配置值。 `GetSection`和`GetChildren`方法返回`IConfigurationSection`。
 
-### <a name="additional-resources"></a>其他资源
+## <a name="additional-resources"></a>其他资源
 
 * [使用多个环境](environments.md)
 * [在开发期间安全存储应用密钥](../security/app-secrets.md)
+* [在 ASP.NET Core 中承载](xref:fundamentals/hosting)
 * [依赖关系注入](dependency-injection.md)
 * [Azure Key Vault 配置提供程序](xref:security/key-vault-configuration)

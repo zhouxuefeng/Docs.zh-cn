@@ -2,7 +2,7 @@
 title: "模型绑定"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 597d4058a410e0b5991b1d5a74c9fc7bfe8171b8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 92085829d2a37a2aa6080aeb34a5e14be95e02d8
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="model-binding"></a>模型绑定
 
@@ -32,8 +32,6 @@ ASP.NET 核心 mvc 模型绑定将映射到操作方法参数从 HTTP 请求的�
 `http://contoso.com/movies/edit/2`
 
 由于路由模板如下所示， `{controller=Home}/{action=Index}/{id?}`，`movies/edit/2`将路由到`Movies`控制器，并将其`Edit`操作方法。 它还会接受可选参数调用`id`。 操作方法的代码应如下所示：
-
-<!-- literal_block {"ids": [], "linenos": true, "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 public IActionResult Edit(int? id)
@@ -71,7 +69,7 @@ The link works but generates an error when building with DocFX
 
 * `IFormFile``IEnumerable<IFormFile>`： 一个或多个已上载的文件的 HTTP 请求的一部分。
 
-* `CancelationToken`： 用于取消异步控制器中的活动。
+* `CancellationToken`： 用于取消异步控制器中的活动。
 
 这些类型可以绑定到操作参数或属性上的类类型。
 
@@ -107,15 +105,13 @@ MVC 包含某些特性，可用于将定向到不同的源其默认模型绑定�
 
 ASP.NET 选择基于输入格式化程序[内容类型](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html)标头和类型的参数，除非没有应用于它否则指定的特性。 如果你想要使用的 XML 或另一种格式必须配置在*Startup.cs*文件，但你可能会首先必须获取对引用`Microsoft.AspNetCore.Mvc.Formatters.Xml`使用 NuGet。 启动代码应如下所示：
 
-<!-- literal_block {"ids": [], "linenos": true, "xml:space": "preserve", "language": "csharp"} -->
-
 ```csharp
 public void ConfigureServices(IServiceCollection services)
-   {
-       services.AddMvc()
-          .AddXmlSerializerFormatters();
+{
+    services.AddMvc()
+        .AddXmlSerializerFormatters();
    }
-   ```
+```
 
 中的代码*Startup.cs*文件包含`ConfigureServices`方法替换`services`可用于为 ASP.NET 应用程序的服务生成的自变量。 在示例中，我们要添加为 MVC 将为此应用程序提供服务的 XML 格式化程序。 `options`自变量传递给`AddMvc`方法可用于添加和管理筛选器、 格式化程序和其他系统选项利用 MVC，在应用启动后。 然后应用`Consumes`属性设为控制器类或操作方法要使用所需的格式。
 

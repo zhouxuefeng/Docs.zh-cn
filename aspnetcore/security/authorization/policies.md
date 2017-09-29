@@ -2,7 +2,7 @@
 title: "自定义的基于策略的授权"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: dd7187f67887bb39a5ff425dcbae0927c7565cb8
-ms.sourcegitcommit: 41e3e007512c175a42910bc69678f3f0403cab04
+ms.openlocfilehash: 5021b5d20f6d9b9a4d8889f25b5e41f2c9306f64
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="custom-policy-based-authorization"></a>自定义的基于策略的授权
 
@@ -24,8 +24,6 @@ ms.lasthandoff: 09/01/2017
 实际上[角色授权](roles.md#security-authorization-role-based)和[声明授权](claims.md#security-authorization-claims-based)使使用的要求、 的处理程序的要求并预配置的策略。 这些构建基块，可以快速、 在代码中允许的更丰富且可重复使用，可轻松地测试授权结构的授权评估。
 
 组成一个或多个要求和注册在应用程序启动授权服务配置的一部分，在授权策略`ConfigureServices`中*Startup.cs*文件。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -44,8 +42,6 @@ public void ConfigureServices(IServiceCollection services)
 
 策略使用应用`Authorize`通过指定策略名称，例如; 的属性
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [Authorize(Policy="Over21")]
 public class AlcoholPurchaseRequirementsController : Controller
@@ -63,8 +59,6 @@ public class AlcoholPurchaseRequirementsController : Controller
 ## <a name="requirements"></a>要求
 
 授权要求是一个策略可用于评估当前的用户主体的数据参数的集合。 在我们的最小存在时间策略我们的要求是单个参数，最小存在时间。 要求必须实现`IAuthorizationRequirement`。 这是一个空的的标记接口。 参数化的最小年龄要求可能会实现，如下所示;
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public class MinimumAgeRequirement : IAuthorizationRequirement
@@ -89,8 +83,6 @@ public class MinimumAgeRequirement : IAuthorizationRequirement
 <a name=security-authorization-handler-example></a>
 
 最小存在时间处理程序可能如下所示：
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
@@ -128,8 +120,6 @@ public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
 
 在配置期间，服务集合中必须例如; 注册处理程序
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 
 public void ConfigureServices(IServiceCollection services)
@@ -165,8 +155,6 @@ public void ConfigureServices(IServiceCollection services)
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>为什么将需要一项要求的多个处理程序？
 
 在要评估上的情况下**或**实现单个要求的多个处理程序的基础。 例如，Microsoft 已使用密钥卡仅打开的门。 如果你忘记你密钥卡随身携带接线员打印临时不干胶标签，并为你打开大门。 在此方案中您将需要单个， *EnterBuilding*，但多个处理程序，每个检查单个要求。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 public class EnterBuildingRequirement : IAuthorizationRequirement
@@ -209,8 +197,6 @@ public class HasTemporaryStickerHandler : AuthorizationHandler<EnterBuildingRequ
 
 例如以前`BadgeEntryHandler`，如下所示; 可重写
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 services.AddAuthorization(options =>
     {
@@ -232,8 +218,6 @@ services.AddAuthorization(options =>
 例如 MVC 传递的实例的`Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext`其他 MVC 提供中用于访问 HttpContext、 RouteData 和所有内容的资源属性。
 
 使用`Resource`属性是特定于框架。 使用中的信息`Resource`属性将你授权将策略限制为特定的框架。 应强制转换`Resource`属性使用`as`关键字，并检查该强制转换具有成功以确保你的代码不崩溃与`InvalidCastExceptions`其他框架; 上运行时
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 if (context.Resource is Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext mvcContext)

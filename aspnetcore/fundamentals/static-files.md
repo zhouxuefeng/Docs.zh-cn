@@ -1,7 +1,7 @@
 ---
 title: "使用 ASP.NET Core 中的静态文件"
 author: rick-anderson
-description: "使用静态文件"
+description: "使用 ASP.NET Core 上的静态文件"
 keywords: "ASP.NET 核心，静态文件、 静态资产，HTML、 CSS、 JavaScript"
 ms.author: riande
 manager: wpickett
@@ -12,13 +12,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11457cb8684e98147447303ae4653b74414a11fb
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 69a4542c9b2a0d7091d05d42029e68384b760dd7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="introduction-to-working-with-static-files-in-aspnet-core"></a>使用 ASP.NET Core 中的静态文件简介
+# <a name="working-with-static-files-in-aspnet-core"></a>使用 ASP.NET Core 中的静态文件
 
 <a name=fundamentals-static-files></a>
 

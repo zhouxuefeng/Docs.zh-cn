@@ -2,7 +2,7 @@
 title: "路由到控制器操作"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 03/14/2017
@@ -11,11 +11,11 @@ ms.assetid: 26250a4d-bf62-4d45-8549-26801cf956e9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: da67124ffc874c4f83fff077c6429e9f3e571587
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5a0b5399f7441035cb1231a009681ca22b07ab4e
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="routing-to-controller-actions"></a>路由到控制器操作
 
@@ -103,8 +103,6 @@ app.UseMvc(routes =>
 
 `UseMvc`和`UseMvcWithDefaultRoute`实例添加`RouterMiddleware`到中间件管道。 MVC 不会直接与中间件，交互，并使用路由处理请求。 MVC 连接到的实例通过路由`MvcRouteHandler`。 内的代码`UseMvc`类似于以下：
 
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
-
 ```csharp
 var routes = new RouteBuilder(app);
 
@@ -125,8 +123,6 @@ app.UseRouter(routes.Build());
 ## <a name="conventional-routing"></a>传统的路由
 
 `default`路由：
-
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
 
 ```csharp
 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
@@ -152,15 +148,13 @@ routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
 你可以添加多个路由内的`UseMvc`通过添加更多调用到`MapRoute`。 这样做将使你可以定义多个约定，或添加专用于特定的操作，如的常规路由：
 
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
-
 ```csharp
 app.UseMvc(routes =>
 {
    routes.MapRoute("blog", "blog/{*article}",
             defaults: new { controller = "Blog", action = "Article" });
    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-}
+});
 ```
 
 `blog`路由此处*专用的常规路由*，这意味着它使用与传统的路由系统，但专用于特定的操作。 由于`controller`和`action`不在路由模板中显示为参数，它们只能有默认值，并且因此此路由将始终映射到操作`BlogController.Article`。
@@ -177,8 +171,6 @@ app.UseMvc(routes =>
 ### <a name="disambiguating-actions"></a>消除歧义操作
 
 通过路由匹配两个操作，必须区分 MVC 来选择最佳候选或者引发异常。 例如: 
-
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
 
 ```csharp
 public class ProductsController : Controller
@@ -284,8 +276,6 @@ public class MyDemoController : Controller
 
 此外可以进行的属性路由的使用`Http[Verb]`特性例如`HttpPostAttribute`。 所有这些属性可以接受路由模板。 此示例演示与相同的路由模板匹配的两个操作：
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [HttpGet("/products")]
 public IActionResult ListProducts()
@@ -339,8 +329,6 @@ public class ProductsApiController : Controller
 ### <a name="combining-routes"></a>组合路由
 
 若要使的属性路由重复更少，在控制器上的路由属性与上的各项操作的路由属性相结合。 在控制器上定义的任何路由模板为前缀的操作的路由模板。 在控制器上放置一个路由特性使**所有**控制器中的操作使用的属性路由。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("products")]
@@ -432,8 +420,6 @@ public class ProductsController : MyBaseController
 
 属性定义访问相同的操作的多个路由的路由支持。 此的最常见用法是模拟的行为*默认传统路由*下面的示例中所示：
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [Route("[controller]")]
 public class ProductsController : Controller
@@ -445,8 +431,6 @@ public class ProductsController : Controller
 ```
 
 在控制器上放置多个路由属性意味着每个将合并与每个路由属性上的操作方法。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("Store")]
@@ -460,8 +444,6 @@ public class ProductsController : Controller
 ```
 
 当多个路由属性 (该实现`IActionConstraint`) 位于采取某一操作，则每个操作约束将与定义它的属性路由模板相结合。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("api/[controller]")]
@@ -630,8 +612,6 @@ public Task<IActionResult> Edit(int id, Customer customer)
 
 传统路由可以使用一种特殊的路由定义调用*专用的常规路由*。 在下面的示例中，路由名为`blog`是专用的常规路由。
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 app.UseMvc(routes =>
 {
@@ -687,8 +667,6 @@ app.UseMvc(routes =>
 在执行某一区域内的操作时，路由值，则为`area`将可以用作*环境值*用于路由以用于 URL 生成。 这意味着，默认情况下区域执行操作*粘性*URL 生成下面的示例所示。
 
 [!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet3)]
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/mvc/controllers/routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs"} -->
 
 [!code-csharp[Main](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 066fe3b2486c63bd4de2ccb865ad432a67846d77
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 0e65f0e9f672f9f93256ebc039ea0db2e4ef5ae0
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET 核心的 razor 语法
 
@@ -30,7 +30,7 @@ Razor 是才能嵌入到网页的服务器基于代码的标记语法。 Razor �
 
 ```html
 <p>Hello World</p>
-   ```
+```
 
 呈现为保持不变`<p>Hello World</p>`服务器。
 
@@ -42,15 +42,15 @@ Razor 支持 C#，并使用`@`转换到 C# 的 HTML 中的符号。 Razor C# 表
 
 HTML 包含`@`符号可能需要使用第二个进行转义`@`符号。 例如: 
 
-```html
+```cshtml
 <p>@@Username</p>
-   ```
+```
 
 将会呈现在以下 HTML:
 
-```html
+```cshtml
 <p>@Username</p>
-   ```
+```
 
 <a name=razor-email-ref></a>
 
@@ -91,16 +91,14 @@ HTML 特性和内容包含电子邮件地址不处理`@`转换字符的形式的
 
 ```html
 <p>Last week: 7/7/2016 4:39:52 PM - TimeSpan.FromDays(7)</p>
-   ```
+```
 
 可以使用显式表达式将文本与表达式结果串联起来：
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [5]}} -->
-
-```none
+```cshtml
 @{
     var joe = new Person("Joe", 33);
- }
+}
 
 <p>Age@(joe.Age)</p>
 ```
@@ -113,15 +111,15 @@ HTML 特性和内容包含电子邮件地址不处理`@`转换字符的形式的
 
 C# 表达式，其计算结果为字符串是 HTML 编码。 C# 表达式的计算结果为`IHtmlContent`呈现直接通过*IHtmlContent.WriteTo*。 C# 表达式不计算结果为*IHtmlContent*转换为字符串 (由*ToString*) 和编码然后将它们呈现。 例如，以下 Razor 标记：
 
-```html
+```cshtml
 @("<span>Hello World</span>")
-   ```
+```
 
 将此呈现 HTML:
 
 ```html
 &lt;span&gt;Hello World&lt;/span&gt;
-   ```
+```
 
 该浏览器将呈现为：
 
@@ -134,15 +132,15 @@ C# 表达式，其计算结果为字符串是 HTML 编码。 C# 表达式的计�
 
 以下 Razor 标记：
 
-```html
+```cshtml
 @Html.Raw("<span>Hello World</span>")
-   ```
+```
 
 将此呈现 HTML:
 
 ```html
 <span>Hello World</span>
-   ```
+```
 
 <a name=razor-code-blocks-label></a>
 
@@ -162,7 +160,7 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 
 ```html
 <p>The rendered result: Hello World</p>
-   ```
+```
 
 <a name=implicit-transitions-label></a>
 
@@ -170,7 +168,7 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 
 代码块中的默认语言为 C# 中，而是可以转换回 HTML。 代码块中的 HTML 将转换回呈现 HTML:
 
-```none
+```cshtml
 @{
     var inCSharp = true;
     <p>Now in HTML, was in C# @inCSharp</p>
@@ -183,9 +181,7 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 
 若要定义一个小节应呈现的 HTML 代码块，括住的字符要呈现具有 Razor`<text>`标记：
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [4]}} -->
-
-```none
+```cshtml
 @for (var i = 0; i < people.Length; i++)
 {
     var person = people[i];
@@ -201,9 +197,7 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 
 若要在代码块内以 html 格式呈现整个行的其余内容，使用`@:`语法：
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [4]}} -->
-
-```none
+```cshtml
 @for (var i = 0; i < people.Length; i++)
 {
     var person = people[i];
@@ -223,7 +217,7 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 
 `@if`系列控制代码的运行时：
 
-```none
+```cshtml
 @if (value % 2 == 0)
 {
     <p>The value was even</p>
@@ -232,7 +226,7 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 
 `else`和`else if`不需要`@`符号：
 
-```none
+```cshtml
 @if (value % 2 == 0)
 {
     <p>The value was even</p>
@@ -249,7 +243,7 @@ else
 
 你可以使用 switch 语句如下：
 
-```none
+```cshtml
 @switch (value)
 {
     case 1:
@@ -268,7 +262,7 @@ else
 
 你可以呈现包含循环的控制语句的模板化 HTML。 例如，若要呈现的人员列表：
 
-```none
+```cshtml
 @{
     var people = new Person[]
     {
@@ -282,7 +276,7 @@ else
 
 `@for`
 
-```none
+```cshtml
 @for (var i = 0; i < people.Length; i++)
 {
     var person = people[i];
@@ -293,7 +287,7 @@ else
 
 `@foreach`
 
-```none
+```cshtml
 @foreach (var person in people)
 {
     <p>Name: @person.Name</p>
@@ -303,7 +297,7 @@ else
 
 `@while`
 
-```none
+```cshtml
 @{ var i = 0; }
 @while (i < people.Length)
 {
@@ -317,7 +311,7 @@ else
 
 `@do while`
 
-```none
+```cshtml
 @{ var i = 0; }
 @do
 {
@@ -333,7 +327,7 @@ else
 
 使用 C# 语句用于确保释放对象。 在 Razor 此相同的机制可以用于创建包含其他内容的 HTML 帮助器。 例如，我们可以利用 HTML 帮助器呈现窗体标记与`@using`语句：
 
-```none
+```cshtml
 @using (Html.BeginForm())
 {
     <div>
@@ -356,7 +350,7 @@ else
 
 Razor 具有的功能来保护与 lock 语句的关键部分：
 
-```none
+```cshtml
 @lock (SomeLock)
 {
     // Do critical section work
@@ -367,7 +361,7 @@ Razor 具有的功能来保护与 lock 语句的关键部分：
 
 Razor 支持 C# 和 HTML 注释。 以下标记：
 
-```none
+```cshtml
 @{
     /* C# comment. */
     // Another C# comment.
@@ -377,14 +371,14 @@ Razor 支持 C# 和 HTML 注释。 以下标记：
 
 作为由服务器呈现：
 
-```none
+```cshtml
 <!-- HTML comment -->
 ```
 
 在呈现页之前，将服务器中删除 razor 注释。 使用 razor`@*  *@`来分隔注释。 下面的代码是加上注释，以便服务器将不会呈现任何标记：
 
-```none
- @*
+```cshtml
+@*
  @{
      /* C# comment. */
      // Another C# comment.
@@ -431,33 +425,33 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 
 `@model`指令指定的模型传递给 Razor 页的类型。 它使用以下语法：
 
-```none
+```cshtml
 @model TypeNameOfModel
-   ```
+```
 
 例如，如果使用单个用户帐户创建的 ASP.NET 核心 MVC 应用*Views/Account/Login.cshtml* Razor 视图包含以下模型声明：
 
-```csharp
+```cshtml
 @model LoginViewModel
-   ```
+```
 
 在前面的类示例中，生成的类继承自`RazorPage<dynamic>`。 通过添加`@model`控制什么继承。 例如
 
-```csharp
+```cshtml
 @model LoginViewModel
-   ```
+```
 
 生成下面的类
 
 ```csharp
 public class _Views_Account_Login_cshtml : RazorPage<LoginViewModel>
-   ```
+```
 
 Razor 页公开`Model`属性访问的模型传递到页。
 
-```html
+```cshtml
 <div>The Login Email: @Model.Email</div>
-   ```
+```
 
 `@model`指令指定此属性的类型 (通过指定`T`中`RazorPage<T>`页生成的类派生自)。 如果没有指定`@model`指令`Model`属性的类型将为`dynamic`。 模型的值从控制器传递到该视图。 请参阅[强类型模型和@model关键字](../../tutorials/first-mvc-app/adding-model.md#strongly-typed-models-keyword-label)有关详细信息。
 
@@ -465,9 +459,9 @@ Razor 页公开`Model`属性访问的模型传递到页。
 
 `@inherits`指令可完全控制 Razor 页继承的类：
 
-```none
+```cshtml
 @inherits TypeNameOfClassToInheritFrom
-   ```
+```
 
 例如，假设我们有以下自定义 Razor 页类型：
 
@@ -487,7 +481,7 @@ Razor 页公开`Model`属性访问的模型传递到页。
 
 生成此 HTML 标记：
 
-```none
+```cshtml
 <div>The Login Email: Rick@contoso.com</div>
 <div>Custom text: Hello World</div>
 ```
@@ -506,9 +500,9 @@ Razor 页公开`Model`属性访问的模型传递到页。
 
 `@functions`指令，可将函数级的内容添加到你 Razor 页。 语法为：
 
-```none
+```cshtml
 @functions { // C# Code }
-   ```
+```
 
 例如: 
 
@@ -516,9 +510,9 @@ Razor 页公开`Model`属性访问的模型传递到页。
 
 生成以下的 HTML 标记：
 
-```none
+```cshtml
 <div>From method: Hello</div>
-   ```
+```
 
 生成 Razor 的 C# 如下所示：
 

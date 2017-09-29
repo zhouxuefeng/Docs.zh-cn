@@ -2,7 +2,7 @@
 title: "配置数据保护"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 39fab796c24456d61a6a103c4a3f7a8722b4718c
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 9361dcec89a0f35067181523cc56637d629614ff
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuring-data-protection"></a>配置数据保护
 
@@ -67,8 +67,6 @@ public void ConfigureServices(IServiceCollection services)
 
 <a name=data-protection-code-sample-application-name></a>
 
-<!-- literal_block {"ids": ["data-protection-code-sample-application-name"], "linenos": false, "names": ["data-protection-code-sample-application-name"], "xml:space": "preserve", "language": "csharp"} -->
-
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -113,7 +111,7 @@ public void ConfigureServices(IServiceCollection services)
 
 数据保护堆栈，可以更改默认的算法使用的新生成的键。 执行此操作的最简单方法是从配置回调，调用 UseCryptographicAlgorithms，如下面的示例。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 services.AddDataProtection()
@@ -124,7 +122,7 @@ services.AddDataProtection()
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 services.AddDataProtection()
@@ -150,7 +148,7 @@ services.AddDataProtection()
 
 ### <a name="specifying-custom-managed-algorithms"></a>指定自定义托管的算法
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 若要指定自定义托管的算法，创建指向的实现类型的 ManagedAuthenticatedEncryptorConfiguration 实例。
 
@@ -169,7 +167,7 @@ serviceCollection.AddDataProtection()
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 若要指定自定义托管的算法，创建指向的实现类型的 ManagedAuthenticatedEncryptionSettings 实例。
 
@@ -199,7 +197,7 @@ serviceCollection.AddDataProtection()
 
 ### <a name="specifying-custom-windows-cng-algorithms"></a>指定自定义 Windows CNG 算法
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 若要指定自定义 Windows CNG 算法使用 CBC 模式下加密 + HMAC 验证，请创建包含的算法信息的 CngCbcAuthenticatedEncryptorConfiguration 实例。
 
@@ -220,7 +218,7 @@ services.AddDataProtection()
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 若要指定自定义 Windows CNG 算法使用 CBC 模式下加密 + HMAC 验证，请创建包含的算法信息的 CngCbcAuthenticatedEncryptionSettings 实例。
 
@@ -246,7 +244,7 @@ services.AddDataProtection()
 > [!NOTE]
 > 对称块加密算法必须 ≥ 128 位的密钥长度和块大小的 ≥ 64 位，并且它必须支持使用 PKCS #7 填充 CBC 模式下的加密。 哈希算法的摘要大小必须 > = 128 位并且必须支持使用 BCRYPT_ALG_HANDLE_HMAC_FLAG 标志打开。 \*提供程序属性可以设置为空，默认的提供程序用于为指定的算法。 请参阅[BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx)文档以了解更多信息。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 若要指定自定义 Windows CNG 算法使用 Galois/计数器模式加密 + 验证，请创建包含的算法信息的 CngGcmAuthenticatedEncryptorConfiguration 实例。
 
@@ -263,7 +261,7 @@ services.AddDataProtection()
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 若要指定自定义 Windows CNG 算法使用 Galois/计数器模式加密 + 验证，请创建包含的算法信息的 CngGcmAuthenticatedEncryptionSettings 实例。
 
@@ -291,5 +289,5 @@ services.AddDataProtection()
 
 ### <a name="see-also"></a>请参阅
 
-* [非 DI 感知的情境](non-di-scenarios.md)
+* [非 DI 感知方案](non-di-scenarios.md)
 * [计算机范围的策略](machine-wide-policy.md)

@@ -1,24 +1,24 @@
 ---
 title: "在 ASP.NET 核心中的浏览器链接"
 author: ncarandini
-description: "Visual Studio 功能，链接使用一个或多个 web 浏览器在开发环境"
+description: "了解如何浏览器链接是链接使用一个或多个 web 浏览器在开发环境的 Visual Studio 功能。"
 keywords: "ASP.NET 核心，浏览器链接，CSS 同步"
 ms.author: riande
 manager: wpickett
-ms.date: 12/28/2016
+ms.date: 09/22/2017
 ms.topic: article
 ms.assetid: 11813d4c-3f8a-445a-b23b-e4a57d001abc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 211dd5d03e6b8414e0b2ed3234d8970c92f72452
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="introduction-to-browser-link-in-aspnet-core"></a>在 ASP.NET 核心中的浏览器链接简介 
+# <a name="browser-link-in-aspnet-core"></a>在 ASP.NET 核心中的浏览器链接 
 
 通过[Nicolò Carandini](https://github.com/ncarandini)， [Mike Wasson](https://github.com/MikeWasson)，和[Tom Dykstra](https://github.com/tdykstra)
 
@@ -26,42 +26,49 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="browser-link-setup"></a>浏览器链接安装程序
 
-ASP.NET 核心**Web 应用程序**项目模板在 Visual Studio 2015 和更高版本包括所需的浏览器链接一切。
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-若要添加到使用 ASP.NET Core 创建的项目，浏览器链接**空**或**Web API**模板，请按照下列步骤：
+ASP.NET 核心 2.x **Web 应用程序**，**空**，和**Web API**模板项目使用[Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)元包，其中包含的包引用[Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/)。 因此，使用`Microsoft.AspNetCore.All`元包无需任何进一步的操作，以使浏览器链接可供使用。
 
-1. 添加*Microsoft.VisualStudio.Web.BrowserLink.Loader*包 
-2. 将配置代码中的添加*Startup.cs*文件。
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-### <a name="add-the-package"></a>将包添加
+ASP.NET 核心 1.x **Web 应用程序**项目模板具有的包引用[Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/)包。 **空**或**Web API**模板项目要求你添加到的包引用`Microsoft.VisualStudio.Web.BrowserLink`。
 
-由于这是 Visual Studio 功能，将包添加的最简单方法是打开**程序包管理器控制台**(**视图 > 其他 Windows > 程序包管理器控制台**) 并运行以下命令：
+由于这是一种 Visual Studio 功能，最简单的方法添加到包**空**或**Web API**模板项目是打开**程序包管理器控制台**(**视图** > **其他窗口** > **程序包管理器控制台**) 并运行以下命令：
 
 ```console
-install-package Microsoft.VisualStudio.Web.BrowserLink.Loader
+install-package Microsoft.VisualStudio.Web.BrowserLink
 ```
 
-或者，可以使用**NuGet 包管理器**。  右键单击中的项目名称**解决方案资源管理器**，然后选择**管理 NuGet 包**。 
+或者，可以使用**NuGet 包管理器**。 右键单击中的项目名称**解决方案资源管理器**选择**管理 NuGet 包**:
 
 ![打开 NuGet 包管理器](using-browserlink/_static/open-nuget-package-manager.png)
 
-然后找到并安装包。
+查找和安装包：
 
 ![添加包使用 NuGet 包管理器](using-browserlink/_static/add-package-with-nuget-package-manager.png)
 
-### <a name="add-configuration-code"></a>将配置代码添加
+---
 
-打开*Startup.cs*文件，然后在`Configure`方法添加以下代码：
+### <a name="configuration"></a>配置
+
+在`Configure`方法*Startup.cs*文件：
 
 ```csharp
 app.UseBrowserLink();
 ```
 
-该代码通常位于`if`块只在开发环境，使浏览器链接，如下所示：
+代码通常位于`if`块只在开发环境中，启用浏览器链接，如下所示：
 
-[!code-csharp[Main](./using-browserlink/sample/BrowserLinkSample/src/BrowserLinkSample/Startup.cs?highlight=1,4&range=40-44)]
+```csharp
+if (env.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseBrowserLink();
+}
+```
 
-有关详细信息，请参阅[使用多个环境](../fundamentals/environments.md)。
+有关详细信息，请参阅[使用多个环境](xref:fundamentals/environments)。
 
 ## <a name="how-to-use-browser-link"></a>如何使用浏览器链接
 
@@ -71,10 +78,10 @@ app.UseBrowserLink();
 
 通过浏览器链接工具栏控件，你可以：
 
-- 刷新 web 应用程序在多个浏览器中的一次
-- 打开**浏览器链接仪表板**
-- 启用或禁用**浏览器链接**
-- 启用或禁用 CSS 自动同步
+* 刷新 web 应用程序在多个浏览器中的一次。
+* 打开**浏览器链接仪表板**。
+* 启用或禁用**Browser Link**。 注意： 默认情况下，Visual Studio 2017 (15.3) 中禁用浏览器链接。
+* 启用或禁用 CSS 自动同步。
 
 > [!NOTE]
 > 某些 Visual Studio 插件，最值得注意的是*Web 扩展包 2015年*和*Web 扩展包 2017年*，提供扩展的功能的浏览器链接，但某些其他功能不与 ASP 配合使用。NET 核心项目。
@@ -85,11 +92,11 @@ app.UseBrowserLink();
 
 ![F5 下拉列表菜单](using-browserlink/_static/debug-target-dropdown-menu.png)
 
-若要同时打开多个浏览器，选择**浏览与...**从相同的下拉列表。  按住 CTRL 键以选择所需的浏览器，然后单击**浏览**:
+若要同时打开多个浏览器，选择**浏览与...**从相同的下拉列表。 按住 CTRL 键以选择所需的浏览器，然后单击**浏览**:
 
 ![同时打开许多浏览器](using-browserlink/_static/open-many-browsers-at-once.png)
 
-下面是示例屏幕快照显示与索引视图的 Visual Studio 打开和两个打开的浏览器：
+下面是 Visual Studio 显示与索引视图打开的屏幕快照以及两个打开的浏览器：
 
 ![两个浏览器的示例与同步](using-browserlink/_static/sync-with-two-browsers-example.png)
 
@@ -109,11 +116,11 @@ app.UseBrowserLink();
 
 ![仪表-板 browserslink 打开](using-browserlink/_static/open-browserlink-dashboard.png)
 
-如果连接没有浏览器，你可以启动非调试会话单击_用浏览器查看_链接：
+如果连接没有浏览器，您可以通过选择启动非调试会话*用浏览器查看*链接：
 
 ![浏览器链接仪表板-无连接](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
-否则，连接的浏览器将显示，替换为显示每个浏览器的页面的路径：
+否则，连接的浏览器在显示时带有显示每个浏览器的页面的路径：
 
 ![浏览器链接仪表板的两个连接](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
@@ -121,7 +128,7 @@ app.UseBrowserLink();
 
 ### <a name="enable-or-disable-browser-link"></a>启用或禁用浏览器链接
 
-当重新启用 Browser Link 禁用它之后时，你必须刷新浏览器以将它们重新连接。
+当重新启用 Browser Link 禁用它之后时，您必须刷新浏览器以将它们重新连接。
 
 ### <a name="enable-or-disable-css-auto-sync"></a>启用或禁用 CSS 自动同步
 
@@ -141,6 +148,6 @@ app.UseBrowserLink();
 </body>
 ```
 
-不会修改你的源文件。 中间件组件动态插入脚本引用。 
+不修改你的源文件。 中间件组件动态插入脚本引用。 
 
-由于浏览器端代码是所有 JavaScript，则它将适用于 SignalR 支持，而无需任何浏览器插件的所有浏览器。
+由于浏览器端代码是所有 JavaScript，则它将适用于 SignalR 支持而无需浏览器插件的所有浏览器。

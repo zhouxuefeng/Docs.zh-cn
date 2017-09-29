@@ -11,11 +11,11 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: cb39d74b9293b3ab341beba08d2f0af90261ca5f
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 881cabdbb7814b36d97a977b30389506b99d16b9
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET 核心中间件基础知识
 
@@ -44,7 +44,7 @@ ASP.NET 核心请求管道由请求委托，调用一次是在另一个，如图
 
 ![显示请求到达、 处理通过三个中间件，以及使应用程序的响应的请求处理模式。 每个中间件运行其逻辑，并将传递对 next （） 语句处的下一步中间件的请求。 第三个中间件处理请求时后, 它是左手返回到用于其他处理每个 next （） 语句后又在离开形式对客户端的响应的应用程序之前之前的两个中间件。](middleware/_static/request-delegate-pipeline.png)
 
-每个委托可以执行操作之前和之后的下一步的委托。 委托还可以决定不将请求传递给下一步短路请求管道调用的委托。 因为它可让不必要的工作以避免，短路很理想。 例如，静态文件中间件可以返回静态文件的请求和短路管道的其余部分。 异常处理委托需要调用尽早在管道，因此它们可能会捕获更高版本管道阶段中发生的异常。
+每个委托可以执行操作之前和之后的下一步的委托。 委托还可以决定不将请求传递给下一步短路请求管道调用的委托。 短路是通常需要的因为它避免不必要的工作。 例如，静态文件中间件可以返回静态文件的请求和短路管道的其余部分。 异常处理委托需要调用尽早在管道，因此它们可能会捕获更高版本管道阶段中发生的异常。
 
 最简单可能的 ASP.NET Core 应用程序设置了处理所有请求的单个请求委托。 这种情况下不包括实际请求管道。 相反，单个的匿名函数中称为到每个 HTTP 请求的响应。
 

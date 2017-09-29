@@ -2,20 +2,20 @@
 title: "在 ASP.NET Core 中测试的集成"
 author: ardalis
 description: "如何使用 ASP.NET Core 的集成测试以确保应用程序的组件正常工作。"
-keywords: "ASP.NET 核心集成测试"
+keywords: "ASP.NET 核心，测试 Razor 的集成"
 ms.author: riande
 manager: wpickett
-ms.date: 02/14/2017
+ms.date: 09/25/2017
 ms.topic: article
 ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: 02018299c9bd1d194c2c70c14f518786e803d572
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: fab1fb0e64debd8488713b3518cb3bc90182616b
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>在 ASP.NET Core 中测试的集成
 
@@ -64,6 +64,23 @@ ASP.NET 核心包括可以添加到集成测试项目，并用于托管 ASP.NET 
 ![测试资源管理器](integration-testing/_static/test-explorer.png)
 
 你可以了解有关中的单元测试[单元测试](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)文章。
+
+
+### <a name="integration-testing-mvcrazor"></a>集成测试 Mvc/Razor
+
+测试项目，其中包含 Razor 视图需要`<PreserveCompilationContext>`设置为 true 中*.csproj*文件：
+
+
+```xml
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+```
+
+缺少此元素的项目将生成类似于以下错误：
+```
+Microsoft.AspNetCore.Mvc.Razor.Compilation.CompilationFailedException: 'One or more compilation failures occurred:
+ooebhccx.1bd(4,62): error CS0012: The type 'Attribute' is defined in an assembly that is not referenced. You must add a reference to assembly 'netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+```
+
 
 ## <a name="refactoring-to-use-middleware"></a>重构以使用中间件
 

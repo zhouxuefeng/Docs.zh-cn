@@ -1,0 +1,1 @@
+**注意：**调用`AddIdentity`配置的默认方案设置。 `AddAuthentication(string defaultScheme)`重载集`DefaultScheme`属性; 并且，`AddAuthentication(Action<AuthenticationOptions> configureOptions)`重载设置仅显式设置的属性。 其中的任一重载应只能调用一次时添加多个身份验证提供程序。 对它的后续调用也可能会覆盖任何以前配置的[AuthenticationOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions)属性。

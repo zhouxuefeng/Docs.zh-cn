@@ -2,7 +2,7 @@
 title: "依赖关系注入到控制器"
 author: ardalis
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: b83bd4a24ccf7e90e9df06d6a8e229a2d5c6699a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f6b454da838308adddaaddb84073722f647af379
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>依赖关系注入到控制器
 
@@ -49,8 +49,6 @@ ASP.NET 核心 MVC 控制器应请求其构造函数通过显式及其依赖项�
 
 如果我们运行应用程序现在，我们将很可能会遇到错误：
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 An unhandled exception occurred while processing the request.
 
@@ -73,8 +71,6 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceP
 > 请参阅[测试控制器逻辑](testing.md)若要了解如何显式请求依赖关系[http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/)控制器中使代码可以轻松地测试。
 
 ASP.NET 核心内置的依赖关系注入支持拥有仅请求服务的类的单个构造函数。 如果你有多个构造函数，您会收到一个异常内容如下：
-
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
 
 ```
 An unhandled exception occurred while processing the request.

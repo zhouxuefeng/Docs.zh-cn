@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 07626ae7f40dc6f704d69d71cb7f95d318e6f503
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: f07b0cb44542b7da140d519e883c67901d6327e2
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>响应缓存在 ASP.NET 核心中的中间件
 
@@ -105,6 +105,17 @@ if (responseCachingFeature != null)
 | 日期 | 从缓存提供服务时`Date`由该中间件设置标头，如果它未在原始响应上提供。 |
 | 内容长度 | 从缓存提供服务时`Content-Length`由该中间件设置标头，如果它未在原始响应上提供。 |
 | 保留时间 | `Age`在原始响应中发送的标头将被忽略。 提供缓存的响应时，该中间件将计算新值。 |
+
+## <a name="caching-respects-request-cache-control-directives"></a>缓存遵循请求缓存控制指令
+
+该中间件会遵守的规则[HTTP 1.1 缓存规范](https://tools.ietf.org/html/rfc7234#section-5.2)。 在规则需要遵守是有效的缓存`Cache-Control`客户端发送的标头。 在规范，客户端可以发出请求与`no-cache`标头值和强制服务器以生成每个请求的新响应。 目前，没有任何开发人员控制此缓存行为时使用中间件，因为该中间件符合官方缓存规范。
+
+[将来对该中间件增强](https://github.com/aspnet/ResponseCaching/issues/96)将允许配置的中间件缓存方案其中请求`Cache-Control`决定提供缓存的响应时应忽略标头。 如果搜索更好地控制缓存行为浏览其他缓存功能的 ASP.NET Core。 请参见下面的主题：
+
+* [内存中缓存中 ASP.NET Core 简介](xref:performance/caching/memory)
+* [使用分布式缓存](xref:performance/caching/distributed)
+* [缓存 ASP.NET Core MVC 中的标记帮助器](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [分布式的缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>疑难解答
 如果缓存行为未按预期，，确认响应是否可缓存并且能够从缓存提供的检查请求的传入标头和响应的传出标头。 启用[日志记录](xref:fundamentals/logging)可帮助在调试时。 中间件日志缓存行为和从缓存中时检索的响应。
