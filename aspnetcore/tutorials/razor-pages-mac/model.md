@@ -10,52 +10,52 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/model
-ms.openlocfilehash: d000da06face3080cf81de4dc15a2596f2bfa7ea
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 648ecd3a782fa489b727982ce5f7a2087539bf38
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a><span data-ttu-id="62ac3-104">使用 Visual Studio for Mac 在 ASP.NET Core 中向 Razor 页面应用添加模型</span><span class="sxs-lookup"><span data-stu-id="62ac3-104">Adding a model to a Razor Pages app in ASP.NET Core with Visual Studio for Mac</span></span>
+# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a><span data-ttu-id="45daf-104">使用 Visual Studio for Mac 在 ASP.NET Core 中向 Razor 页面应用添加模型</span><span class="sxs-lookup"><span data-stu-id="45daf-104">Adding a model to a Razor Pages app in ASP.NET Core with Visual Studio for Mac</span></span>
 
 [!INCLUDE[model1](../../includes/RP/model1.md)]
 
-## <a name="add-a-data-model"></a><span data-ttu-id="62ac3-105">添加数据模型</span><span class="sxs-lookup"><span data-stu-id="62ac3-105">Add a data model</span></span>
+## <a name="add-a-data-model"></a><span data-ttu-id="45daf-105">添加数据模型</span><span class="sxs-lookup"><span data-stu-id="45daf-105">Add a data model</span></span>
 
-* <span data-ttu-id="62ac3-106">在解决方案资源管理器中，右键单击“RazorPagesMovie”项目，然后选择“添加” > “新建文件夹”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-106">In Solution Explorer, right-click the **RazorPagesMovie** project, and then select **Add** > **New Folder**.</span></span> <span data-ttu-id="62ac3-107">将文件夹命名为“Models”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-107">Name the folder *Models*.</span></span>
-* <span data-ttu-id="62ac3-108">右键单击“Models”文件夹，然后选择“添加” > “新建文件”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-108">Right-click the *Models* folder, and then select **Add** > **New File**.</span></span>
-* <span data-ttu-id="62ac3-109">在“新建文件”对话框中：</span><span class="sxs-lookup"><span data-stu-id="62ac3-109">In the **New File** dialog:</span></span>
+* <span data-ttu-id="45daf-106">在解决方案资源管理器中，右键单击“RazorPagesMovie”项目，然后选择“添加” > “新建文件夹”。</span><span class="sxs-lookup"><span data-stu-id="45daf-106">In Solution Explorer, right-click the **RazorPagesMovie** project, and then select **Add** > **New Folder**.</span></span> <span data-ttu-id="45daf-107">将文件夹命名为“Models”。</span><span class="sxs-lookup"><span data-stu-id="45daf-107">Name the folder *Models*.</span></span>
+* <span data-ttu-id="45daf-108">右键单击“Models”文件夹，然后选择“添加” > “新建文件”。</span><span class="sxs-lookup"><span data-stu-id="45daf-108">Right-click the *Models* folder, and then select **Add** > **New File**.</span></span>
+* <span data-ttu-id="45daf-109">在“新建文件”对话框中：</span><span class="sxs-lookup"><span data-stu-id="45daf-109">In the **New File** dialog:</span></span>
 
-  * <span data-ttu-id="62ac3-110">在左侧窗格中，选择“常规”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-110">Select **General** in the left pane.</span></span>
-  * <span data-ttu-id="62ac3-111">在中间窗格中，选择“空类”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-111">Select **Empty Class** in the center pain.</span></span>
-  * <span data-ttu-id="62ac3-112">将此类命名为“Movie”，然后选择“新建”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-112">Name the class **Movie** and select **New**.</span></span>
+  * <span data-ttu-id="45daf-110">在左侧窗格中，选择“常规”。</span><span class="sxs-lookup"><span data-stu-id="45daf-110">Select **General** in the left pane.</span></span>
+  * <span data-ttu-id="45daf-111">在中间窗格中，选择“空类”。</span><span class="sxs-lookup"><span data-stu-id="45daf-111">Select **Empty Class** in the center pain.</span></span>
+  * <span data-ttu-id="45daf-112">将此类命名为“Movie”，然后选择“新建”。</span><span class="sxs-lookup"><span data-stu-id="45daf-112">Name the class **Movie** and select **New**.</span></span>
 
 [!INCLUDE[model 2](../../includes/RP/model2.md)]
 [!INCLUDE[model 2a](../../includes/RP/model2a.md)]
 
 [!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-6)]
 
-<span data-ttu-id="62ac3-113">右键单击红色波浪线，例如，行 `services.AddDbContext<MovieContext>(options =>` 中的 `MovieContext`。</span><span class="sxs-lookup"><span data-stu-id="62ac3-113">Right click on a red squiggly line, for example `MovieContext` in the line `services.AddDbContext<MovieContext>(options =>`.</span></span> <span data-ttu-id="62ac3-114">选择“快速修复”>“使用RazorPagesMovie.Models;”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-114">Select **Quick Fix > using RazorPagesMovie.Models;**.</span></span> <span data-ttu-id="62ac3-115">Visual Studio 添加 using 语句。</span><span class="sxs-lookup"><span data-stu-id="62ac3-115">Visual studio adds the using statement.</span></span>
+<span data-ttu-id="45daf-113">右键单击红色波浪线，例如，行 `services.AddDbContext<MovieContext>(options =>` 中的 `MovieContext`。</span><span class="sxs-lookup"><span data-stu-id="45daf-113">Right click on a red squiggly line, for example `MovieContext` in the line `services.AddDbContext<MovieContext>(options =>`.</span></span> <span data-ttu-id="45daf-114">选择“快速修复”>“使用RazorPagesMovie.Models;”。</span><span class="sxs-lookup"><span data-stu-id="45daf-114">Select **Quick Fix > using RazorPagesMovie.Models;**.</span></span> <span data-ttu-id="45daf-115">Visual Studio 添加 using 语句。</span><span class="sxs-lookup"><span data-stu-id="45daf-115">Visual studio adds the using statement.</span></span>
 
-<span data-ttu-id="62ac3-116">生成项目以确定没有任何错误。</span><span class="sxs-lookup"><span data-stu-id="62ac3-116">Build the project to verify you don't have any errors.</span></span>
+<span data-ttu-id="45daf-116">生成项目以确定没有任何错误。</span><span class="sxs-lookup"><span data-stu-id="45daf-116">Build the project to verify you don't have any errors.</span></span>
 
 ![创建页面](model/red.png)
 
-### <a name="entity-framework-core-nuget-packages-for-migrations"></a><span data-ttu-id="62ac3-118">用于进行迁移的 Entity Framework Core NuGet 包</span><span class="sxs-lookup"><span data-stu-id="62ac3-118">Entity Framework Core NuGet packages for migrations</span></span>
+### <a name="entity-framework-core-nuget-packages-for-migrations"></a><span data-ttu-id="45daf-118">用于进行迁移的 Entity Framework Core NuGet 包</span><span class="sxs-lookup"><span data-stu-id="45daf-118">Entity Framework Core NuGet packages for migrations</span></span>
 
-<span data-ttu-id="62ac3-119">[Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) 中提供了适用于命令行接口 (CLI) 的 EF 工具。</span><span class="sxs-lookup"><span data-stu-id="62ac3-119">The EF tools for the command-line interface (CLI) are provided in [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet).</span></span> <span data-ttu-id="62ac3-120">若要安装此包，请将它添加到 .csproj 文件中的 `DotNetCliToolReference` 集合。</span><span class="sxs-lookup"><span data-stu-id="62ac3-120">To install this package, add it to the `DotNetCliToolReference` collection in the *.csproj* file.</span></span> <span data-ttu-id="62ac3-121">注意：必须通过编辑 .csproj 文件来安装此包；不能使用 `install-package` 命令或程序包管理器 GUI。</span><span class="sxs-lookup"><span data-stu-id="62ac3-121">**Note:** You have to install this package by editing the *.csproj* file; you can't use the `install-package` command or the package manager GUI.</span></span>
+<span data-ttu-id="45daf-119">[Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) 中提供了适用于命令行接口 (CLI) 的 EF 工具。</span><span class="sxs-lookup"><span data-stu-id="45daf-119">The EF tools for the command-line interface (CLI) are provided in [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet).</span></span> <span data-ttu-id="45daf-120">若要安装此包，请将它添加到 .csproj 文件中的 `DotNetCliToolReference` 集合。</span><span class="sxs-lookup"><span data-stu-id="45daf-120">To install this package, add it to the `DotNetCliToolReference` collection in the *.csproj* file.</span></span> <span data-ttu-id="45daf-121">注意：必须通过编辑 .csproj 文件来安装此包；不能使用 `install-package` 命令或程序包管理器 GUI。</span><span class="sxs-lookup"><span data-stu-id="45daf-121">**Note:** You have to install this package by editing the *.csproj* file; you can't use the `install-package` command or the package manager GUI.</span></span>
 
-<span data-ttu-id="62ac3-122">若要编辑“.csproj”文件：</span><span class="sxs-lookup"><span data-stu-id="62ac3-122">To edit a *.csproj* file:</span></span>
+<span data-ttu-id="45daf-122">若要编辑“.csproj”文件：</span><span class="sxs-lookup"><span data-stu-id="45daf-122">To edit a *.csproj* file:</span></span>
 
-* <span data-ttu-id="62ac3-123">选择“文件”>“打开”，然后选择“.csproj”文件。</span><span class="sxs-lookup"><span data-stu-id="62ac3-123">Select **File > Open**, and then select the *.csproj* file.</span></span>
-* <span data-ttu-id="62ac3-124">选择“选项”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-124">Select **Options**.</span></span>
-* <span data-ttu-id="62ac3-125">将“打开方式”更改为“源代码编辑器”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-125">Change **Open with** to **Source Code Editor**.</span></span>
+* <span data-ttu-id="45daf-123">选择“文件” > “打开”，然后选择“.csproj”文件。</span><span class="sxs-lookup"><span data-stu-id="45daf-123">Select **File** > **Open**, and then select the *.csproj* file.</span></span>
+* <span data-ttu-id="45daf-124">选择“选项”。</span><span class="sxs-lookup"><span data-stu-id="45daf-124">Select **Options**.</span></span>
+* <span data-ttu-id="45daf-125">将“打开方式”更改为“源代码编辑器”。</span><span class="sxs-lookup"><span data-stu-id="45daf-125">Change **Open with** to **Source Code Editor**.</span></span>
 
 ![编辑 csproj 文件](model/csproj.png)
 
-<span data-ttu-id="62ac3-127">下面的代码显示更新的“csproj”文件。</span><span class="sxs-lookup"><span data-stu-id="62ac3-127">The following code shows the updated *csproj* file.</span></span>
+<span data-ttu-id="45daf-127">将 `Microsoft.EntityFrameworkCore.Tools.DotNet` 工具引用添加至第二个 \<ItemGroup>：</span><span class="sxs-lookup"><span data-stu-id="45daf-127">Add the `Microsoft.EntityFrameworkCore.Tools.DotNet` tool reference to the second **\<ItemGroup>**:</span></span>
 
-[!code-xml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/RazorPagesMovie.cli.csproj?highlight=10)]
+[!code-xml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj?range=12-16&highlight=4)]
 
 [!INCLUDE[model3](../../includes/RP/model3.md)]
 [!INCLUDE[model 4x](../../includes/RP/model4x.md)]
@@ -64,15 +64,15 @@ ms.lasthandoff: 09/19/2017
 
 [!INCLUDE[model 4](../../includes/RP/model4.md)]
 
-### <a name="add-the-pagesmovies-files-to-the-project"></a><span data-ttu-id="62ac3-128">将页面/电影文件添加到项目</span><span class="sxs-lookup"><span data-stu-id="62ac3-128">Add the Pages/Movies files to the project</span></span>
+### <a name="add-the-pagesmovies-files-to-the-project"></a><span data-ttu-id="45daf-128">将页面/电影文件添加到项目</span><span class="sxs-lookup"><span data-stu-id="45daf-128">Add the Pages/Movies files to the project</span></span>
 
-* <span data-ttu-id="62ac3-129">在 Visual Studio 中，右键单击“页面”文件夹，然后选择“添加”>“添加现有文件夹”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-129">In Visual Studio, Right-click the *Pages* folder and select **Add > Add existing Folder**.</span></span>
-* <span data-ttu-id="62ac3-130">选择“电影”文件夹。</span><span class="sxs-lookup"><span data-stu-id="62ac3-130">Select the *Movies* folder.</span></span>
-* <span data-ttu-id="62ac3-131">在“选择包括到项目中的文件”对话框中，选择“包括所有”。</span><span class="sxs-lookup"><span data-stu-id="62ac3-131">In the *Chosse files to include in the project* dialog, select **Include All**.</span></span>
+* <span data-ttu-id="45daf-129">在 Visual Studio 中，右键单击“页面”文件夹，然后选择“添加”>“添加现有文件夹”。</span><span class="sxs-lookup"><span data-stu-id="45daf-129">In Visual Studio, Right-click the *Pages* folder and select **Add > Add existing Folder**.</span></span>
+* <span data-ttu-id="45daf-130">选择“电影”文件夹。</span><span class="sxs-lookup"><span data-stu-id="45daf-130">Select the *Movies* folder.</span></span>
+* <span data-ttu-id="45daf-131">在“选择包括到项目中的文件”对话框中，选择“包括所有”。</span><span class="sxs-lookup"><span data-stu-id="45daf-131">In the *Chosse files to include in the project* dialog, select **Include All**.</span></span>
 
-<span data-ttu-id="62ac3-132">下一个教程介绍由基架创建的文件。</span><span class="sxs-lookup"><span data-stu-id="62ac3-132">The next tutorial explains the files created by scaffolding.</span></span>
+<span data-ttu-id="45daf-132">下一个教程介绍由基架创建的文件。</span><span class="sxs-lookup"><span data-stu-id="45daf-132">The next tutorial explains the files created by scaffolding.</span></span>
 
 >[!div class="step-by-step"]
-<span data-ttu-id="62ac3-133">[上一篇：入门](xref:tutorials/razor-pages-mac/razor-pages-start)
-[下一篇：已搭建基架的 Razor 页面](xref:tutorials/razor-pages/page)</span><span class="sxs-lookup"><span data-stu-id="62ac3-133">[Previous: Getting Started](xref:tutorials/razor-pages-mac/razor-pages-start)
+<span data-ttu-id="45daf-133">[上一篇：入门](xref:tutorials/razor-pages-mac/razor-pages-start)
+[下一篇：已搭建基架的 Razor 页面](xref:tutorials/razor-pages/page)</span><span class="sxs-lookup"><span data-stu-id="45daf-133">[Previous: Getting Started](xref:tutorials/razor-pages-mac/razor-pages-start)
 [Next: Scaffolded Razor Pages](xref:tutorials/razor-pages/page)</span></span>
