@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: b45642e39eb46631bb8034f4747222fb1bc0a83b
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: cab986d0a7b7ac68cdda36a558e9b05c429108d0
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="adding-a-new-field-to-a-razor-page"></a>将新字段添加到 Razor 页面
 
@@ -50,7 +50,9 @@ ms.lasthandoff: 09/24/2017
 
 在 DB 更新为包括新字段之前，应用将不会正常工作。 如果立即运行，应用会引发 `SqlException`：
 
-`SqlException: Invalid column name 'Rating'.`
+```
+SqlException: Invalid column name 'Rating'.
+```
 
 此错误是由于更新的 Movie 模型类与数据库的 Movie 表架构不同导致的。 （数据库表中没有 `Rating` 列。）
 
@@ -72,9 +74,7 @@ ms.lasthandoff: 09/24/2017
 
 生成解决方案。
 
-<a name="pmc"></a>
-
-从“工具”菜单中，选择“NuGet 包管理器”>“包管理器控制台”。
+<a name="pmc"></a> 从“工具”菜单中，选择“NuGet 包管理器”>“包管理器控制台”。
 在 PMC 中，输入以下命令：
 
 ```PMC
@@ -93,13 +93,13 @@ Update-Database
 
 * 在 SSOX 中选择数据库。
 * 右键单击数据库，并选择“删除”。
-* 检查*“关闭现有连接”。
-* 选择“确定”
-* 在 [PMC](xref:tutorials/razor-pages/new-field#pmc) 中更新数据库 
+* 检查“关闭现有连接”。
+* 选择“确定”。
+* 在 [PMC](xref:tutorials/razor-pages/new-field#pmc) 中更新数据库：
 
-    ```PMC
-    Update-Database
-    ```
+  ```PMC
+  Update-Database
+  ```
 
 运行应用，并验证是否可以创建/编辑/显示具有 `Rating` 字段的电影。 如果数据库未设定种子，请先停止 IIS Express，然后再运行应用。
 

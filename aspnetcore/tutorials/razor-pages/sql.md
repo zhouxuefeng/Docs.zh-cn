@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 852bd2dff96c951f55a9b142d8e15b6ec5856921
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 42fa98886f3e87e79ea1ea4a2223a79319676006
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>使用 SQL Server LocalDB 和 ASP.NET Core
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 09/22/2017
 
 ASP.NET Core [配置](xref:fundamentals/configuration)系统会读取 `ConnectionString`。 为了进行本地开发，它会从 appsettings.json 文件获取连接字符串：
 
-[!code-javascript[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
 将应用部署到测试或生产服务器时，可使用环境变量或另一种方法将连接字符串设置为实际的 SQL Server。 有关详细信息，请参阅[配置](xref:fundamentals/configuration)。
 
@@ -39,15 +39,15 @@ LocalDB 是 SQL Server Express 数据库引擎的轻型版本，专门针对程�
 
   ![“视图”菜单](sql/_static/ssox.png)
 
-* 右键单击 `Movie` 表，然后单击“视图设计器”
+* 右键单击 `Movie` 表，然后选择“视图设计器”：
 
   ![Movie 表上打开的上下文菜单](sql/_static/design.png)
 
   ![设计器中打开的 Movie 表](sql/_static/dv.png)
 
-请注意 `ID` 旁边的密钥图标。 默认情况下，EF 将名为 `ID` 的属性设置为主键。
+请注意 `ID` 旁边的密钥图标。 默认情况下，EF 为该主键创建一个名为 `ID` 的属性。
 
-* 右键单击 `Movie` 表，然后单击“查看数据”
+* 右键单击 `Movie` 表，然后选择“查看数据”：
 
   ![显示表数据的打开的 Movie 表](sql/_static/vd22.png)
 
@@ -60,7 +60,7 @@ LocalDB 是 SQL Server Express 数据库引擎的轻型版本，专门针对程�
 如果 DB 中没有任何电影，则会返回种子初始值设定项，并且不会添加任何电影。
 
 ```csharp
-if (context.Movie.Any())
+if (context.Movies.Any())
 {
     return;   // DB has been seeded.
 }
@@ -77,7 +77,7 @@ if (context.Movie.Any())
 * 删除 DB 中的所有记录。 可以使用浏览器中的删除链接，也可以从 [SSOX](xref:tutorials/razor-pages/new-field#ssox) 执行此操作
 * 强制应用初始化（调用 `Startup` 类中的方法），使种子方法能够正常运行。 若要强制进行初始化，必须先停止 IIS Express，然后再重新启动它。 可以使用以下任一方法来执行此操作：
 
-  * 右键单击通知区域中的 IIS Express 系统任务栏图标，然后点击“退出”或“停止站点”
+  * 右键单击通知区域中的 IIS Express 系统任务栏图标，然后点击“退出”或“停止站点”：
 
     ![IIS Express 系统任务栏图标](../first-mvc-app/working-with-sql/_static/iisExIcon.png)
 
@@ -86,12 +86,12 @@ if (context.Movie.Any())
    * 如果是在非调试模式下运行 VS 的，请按 F5 以在调试模式下运行。
    * 如果是在调试模式下运行 VS 的，请停止调试程序并按 F5。
    
-应用将显示设定为种子的数据。
+应用将显示设定为种子的数据：
 
 ![在 Chrome 中打开的显示电影数据的电影应用程序](sql/_static/m55.png)
 
 在下一教程中将对数据的展示进行整理。
 
 >[!div class="step-by-step"]
-[上一篇：已搭建基架的 Razor 页面](xref:tutorials/razor-pages/page)   
+[上一篇：已搭建基架的 Razor 页面](xref:tutorials/razor-pages/page)
 [下一篇：更新页面](xref:tutorials/razor-pages/da1)

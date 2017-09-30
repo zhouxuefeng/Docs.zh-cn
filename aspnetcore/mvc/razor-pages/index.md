@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 72ab979c6c718544955ae5734903ec936fc5afbc
-ms.sourcegitcommit: 195b2b331434f74334c5c5b7dfeba62d744a1e38
+ms.openlocfilehash: 3112faa38bb9702f6856097e315c413f0974010d
+ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core 中的 Razor 页面介绍
 
@@ -157,11 +157,9 @@ Index.cshtml.cs 隐藏文件：
 
 Index.cshtml 文件包含以下标记来创建每个联系人项的编辑链接：
 
-```cshtml
-<a asp-page="./Edit" asp-route-id="@contact.Id">edit</a>
-```
+[!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[定位点标记帮助程序](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper) 使用 [asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper#route) 属性生成“编辑”页面的链接。 此链接包含路由数据及联系人 ID。 例如 `http://localhost:5000/Edit/1`。
+[定位点标记帮助程序](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) 使用 [asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#route) 属性生成“编辑”页面的链接。 此链接包含路由数据及联系人 ID。 例如 `http://localhost:5000/Edit/1`。
 
 Pages/Edit.cshtml 文件：
 
@@ -172,6 +170,34 @@ Pages/Edit.cshtml 文件：
 Pages/Edit.cshtml.cs 文件：
 
 [!code-cs[main](index/sample/RazorPagesContacts/Pages/Edit.cshtml.cs)]
+
+Index.cshtml 文件还包含用于为每个客户联系人创建删除按钮的标记：
+
+[!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=22-23)]
+
+删除按钮采用 HTML 呈现，其 `formaction` 包括参数：
+
+* `asp-route-id` 属性指定的客户联系人 ID。
+* `asp-page-handler` 属性指定的 `handler`。
+
+下面是呈现的删除按钮的示例，其中客户联系人 ID 为 `1`：
+
+```html
+<button type="submit" formaction="/?id=1&amp;handler=delete">delete</button>
+```
+
+选中按钮时，向服务器发送窗体 `POST` 请求。 按照惯例，根据方案 `OnPost[handler]Async` 基于 `handler` 参数的值来选择处理程序方法的名称。
+
+因为本示例中 `handler` 是 `delete`，因此 `OnPostDeleteAsync` 处理程序方法用于处理 `POST` 请求。 如果 `asp-page-handler` 设置为不同值（如 `remove`），则选择名称为 `OnPostRemoveAsync` 的页面处理程序方法。
+
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs?range=26-37)]
+
+`OnPostDeleteAsync` 方法：
+
+* 接受来自查询字符串的 `id`。
+* 使用 `FindAsync` 查询客户联系人的数据库。
+* 如果找到客户联系人，则从客户联系人列表将其删除。 数据库将更新。
+* 调用 `RedirectToPage`，重定向到根索引页 (`/Index`)。
 
 <a name="xsrf"></a>
 

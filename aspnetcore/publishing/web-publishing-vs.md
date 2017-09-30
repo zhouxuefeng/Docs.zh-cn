@@ -5,23 +5,23 @@ description: "在 Visual Studio 中为 Web 发布提供说明。"
 keywords: "ASP.NET Core, Web 发布, 发布, msbuild, Web 部署, dotnet 发布, Visual Studio 2017"
 ms.author: riande
 manager: wpickett
-ms.date: 03/14/2017
+ms.date: 09/26/2017
 ms.topic: article
 ms.assetid: 0377a02d-8fda-47a5-929a-24a16e1d2c93
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/web-publishing-vs
-ms.openlocfilehash: 665c98b5ac16bb9739af4ac204fca59a55dbb812
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 8a2584363cbf418281cc0e2d796debe57fab846f
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-publish-profiles-for-visual-studio-and-msbuild-to-deploy-aspnet-core-apps"></a>创建 Visual Studio 和 MSBuild 的发布配置文件以部署 ASP.NET Core 应用
 
 作者：[Sayed Ibrahim Hashimi](https://github.com/sayedihashimi) 和 [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-本文重点介绍如何使用 Visual Studio 2017 创建发布配置文件。 可以从 MSBuild 和 Visual Studio 2017 运行使用 Visual Studio 创建的发布配置文件。
+本文重点介绍如何使用 Visual Studio 2017 创建发布配置文件。 可以从 MSBuild 和 Visual Studio 2017 运行使用 Visual Studio 创建的发布配置文件。 本文提供发布过程的详细信息。 有关发布到 Azure 的说明，请参阅[使用 Visual Studio 将 ASP.NET Core Web 应用发布到 Azure App Service](xref:tutorials/publish-to-azure-webapp-using-vs)。
 
 使用命令 `dotnet new mvc` 创建以下 .csproj 文件：
 
@@ -96,7 +96,7 @@ MSBuild 或 Visual Studio 加载项目时，执行下列高级别操作：
 
 加载项目时，将计算项目项（文件）。 `item type` 属性确定如何处理该文件。 默认情况下，.cs 文件包含在 `Compile` 项列表内。 会对 `Compile` 项列表中的文件进行编译。
 
-除了生成输出，`Content` 项列表还包含将要发布的文件。 默认情况下，匹配模式 wwwroot/** 的文件将包含在 `Content` 项内。 [wwwroot/** 是一个通配模式](https://gruntjs.com/configuring-tasks#globbing-patterns)，它指定 wwwroot 文件夹和子文件夹中的所有文件。 如果需要将文件显式添加到发布列表，可以直接在 .csproj 文件中添加文件，如[加入文件](#including-files)中所示。
+除了生成输出，`Content` 项列表还包含将要发布的文件。 默认情况下，匹配模式 wwwroot/** 的文件将包含在 `Content` 项内。 [wwwroot/** 是一个通配模式](https://gruntjs.com/configuring-tasks#globbing-patterns)，它指定 wwwroot 文件夹和子文件夹中的所有文件。 若要将文件显式添加到发布列表，请直接在 .csproj 文件中添加文件，如[加入文件](#including-files)中所示。
 
 在 Visual Studio 中选择“发布”按钮时或从命令行发布时：
 
@@ -106,7 +106,7 @@ MSBuild 或 Visual Studio 加载项目时，执行下列高级别操作：
 - 计算发布项（需要发布的文件）。
 - 发布项目。 （计算的文件将被复制到发布目标。）
 
-## <a name="simple-command-line-publishing"></a>简单的命令行发布
+## <a name="basic-command-line-publishing"></a>基本命令行发布
 
 本部分适用于所有支持 .NET Core 的平台，而且不需要 Visual Studio。 在下面的示例中，从项目目录（其中包含 .csproj 文件）运行 `dotnet publish` 命令。 如果你不在项目文件夹中，可以在项目文件路径中显式传递。 例如: 
 
@@ -116,23 +116,35 @@ dotnet publish  c:/webs/web1
 
 运行以下命令以创建并发布 Web 应用：
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+```console
+dotnet new mvc
+dotnet publish
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 ```console
 dotnet new mvc
 dotnet restore
 dotnet publish
 ```
 
+--------------
+
 `dotnet publish` 生成类似下面的输出：
 
 ```console
 C:\Webs\Web1>dotnet publish
-Microsoft (R) Build Engine version 15.1.548.43366
+Microsoft (R) Build Engine version 15.3.409.57025 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp1.1\Web1.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\Web1.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\publish\
 ```
 
-默认发布文件夹为 `bin\$(Configuration)\netcoreapp<version>\publish`。 `$(Configuration)` 的默认值为 Debug。 在上述示例中，`<TargetFramework>` 是 `netcoreapp1.1`。 上述示例中的实际路径是 bin\Debug\netcoreapp1.1\publish。
+默认发布文件夹为 `bin\$(Configuration)\netcoreapp<version>\publish`。 `$(Configuration)` 的默认值为 Debug。 在上述示例中，`<TargetFramework>` 是 `netcoreapp2.0`。
 
 `dotnet publish -h` 显示用于发布的帮助信息。
 
@@ -222,7 +234,7 @@ dotnet publish -c Release -o C:/MyWebs/test
 
 使用 MSDeploy 发布的最简单的方法是，首先在 Visual Studio 2017 中创建发布配置文件，然后从命令行中使用配置文件。
 
-在下面的示例中，我创建了 ASP.NET Core Web 应用（使用 `dotnet new mvc`）并使用 Visual Studio 添加了一个 Azure 发布配置文件。
+下面的示例中创建了一个 ASP.NET Core Web（使用 `dotnet new mvc`），并且通过 Visual Studio 添加了一个 Azure 发布配置文件。
 
 从 VS 2017 开发人员命令提示符中运行 `msbuild`。 开发人员命令提示符在其路径中将具有正确的 msbuild.exe，并会设置一些 MSBuild 变量。
 

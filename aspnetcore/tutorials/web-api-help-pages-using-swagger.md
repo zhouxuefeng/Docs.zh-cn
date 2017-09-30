@@ -11,11 +11,11 @@ ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 647ab48fb83c5e2c79b5de371173bc644c65d831
-ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
+ms.openlocfilehash: 7eeb8f0517b8806cabdd59e7d81f8c2272238615
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="aspnet-web-api-help-pages-using-swagger"></a>使用 Swagger 的 ASP.NET Web API 帮助页
 
@@ -343,7 +343,9 @@ Stock UI 兼具功能性和可演示性，但是，为你的 API 构建文档页
 
 [!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Startup.cs?name=snippet_Configure&highlight=3)]
 
-从 [Swagger UI GitHub 存储库](https://github.com/swagger-api/swagger-ui/tree/2.x/dist)中获取 dist 文件夹的内容。 此文件夹包含 Swagger UI 页必需的资产。 将该文件夹的内容复制到 wwwroot/swagger/ui 文件夹。
+从 [Swagger UI GitHub 存储库](https://github.com/swagger-api/swagger-ui/tree/2.x/dist)中获取 dist 文件夹的内容。 此文件夹包含 Swagger UI 页必需的资产。
+
+创建 wwwroot/swagger/ui 文件夹，然后将 dist 文件夹的内容复制到其中。
 
 使用下面的 CSS 创建 wwwroot/swagger/ui/css/custom.css 文件以自定义页面标题：
 

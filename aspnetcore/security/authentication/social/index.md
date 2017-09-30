@@ -11,11 +11,11 @@ ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: b561dcee5435dfc34cfa0b9b15babf75ca8f3508
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 56036000535156b4b5814dde2a0145dcdfff28c3
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>启用使用 Facebook、Google 和其他外部提供程序的身份验证
 
@@ -53,9 +53,7 @@ OAuth 2.0 需要使用 SSL 通过 HTTPS 协议进行身份验证。
 
 请注意：如果如上图所示，在项目向导的“更改身份验证”对话框上选择“单个用户帐户”选项，使用 ASP.NET Core 2.x 的“Web 应用程序”或“Web API”项目模板创建的项目自动配置为启用 SSL 并通过 http URL 启动。
 
-* 了解如何按照 [Setting up HTTPS for development in ASP.NET Core](xref:security/https)（设置 HTTPS 以在 ASP.NET Core 中进行开发）主题中的步骤手动启用 SSL。
-
-* 然后，按照 [Enforcing SSL in an ASP.NET Core app](xref:security/enforcing-ssl)（在 ASP.NET Core 应用中强制实施 SSL）主题中的步骤进行操作，要求在站点上使用 SSL。
+* 按照 [Enforcing SSL in an ASP.NET Core app](xref:security/enforcing-ssl)（在 ASP.NET Core 应用中强制实施 SSL）主题中的步骤进行操作，要求在站点上使用 SSL。
 
 ## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>使用 SecretManager 存储登录提供程序分配的令牌
 

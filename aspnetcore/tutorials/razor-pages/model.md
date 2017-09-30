@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/modelz
-ms.openlocfilehash: 8e370decfd81e62022478b0ab695ff876e5e0a10
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.openlocfilehash: bd2c3e09366e228fade69f843849e7452196c475
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>向 Razor 页面应用添加模型
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 09/20/2017
 
 在解决方案资源管理器中，右键单击“RazorPagesMovie”项目 >“添加” > “新建文件夹”。 将文件夹命名为“Models”。
 
-右键单击 Models 文件夹，然后单击“添加” > “类”。 将类命名为“Movie”并添加以下属性：
+右键单击“Models”文件夹。 选择“添加” > “类”。 将类命名为“Movie”，并添加以下属性：
 
 [!INCLUDE[model 2](../../includes/RP/model2.md)]
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 09/20/2017
 * 添加初始迁移。
 * 使用初始迁移来更新数据库。
 
-从“工具”菜单中，选择“NuGet 包管理器”>“程序包管理器控制台”。
+从“工具”菜单中，选择“NuGet 包管理器” > “包管理器控制台”。
 
   ![PMC 菜单](../first-mvc-app/adding-model/_static/pmc.png)
 
