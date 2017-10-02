@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 8bce642576b6b2f9326425d30ef95168da8f47e5
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 9d24c2956c24a7995b3eeffc19e8c0a827349493
+ms.sourcegitcommit: ed401027aac45c5938c917c7f518a33ceffe9f95
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/02/2017
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET 核心中的路由
 
@@ -46,17 +46,17 @@ ms.lasthandoff: 10/01/2017
 
 匹配 URL 是通过哪些路由调度传入请求到的过程*处理程序*。 此过程通常基于 URL 路径中的数据，但可以对其进行扩展，以考虑请求中的任何数据。 调度到单独的处理程序的请求的功能是用于缩放的大小和复杂性的应用程序密钥。
 
-传入的请求输入`RouterMiddleware`，哪些调用`RouteAsync`序列中的每个路由方法。 `IRouter`实例选择是否*处理*通过设置请求`RouteContext``Handler`为非 null `RequestDelegate`。 如果路由设置的处理程序请求，将调用路由处理停止点和处理程序来处理该请求。 如果尝试所有路由并且没有处理程序发现请求，则该中间件将调用*下一步*和调用请求管道中的下一步中间件。
+传入的请求输入`RouterMiddleware`，哪些调用`RouteAsync`序列中的每个路由方法。 `IRouter`实例选择是否*处理*通过设置请求`RouteContext.Handler`为非 null `RequestDelegate`。 如果路由设置的处理程序请求，将调用路由处理停止点和处理程序来处理该请求。 如果尝试所有路由并且没有处理程序发现请求，则该中间件将调用*下一步*和调用请求管道中的下一步中间件。
 
-主要输入`RouteAsync`是`RouteContext``HttpContext`与当前请求相关联。 `RouteContext.Handler`和`RouteContext``RouteData`会将路由匹配后的输出。
+主要输入`RouteAsync`是`RouteContext.HttpContext`与当前请求相关联。 `RouteContext.Handler`和`RouteContext.RouteData`会将路由匹配后的输出。
 
 在匹配`RouteAsync`还将设置的属性`RouteContext.RouteData`为适当的值根据到目前为止完成的请求处理。 如果路由与匹配的请求，`RouteContext.RouteData`将包含重要的状态信息有关*结果*。
 
-`RouteData``Values`是一个字典的*路由值*路由时生成。 这些值通常由标记化 URL，并且可以用于接受用户输入，或进一步调度决定对应用程序中。
+`RouteData.Values`是一个字典的*路由值*路由时生成。 这些值通常由标记化 URL，并且可以用于接受用户输入，或进一步调度决定对应用程序中。
 
-`RouteData``DataTokens`匹配路由到相关的其他数据是属性包。 `DataTokens`可用于支持将数据与每个路由，以便应用程序可以基于做出决策更高版本上哪个路由匹配的状态。 这些值是开发人员定义，并且**不**影响的行为的任何方式中的路由。 此外，存储在数据令牌中的值可以是任何类型，与路由值，必须能够轻松地转换到和从字符串。
+`RouteData.DataTokens`是一个属性包，为该匹配路由相关的其他数据。 `DataTokens`可用于支持将数据与每个路由，以便应用程序可以基于做出决策更高版本上哪个路由匹配的状态。 这些值是开发人员定义，并且**不**影响的行为的任何方式中的路由。 此外，存储在数据令牌中的值可以是任何类型，与路由值，必须能够轻松地转换到和从字符串。
 
-`RouteData``Routers`是花费在成功匹配的请求的一部分的路由的列表。 路由可以嵌套在另一个，和`Routers`属性反映通过导致匹配的路由逻辑树的路径。 第一项通常`Routers`路由集合中，以及应该用于 URL 生成。 中的最后一项`Routers`是匹配的路由处理程序。
+`RouteData.Routers`是花费在成功匹配的请求的一部分的路由的列表。 路由可以嵌套在另一个，和`Routers`属性反映通过导致匹配的路由逻辑树的路径。 第一项通常`Routers`路由集合中，以及应该用于 URL 生成。 中的最后一项`Routers`是匹配的路由处理程序。
 
 ### <a name="url-generation"></a>URL 生成
 
@@ -66,11 +66,11 @@ URL 生成遵循类似的迭代过程，但开头用户或框架代码调用到`
 
 主输入到`GetVirtualPath`是：
 
-* `VirtualPathContext` `HttpContext`
+* `VirtualPathContext.HttpContext`
 
-* `VirtualPathContext` `Values`
+* `VirtualPathContext.Values`
 
-* `VirtualPathContext` `AmbientValues`
+* `VirtualPathContext.AmbientValues`
 
 路由主要使用路由值由提供`Values`和`AmbientValues`来确定其所在可以生成的 URL 和要包括的值。 `AmbientValues`是生成从匹配路由系统的当前请求的路由值的一组。 与此相反，`Values`是路由的值，指定如何生成当前操作所需的 URL。 `HttpContext`路由需要获取服务或与当前上下文关联的其他数据的情况下提供。
 
@@ -78,11 +78,11 @@ URL 生成遵循类似的迭代过程，但开头用户或框架代码调用到`
 
 输出`GetVirtualPath`是`VirtualPathData`。 `VirtualPathData`是一种并行的`RouteData`; 它包含`VirtualPath`输出 URL 以及应该通过路由将设置中的某些其他属性。
 
-`VirtualPathData` `VirtualPath`属性包含*虚拟路径*生成的路由。 具体取决于你的需求可能需要处理更多的路径。 例如，如果你想要呈现 HTML 中生成的 URL 需要预先计算的应用程序的基路径。
+`VirtualPathData.VirtualPath`属性包含*虚拟路径*生成的路由。 具体取决于你的需求可能需要处理更多的路径。 例如，如果你想要呈现 HTML 中生成的 URL 需要预先计算的应用程序的基路径。
 
-`VirtualPathData` `Router`是对已成功生成 URL 的路由的引用。
+`VirtualPathData.Router`是对已成功生成 URL 的路由的引用。
 
-`VirtualPathData` `DataTokens`属性是生成 URL 的路由到相关的其他数据的字典。 这是并行的`RouteData.DataTokens`。
+`VirtualPathData.DataTokens`属性是生成 URL 的路由到相关的其他数据的字典。 这是并行的`RouteData.DataTokens`。
 
 ### <a name="creating-routes"></a>创建的路由
 
