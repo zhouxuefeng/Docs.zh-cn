@@ -11,17 +11,17 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: ab004c038b82888aa57d5e25fcb69a06deec8411
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 7aea4db44764d5d8f47520adb6599e651e0e9000
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>有关 ASP.NET 核心响应压缩中间件
 
-通过[Luke Latham](https://github.com/guardrex)
+作者：[Luke Latham](https://github.com/guardrex)
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 网络带宽是有限的资源。 通常减小响应的大小将通常显著增加应用的响应能力。 减小负载大小的一种方法是压缩应用的响应。
 

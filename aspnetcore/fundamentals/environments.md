@@ -1,7 +1,7 @@
 ---
-title: "使用多个环境"
+title: "使用 ASP.NET Core 中的多个环境"
 author: ardalis
-description: 
+description: "了解如何 ASP.NET Core 提供支持用于跨多个环境中控制应用行为。"
 keywords: "ASP.NET 核心，环境设置，ASPNETCORE_ENVIRONMENT"
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: b66ef7e3626effff1c66c37a86865699fa8866f9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 054b3e9f1e2bcfe1e4a75eca4d9dc6326ee6e44f
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="working-with-multiple-environments"></a>使用多个环境
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/22/2017
 
 ASP.NET Core 提供用于跨多个环境，如开发、 过渡和生产控制应用行为的支持。 使用环境变量以指示运行时环境中，允许应用程序配置为该环境。
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="development-staging-production"></a>开发，暂存生产
 

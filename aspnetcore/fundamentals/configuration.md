@@ -11,11 +11,11 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 379030df4ca91a38fce251aeaab9c5dfaf11e915
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: ca6b62dd4699536b24c3422a2a51fc3fe1744f0a
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core 中的配置
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/28/2017
 
 每个配置值将映射到字符串键。 若要反序列化到自定义设置的内置绑定支持[POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object)对象 （具有属性的简单.NET 类）。
 
-[查看或下载示例代码](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample)
+[查看或下载的示例代码](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="simple-configuration"></a>简单的配置
 

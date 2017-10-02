@@ -5,16 +5,16 @@ description:
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 08/03/2017
+ms.date: 09/03/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 10831719630bc638ce2f7424f53548518868d433
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 748c8c0b9dd0e6eab0d7347bbf89ed80c10bdb54
+ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core 简介
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 08/11/2017
 
 ASP.NET Core 是一个跨平台的高性能[开源](https://github.com/aspnet/home)框架，用于生成基于云且连接 Internet 的新式应用程序。 使用 ASP.NET Core，可以：
 
-* 生成 Web 应用和服务、IoT 应用和移动后端。
+* 生成 Web 应用和服务、[IoT](https://www.microsoft.com/en-us/internet-of-things/) 应用和移动后端。
 * 在 Windows、macOS 和 Linux 上使用喜爱的开发工具。
 * 部署到云或本地
 * 在 [.NET Core 或 .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server) 上运行。
@@ -44,7 +44,7 @@ ASP.NET Core 具有如下优点：
 * 能够在 Windows、macOS 和 Linux 进行生成和运行。
 * 开源和关注社区。
 
-ASP.NET Core 完全作为 [NuGet](https://nuget.org) 包的一部分提供。 这可优化应用，使其只包含需要的 NuGet 包。 较小的应用图面区域的优势包括：提升安全性、减少维护和提高性能。
+ASP.NET Core 完全作为 [NuGet](https://www.nuget.org/) 包的一部分提供。 这可优化应用，使其只包含需要的 NuGet 包。 较小的应用图面区域的优势包括：提升安全性、减少维护和提高性能。
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>使用 ASP.NET Core MVC 生成 Web API 和 Web UI
 

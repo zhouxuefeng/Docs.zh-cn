@@ -1,8 +1,8 @@
 ---
 title: "请求中的新 ASP.NET 核心功能"
 author: ardalis
-description: 
-keywords: ASP.NET Core,
+description: "了解相关的 HTTP 请求和响应为 ASP.NET Core 在接口中定义的 web 服务器实现详细信息。"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: d1fbd23c-2ff9-4216-b908-0201ff3afb7c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/request-features
-ms.openlocfilehash: a10aefe3819fb03019575c36274dd164faf7086c
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: b689d82d16c6ef55485691b3474a070765c8144b
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="request-features-in-aspnet-core"></a>请求中的新 ASP.NET 核心功能
 

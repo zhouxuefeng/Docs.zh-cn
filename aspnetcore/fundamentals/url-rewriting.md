@@ -1,7 +1,7 @@
 ---
 title: "URL 重写在 ASP.NET 核心中的中间件"
 author: guardrex
-description: "URL 重写并包含有关如何在 ASP.NET Core 应用程序中使用 URL 重写中间件的说明将重定向简介。"
+description: "了解有关 URL 重写并将 URL 重写中间件与 ASP.NET Core 应用程序中的重定向信息。"
 keywords: "ASP.NET 核心 URL 重写，URL 重写，重定向，URL 重定向，中间件，apache_mod URL"
 ms.author: riande
 manager: wpickett
@@ -11,17 +11,17 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 44c78a6304eacc70cdee9bb0d9407376017abcac
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 0a4024edf13651e2ed7e0f87e554e8ba8d895619
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL 重写在 ASP.NET 核心中的中间件
 
 通过[Luke Latham](https://github.com/guardrex)和[Mikael Mengistu](https://github.com/mikaelm12)
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 URL 重写是一种修改的请求 Url 基于一个或多个预定义的规则的行为。 URL 重写创建资源位置和其地址之间的抽象，以便在位置和地址不紧密相关。 有几种方案，其中 URL 重写是有价值：
 * 移动或替换暂时或永久性地同时保持稳定的定位符，对这些资源的服务器资源

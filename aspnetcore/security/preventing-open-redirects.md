@@ -11,11 +11,11 @@ ms.assetid: 4604e563-e91a-4ecd-b7ed-00b3f1eee2b5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/preventing-open-redirects
-ms.openlocfilehash: d5419aa149b3201ecbc93f4f17ae5928f1d39b1d
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 4083845a77eb19d9ba9beb389a92ceb5c14edbde
+ms.sourcegitcommit: f5cf472d49c2475e4d57654efd5fc0a4ccecba4c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/30/2017
 ---
 # <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>阻止在 ASP.NET Core 应用中的打开重定向攻击
 
@@ -52,7 +52,7 @@ Web 应用程序频繁地将用户重定向到登录页访问要求进行身份�
 
 使用``LocalRedirect``帮助器方法的基`Controller`类：
 
-```
+```csharp
 public IActionResult SomeAction(string redirectUrl)
 {
     return LocalRedirect(redirectUrl);
@@ -67,7 +67,7 @@ public IActionResult SomeAction(string redirectUrl)
 
 下面的示例演示如何检查 URL 重定向之前是本地。
 
-```
+```csharp
 private IActionResult RedirectToLocal(string returnUrl)
 {
     if (Url.IsLocalUrl(returnUrl))

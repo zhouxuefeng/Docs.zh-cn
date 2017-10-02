@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET 核心中的错误处理"
 author: ardalis
-description: "说明如何进行处理 ASP.NET Core 应用程序中的错误"
+description: "了解如何处理 ASP.NET Core 应用程序中的错误。"
 keywords: "ASP.NET 核心，错误处理，异常处理"
 ms.author: tdykstra
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93f0724dbe98316e2b5a0af0ac1760c3aac2f1d0
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: de2ba0ff9ad17c198c06b510ecfb49f808721bdf
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>ASP.NET 核心中的错误处理简介
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 09/22/2017
 
 本文介绍如何处理 ASP.NET Core 应用中的错误的常见 appoaches。
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample)
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="the-developer-exception-page"></a>开发人员异常页
 

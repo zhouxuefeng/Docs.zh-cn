@@ -1,7 +1,7 @@
 ---
 title: "WebSockets 支持，在 ASP.NET 核心"
 author: tdykstra
-description: "什么是 Websocket 支持在 ASP.NET 核心以及如何使用它。"
+description: "了解如何开始使用 ASP.NET Core 中的 Websocket。"
 keywords: "ASP.NET 核心 Websocket"
 ms.author: tdykstra
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: 0e0fedcd-a7b4-4479-8ae0-36eab0229d7e
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: fundamentals/websockets
-ms.openlocfilehash: 8a6b5cc8ca8ac17f0e4c5b23f20013130cd472c8
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 114d52d831668e5facd1142b5f9e5f68e7456f7e
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-websockets-in-aspnet-core"></a>在 ASP.NET Core Websocket 简介
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/22/2017
 
 此文章介绍了如何开始使用 ASP.NET Core 中的 Websocket。 [WebSocket](https://wikipedia.org/wiki/WebSocket)是一个协议，通过 TCP 连接启用持久的双向通信通道。 用于如聊天、 股票代码、 游戏的应用程序，你希望在 web 应用程序中的实时功能的任何位置。
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample)。 请参阅[后续步骤](#next-steps)部分以了解更多信息。
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))。 请参阅[后续步骤](#next-steps)部分以了解更多信息。
 
 
 ## <a name="prerequisites"></a>先决条件

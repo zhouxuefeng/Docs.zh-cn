@@ -1,7 +1,7 @@
 ---
 title: "在 ASP.NET Core 中的应用程序启动"
 author: ardalis
-description: "介绍在 ASP.NET Core Startup 类。"
+description: "发现服务和应用程序的请求管道 Startup 类在 ASP.NET 核心中的配置的方式。"
 keywords: "ASP.NET 核心，启动时，配置方法，ConfigureServices 方法"
 ms.author: tdykstra
 manager: wpickett
@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 94db2ff530b5de7fe357cfb591d09b984cb248f9
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: bba0eafe3917fa850b3a07df8df6448409f4062d
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>在 ASP.NET Core 中的应用程序启动
 
 通过[Steve Smith](https://ardalis.com/)和[Tom Dykstra](https://github.com/tdykstra/)
 
-`Startup`类配置服务和应用程序的请求管道。 
+`Startup`类配置服务和应用程序的请求管道。
 
 ## <a name="the-startup-class"></a>Startup 类
 

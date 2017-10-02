@@ -11,15 +11,15 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899963613a98
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 77d3a58d58493bf1b0b760ab9037d2778ba23441
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: a260675e7461105d4f6a0c61fd13971663c268f2
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="application-parts-in-aspnet-core"></a>在 ASP.NET 核心中的应用程序部分
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample)
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 *应用程序部分*是上的应用程序，MVC 控制器，视图组件等从中的功能的资源的抽象或标记帮助程序可能被发现。 应用程序一部分的一个示例是 AssemblyPart，封装程序集引用和公开类型和编译引用。 *功能提供程序*适用于要填充的 ASP.NET 核心 MVC 应用程序的功能的应用程序部件。 应用程序部件的主要用例是允许你配置应用程序发现 （或避免加载） 从程序集的 MVC 功能。
 

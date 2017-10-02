@@ -1,7 +1,7 @@
 ---
 title: "在 ASP.NET 核心中的日志记录"
 author: ardalis
-description: "引入了日志记录框架中 ASP.NET Core。 有关每个内置的日志记录提供程序和一些常用的第三方提供程序链接中包含的部分。"
+description: "了解有关 ASP.NET 核心中的日志记录框架。 发现的内置日志记录提供程序，并了解有关常用的第三方提供程序的详细信息。"
 keywords: "ASP.NET 核心，日志记录，日志记录 providers,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,scopes"
 ms.author: tdykstra
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca81f01fe1c5026514eafedf852b4bc8f3b6fd21
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 9557e9f6915507450de3ffe500582839a28c3f0c
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>在 ASP.NET 核心中日志记录的简介
 
@@ -26,11 +26,11 @@ ASP.NET 核心支持适用于各种日志记录提供程序的日志记录 API�
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2)
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample)
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 ---
 
@@ -213,7 +213,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 [!code-csharp[](logging/sample//Core/LoggingEvents.cs?name=snippet_LoggingEvents)]
 
-事件 ID 是一个整数值，可用于将一组记录的事件与另一个相关联。 例如的日志，以将项添加到购物车可能是事件 ID 1000，并且可能事件 ID 为 1001年的日志，以完成购买。。
+事件 ID 是一个整数值，可用于将一组记录的事件与另一个相关联。 例如的日志，以将项添加到购物车可能是事件 ID 1000，并且可能事件 ID 为 1001年的日志，以完成购买。
 
 在日志记录输出中，可能存储在一个字段或文本消息，具体取决于提供程序中包含的事件 ID。  调试提供程序不会显示事件 Id，但控制台提供程序在显示这些方括号分类之后：
 

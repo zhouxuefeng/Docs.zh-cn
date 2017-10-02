@@ -11,11 +11,11 @@ ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: fab1fb0e64debd8488713b3518cb3bc90182616b
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 155fd2f0663c6225531a4df6f323ebb30ab1ee73
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>在 ASP.NET Core 中测试的集成
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/28/2017
 
 集成测试可确保应用程序的组件组合在一起时正常工作。 ASP.NET 核心支持的集成测试使用单元测试框架和内置测试 web 宿主可以用于处理请求而无需网络开销。
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/integration-testing/sample)
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/integration-testing/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="introduction-to-integration-testing"></a>集成测试的简介
 

@@ -11,11 +11,11 @@ ms.assetid: 4be1b12c-b74e-44ff-826b-99ce86e8d464
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/partial
-ms.openlocfilehash: 8f890009f71d4c1f693ee06dcd448e9803164aca
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 60f5255ca31accbffffec18053b29810977a5ff1
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="partial-views"></a>分部视图
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/22/2017
 
 ASP.NET 核心 MVC 支持分部视图，当您想要不同的视图之间共享的网页的可重用部件时很有用。
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample)
+[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-are-partial-views"></a>分部视图有哪些？
 
