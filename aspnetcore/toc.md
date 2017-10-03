@@ -139,6 +139,7 @@
 ## [集成测试](testing/integration-testing.md)
 ## [测试控制器](mvc/controllers/testing.md)
 ## [远程调试](https://docs.microsoft.com/visualstudio/debugger/remote-debugging-azure)
+## [快照调试](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 
 # [使用数据](data/index.md)
 ## [借助 Visual Studio 使用 ASP.NET Core 和 Entity Framework Core 入门](data/ef-mvc/index.md)
@@ -178,7 +179,7 @@
 ### [在 Linux 上使用 Apache 进行托管](xref:publishing/apache-proxy)
 ### [在 Docker 中进行托管](xref:publishing/docker)
 #### [生成 Docker 映像](https://docs.microsoft.com/dotnet/articles/core/docker/building-net-docker-images)
-#### [Visual Studio Tools for Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker)
+#### [Visual Studio Tools for Docker](xref:publishing/vs-tools-for-docker)
 #### [发布到 Docker 映像](https://azure.microsoft.com/documentation/articles/vs-azure-tools-docker-hosting-web-apps-in-docker/)
 ## [部署](xref:tutorials/publish-to-azure-webapp-using-vs)
 ### [使用 Visual Studio 发布到 Azure](xref:tutorials/publish-to-azure-webapp-using-vs)
