@@ -11,11 +11,11 @@ ms.assetid: 0377a02d-8fda-47a5-929a-24a16e1d2c93
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/web-publishing-vs
-ms.openlocfilehash: 8a2584363cbf418281cc0e2d796debe57fab846f
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: f010f9d90165ce4d6718fe1440e600985f21a01d
+ms.sourcegitcommit: f33fb9d648a611bb7b2b96291dd2176b230a9a43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="create-publish-profiles-for-visual-studio-and-msbuild-to-deploy-aspnet-core-apps"></a>创建 Visual Studio 和 MSBuild 的发布配置文件以部署 ASP.NET Core 应用
 
@@ -202,7 +202,36 @@ dotnet publish -c Release -o C:/MyWebs/test
 
 有关如何在 ASP.NET Core 上发布 Web 应用的概述，请参阅[发布和部署](index.md)。 [发布和部署](index.md)是 https://github.com/aspnet/websdk 上的一个开放源代码项目。
 
-当前 `dotnet publish` 无法使用发布配置文件。 若要使用发布配置文件，请使用 `dotnet build`。 `dotnet build` 在项目上调用 MSBuild。 或者，直接调用 `msbuild`。
+ `dotnet publish` 可以使用文件夹、Msdeploy 和 [KUDU](https://github.com/projectkudu/kudu/wiki) 发布配置文件：
+ 
+文件夹（跨平台工作）`dotnet publish WebApplication.csproj /p:PublishProfile=<FolderProfileName>`
+
+Msdeploy（当前仅适用于 Windows，因为 Msdeploy 不是跨平台的）：`dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployProfileName> /p:Password=<DeploymentPassword>`
+
+Msdeploy 包（当前仅适用于 Windows，因为 Msdeploy 不是跨平台的）：`dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployPackageProfileName>`
+
+在前面示例中，不会将 `deployonbuild` 传递到 `dotnet publish`。
+
+有关详细信息，请参阅 [Microsoft.NET.Sdk.Publish](https://github.com/aspnet/websdk#microsoftnetsdkpublish)
+
+`dotnet publish` 支持 KUDU API 从任何平台发布到 Azure。 Visual Studio 发布不支持 KUDU API，但 websdk 支持其跨平台发布到 Azure。
+
+向“属性/PublishProfiles”文件夹添加包含以下内容的发布配置文件：
+
+```xml
+<Project>
+<PropertyGroup>
+                <PublishProtocol>Kudu</PublishProtocol>
+                <PublishSiteName>nodewebapp</PublishSiteName>
+                <UserName>username</UserName>
+                <Password>password</Password>
+</PropertyGroup>
+</Project>
+```
+
+运行以下命令将会压缩发布内容并将其发布到使用 KUDU API 的 Azure。
+
+`dotnet publish /p:PublishProfile=Azure /p:Configuration=Release`
 
 使用发布配置文件时，请设置以下 MSBuild 属性：
 

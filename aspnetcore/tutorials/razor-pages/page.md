@@ -10,8 +10,8 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 3fd155c5e9a119717243a4bafff776fcbd06fab5
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 211d5fd3b8a736799155c2ab1c1cf92993e63fc3
+ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/28/2017
@@ -20,7 +20,7 @@ ms.lasthandoff: 09/28/2017
 
 作者：[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-本教程介绍在[上一教程](xref:tutorials/razor-pages/page)中通过搭建基架创建的 Razor 页面。 
+本教程介绍在上一教程主题[添加模型](xref:tutorials/razor-pages/model#scaffold-the-movie-model)中通过搭建基架创建的 Razor 页面。 
 
 [查看或下载](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie)示例。
 
@@ -144,5 +144,5 @@ Visual Studio 显示用于标记帮助程序的特殊字体的 `<form method="po
 下一教程将介绍 SQL Server LocalDB 和数据库的种子设定。
 
 >[!div class="step-by-step"]
-[上一篇：添加模型](xref:tutorials/razor-pages/modelz)
+[上一篇：添加模型](xref:tutorials/razor-pages/model)
 [下一篇：SQL Server LocalDB](xref:tutorials/razor-pages/sql)
