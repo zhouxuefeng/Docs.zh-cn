@@ -11,17 +11,17 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 9ff2fb92c81719c7278d70b5df5387f1244195bf
+ms.sourcegitcommit: e7f01a649f240b6b57118c53314ab82f7f36f2eb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>全球化和 ASP.NET Core 的本地化
 
 通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Damien Bowden](https://twitter.com/damien_bod)，[邓 Calixto](https://twitter.com/bartmax)， [Nadeem Afana](https://twitter.com/NadeemAfana)，和[Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
-使用 ASP.NET Core 创建多语言的网站将允许你的站点来访问更多的人。 ASP.NET Core 提供服务和中间件将本地化为不同的语言和区域性。
+使用 ASP.NET Core 创建多语言的网站将允许你的站点来访问更多的人。 ASP.NET Core 提供的服务和中间件可将网站本地化为不同的语言和文化。
 
 国际化涉及[全球化](https://docs.microsoft.com/dotnet/api/system.globalization)和[本地化](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization)。 全球化是设计支持不同的区域性的应用程序的过程。 全球化添加输入、 显示和一组定义与特定的地理区域相关的语言脚本的输出的支持。
 
@@ -43,7 +43,7 @@ ASP.NET 核心中引入`IStringLocalizer`和`IStringLocalizer<T>`已设计为可
 
 在上面的代码，`IStringLocalizer<T>`实现来自[依赖关系注入](dependency-injection.md)。 如果找不到"有关标题"的本地化的值，则索引器返回，即"有关标题"的字符串。 可以在应用程序保留默认语言字符串并将它们包装在本地化人员，以便您可以集中精力开发应用。 使用默认语言开发你的应用程序，并准备好进行本地化步骤无需首先创建默认资源文件。 或者，你可以使用传统方法，并提供键以检索的默认语言字符串。 许多开发人员的新工作流不具有一种默认语言*.resx*文件和包装的字符串文本可以减少本地化应用程序的开销。 其他开发人员将首选的传统工作流，因为它可以使更轻松地使用较长的字符串文本和更加轻松地更新本地化的字符串。
 
-使用`IHtmlLocalizer<T>`包含 HTML 资源的实现。 `IHtmlLocalizer`HTML 编码格式中的资源字符串，但不是资源字符串的自变量。 在此示例中突出显示下面的值`name`参数是 HTML 编码。
+使用`IHtmlLocalizer<T>`包含 HTML 资源的实现。 `IHtmlLocalizer`HTML 编码格式资源字符串中的自变量，但不会不 HTML 编码的资源字符串本身。 在此示例中突出显示下面的值`name`参数是 HTML 编码。
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -317,6 +317,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 * 区域性： 它是一种语言和区域，（可选）。
 * 非特定区域性： 一个具有指定的语言中，但不是区域的区域性。 (例如"en"，"es")
 * 特定区域性： 一个具有指定的语言和区域的区域性。 （有关示例"EN-US"、"EN-GB"、"es CL"）
+* 父区域性： 包含特定区域性的非特定区域性。 （例如，"en"是"EN-US"和"EN-GB"的父区域性）
 * 区域设置： 区域设置是相同的区域性。
 
 ## <a name="additional-resources"></a>其他资源
