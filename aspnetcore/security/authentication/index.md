@@ -11,11 +11,11 @@ ms.assetid: 981852c9-78f9-4590-aaee-9d50a2838dfe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/index
-ms.openlocfilehash: 4edec00ebc82b0217e0db4f6325c3e7cca341e08
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 92f480236d035bafe329b14c7383e25c3edd3499
+ms.sourcegitcommit: af6c2a58ea828899d5fbe6bc442a1b1ea3e46cf7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/05/2017
 ---
 # <a name="authentication"></a>身份验证
 
@@ -44,3 +44,5 @@ ms.lasthandoff: 09/12/2017
   * [Calling a Web API in an ASP.NET Core Web Application Using Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)（在使用 Azure AD 的 ASP.NET Core Web 应用程序中调用 Web API）
 
 * [使用 IdentityServer4 保护 ASP.NET Core 应用](https://identityserver4.readthedocs.io/release/)
+
+* [使用 Azure App Service 身份验证保护 ASP.NET Core 应用（简易身份验证）](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
