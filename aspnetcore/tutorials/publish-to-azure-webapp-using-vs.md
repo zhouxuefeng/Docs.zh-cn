@@ -5,27 +5,25 @@ description:
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 09/01/2017
+ms.date: 10/05/2017
 ms.topic: get-started-article
 ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 0c0ec1c7c1408b0460c594a47a3e5738cd170d5f
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.openlocfilehash: df22852d2daddb2a3faef8404d0d250a6a1697a5
+ms.sourcegitcommit: e987c950caae7af9c4ece8a82228caa364e0a5df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/05/2017
 ---
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>使用 Visual Studio 将 ASP.NET Core Web 应用发布到 Azure App Service
 
 作者：[Rick Anderson](https://twitter.com/RickAndMSFT) 、[Cesar Blum Silveira](https://github.com/cesarbs) 和 [Rachel Appel](https://twitter.com/rachelappel)
 
-## <a name="set-up-the-development-environment"></a>设置开发环境
+## <a name="set-up"></a>设置
 
-* 安装最新版本的 [Azure SDK for Visual Studio](https://www.visualstudio.com/vs/azure-tools/)。 如果没有 Visual Studio，SDK 将进行安装。
-
-* 验证 [Azure 帐户](https://portal.azure.com/)。 可[创建免费的 Azure 帐户](https://azure.microsoft.com/pricing/free-trial/)或[激活 Visual Studio 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+* 如果没有，请打开[免费 Azure 帐户](https://aka.ms/K5y5yh)。 
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
@@ -186,8 +184,4 @@ Visual Studio 将返回到“创建应用服务”对话框。
 
 ### <a name="next-steps"></a>后续步骤
 
-* [ASP.NET Core MVC 和 Visual Studio 入门](first-mvc-app/start-mvc.md)
-
-* [ASP.NET Core 简介](../index.md)
-
-* [基础知识](../fundamentals/index.md)
+* [使用 Visual Studio 和 Git 持续部署到 Azure](../publishing/azure-continuous-deployment.md)

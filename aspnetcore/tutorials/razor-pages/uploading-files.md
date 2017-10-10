@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 5a3dc302186c7fd0a5730bc2c7599676fb543ba7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 3c5841f8c623f09530b60cc9997281dcb8e3c4f6
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>将文件上传至 ASP.NET Core 中的 Razor 页面
 
@@ -42,11 +42,9 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="update-the-moviecontext"></a>更新 MovieContext
 
-在 `MovieContext` (*Models/MovieContext.cs*) 中为计划指定 `DbSet`，并向 `OnModelCreating` 方法添加一行，为 `DbSet` 属性设置单数数据库表名称 (`Schedule`)：
+在 `MovieContext` (*Models/MovieContext.cs*) 中为计划指定 `DbSet`：
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13,18)]
-
-注意：如不替代 `OnModelCreating` 以使用单数表名称，实体框架会假定你使用复数数据库表名称（例如 `Movies` 和 `Schedules`）。 开发者对表名称是否应为复数意见不一。 以相同方式配置 `MovieContext` 和数据库。 在这两处，请同时使用单数数据库表名称，或同时使用复数数据库表名称。
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
 ## <a name="add-the-schedule-table-to-the-database"></a>将 Schedule 表添加到数据库
 
@@ -97,7 +95,7 @@ Update-Database
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
-将窗体发布到服务器时，会检查 `ModelState`。 如果无效，会重新生成 `Schedules`，且页面会呈现一个或多个验证消息，陈述页面验证失败的原因。 如果有效，`FileUpload` 属性将用于“OnPostAsync”中，以完成两个计划版本的文件上传，并创建一个用于存储数据的新 `Schedule` 对象。 然后会将此计划保存到数据库：
+将窗体发布到服务器时，会检查 `ModelState`。 如果无效，会重新生成 `Schedule`，且页面会呈现一个或多个验证消息，陈述页面验证失败的原因。 如果有效，`FileUpload` 属性将用于“OnPostAsync”中，以完成两个计划版本的文件上传，并创建一个用于存储数据的新 `Schedule` 对象。 然后会将此计划保存到数据库：
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 
