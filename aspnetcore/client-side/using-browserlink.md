@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 95062961877b8da843ce47fb1719ee85224fa8c8
+ms.sourcegitcommit: 9c27fa0f0c57ad611aa43f63afb9b9c9571d4a94
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="browser-link-in-aspnet-core"></a>在 ASP.NET 核心中的浏览器链接 
 
@@ -81,7 +81,7 @@ if (env.IsDevelopment())
 * 刷新 web 应用程序在多个浏览器中的一次。
 * 打开**浏览器链接仪表板**。
 * 启用或禁用**Browser Link**。 注意： 默认情况下，Visual Studio 2017 (15.3) 中禁用浏览器链接。
-* 启用或禁用 CSS 自动同步。
+* 启用或禁用[CSS 自动同步](#enable-or-disable-css-auto-sync)。
 
 > [!NOTE]
 > 某些 Visual Studio 插件，最值得注意的是*Web 扩展包 2015年*和*Web 扩展包 2017年*，提供扩展的功能的浏览器链接，但某些其他功能不与 ASP 配合使用。NET 核心项目。

@@ -5,18 +5,18 @@ description: "保留应用程序和用户 （会话） 状态请求之间的方�
 keywords: "ASP.NET 核心，应用程序状态、 会话状态、 查询字符串，发布"
 ms.author: riande
 manager: wpickett
-ms.date: 06/08/2017
+ms.date: 10/08/2017
 ms.topic: article
 ms.assetid: 18cda488-0769-4cb9-82f6-4c6685f2045d
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c639d3b0d896b927bb2b70658032fc1bd8e87191
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: f9c1d10101d23e105c4a8af41d851f69b1b6a175
+ms.sourcegitcommit: 9c27fa0f0c57ad611aa43f63afb9b9c9571d4a94
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>简介中 ASP.NET Core 的会话和应用程序状态
 
@@ -26,7 +26,7 @@ HTTP 是无状态的协议。 Web 服务器将每个 HTTP 请求作为独立的�
 
 ## <a name="session-state"></a>会话状态
 
-会话状态是 ASP.NET 核心技术，可用于保存和存储用户数据，而用户浏览你的 web 应用中的功能。 包含服务器上的字典或哈希表，会话状态保持跨从浏览器的请求数据。 缓存支持会话数据。
+会话状态是 ASP.NET Core 中的一项功能，可用于在用户浏览 Web 应用时保存和存储用户数据。 包含服务器上的字典或哈希表，会话状态保持跨从浏览器的请求数据。 缓存支持会话数据。
 
 ASP.NET 核心通过提供包含会话 ID，它使用每个请求向服务器发送的 cookie 的客户端维护会话状态。 服务器使用的会话 ID 来获取会话数据。 因为会话 cookie 是特定于浏览器，你不能在浏览器中共享会话。 仅当浏览器会话结束时，将删除会话 cookie。 如果收到过期的会话 cookie，创建使用相同的会话 cookie 的新会话。 
 
@@ -37,38 +37,60 @@ ASP.NET 核心通过提供包含会话 ID，它使用每个请求向服务器发
 
 内存中的会话提供程序将会话数据存储在本地服务器上。 如果你计划在服务器场上运行你的 web 应用，你必须使用粘性会话将特定服务器的每个会话进行连接。 Windows Azure 网站平台默认为粘性会话应用程序请求路由 （ARR）。 但是，粘性会话可以影响可伸缩性，并使 web 应用程序更新变得复杂。 更好的选择是使用 Redis 或 SQL Server 分布式缓存，这不需要粘性会话。 有关详细信息，请参阅[使用分布式缓存](xref:performance/caching/distributed)。 有关服务提供商设置的详细信息，请参阅[配置会话](#configuring-session)本文后续部分中。
 
-本部分的其余部分介绍用于存储用户数据的选项。
 
 <a name="temp"></a>
-### <a name="tempdata"></a>TempData
+## <a name="tempdata"></a>TempData
 
-ASP.NET 核心 MVC 公开[TempData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller#Microsoft_AspNetCore_Mvc_Controller_TempData)属性[控制器](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)。 此属性可存储数据，直至数据被读取。 `Keep` 和 `Peek` 方法可用于检查数据，而不执行删除。 `TempData`当超过单个请求所需要的数据，则很适合用于重定向。 `TempData`是基于会话状态。 
+ASP.NET 核心 MVC 公开[TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData)属性[控制器](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0)。 此属性可存储数据，直至数据被读取。 `Keep` 和 `Peek` 方法可用于检查数据，而不执行删除。 `TempData`当超过单个请求所需要的数据，则很适合用于重定向。 `TempData`是提供程序实现 TempData，例如，使用 cookie 或会话状态。
 
-## <a name="cookie-based-tempdata-provider"></a>基于 cookie 的 TempData 提供程序 
+### <a name="tempdata-providers"></a>TempData 提供程序
 
-ASP.NET 核心 1.1 和更高版本，你可以使用基于 cookie 的 TempData 提供程序在 cookie 中存储用户的 TempData。 若要启用基于 cookie 的 TempData 提供程序，注册`CookieTempDataProvider`服务`ConfigureServices`:
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+ASP.NET 核心 2.0 及更高版本，基于 cookie 的 TempData 提供程序使用默认情况下在 cookie 中存储 TempData。
+
+使用编码的 cookie 数据[Base64UrlTextEncoder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0)。 因为 cookie 被加密，并分块，一个 cookie 大小在 1.x 不适用于 ASP.NET Core 中找到的限制。 因为压缩 encryped 数据会导致安全问题如未压缩的 cookie 数据[犯罪](https://wikipedia.org/wiki/CRIME_(security_exploit))和[违反](https://wikipedia.org/wiki/BREACH_(security_exploit))攻击。 基于 cookie 的 TempData 提供程序的详细信息，请参阅[CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs)。
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+在 ASP.NET Core 1.0 和 1.1 中，会话状态 TempData 提供程序是默认值。
+
+--------------
+
+### <a name="choosing-a-tempdata-provider"></a>选择 TempData 提供程序
+
+例如，选择 TempData 提供程序涉及几个注意事项：
+
+1. 应用程序已是否用于其他目的使用会话状态？ 如果是这样，使用会话状态 TempData 提供程序具有不到 （除了外的数据大小） 应用程序会增加成本。
+2. 没有应用程序使用 TempData 仅谨慎相对较少的数据 （最多 500 个字节）？ 如果因此，cookie TempData 提供程序将添加到执行 TempData 每个请求的较小的成本。 如果没有，会话状态 TempData 提供程序将是有益避免往返大量的数据在每个请求，直到使用 TempData。
+3. 在 web 场 （多个服务器） 可以运行应用程序？ 如果这样，则无需为使用 cookie TempData 提供程序的其他配置。
+
+> [!NOTE]
+> 大多数 web 客户端 （例如 web 浏览器） 强制执行的每个 cookie 和 / 或 cookie，总数的最大大小限制。 因此，在使用 cookie TempData 提供程序，请验证应用程序不会超过这些限制。 请考虑算加密的开销和分块的数据的总大小。
+
+若要配置的 TempData 提供程序应用程序，注册中的 TempData 提供程序实现`ConfigureServices`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddMvc();
-    // Add CookieTempDataProvider after AddMvc and include ViewFeatures.
-    // using Microsoft.AspNetCore.Mvc.ViewFeatures;
-    services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
+    services
+        .AddMvc()
+        .AddSessionStateTempDataProvider();
+
+    // The Session State TempData Provider requires adding the session state service
+    services.AddSession();
 }
 ```
 
-使用编码的 cookie 数据[Base64UrlTextEncoder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.authentication.base64urltextencoder)。 因为 cookie 被加密，并分块，一个 cookie 大小限制不适用于。 未压缩的 cookie 数据，因为压缩 encryped 数据会导致安全问题如[犯罪](https://wikipedia.org/wiki/CRIME_(security_exploit))和[违反](https://wikipedia.org/wiki/BREACH_(security_exploit))攻击。 基于 cookie 的 TempData 提供程序的详细信息，请参阅[CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs)。
-
-### <a name="query-strings"></a>查询字符串
+## <a name="query-strings"></a>查询字符串
 
 你可以为到另一个从一个请求将其添加到新请求的查询字符串传递数据的量有限。 这可用于以允许具有嵌入的状态，以通过电子邮件或社交网络共享的链接的持久方式捕获状态。 但是，为此，你应永远不会使用查询字符串的敏感数据。 除了轻松地共享，包括查询字符串中的数据可以创建的机会[跨站点请求伪造 (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))攻击，可以欺骗用户访问恶意网站时进行身份验证。 然后，攻击者可能窃取用户从应用程序的数据，或需要代表用户恶意操作。 任何保留的应用程序或会话状态必须防止 CSRF 攻击。 CSRF 攻击的详细信息，请参阅[防止跨站点请求伪造 (XSRF/CSRF) 攻击中 ASP.NET Core](../security/anti-request-forgery.md)。
 
-### <a name="post-data-and-hidden-fields"></a>后期数据和隐藏的字段
+## <a name="post-data-and-hidden-fields"></a>后期数据和隐藏的字段
 
 可以保存在隐藏的表单字段数据，并且将其重新发布了下一个请求。 这是常见的多页的窗体。 但是，客户端可能可以篡改数据，因为服务器必须始终重新验证它。 
 
-### <a name="cookies"></a>Cookie
+## <a name="cookies"></a>Cookie
 
 Cookie 提供了如何在 web 应用程序中存储特定于用户的数据。 因为与每个请求一起发送 cookie，则其大小应保持在最低限度。 理想情况下，仅标识符应存储在 cookie 中，与存储在服务器上的实际数据。 大多数浏览器将限制为 4096 个字节的 cookie。 此外，仅有限的数量的 cookie 可为每个域。  
 
@@ -76,17 +98,18 @@ Cookie 是易被篡改，因为它们必须在服务器上验证。 尽管在客
 
 通常使用 cookie 以进行个性化设置，其中的已知用户自定义内容。 因为用户仅标识并且未经过身份验证在大多数情况下，你通常可以通过将用户名称、 帐户名称或唯一的用户 ID （例如 GUID) 存储在 cookie 中保护 cookie。 然后可以使用 cookie 来访问站点的用户个性化设置基础结构。
 
-### <a name="httpcontextitems"></a>HttpContext.Items
+## <a name="httpcontextitems"></a>HttpContext.Items
 
 `Items`集合是存储的数据的正确位置仅需要同时处理一个特定的请求。 每个请求之后，集合的内容将被放弃。 `Items`集合最用作一种方法的组件或中间件进行通信时它们在请求过程的时间内运行的不同时间点，并且具有无法直接将参数传递。 有关详细信息，请参阅[使用 HttpContext.Items](#working-with-httpcontextitems)，本文稍后的。
 
-### <a name="cache"></a>缓存
+## <a name="cache"></a>缓存
 
 缓存是一种高效的方式来存储和检索数据。 你可以控制基于时间和其他注意事项的缓存项的生存期。 详细了解[Caching](../performance/caching/index.md)。
 
 <a name=session></a>
+## <a name="working-with-session-state"></a>使用会话状态
 
-## <a name="configuring-session"></a>配置会话
+### <a name="configuring-session"></a>配置会话
 
 `Microsoft.AspNetCore.Session`包提供用于管理会话状态的中间件。 若要启用会话中间件，`Startup`必须包含：
 
@@ -138,7 +161,7 @@ ASP.NET 核心中的默认会话提供程序，则从基础加载会话记录[ID
 
 因为`Session`是*非锁定*，如果两个请求都试图修改的会话中，最后一个内容重写第一个。 `Session`作为实现*连贯会话*，这意味着所有内容都存储在一起。 正在修改的会话 （不同的密钥） 的不同部分的两个请求仍可能会影响每个其他。
 
-## <a name="setting-and-getting-session-values"></a>设置和获取会话值
+### <a name="setting-and-getting-session-values"></a>设置和获取会话值
 
 通过访问会话`Session`属性`HttpContext`。 此属性是[ISession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession)实现。
 
