@@ -1,25 +1,24 @@
 ---
 title: "在 Windows 上创建 ASP.NET Core MVC Web 应用"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "在 Windows 上使用 Visual Studio 的 ASP.NET Core MVC 简介目录。"
+keywords: "ASP.NET Core, MVC, 教程, 简介"
 ms.author: riande
 manager: wpickett
-ms.date: 06/26/2017
+ms.date: 10/06/2017
 ms.topic: get-started-article
-ms.assetid: 959ff4ca-be2d-444c-ac04-789e787146f3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: b69f345e4b9d9996f48be7f07e436cde4e2d7fa4
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 123ee5d08849a2a6f31e9299f45b20f3e5589e31
+ms.sourcegitcommit: ab91aad2680efc4eb5c0642746e2b981db7f81b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 10/10/2017
 ---
-# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-on-windows"></a>在 Windows 上使用 Visual Studio 创建 ASP.NET Core MVC Web 应用
+# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio"></a>使用 Visual Studio 和 ASP.NET Core MVC 创建 Web 应用
 
-下面的一系列教程介绍使用 Visual Studio 生成 ASP.NET Core MVC Web 应用所涉及的基础知识。 [!INCLUDE[consider RP](../../includes/razor.md)]
+ [!INCLUDE[consider RP](../../includes/razor.md)]
 
 1. [入门](start-mvc.md)
 1. [添加控制器](adding-controller.md)

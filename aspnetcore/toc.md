@@ -68,7 +68,7 @@
 ## [创建移动应用的后端服务](mobile/native-mobile-backend.md)
 ## [构建 Web API](mvc/web-api/index.md)
 ## [创建 Web API](xref:tutorials/first-web-api-mac)
-### [使用 Swagger 的 ASP.NET Web API 帮助页](tutorials/web-api-help-pages-using-swagger.md)
+### [使用 Swagger 的 ASP.NET Core Web API 帮助页](tutorials/web-api-help-pages-using-swagger.md)
 ### [为本机移动应用程序创建后端服务](mobile/native-mobile-backend.md)
 
 # [基础知识](fundamentals/index.md)
@@ -279,7 +279,7 @@
 ## [ASP.NET Core 1.x 到 2.0](xref:migration/1x-to-2x/index)
 ### [身份验证和标识](xref:migration/1x-to-2x/identity-2x)
 
-# [API 参考](/aspnet/core/api/)
+# [API 参考](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0)
 
 # [2.0 发行说明](aspnetcore-2.0.md)
 ## [1.1 发行说明](aspnetcore-1.1.md)
