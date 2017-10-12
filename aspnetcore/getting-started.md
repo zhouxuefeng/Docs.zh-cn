@@ -43,7 +43,7 @@ ms.lasthandoff: 09/12/2017
 
 5. 浏览到 [http://localhost:5000](http://localhost:5000)
 
-6. 打开 Pages/About.cshtml 并将页面修改为显示消息“Hello, world! The time on the server is @DateTime.Now”：
+6. 打开 Pages/About.cshtml 并将页面修改为显示消息“Hello, world! The time on the server is @DateTime.Now” ：
 
     [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 

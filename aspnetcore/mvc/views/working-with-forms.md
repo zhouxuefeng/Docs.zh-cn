@@ -174,7 +174,7 @@ Type expected
 
 ### <a name="expression-names"></a>表达式名称
 
-`asp-for`属性值是`ModelExpression`和 lambda 表达式的右侧。 因此，`asp-for="Property1"`变得`m => m.Property1`在生成的代码，这正是你无需前缀`Model`。 你可以使用"@"字符，以启动内联表达式并移动之前`m.`:
+`asp-for`属性值是`ModelExpression`和 lambda 表达式的右侧。 因此，`asp-for="Property1"`变得`m => m.Property1`在生成的代码，这正是你无需前缀`Model`。 你可以使用 « @ » 字符，以启动内联表达式并移动之前 `m.`:
 
 ```HTML
 @{
