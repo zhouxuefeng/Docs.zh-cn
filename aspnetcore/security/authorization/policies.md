@@ -11,17 +11,17 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 5021b5d20f6d9b9a4d8889f25b5e41f2c9306f64
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 2e3bbcc9ffd90d7cba974466860738f1f462d3b3
+ms.sourcegitcommit: c29954cdfed0257eef92243175802ad6929e32bc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="custom-policy-based-authorization"></a>自定义的基于策略的授权
 
 <a name=security-authorization-policies-based></a>
 
-实际上[角色授权](roles.md#security-authorization-role-based)和[声明授权](claims.md#security-authorization-claims-based)使使用的要求、 的处理程序的要求并预配置的策略。 这些构建基块，可以快速、 在代码中允许的更丰富且可重复使用，可轻松地测试授权结构的授权评估。
+实际上[角色授权](roles.md)和[声明授权](claims.md)使使用的要求、 的处理程序的要求并预配置的策略。 这些构建基块，可以快速、 在代码中允许的更丰富且可重复使用，可轻松地测试授权结构的授权评估。
 
 组成一个或多个要求和注册在应用程序启动授权服务配置的一部分，在授权策略`ConfigureServices`中*Startup.cs*文件。
 

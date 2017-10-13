@@ -2,7 +2,7 @@
 title: "视图基于授权"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 24ce40d8-9b83-4bae-9d4c-a66350fcc8f8
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/views
-ms.openlocfilehash: 3b7fa6025d766da80ba92ee27af20bf9bfe0dcf4
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 82c0c7282de34e496f529d964f99121ae2805c5a
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="view-based-authorization"></a>视图基于授权
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/25/2017
 
 一旦你将具有插入的授权服务就使用它通过调用`AuthorizeAsync`中完全一样的方式将检查期间方法[基于资源的授权](resourcebased.md#security-authorization-resource-based-imperative)。
 
-```csharp
+```cshtml
 @if (await AuthorizationService.AuthorizeAsync(User, "PolicyName"))
    {
        <p>This paragraph is displayed because you fulfilled PolicyName.</p>
@@ -34,9 +34,9 @@ ms.lasthandoff: 08/25/2017
 
 在某些情况下的资源将为你的视图模型，并且你可以调用`AuthorizeAsync`中完全一样的方式将检查期间[基于资源的授权](resourcebased.md#security-authorization-resource-based-imperative);
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-```csharp
+```cshtml
    @if ((await AuthorizationService.AuthorizeAsync(User, Model, Operations.Edit)).Succeeded)
    {
        <p><a class="btn btn-default" role="button"
@@ -44,9 +44,9 @@ ms.lasthandoff: 08/25/2017
    }
    ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-```csharp
+```cshtml
    @if (await AuthorizationService.AuthorizeAsync(User, Model, Operations.Edit))
    {
        <p><a class="btn btn-default" role="button"

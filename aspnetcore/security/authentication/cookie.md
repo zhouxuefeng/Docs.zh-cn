@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: e5c53a7044edb56e065b2dc1536343fdaf9fb007
-ms.sourcegitcommit: 7d8f4e3443a2989a64343f8fec83e6a4c4ed2f97
+ms.openlocfilehash: ea9c93e34a3242b5b3716404228edb8902baf625
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>使用 Cookie 而无需 ASP.NET 核心标识的身份验证
 
@@ -76,7 +76,7 @@ ASP.NET 核心 1.x 提供 cookie[中间件](../../fundamentals/middleware.md#fun
 
 * `AccessDeniedPath`-这是请求重当用户尝试访问的资源，但不能通过任何定向到的相对路径[授权策略](xref:security/authorization/policies#security-authorization-policies-based)对该资源。
 
-* `AuthenticationScheme`-这是一个值来识别特定 cookie 身份验证方案。 这是有用的如果有多个实例的 cookie 身份验证，并且你希望到[限制到一个实例的授权](xref:security/authorization/limitingidentitybyscheme#security-authorization-limiting-by-scheme)。
+* `AuthenticationScheme`-这是一个值来识别特定 cookie 身份验证方案。 Cookie 身份验证和需要将应用程序的多个实例时，此设置很有用[限制到一个实例的授权](xref:security/authorization/limitingidentitybyscheme)。
 
 * `AutomaticAuthenticate`-此标志是仅适用于的 ASP.NET Core 1.x。 它表示应在每个请求上运行，尝试验证并重新构造它创建的任何序列化的主体 cookie 身份验证。
 
