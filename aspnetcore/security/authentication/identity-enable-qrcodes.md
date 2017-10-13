@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 01bb5597033fef7e1cb08e980c81d37d88ed253e
-ms.sourcegitcommit: ab91aad2680efc4eb5c0642746e2b981db7f81b8
+ms.openlocfilehash: a3029e68164dd91d1bc43704c5e96bd591bcae05
+ms.sourcegitcommit: a73fb5161fbdbee1d2e8474205e9840a134ee2ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>启用 ASP.NET Core 中的身份验证器应用的 QR 代码生成
 
@@ -62,7 +62,7 @@ ASP.NET 核心 web 应用程序模板支持身份验证器，但不是提供对 
 
 ## <a name="change-the-site-name-in-the-qr-code"></a>更改 QR 代码中的站点名称
 
-最初创建你的项目时选择的项目名称中获取 QR 代码中的站点名称。 你可以通过查找对其进行更改`GenerateQrCodeUri(string email, string unformattedKey)`中的方法*Pages\Account\Manage\EnableAuthenticator.cshtml.cs* （Razor 页） 文件或*Controllers\AccountController.cs* (MVC) 文件。 
+最初创建你的项目时选择的项目名称中获取 QR 代码中的站点名称。 你可以通过查找对其进行更改`GenerateQrCodeUri(string email, string unformattedKey)`中的方法*Pages\Account\Manage\EnableAuthenticator.cshtml.cs* （Razor 页） 文件或*Controllers\ManageController.cs* (MVC) 文件。 
 
 从模板的默认代码将如下所示：
 
