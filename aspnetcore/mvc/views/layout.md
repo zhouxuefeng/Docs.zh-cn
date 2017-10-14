@@ -2,7 +2,7 @@
 title: "布局"
 author: ardalis
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 29f12d1f-9734-48bd-bf1a-cee53a8ab700
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/layout
-ms.openlocfilehash: 25aa5fc730d9076fdcf9d29cb5d9dfa75a246a1a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 064621d8756b007c5b8859111bf3a03a0d7dda81
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="layout"></a>布局
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 09/12/2017
 
 默认情况下，必须调用每个布局`RenderBody`。 任何位置调用`RenderBody`是放置，就将呈现的视图的内容。
 
-<a name=layout-sections-label></a>
+<a name="layout-sections-label"></a>
 
 ### <a name="sections"></a>部分
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 09/12/2017
 
 正文和 Razor 页中的每个部分必须呈现或忽略。
 
-<a name=viewimports></a>
+<a name="viewimports"></a>
 
 ## <a name="importing-shared-directives"></a>导入共享的指令
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 09/12/2017
 
 * `@inject`： 对于每个属性，则最近到视图将覆盖具有相同的属性名称的任何其他
 
-<a name=viewstart></a>
+<a name="viewstart"></a>
 
 ## <a name="running-code-before-each-view"></a>运行代码之前每个视图
 

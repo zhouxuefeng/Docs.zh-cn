@@ -2,7 +2,7 @@
 title: "基于资源的授权"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
-ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
+ms.openlocfilehash: d3575619c53e77dadc293ea2bb7dc72501a8a1e3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="resource-based-authorization"></a>基于资源的授权
 
-<a name=security-authorization-resource-based></a>
+<a name="security-authorization-resource-based"></a>
 
 通常授权取决于要访问的资源。 例如，一个文档可能有 author 属性。 仅是文档作者就会允许进行更新，因此资源必须加载从文档存储库，然后才能进行授权评估。 这不能通过 Authorize 属性，如属性计算都需要将放在绑定数据之前，并在操作中运行你自己的代码来加载资源之前实现。 而不是声明性授权，属性方法中，我们必须使用命令性授权，开发人员其中调用 authorize 函数时在其自己的代码。
 
@@ -50,7 +50,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
                           string policyName);
 ```
 
-<a name=security-authorization-resource-based-imperative></a>
+<a name="security-authorization-resource-based-imperative"></a>
 
 若要调用服务，加载在你的操作资源然后调用`AuthorizeAsync`需要的重载。 例如: 
 

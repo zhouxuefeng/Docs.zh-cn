@@ -11,15 +11,15 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 2e3bbcc9ffd90d7cba974466860738f1f462d3b3
-ms.sourcegitcommit: c29954cdfed0257eef92243175802ad6929e32bc
+ms.openlocfilehash: 24585ed5b4c21a357fc0eed4de6ccedf9fa50d3e
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
 ---
 # <a name="custom-policy-based-authorization"></a>自定义的基于策略的授权
 
-<a name=security-authorization-policies-based></a>
+<a name="security-authorization-policies-based"></a>
 
 实际上[角色授权](roles.md)和[声明授权](claims.md)使使用的要求、 的处理程序的要求并预配置的策略。 这些构建基块，可以快速、 在代码中允许的更丰富且可重复使用，可轻松地测试授权结构的授权评估。
 
@@ -74,13 +74,13 @@ public class MinimumAgeRequirement : IAuthorizationRequirement
 
 一项要求不需要具有数据或属性。
 
-<a name=security-authorization-policies-based-authorization-handler></a>
+<a name="security-authorization-policies-based-authorization-handler"></a>
 
 ## <a name="authorization-handlers"></a>授权处理程序
 
 授权处理程序负责的要求的任何属性的计算。 授权处理程序必须对它们进行评估针对提供`AuthorizationHandlerContext`以确定是否允许授权。 可以有一项要求[多个处理程序](policies.md#security-authorization-policies-based-multiple-handlers)。 处理程序必须继承`AuthorizationHandler<T>`其中 T 是它处理的要求。
 
-<a name=security-authorization-handler-example></a>
+<a name="security-authorization-handler-example"></a>
 
 最小存在时间处理程序可能如下所示：
 
@@ -116,7 +116,7 @@ public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
 
 在上面的代码中我们首先查找以确定是否当前的用户主体已声明的已发出我们知道的颁发者和信任的出生日期。 如果声明是缺少我们无法授权以便我们返回。 如果我们有声明，我们找出用户已存在多长，并且它们是否符合由要求传入的最小存在时间然后授权已被成功。 授权成功后我们调用`context.Succeed()`要求已成功作为参数传递。
 
-<a name=security-authorization-policies-based-handler-registration></a>
+<a name="security-authorization-policies-based-handler-registration"></a>
 
 在配置期间，服务集合中必须例如; 注册处理程序
 
@@ -150,7 +150,7 @@ public void ConfigureServices(IServiceCollection services)
 
 无论你在你的处理程序调用的策略要求要求时，将调用要求的所有处理程序。 这样要求产生副作用，如日志记录，始终会进行即使`context.Fail()`已在另一个处理程序调用。
 
-<a name=security-authorization-policies-based-multiple-handlers></a>
+<a name="security-authorization-policies-based-multiple-handlers"></a>
 
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>为什么将需要一项要求的多个处理程序？
 

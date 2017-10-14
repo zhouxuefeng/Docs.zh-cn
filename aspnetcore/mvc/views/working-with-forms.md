@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6fee6eee539fc77b6c6180a816daa760202848
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>在 ASP.NET Core 中的窗体中使用标记帮助器简介
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 09/28/2017
 
 在许多情况下，HTML 帮助器向特定的标记帮助器，提供的备用方法，但务必要识别标记帮助程序不替换 HTML 帮助器并不是每个 HTML 帮助器标记帮助器。 HTML 帮助器或者当存在时，被提到而变。
 
-<a name=my-asp-route-param-ref-label></a>
+<a name="my-asp-route-param-ref-label"></a>
 
 ## <a name="the-form-tag-helper"></a>窗体标记帮助器
 
@@ -174,7 +174,7 @@ Type expected
 
 ### <a name="expression-names"></a>表达式名称
 
-`asp-for`属性值是`ModelExpression`和 lambda 表达式的右侧。 因此，`asp-for="Property1"`变得`m => m.Property1`在生成的代码，这正是你无需前缀`Model`。 你可以使用 « @ » 字符，以启动内联表达式并移动之前 `m.`:
+`asp-for`属性值是`ModelExpression`和 lambda 表达式的右侧。 因此，`asp-for="Property1"`变得`m => m.Property1`在生成的代码，这正是你无需前缀`Model`。 你可以使用"@"字符，以启动内联表达式并移动之前`m.`:
 
 ```HTML
 @{

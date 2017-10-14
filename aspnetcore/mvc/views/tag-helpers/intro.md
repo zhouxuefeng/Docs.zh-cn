@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06644b8359fb5ccc2e61a17a4c6e20e354d5ceef
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 78004aa370cac8b297fd7ede534260c83965ae79
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>在 ASP.NET 核心中的标记帮助器简介 
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 09/28/2017
 
 标记帮助器作用域控制的组合来`@addTagHelper`， `@removeTagHelper`，与"！"选择退出字符。
 
-<a name=add-helper-label></a>
+<a name="add-helper-label"></a>
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`提供标记帮助程序
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 09/28/2017
 
 如前所述，添加`@addTagHelper`指令至*Views/_ViewImports.cshtml*文件使标记帮助器可用于中的所有视图文件*视图*目录及其子目录。 你可以使用`@addTagHelper`指令特定视图文件，如果你想要参加公开标记帮助器到仅这些视图中。
 
-<a name=remove-razor-directives-label></a>
+<a name="remove-razor-directives-label"></a>
 
 ### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`删除标记帮助程序
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 09/28/2017
 
 必须将标记帮助器选择退出字符应用于的开始和结束标记。 （Visual Studio 编辑器会自动向退出字符结束标记时你添加到的开始标记）。 添加退出字符后和标记帮助器属性的元素将不再显示在不同的字体。
 
-<a name=prefix-razor-directives-label></a>
+<a name="prefix-razor-directives-label"></a>
 
 ### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>使用`@tagHelperPrefix`以便显式标记帮助程序使用情况
 
@@ -127,7 +127,7 @@ Visual Studio 中创建新的 ASP.NET web 应用程序，它会添加 NuGet 包"
 
 ![图像](intro/_static/label.png)
 
-你不仅获取 HTML 帮助，但图标 ("@"符号与在其下的"<>")。
+你不仅获取 HTML 帮助，但图标 ("@" symbol with "<>"下)。
 
 ![图像](intro/_static/tagSym.png)
 

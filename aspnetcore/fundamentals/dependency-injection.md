@@ -12,21 +12,21 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5c903a72d004afac55fbcc04ad157442e7a18ee
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: a3a6f755d8825d4bd31cad4e459750c549709c6d
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>在 ASP.NET 核心中的依赖关系注入简介
 
-<a name=fundamentals-dependency-injection></a>
+<a name="fundamentals-dependency-injection"></a>
 
 通过[Steve Smith](https://ardalis.com/)和[Scott Addie](https://scottaddie.com)
 
 ASP.NET 核心旨在从一开始向上支持，并利用依赖关系注入。 ASP.NET 核心应用程序可以通过让用户启动类中的方法中注入利用内置 framework 服务和应用程序服务可以配置为也注入。 由 ASP.NET Core 提供的默认服务容器提供最小功能集，不用于替换其他容器。
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="what-is-dependency-injection"></a>什么是依赖关系注入？
 

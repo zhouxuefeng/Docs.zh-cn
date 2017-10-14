@@ -2,7 +2,7 @@
 title: "密钥管理扩展性"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 3606b251-8324-4485-8d52-582a2cd5cffb
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: ed84b6dc257d5fd9e4c1cf6106df3c8bd6e14f64
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ce23931e72404347ebc17c69ae90e70cd15328bc
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-management-extensibility"></a>密钥管理扩展性
 
-<a name=data-protection-extensibility-key-management></a>
+<a name="data-protection-extensibility-key-management"></a>
 
 >[!TIP]
 > 读取[密钥管理](../implementation/key-management.md#data-protection-implementation-key-management)之前阅读此部分中，因为它介绍了这些 Api 的基本概念的某些部分。
@@ -63,7 +63,7 @@ IKeyManager 接口表示负责常规的密钥存储、 检索和操作的对象�
 >[!WARNING]
 > 编写 IKeyManager 是一个非常高级的任务，和大多数开发人员不应尝试它。 相反，大多数开发人员应充分利用所提供的功能[XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager)类。
 
-<a name=data-protection-extensibility-key-management-xmlkeymanager></a>
+<a name="data-protection-extensibility-key-management-xmlkeymanager"></a>
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
@@ -139,7 +139,7 @@ IXmlRepository 的实现不需要通过其传递对 XML 进行分析。 它们�
 
 有两个内置的具体类型实现 IXmlRepository: FileSystemXmlRepository 和 RegistryXmlRepository。 请参阅[密钥存储提供程序文档](../implementation/key-storage-providers.md#data-protection-implementation-key-storage-providers)有关详细信息。 注册自定义 IXmlRepository 将对它们进行适当的方式，以使用其他备份应用商店，例如，Azure Blob 存储。 若要更改默认存储库应用程序范围，请在服务提供程序中注册的自定义单独 IXmlRepository。
 
-<a name=data-protection-extensibility-key-management-ixmlencryptor></a>
+<a name="data-protection-extensibility-key-management-ixmlencryptor"></a>
 
 ## <a name="ixmlencryptor"></a>IXmlEncryptor
 

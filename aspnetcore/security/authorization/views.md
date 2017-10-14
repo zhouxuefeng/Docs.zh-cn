@@ -11,15 +11,15 @@ ms.assetid: 24ce40d8-9b83-4bae-9d4c-a66350fcc8f8
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/views
-ms.openlocfilehash: 82c0c7282de34e496f529d964f99121ae2805c5a
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 58cafcfdc7946e82d1e0ea5de95e0e497b1b6bcf
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="view-based-authorization"></a>视图基于授权
 
-<a name=security-authorization-views></a>
+<a name="security-authorization-views"></a>
 
 通常，开发人员将想要显示、 隐藏或修改基于当前的用户标识的用户界面。 你可以访问授权服务在服务内通过的 MVC 视图[依赖关系注入](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection)。 若要将授权服务注入到 Razor 视图使用`@inject`指令，例如`@inject IAuthorizationService AuthorizationService`(需要`@using Microsoft.AspNetCore.Authorization`)。 如果所需的每个视图中的授权服务则放置`@inject`指令插入`_ViewImports.cshtml`文件中`Views`目录。 有关依赖关系注入到视图的详细信息请参阅[到视图的依赖关系注入](../../mvc/views/dependency-injection.md)。
 

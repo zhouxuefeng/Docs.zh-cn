@@ -11,19 +11,19 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 730b4c281a766059b16ca1c36bbeb9611b979b72
-ms.sourcegitcommit: 0f23400cae837e90927043aa0dfd6c31108a4e2c
+ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET 核心中间件基础知识
 
-<a name=fundamentals-middleware></a>
+<a name="fundamentals-middleware"></a>
 
 通过[Rick Anderson](https://twitter.com/RickAndMSFT)和[Steve Smith](https://ardalis.com/)
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="what-is-middleware"></a>什么是中间件
 
@@ -138,7 +138,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-<a name=middleware-run-map-use></a>
+<a name="middleware-run-map-use"></a>
 
 ### <a name="use-run-and-map"></a>使用、 运行和映射
 
@@ -206,7 +206,7 @@ ASP.NET 核心附带以下的中间件组件：
 | [静态文件](xref:fundamentals/static-files) | 为静态文件和目录浏览提供服务提供支持。 |
 | [URL 重写中间件](xref:fundamentals/url-rewriting) | 用于重写 Url，并将请求重定向的支持。 |
 
-<a name=middleware-writing-middleware></a>
+<a name="middleware-writing-middleware"></a>
 
 ## <a name="writing-middleware"></a>编写中间件
 

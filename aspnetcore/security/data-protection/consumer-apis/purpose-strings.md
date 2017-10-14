@@ -2,7 +2,7 @@
 title: "目的字符串"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: c96ed361-c382-4980-8933-800e740cfc38
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: cc33bcfab4945e6d6f9ca7e61edeff4d1837661a
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 799c3dc2768e264307783efafee626a346a9362c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="purpose-strings"></a>目的字符串
 
-<a name=data-protection-consumer-apis-purposes></a>
+<a name="data-protection-consumer-apis-purposes"></a>
 
 使用 IDataProtectionProvider 组件都必须通过唯一*目的*CreateProtector 方法参数。 目的*参数*是固有的数据保护系统中，安全的因为它提供了加密的使用者之间的隔离，即使根加密密钥是相同的。
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/11/2017
 
 由于 CreateProtector 的目的参数是一个字符串数组，上述无法已改为指定为 ["Contoso.Security.BearerToken"，"v1"]。 这允许建立目的的层次结构，并打开与数据保护系统的多租户方案的可能性。
 
-<a name=data-protection-contoso-purpose></a>
+<a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
 > 组件不应允许不受信任的用户输入要用于目的链的输入的唯一来源。

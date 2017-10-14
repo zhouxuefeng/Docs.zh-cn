@@ -10,20 +10,20 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: 8ee4e380b154db7f1736edc793b56258655ddd52
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 738bf6841b5364f89fa1bcdd11fc71d9be83c23b
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="core-cryptography-extensibility"></a>核心加密可扩展性
 
-<a name=data-protection-extensibility-core-crypto></a>
+<a name="data-protection-extensibility-core-crypto"></a>
 
 >[!WARNING]
 > 实现的任意以下接口的类型应该是线程安全的多个调用方。
 
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptor></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptor"></a>
 
 ## <a name="iauthenticatedencryptor"></a>IAuthenticatedEncryptor
 
@@ -40,12 +40,12 @@ ms.lasthandoff: 08/25/2017
 > [!NOTE]
 > 实际上，IAuthenticatedEncryptor 实例本身不需要包含密钥材料。 例如，实现可以将委托到 HSM 中的所有操作。
 
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptorfactory></a>
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptorfactory"></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor"></a>
 
 ## <a name="how-to-create-an-iauthenticatedencryptor"></a>如何创建 IAuthenticatedEncryptor
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 **IAuthenticatedEncryptorFactory**接口表示一种类型，知道如何创建[IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor)实例。 其 API 是，如下所示。
 
@@ -72,7 +72,7 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 // the 'roundTripped' and 'plaintext' buffers should be equivalent
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 **IAuthenticatedEncryptorDescriptor**接口表示一种类型，知道如何创建[IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor)实例。 其 API 是，如下所示。
 
@@ -102,17 +102,17 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 ---
 
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor"></a>
 
 ## <a name="iauthenticatedencryptordescriptor-aspnet-core-2x-only"></a>IAuthenticatedEncryptorDescriptor （ASP.NET 核心 2.x 仅）
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 **IAuthenticatedEncryptorDescriptor**接口表示知道如何将自身导出到 XML 的类型。 其 API 是，如下所示。
 
 * ExportToXml(): XmlSerializedDescriptorInfo
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ---
 
@@ -120,7 +120,7 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 IAuthenticatedEncryptor 和 IAuthenticatedEncryptorDescriptor 的主要区别是描述符知道如何创建加密程序和其提供有效的参数。 请考虑其实现依赖于 SymmetricAlgorithm 和 KeyedHashAlgorithm IAuthenticatedEncryptor。 加密器的作业是使用这些类型，但它不一定知道这些类型的来源，因此它不能真正写出如何重新创建本身应用程序重启时的正确说明。 描述符充当基于此较高级别。 由于描述符知道如何创建加密程序实例 （例如，它知道如何创建所需的算法），以便可以重新创建加密器实例，应用程序重置后，它可以序列化该知识库中的 XML 格式。
 
-<a name=data-protection-extensibility-core-crypto-exporttoxml></a>
+<a name="data-protection-extensibility-core-crypto-exporttoxml"></a>
 
 通过其 ExportToXml 例程，描述符可序列化。 此例程返回 XmlSerializedDescriptorInfo 其中包含两个属性： XElement 表示形式的说明符和表示的类型[IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer)可以是用于使重新起用给定相应 XElement 此描述符。
 
@@ -131,7 +131,7 @@ IAuthenticatedEncryptor 和 IAuthenticatedEncryptorDescriptor 的主要区别是
 
 也可以是其中的序列化的描述符不包含敏感信息的情况。 再次考虑存储在 HSM 中的加密密钥的大小写。 在序列化本身由于 HSM 并不会以明文形式材料时可描述符无法写出密钥材料。 相反，描述符可以编写出密钥包装的密钥 （如果 HSM 允许以这种方式导出） 或密钥的 HSM 自己唯一标识符版本。
 
-<a name=data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer></a>
+<a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer"></a>
 
 ## <a name="iauthenticatedencryptordescriptordeserializer"></a>IAuthenticatedEncryptorDescriptorDeserializer
 
@@ -152,7 +152,7 @@ ImportFromXml 方法采用返回 XElement [IAuthenticatedEncryptorDescriptor.Exp
 
 ## <a name="the-top-level-factory"></a>顶级工厂
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 核心 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 **AlgorithmConfiguration**类表示知道如何创建该类型[IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor)实例。 它公开一个单一的 API。
 
@@ -164,7 +164,7 @@ ImportFromXml 方法采用返回 XElement [IAuthenticatedEncryptorDescriptor.Exp
 
 AlgorithmConfiguration 类型用作密钥创建例程的入口点如[自动密钥滚动](../implementation/key-management.md#data-protection-implementation-key-management)。 若要更改的所有将来的键的实现，请在 KeyManagementOptions 中设置 AuthenticatedEncryptorConfiguration 属性。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 核心 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 **IAuthenticatedEncryptorConfiguration**接口表示一种类型它知道如何创建[IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor)实例。 它公开一个单一的 API。
 

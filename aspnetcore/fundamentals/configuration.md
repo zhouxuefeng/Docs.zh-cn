@@ -11,11 +11,11 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: ca6b62dd4699536b24c3422a2a51fc3fe1744f0a
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: d626768fe1a485705e104a5c758cbdb0b46685a3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core 中的配置
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/01/2017
 
 每个配置值将映射到字符串键。 若要反序列化到自定义设置的内置绑定支持[POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object)对象 （具有属性的简单.NET 类）。
 
-[查看或下载的示例代码](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="simple-configuration"></a>简单的配置
 
@@ -81,7 +81,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 * **永远不会**在配置提供程序代码或纯文本配置文件中存储密码或其他敏感数据。 请不要在你的开发中使用生产机密或测试环境。 相反，指定外部项目树中，机密，以便它们不会意外地提交到你的存储库。 详细了解[使用多个环境](environments.md)和管理[安全存储在开发过程中的应用程序机密](../security/app-secrets.md)。
 * 如果`:`不能为系统中所用环境变量中，替换`:`与`__`（双下划线）。
 
-<a name=options-config-objects></a>
+<a name="options-config-objects"></a>
 
 ## <a name="using-options-and-configuration-objects"></a>使用选项和配置对象
 
@@ -94,7 +94,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 
 [!code-csharp[Main](configuration/sample/UsingOptions/Models/MyOptions.cs)]
 
-<a name=options-example></a>
+<a name="options-example"></a>
 
 在下面的代码中，启用 JSON 配置提供程序。 `MyOptions`类是已添加到服务容器并绑定到配置。
 
@@ -148,7 +148,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 
 [!code-html[Main](configuration/sample/UsingOptions/Views/Home/Index.cshtml?highlight=3-4,16-17,20-21)]
 
-<a name=in-memory-provider></a>
+<a name="in-memory-provider"></a>
 
 ## <a name="ioptionssnapshot"></a>IOptionsSnapshot
 
@@ -247,7 +247,7 @@ public void CanBindObjectTree()
 }
 ```
 
-<a name=custom-config-providers></a>
+<a name="custom-config-providers"></a>
 
 ## <a name="basic-sample-of-entity-framework-custom-provider"></a>实体框架自定义提供程序的基本示例
 

@@ -2,7 +2,7 @@
 title: "简单的授权"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 391bcaad-205f-43e4-badc-fa592d6f79f3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/simple
-ms.openlocfilehash: 013ce0d9ac1e9c1b6bb541b9fa66218c3fd799bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 91f402b1cbf73e212418d197a8a7230ce22e9e1d
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="simple-authorization"></a>简单的授权
 
-<a name=security-authorization-simple></a>
+<a name="security-authorization-simple"></a>
 
 通过控制在 MVC 中的授权`AuthorizeAttribute`属性和其各种参数。 在其最简单的应用`AuthorizeAttribute`属性设为到控制器的控制器或操作限制访问或对任何经过身份验证的用户的操作。
 

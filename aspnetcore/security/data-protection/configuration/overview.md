@@ -11,19 +11,19 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 9361dcec89a0f35067181523cc56637d629614ff
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: d35e0e806999ffd2e0f8f82e0adfc940ea2b503d
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configuring-data-protection"></a>配置数据保护
 
-<a name=data-protection-configuring></a>
+<a name="data-protection-configuring"></a>
 
 初始化数据保护系统时它将部分[默认设置](default-settings.md#data-protection-default-settings)基于的操作环境。 这些设置是在一台计算机上运行的应用程序通常完好的。 在某些情况的下，开发人员可能想要更改它们 (可能是因为他们的应用程序分布在多个计算机之间或者出于合规原因)，并为这些方案数据保护系统提供的丰富的配置 API。
 
-<a name=data-protection-configuration-callback></a>
+<a name="data-protection-configuration-callback"></a>
 
 没有扩展方法 AddDataProtection 它返回 IDataProtectionBuilder 其本身公开，你可以链接在一起以配置各种数据保护选项的扩展方法。 例如，若要存储在 UNC 共享而不是 %LOCALAPPDATA%（默认值） 的密钥，将系统配置，如下所示：
 
@@ -38,7 +38,7 @@ public void ConfigureServices(IServiceCollection services)
 >[!WARNING]
 > 如果更改密钥持久性位置时，系统将不再自动会加密存放的密钥，因为它不知道 DPAPI 是否合适的加密机制。
 
-<a name=configuring-x509-certificate></a>
+<a name="configuring-x509-certificate"></a>
 
 你可以将系统配置为通过调用任何 ProtectKeysWith 保护静止的密钥\*配置 Api。 请考虑以下示例中，它可以存储在 UNC 共享的密钥并对这些密钥在使用特定的 X.509 证书的其余部分进行加密。
 
@@ -65,7 +65,7 @@ public void ConfigureServices(IServiceCollection services)
 
 默认情况下数据保护系统隔离应用程序从另一个，即使它们共享相同的物理密钥存储库。 这样可以防止应用程序从了解对方的受保护的负载。 若要共享两个不同的应用程序之间的受保护的负载，配置系统在两个应用程序中的相同应用程序名称传递下面的示例：
 
-<a name=data-protection-code-sample-application-name></a>
+<a name="data-protection-code-sample-application-name"></a>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -75,7 +75,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<a name=data-protection-configuring-disable-automatic-key-generation></a>
+<a name="data-protection-configuring-disable-automatic-key-generation"></a>
 
 最后，你可能必须在你不希望自动轮转密钥，因为它们接近过期的应用程序的方案。 这一个示例可能是应用程序设置中的主 / 辅助的关系，其中只有主应用程序负责密钥管理问题，而且所有辅助应用程序只需具有密钥环的只读视图。 通过按如下所示配置系统以只读方式处理密钥环，可以配置辅助应用程序：
 
@@ -87,7 +87,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<a name=data-protection-configuration-per-app-isolation></a>
+<a name="data-protection-configuration-per-app-isolation"></a>
 
 ## <a name="per-application-isolation"></a>每个应用程序隔离
 
@@ -105,7 +105,7 @@ public void ConfigureServices(IServiceCollection services)
 
 如果数据保护系统不会提供程序 ASP.NET Core 宿主 （例如，如果开发人员将其实例化自己通过 DataProtectionProvider 具体类型），默认情况下，禁用应用程序隔离到由相同的密钥的所有应用程序支持材料可以共享的负载，只要它们提供适当的目的。 若要提供在此环境中的应用程序隔离，在配置对象上调用 SetApplicationName 方法，请参阅[的代码示例](#data-protection-code-sample-application-name)上面。
 
-<a name=data-protection-changing-algorithms></a>
+<a name="data-protection-changing-algorithms"></a>
 
 ## <a name="changing-algorithms"></a>更改算法
 
@@ -144,7 +144,7 @@ services.AddDataProtection()
 >[!TIP]
 > 更改算法不会影响现有的密钥在密钥环。 它只影响新生成的键。
 
-<a name=data-protection-changing-algorithms-custom-managed></a>
+<a name="data-protection-changing-algorithms-custom-managed"></a>
 
 ### <a name="specifying-custom-managed-algorithms"></a>指定自定义托管的算法
 
@@ -193,7 +193,7 @@ serviceCollection.AddDataProtection()
 > [!NOTE]
 > SymmetricAlgorithm 必须 ≥ 128 位的密钥长度和块大小的 ≥ 64 位，并且它必须支持使用 PKCS #7 填充 CBC 模式下的加密。 KeyedHashAlgorithm 的摘要大小必须 > = 128 位，并且它必须支持密钥长度等于 length 哈希算法的摘要。 KeyedHashAlgorithm 不是绝对必需，要 HMAC。
 
-<a name=data-protection-changing-algorithms-cng></a>
+<a name="data-protection-changing-algorithms-cng"></a>
 
 ### <a name="specifying-custom-windows-cng-algorithms"></a>指定自定义 Windows CNG 算法
 

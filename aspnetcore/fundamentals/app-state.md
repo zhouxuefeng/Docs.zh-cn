@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9c1d10101d23e105c4a8af41d851f69b1b6a175
-ms.sourcegitcommit: 9c27fa0f0c57ad611aa43f63afb9b9c9571d4a94
+ms.openlocfilehash: d4d10ef45d562f34c3f8b5ce025abaf763c862d3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>简介中 ASP.NET Core 的会话和应用程序状态
 
@@ -43,6 +43,7 @@ ASP.NET 核心通过提供包含会话 ID，它使用每个请求向服务器发
 
 ASP.NET 核心 MVC 公开[TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData)属性[控制器](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0)。 此属性可存储数据，直至数据被读取。 `Keep` 和 `Peek` 方法可用于检查数据，而不执行删除。 `TempData`当超过单个请求所需要的数据，则很适合用于重定向。 `TempData`是提供程序实现 TempData，例如，使用 cookie 或会话状态。
 
+<a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData 提供程序
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
@@ -106,7 +107,7 @@ Cookie 是易被篡改，因为它们必须在服务器上验证。 尽管在客
 
 缓存是一种高效的方式来存储和检索数据。 你可以控制基于时间和其他注意事项的缓存项的生存期。 详细了解[Caching](../performance/caching/index.md)。
 
-<a name=session></a>
+<a name="session"></a>
 ## <a name="working-with-session-state"></a>使用会话状态
 
 ### <a name="configuring-session"></a>配置会话
@@ -167,7 +168,7 @@ ASP.NET 核心中的默认会话提供程序，则从基础加载会话记录[ID
 
 下面的示例演示了设置和获取 int 和字符串：
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet1)]
+[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
 
 如果你添加的以下扩展方法，你可以设置并获取可序列化的对象添加到会话：
 
@@ -232,7 +233,7 @@ public class HomeController : Controller
 
 此方法还具有消除重复的代码中的多个位置中的"神奇字符串"的优点。
 
-<a name=appstate-errors></a>
+<a name="appstate-errors"></a>
 
 ## <a name="application-state-data"></a>应用程序状态数据
 

@@ -2,7 +2,7 @@
 title: "介绍"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: a6a556ed-ba59-4107-9358-44cf20e5931b
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/introduction
-ms.openlocfilehash: 040525505a982fc1be1901effb9186a8fe1cdbdf
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fa6dcbc0627181cd1aca0926fa008f3db907742f
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction"></a>介绍
 
-<a name=security-authorization-introduction></a>
+<a name="security-authorization-introduction"></a>
 
 授权是指确定进程用户是能够执行。 例如，管理用户可以创建文档库、 将文档添加、 编辑文档，以及删除它们。 使用库的非管理用户仅有权读取文档。
 

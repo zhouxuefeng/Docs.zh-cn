@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 9d24c2956c24a7995b3eeffc19e8c0a827349493
-ms.sourcegitcommit: ed401027aac45c5938c917c7f518a33ceffe9f95
+ms.openlocfilehash: 5dd8bee7228587d7e13f128bc8f16102fb70a412
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET 核心中的路由
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/02/2017
 >[!IMPORTANT]
 > 本文档介绍了较低级别的 ASP.NET Core 路由。 有关 ASP.NET 核心 MVC 路由，请参阅[路由到控制器操作](../mvc/controllers/routing.md)
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="routing-basics"></a>路由的基础知识
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/02/2017
 
 路由连接到[中间件](middleware.md)按管道`RouterMiddleware`类。 [ASP.NET MVC](../mvc/overview.md)添加路由到中间件管道，其配置的一部分。 若要了解有关使用路由作为独立组件，请参阅[使用的路由的中间件](#using-routing-middleware)。
 
-<a name=url-matching-ref></a>
+<a name="url-matching-ref"></a>
 
 ### <a name="url-matching"></a>匹配 URL
 
@@ -159,7 +159,7 @@ routes.MapRoute(
 
 ![局部变量 Windows 令牌](routing/_static/tokens.png)
 
-<a name=id1></a>
+<a name="id1"></a>
 
 ### <a name="url-generation"></a>URL 生成
 

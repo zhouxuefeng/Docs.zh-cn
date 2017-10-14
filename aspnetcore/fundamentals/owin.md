@@ -1,5 +1,5 @@
 ---
-title: "打开.NET (OWIN) 的 Web 界面"
+title: ".NET 的开放 Web 接口 (OWIN)"
 author: ardalis
 description: "发现如何 ASP.NET Core 支持打开的 Web 接口的.NET (OWIN)，这允许 web 应用程序从 web 服务器分离。"
 keywords: "ASP.NET 核心，为使.NET，OWIN 打开 Web 接口"
@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e111a451bcc741f3e77f7ce756356cc1b57a5b52
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: e2ee970a1c9cd05ebee76b92c3e2c7c6c6cc6ef8
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>若要打开.NET (OWIN) 的 Web 界面的简介
 
 通过[Steve Smith](https://ardalis.com/)和[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET 核心支持打开的 Web 接口的.NET (OWIN)。 OWIN 允许 web 应用程序从 web 服务器分离。 它定义的中间件来用于在管道中使用，以处理请求和响应关联的标准方法。 ASP.NET Core 应用程序和中间件可以与基于 OWIN 的应用程序、 服务器和中间件互操作。
+ASP.NET Core 支持 .NET 的开放 Web 接口 (OWIN)。 OWIN 允许 Web 应用从 Web 服务器分离。 它定义的中间件来用于在管道中使用，以处理请求和响应关联的标准方法。 ASP.NET Core 应用程序和中间件可以与基于 OWIN 的应用程序、 服务器和中间件互操作。
 
 OWIN 提供了允许与不同的对象模型一起使用的两个框架解除层。 `Microsoft.AspNetCore.Owin`包提供了两个适配器实现：
 - OWIN 到 ASP.NET 核心 
@@ -32,7 +32,7 @@ OWIN 提供了允许与不同的对象模型一起使用的两个框架解除层
 
 注意： 使用这些适配器附带有一定的性能开销。 使用仅 ASP.NET 核心组件的应用程序不应使用 Owin 包或适配器。
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>在 ASP.NET 管线中运行 OWIN 中间件
 
@@ -91,7 +91,7 @@ app.UseOwin(pipeline =>
 });
 ```
 
-<a name=hosting-on-owin></a>
+<a name="hosting-on-owin"></a>
 
 ## <a name="using-aspnet-hosting-on-an-owin-based-server"></a>使用基于 OWIN 的服务器上的 ASP.NET 宿主
 

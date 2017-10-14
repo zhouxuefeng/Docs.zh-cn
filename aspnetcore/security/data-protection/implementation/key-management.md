@@ -2,7 +2,7 @@
 title: "密钥管理"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 507c00edc5bade2427151ecadfed581817e4d088
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 687207cb6a1cea89166fd2b6172cdc0a013de4b3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-management"></a>密钥管理
 
-<a name=data-protection-implementation-key-management></a>
+<a name="data-protection-implementation-key-management"></a>
 
 数据保护系统自动管理的主要密钥用于保护和取消保护负载的生存期。 每个密钥可以存在于一个四个阶段。
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/11/2017
 
 没有异常。 如果应用程序开发人员可以[禁用自动密钥生成](../configuration/overview.md#data-protection-configuring-disable-automatic-key-generation)，然后数据保护系统必须选择内容的默认密钥。 在此回退方案中，系统将选择具有最新的激活日期、 非吊销键，而且会优先有时间传播到群集中其他计算机的密钥。 回调系统可以结束因此选择过期的默认密钥。 回调系统将永远不会选择将吊销的键用作默认密钥，并将如果密钥环为空或已被吊销的每个键通过然后系统将产生在初始化时出错。
 
-<a name=data-protection-implementation-key-management-expiration></a>
+<a name="data-protection-implementation-key-management-expiration"></a>
 
 ## <a name="key-expiration-and-rolling"></a>密钥的过期和滚动
 

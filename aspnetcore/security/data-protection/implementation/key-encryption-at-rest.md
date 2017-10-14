@@ -2,7 +2,7 @@
 title: "密钥加密对静止"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,22 +11,22 @@ ms.assetid: f2bbbf4e-0945-43ce-be59-8bf19e448798
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: 16a9385630d88c4c9f33954f83fce2bbce5be719
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5d0eb4036a3d491336cbe9357779c150b5cbb236
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-encryption-at-rest"></a>密钥加密对静止
 
-<a name=data-protection-implementation-key-encryption-at-rest></a>
+<a name="data-protection-implementation-key-encryption-at-rest"></a>
 
 默认情况下，数据保护系统[使用启发式方法](../configuration/default-settings.md#data-protection-default-settings)来确定如何加密的密钥材料应加密对静止。 开发人员可以重写启发式方法，并手动指定应如何静态加密密钥。
 
 > [!NOTE]
 > 如果指定在 rest 机制显式密钥加密时，数据保护系统将取消注册启发式方法提供的默认密钥存储机制。 你必须[指定显式的密钥存储机制](key-storage-providers.md#data-protection-implementation-key-storage-providers)，否则数据保护系统将无法启动。
 
-<a name=data-protection-implementation-key-encryption-at-rest-providers></a>
+<a name="data-protection-implementation-key-encryption-at-rest-providers"></a>
 
 数据保护系统都附带有三个框中的密钥加密机制。
 
@@ -64,7 +64,7 @@ sc.AddDataProtection()
 
 由于.NET Framework 限制支持仅使用 CAPI 私钥的证书。 请参阅[基于证书的加密使用 Windows DPAPI NG](#data-protection-implementation-key-encryption-at-rest-dpapi-ng)下面这些限制的可能解决方法。
 
-<a name=data-protection-implementation-key-encryption-at-rest-dpapi-ng></a>
+<a name="data-protection-implementation-key-encryption-at-rest-dpapi-ng"></a>
 
 ## <a name="windows-dpapi-ng"></a>Windows DPAPI NG
 

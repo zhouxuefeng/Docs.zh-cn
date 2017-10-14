@@ -2,7 +2,7 @@
 title: "基于声明的授权"
 author: rick-anderson
 description: 
-keywords: "ASP.NET 核心"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 737be5cd-3511-4f1c-b0ce-65403fb5eed3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: fca75952429d48b02c2c4350b79e29a1957599dc
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 51d747c3c295164b6c0e00b5bafe63c565d588b4
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="claims-based-authorization"></a>基于声明的授权
 
-<a name=security-authorization-claims-based></a>
+<a name="security-authorization-claims-based"></a>
 
 创建一个标识时它可能会分配一个或多个由受信任方发出的声明。 声明为名称值对，表示哪些主题为，可以不哪些的主题。 例如，你可能具有的驱动程序许可证，本地驱动的许可证颁发机构签发。 驱动程序的许可证对其具有你的出生日期。 在这种情况下将声明名称`DateOfBirth`，声明值将是你为出生日期，例如`8th June 1970`和颁发者是驱动的许可证颁发机构。 基于声明的授权，简单地说，将检查声明的值，并允许对基于该值资源的访问。 例如，如果你想夜间俱乐部访问授权过程可能是：
 
