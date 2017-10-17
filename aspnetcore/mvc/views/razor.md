@@ -1,30 +1,30 @@
 ---
 title: "有关 ASP.NET 核心的 razor 语法参考"
-author: guardrex
+author: rick-anderson
 description: "了解如何将基于服务器的代码嵌入到网页的 Razor 标记语法。"
 keywords: "ASP.NET 核心，Razor，Razor 指令"
 ms.author: riande
 manager: wpickett
-ms.date: 09/29/2017
+ms.date: 10/18/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 532e278597a0029b5bae93068af5b7b147c35688
-ms.sourcegitcommit: e45f8912ce32b4071bf7e83b8f8315cd8bba3520
+ms.openlocfilehash: 743c42b26c62d0e24b5d5b487b3154bc249fcff4
+ms.sourcegitcommit: a873f862c8e68b2cf2998aaed3dddd93eeba9e0f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/04/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET 核心的 razor 语法
 
-通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Luke Latham](https://github.com/guardrex)，和[Taylor Mullen](https://twitter.com/ntaylormullen)
+通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Luke Latham](https://github.com/guardrex)， [Taylor Mullen](https://twitter.com/ntaylormullen)，和[Dan Vicarel](https://github.com/Rabadash8820)
 
 Razor 是用于将基于服务器的代码嵌入到网页的标记的语法。 Razor 语法组成 Razor 标记、 C# 和 HTML。 通常包含 Razor 文件具有*.cshtml*文件扩展名。
 
 ## <a name="rendering-html"></a>呈现 HTML
 
-默认 Razor 语言为 HTML。 呈现 HTML Razor 标记是呈现 HTML 中，某一 HTML 文件没有什么不同。 如果将放置到的 HTML 标记*.cshtml* Razor 文件呈现时为其服务器保持不变。
+默认 Razor 语言为 HTML。 呈现 HTML Razor 标记是呈现 HTML 中，某一 HTML 文件没有什么不同。  HTML 标记中的*.cshtml* Razor 文件呈现服务器保持不变。
 
 ## <a name="razor-syntax"></a>Razor 语法
 
@@ -59,11 +59,24 @@ HTML 特性和内容包含电子邮件地址不处理`@`转换字符的形式的
 <p>@DateTime.IsLeapYear(2016)</p>
 ```
 
-除了 C#`await`关键字，隐式表达式不能包含空格。 如果 C# 语句已清除结束时，可以 intermingle 空格：
+除了 C#`await`关键字，隐式表达式不能包含空格。 如果 C# 语句已清除结束，则可以混合空格：
 
 ```cshtml
 <p>@await DoSomething("hello", "world")</p>
 ```
+
+隐式表达式**无法**包含 C# 泛型，括号内的字符作为 (`<>`) 都会被解释为 HTML 标记。 下面的代码是**不**有效：
+
+```cshtml
+<p>@GenericMethod<int>()</p>
+```
+
+前面的代码生成编译器错误类似于以下项之一：
+
+ * 未关闭的"int"元素。  所有元素都必须为自结束或具有匹配的结束标记。
+ *  无法将方法组 GenericMethod 为非委托 object 类型的转换。 是否希望调用的方法？ 
+ 
+泛型方法调用必须包装在[显式 Razor 表达式](#explicit-razor-expressions)或[Razor 代码块](#razor-code-blocks)。 此限制不适用于*.vbhtml* Razor 文件，因为 Visual Basic 语法将泛型类型参数，而不是括号周围的括号。
 
 ## <a name="explicit-razor-expressions"></a>显式 Razor 表达式
 
@@ -85,7 +98,7 @@ HTML 特性和内容包含电子邮件地址不处理`@`转换字符的形式的
 <p>Last week: 7/7/2016 4:39:52 PM - TimeSpan.FromDays(7)</p>
 ```
 
-可以使用显式表达式将文本与表达式结果串联起来：
+显式表达式可以用于将文本与表达式结果串联起来：
 
 ```cshtml
 @{
@@ -96,6 +109,26 @@ HTML 特性和内容包含电子邮件地址不处理`@`转换字符的形式的
 ```
 
 如果没有显式的表达式，`<p>Age@joe.Age</p>`视为电子邮件地址，和`<p>Age@joe.Age</p>`呈现。 在作为显式表达式，写入时`<p>Age33</p>`呈现。
+
+
+显式表达式可以用于呈现输出中的泛型方法*.cshtml*文件。 在隐式表达式中，括号内的字符 (`<>`) 都会被解释为 HTML 标记。 以下标记是**不**有效 Razor:
+
+```cshtml
+<p>@GenericMethod<int>()</p>
+```
+
+前面的代码生成编译器错误类似于以下项之一：
+
+ * 未关闭的"int"元素。  所有元素都必须为自结束或具有匹配的结束标记。
+ *  无法将方法组 GenericMethod 为非委托 object 类型的转换。 是否希望调用的方法？ 
+ 
+ 以下标记显示正确的方式写入此代码。  作为显式表达式编写的代码：
+
+```cshtml
+<p>@(GenericMethod<int>())</p>
+```
+
+注意： 此限制不适用于*.vbhtml* Razor 文件。  与*.vbhtml* Razor 文件，Visual Basic 语法将泛型类型参数，而不是括号周围的括号。
 
 ## <a name="expression-encoding"></a>表达式编码
 
@@ -159,7 +192,7 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 
 ### <a name="implicit-transitions"></a>隐式转换
 
-代码块中的默认语言为 C# 中，而是可以转换回 HTML:
+代码块中的默认语言为 C# 中，而是 Razor 页可以转换回 HTML:
 
 ```cshtml
 @{
@@ -170,7 +203,7 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 
 ### <a name="explicit-delimited-transition"></a>带分隔符的显式转换
 
-若要定义一个小节应呈现的 HTML 代码块，周围呈现的字符与 Razor **\<文本 >**标记：
+若要定义的子部分的应呈现的 HTML 代码块，周围呈现的字符与 Razor **\<文本 >**标记：
 
 ```cshtml
 @for (var i = 0; i < people.Length; i++)
@@ -180,9 +213,12 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 }
 ```
 
-当你想要呈现不包围的 HTML 标记的 HTML 时，请使用此方法。 没有 HTML 或 Razor 标记，你将收到 Razor 运行时错误。
+使用此方法来呈现不包围的 HTML 标记的 HTML。 没有 HTML 或 Razor 标记，Razor 运行时错误时发生。
 
-**\<文本 >**标记也是有用呈现内容时控制空白。 仅之间的内容**\<文本 >**呈现标记，而没有空白字符之前或之后**\<文本 >**标记的 HTML 输出中显示。
+**\<文本 >**标记可用于在呈现内容时控制空白：
+
+* 仅之间的内容**\<文本 >**标记的呈现。 
+* 之前或之后有空格**\<文本 >**的 HTML 输出中将显示标记。
 
 ### <a name="explicit-line-transition-with-"></a>显式行转换与 @:
 
@@ -196,11 +232,13 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 }
 ```
 
-而无需`@:`在代码中，你收到 Razor 运行时错误。
+而无需`@:`在代码中，生成 Razor 运行时错误。
+
+警告： 额外`@`Razor 文件中的字符会导致编译器错误语句在块中更高版本。 这些编译器错误可能很难了解因为实际错误发生之前所报告的错误。  组合到单个代码块的多个隐式/显式表达式后，此错误很常见。
 
 ## <a name="control-structures"></a>控件结构
 
-控制结构是一种扩展的代码块。 所有方面的代码块 （过渡到标记中，内联 C#） 也都适用于以下结构。
+控制结构是一种扩展的代码块。 所有方面的代码块 （过渡到标记中，内联 C#） 也都适用于以下结构：
 
 ### <a name="conditionals-if-else-if-else-and-switch"></a>条件语句@if，否则; 否则，和@switch
 
@@ -230,7 +268,7 @@ else
 }
 ```
 
-你可以使用 switch 语句如下：
+以下标记显示如何使用交换语句：
 
 ```cshtml
 @switch (value)
@@ -249,7 +287,7 @@ else
 
 ### <a name="looping-for-foreach-while-and-do-while"></a>循环@for， @foreach， @while，和@do时
 
-你可以呈现包含循环的控制语句的模板化 HTML。 若要呈现的人员列表：
+模板化 HTML 可以呈现包含循环的控制语句。  若要呈现的人员列表：
 
 ```cshtml
 @{
@@ -262,7 +300,7 @@ else
 }
 ```
 
-你可以使用任何以下循环语句：
+支持以下循环语句：
 
 `@for`
 
@@ -315,7 +353,8 @@ else
 
 ### <a name="compound-using"></a>复合@using
 
-在 C# 中，`using`语句用于确保释放对象。 在 Razor，相同的机制用于创建包含其他内容的 HTML 帮助器。 例如，你可以利用 HTML 帮助器呈现窗体标记与`@using`语句：
+在 C# 中，`using`语句用于确保释放对象。 在 Razor，相同的机制用于创建包含其他内容的 HTML 帮助器。 在下面的代码中，HTML 帮助器呈现窗体标记与`@using`语句：
+
 
 ```cshtml
 @using (Html.BeginForm())
@@ -328,7 +367,7 @@ else
 }
 ```
 
-你还可以执行与作用域级操作[标记帮助程序](xref:mvc/views/tag-helpers/intro)。
+可以使用执行作用域级操作[标记帮助程序](xref:mvc/views/tag-helpers/intro)。
 
 ### <a name="try-catch-finally"></a>@trycatch，finally
 
@@ -417,7 +456,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 @model TypeNameOfModel
 ```
 
-如果使用单个用户帐户创建的 ASP.NET 核心 MVC 应用*Views/Account/Login.cshtml*视图包含以下模型声明：
+在 ASP.NET 核心 MVC 应用程序使用单个用户帐户创建*Views/Account/Login.cshtml*视图包含以下模型声明：
 
 ```cshtml
 @model LoginViewModel
@@ -435,7 +474,7 @@ Razor 公开`Model`属性访问的模型传递给视图：
 <div>The Login Email: @Model.Email</div>
 ```
 
-`@model`指令指定此属性的类型。 指令指定`T`中`RazorPage<T>`，生成类，派生自的视图。 如果没有指定`@model`指令，`Model`属性属于类型`dynamic`。 模型的值从控制器传递到该视图。 请参阅[强类型模型和@model关键字](xref:tutorials/first-mvc-app/adding-model#strongly-typed-models-keyword-label)有关详细信息。
+`@model`指令指定此属性的类型。 指令指定`T`中`RazorPage<T>`，生成类，派生自的视图。 如果`@model`指令不会指定，`Model`属性属于类型`dynamic`。 模型的值从控制器传递到该视图。 有关详细信息，请参阅 [强类型模型和@model关键字。
 
 ### <a name="inherits"></a>@inherits
 
@@ -445,7 +484,7 @@ Razor 公开`Model`属性访问的模型传递给视图：
 @inherits TypeNameOfClassToInheritFrom
 ```
 
-下面是将自定义的 Razor 页类型：
+下面的代码是自定义的 Razor 页类型：
 
 [!code-csharp[Main](razor/sample/Classes/CustomRazorPage.cs)]
 
@@ -459,11 +498,11 @@ Razor 公开`Model`属性访问的模型传递给视图：
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
-不能使用`@model`和`@inherits`同一视图中。 你可以`@inherits`中*_ViewImports.cshtml*视图导入的文件：
+ `@model`和`@inherits`可以在同一个视图中使用。  `@inherits`可以采用*_ViewImports.cshtml*视图导入的文件：
 
 [!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 
-下面是强类型化视图的一个示例：
+下面的代码是强类型化视图的一个示例：
 
 [!code-cshtml[Main](razor/sample/Views/Home/Login1.cshtml)]
 
@@ -476,11 +515,12 @@ Razor 公开`Model`属性访问的模型传递给视图：
 
 ### <a name="inject"></a>@inject
 
-`@inject`指令使你能够注入从服务你[服务容器](xref:fundamentals/dependency-injection)到你的视图。 请参阅[到视图的依赖关系注入](xref:mvc/views/dependency-injection)有关详细信息。
+
+`@inject`指令，Razor 页后，可以将从服务注入[服务容器](xref:fundamentals/dependency-injection)到视图。 有关详细信息，请参阅[到视图的依赖关系注入](xref:mvc/views/dependency-injection)。
 
 ### <a name="functions"></a>@functions
 
-`@functions`指令，您将函数级内容添加到视图：
+`@functions`指令，Razor 页后，可以将函数级内容添加到视图：
 
 ```cshtml
 @functions { // C# Code }
@@ -502,7 +542,7 @@ Razor 公开`Model`属性访问的模型传递给视图：
 
 ### <a name="section"></a>@section
 
-`@section`结合使用指令[布局](xref:mvc/views/layout)以启用要呈现的 HTML 页面的不同部分中的内容视图。 请参阅[部分](xref:mvc/views/layout#layout-sections-label)有关详细信息。
+`@section`结合使用指令[布局](xref:mvc/views/layout)以启用要呈现的 HTML 页面的不同部分中的内容视图。 有关详细信息，请参阅[部分](xref:mvc/views/layout#layout-sections-label)。
 
 ## <a name="tag-helpers"></a>标记帮助程序
 
@@ -574,4 +614,9 @@ Razor 视图引擎视图执行区分大小写的查找。 但是，由基础文�
   * 在区分大小写的文件系统 (例如，Linux，OSX，且`EmbeddedFileProvider`)，查找是区分大小写。 例如，`return View("Test")`专门匹配*/Views/Home/Test.cshtml*。
 * 预编译视图： 使用 ASP.Net Core 2.0 及更高版本，查找预编译视图是在所有操作系统上不区分。 行为是在 Windows 上的物理文件提供程序的行为相同。 如果两个预编译的视图仅大小写不同，查找的结果是不确定的。
 
-开发人员建议以匹配到区域、 控制器和操作的名称的大小写的文件和目录名称的大小写。 这可确保你的部署将查找其视图而不考虑基础文件系统。
+开发人员建议以匹配的文件和目录名称的大小写的大小写：
+
+    * 区域、 控制器和操作名称。 
+    * Razor 的页数。
+    
+匹配用例以确保部署找到其视图而不考虑基础文件系统。
