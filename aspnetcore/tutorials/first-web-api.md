@@ -52,7 +52,7 @@ ms.lasthandoff: 09/19/2017
 
 ### <a name="launch-the-app"></a>启动应用
 
-在 Visual Studio 中，按 CTRL+F5 启动应用。 Visual Studio 启动浏览器并导航到 `http://localhost:port/api/values`，其中“端口”是随机选择的端口号。 Chrome、Edge 和 Firefox 将显示以下内容：
+在 Visual Studio 中，按 CTRL+F5 启动应用。 Visual Studio 启动浏览器并导航到 `http://localhost:port/api/values`，其中“端口”是随机选择的端口号。 Chrome、Microsoft Edge 和 Firefox 将显示以下内容：
 
 ```
 ["value1","value2"]
@@ -98,7 +98,7 @@ ms.lasthandoff: 09/19/2017
   
 ### <a name="launch-the-app"></a>启动应用
 
-在 Visual Studio 中，按 CTRL+F5 启动应用。 Visual Studio 启动浏览器并导航到 `http://localhost:port/api/values`，其中“端口”是随机选择的端口号。 如果使用的是 Chrome、Edge 或 Firefox，则会显示数据。 如果使用的是 IE，IE 将提示你打开或保存 values.json 文件。 导航到刚刚创建的 `Todo` 控制器 `http://localhost:port/api/todo`。
+在 Visual Studio 中，按 CTRL+F5 启动应用。 Visual Studio 启动浏览器并导航到 `http://localhost:port/api/values`，其中“端口”是随机选择的端口号。 如果使用的是 Chrome、Microsoft Edge 或 Firefox，则会显示数据。 如果使用的是 IE，IE 将提示你打开或保存 values.json 文件。 导航到刚刚创建的 `Todo` 控制器 `http://localhost:port/api/todo`。
 
 [!INCLUDE[last part of web API](../includes/webApi/end.md)]
 
