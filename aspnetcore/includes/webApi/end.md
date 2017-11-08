@@ -15,8 +15,8 @@
 ![Postman 控制台](../../tutorials/first-web-api/_static/pmc.png)
 
 * 将 HTTP 方法设置为 `POST`
-* 选择“正文”单选按钮
-* 选择“原始”单选按钮
+* 选择“Body”单选按钮
+* 选择“raw”单选按钮
 * 将类型设置为 JSON
 * 在键值编辑器中，输入一个待办事项，例如 
 
@@ -27,9 +27,9 @@
 }
 ```
 
-* 选择“发送”
+* 选择“Send”
 
-* 选择下窗格中的“标头”选项卡，然后复制“位置”标头：
+* 选择下窗格中的“Header”选项卡，然后复制“Location”标头：
 
 ![Postman 控制台的“标头”选项卡](../../tutorials/first-web-api/_static/pmget.png)
 
