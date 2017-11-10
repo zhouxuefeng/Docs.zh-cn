@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a4e9ab26fa49720aa2334101ee12916fc797d944
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 379802f644b977563b0b50354feb1fb9a4c8fabb
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET 核心 MVC 和使用 Visual Studio (第 1 个 10) 的实体框架核心入门
 
@@ -94,11 +94,11 @@ EF 核心 2.0 是 EF 的最新版本，但还没有的 EF 的所有功能 6.x。
 
 突出显示所做的更改。
 
-[!code-html[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
+[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
 
 在*Views/Home/Index.cshtml*，将文件的内容替换为以下代码以将有关 ASP.NET 和 MVC 的文本替换为有关此应用程序的文本：
 
-[!code-html[](intro/samples/cu/Views/Home/Index.cshtml)]
+[!code-cshtml[](intro/samples/cu/Views/Home/Index.cshtml)]
 
 按 CTRL + F5 来运行该项目或选择**调试 > 启动但不调试**从菜单。 你看到其中包含你将创建这些教程中的页的选项卡的主页。
 
@@ -288,7 +288,7 @@ ASP.NET 依赖关系注入将会负责处理传递的一个实例`SchoolContext`
 
 *Views/Students/Index.cshtml*视图在表中显示此列表：
 
-[!code-html[](intro/samples/cu/Views/Students/Index1.cshtml)]
+[!code-cshtml[](intro/samples/cu/Views/Students/Index1.cshtml)]
 
 按 CTRL + F5 来运行该项目或选择**调试 > 启动但不调试**从菜单。
 
@@ -330,7 +330,7 @@ ASP.NET 依赖关系注入将会负责处理传递的一个实例`SchoolContext`
 
 * ID 或 classnameID 命名的实体属性被识别为主键属性。
 
-* 如果它名为属性将被解释为外键属性* <navigation property name> <primary key property name> * (例如，`StudentID`为`Student`以来的导航属性`Student`实体的主键是`ID`). 此外可以只需命名外键属性* <primary key property name> * (例如，`EnrollmentID`由于`Enrollment`实体的主键是`EnrollmentID`)。
+* 如果它名为属性将被解释为外键属性 *<navigation property name> <primary key property name>*  (例如，`StudentID`为`Student`以来的导航属性`Student`实体的主键是`ID`). 此外可以只需命名外键属性 *<primary key property name>*  (例如，`EnrollmentID`由于`Enrollment`实体的主键是`EnrollmentID`)。
 
 可以重写常规行为。 例如，你可以显式指定表名称，正如你此前在本教程中看到。 你可以设置列名称并将任何属性设置为 primary key 或外键，正如在看到[后面的教程](complex-data-model.md)本系列。
 

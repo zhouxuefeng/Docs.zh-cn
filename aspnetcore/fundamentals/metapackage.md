@@ -10,21 +10,21 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/metapackage
-ms.openlocfilehash: 23a07867874eb534c75c4e7b3be00c4a376f8a8b
-ms.sourcegitcommit: 4e45fd4e3f1374cd51cc931cee93c9d72631d9fc
+ms.openlocfilehash: ff25d80be907994f7ac3d64a8ffa39ae53278ba6
+ms.sourcegitcommit: 73bf6b222474d9f1f6aba3feaca4e191069d2121
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 10/03/2017
 ---
 #<a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-2x"></a>有关 ASP.NET 核心 Microsoft.AspNetCore.All metapackage 2.x
 
-此功能需要 ASP.NET Core 2.x。
+此功能需要 ASP.NET Core 2.x 目标.NET 核心 2.x。
 
-[Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) ASP.NET Core 的 metapackage 包括：
+ASP.NET Core 的 [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) 元包包括：
 
-* 所有受 ASP.NET Core 团队支持包。
-* 所有支持由实体框架核心的包。 
-* 内部和第三方依赖关系，使用 ASP.NET Core 和实体框架核心。 
+* ASP.NET Core 团队支持的所有包。
+* Entity Framework Core 支持的所有包。 
+* ASP.NET Core 和 Entity Framework Core 使用的内部和第三方依赖关系。 
 
 ASP.NET 核心的所有功能 2.x 并且实体框架核心 2.x 包含在`Microsoft.AspNetCore.All`包。 默认的项目模板使用此程序包。
 

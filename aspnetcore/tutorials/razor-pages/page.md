@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 3fd155c5e9a119717243a4bafff776fcbd06fab5
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 7ae83b9bdadf5ebf8846b0c09c585da406708d12
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET Core 中已搭建基架的 Razor 页面
 
 作者：[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-本教程介绍在[上一教程](xref:tutorials/razor-pages/page)中通过搭建基架创建的 Razor 页面。 
+本教程介绍在上一教程主题[添加模型](xref:tutorials/razor-pages/model#scaffold-the-movie-model)中通过搭建基架创建的 Razor 页面。 
 
 [查看或下载](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie)示例。
 
@@ -43,10 +43,10 @@ Razor 可以从 HTML 转换为 C# 或 Razor 特定标记。 当 `@` 符号后跟
 检查以下 HTML 帮助程序中使用的 Lambda 表达式：
 
 ```cshtml
-@Html.DisplayNameFor(model => model.Movies[0].Title))
+@Html.DisplayNameFor(model => model.Movie[0].Title))
 ```
 
-`DisplayNameFor` HTML 帮助程序检查 Lambda 表达式中引用的 `Title` 属性来确定显示名称。 检查 Lambda 表达式（而非求值）。 这意味着当 `model`、`model.Movies` 或 `model.Movies[0]` 为 `null` 或为空时，不会存在任何访问冲突。 对 Lambda 表达式求值时（例如，使用 `@Html.DisplayFor(modelItem => item.Title)`），将求得该模型的属性值。
+`DisplayNameFor` HTML 帮助程序检查 Lambda 表达式中引用的 `Title` 属性来确定显示名称。 检查 Lambda 表达式（而非求值）。 这意味着当 `model`、`model.Movie` 或 `model.Movie[0]` 为 `null` 或为空时，不会存在任何访问冲突。 对 Lambda 表达式求值时（例如，使用 `@Html.DisplayFor(modelItem => item.Title)`），将求得该模型的属性值。
 
 <a name="md"></a>
 ### <a name="the-model-directive"></a>@model 指令
@@ -144,5 +144,5 @@ Visual Studio 显示用于标记帮助程序的特殊字体的 `<form method="po
 下一教程将介绍 SQL Server LocalDB 和数据库的种子设定。
 
 >[!div class="step-by-step"]
-[上一篇：添加模型](xref:tutorials/razor-pages/modelz)
+[上一篇：添加模型](xref:tutorials/razor-pages/model)
 [下一篇：SQL Server LocalDB](xref:tutorials/razor-pages/sql)

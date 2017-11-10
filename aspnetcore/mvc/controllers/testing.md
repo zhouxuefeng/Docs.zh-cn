@@ -11,11 +11,11 @@ ms.assetid: dd4135ec-2b15-410c-b3fb-3d12eed4a1ac
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: 5d81e0193fb042993452ed314e70fb63573e615c
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: aa60912e06946bd0df4936d33c88d3bf7b69984c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>在 ASP.NET 核心的测试控制器逻辑
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 09/28/2017
 如果你在编写自定义筛选器、 路由等，您应该单元测试，但不是作为你的测试上的特定控制器操作的一部分。 应在隔离中对它们进行了测试。
 
 > [!TIP]
-> [创建和使用 Visual Studio 运行单元测试](https://www.visualstudio.com/docs/code/create-and-run-unit-tests-vs)。
+> [创建和使用 Visual Studio 运行单元测试](https://docs.microsoft.com/visualstudio/test/unit-test-your-code)。
 
 若要演示单元测试，请查看以下控制器。 它显示集体讨论会话的列表，并允许新集体讨论会话，以使用 POST 创建：
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 09/28/2017
 
 应用程序公开 web API （与集体会话和到会话中添加新的想法的方法相关联的建议列表） 作为功能：
 
-<a name=ideas-controller></a>
+<a name="ideas-controller"></a>
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 

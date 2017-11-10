@@ -11,17 +11,17 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>全球化和 ASP.NET Core 的本地化
 
 通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Damien Bowden](https://twitter.com/damien_bod)，[邓 Calixto](https://twitter.com/bartmax)， [Nadeem Afana](https://twitter.com/NadeemAfana)，和[Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
-使用 ASP.NET Core 创建多语言的网站将允许你的站点来访问更多的人。 ASP.NET Core 提供服务和中间件将本地化为不同的语言和区域性。
+使用 ASP.NET Core 创建多语言的网站将允许你的站点来访问更多的人。 ASP.NET Core 提供的服务和中间件可将网站本地化为不同的语言和文化。
 
 国际化涉及[全球化](https://docs.microsoft.com/dotnet/api/system.globalization)和[本地化](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization)。 全球化是设计支持不同的区域性的应用程序的过程。 全球化添加输入、 显示和一组定义与特定的地理区域相关的语言脚本的输出的支持。
 
@@ -43,11 +43,11 @@ ASP.NET 核心中引入`IStringLocalizer`和`IStringLocalizer<T>`已设计为可
 
 在上面的代码，`IStringLocalizer<T>`实现来自[依赖关系注入](dependency-injection.md)。 如果找不到"有关标题"的本地化的值，则索引器返回，即"有关标题"的字符串。 可以在应用程序保留默认语言字符串并将它们包装在本地化人员，以便您可以集中精力开发应用。 使用默认语言开发你的应用程序，并准备好进行本地化步骤无需首先创建默认资源文件。 或者，你可以使用传统方法，并提供键以检索的默认语言字符串。 许多开发人员的新工作流不具有一种默认语言*.resx*文件和包装的字符串文本可以减少本地化应用程序的开销。 其他开发人员将首选的传统工作流，因为它可以使更轻松地使用较长的字符串文本和更加轻松地更新本地化的字符串。
 
-使用`IHtmlLocalizer<T>`包含 HTML 资源的实现。 `IHtmlLocalizer`HTML 编码格式中的资源字符串，但不是资源字符串的自变量。 在此示例中突出显示下面的值`name`参数是 HTML 编码。
+使用`IHtmlLocalizer<T>`包含 HTML 资源的实现。 `IHtmlLocalizer`HTML 编码格式资源字符串中的自变量，但不会不 HTML 编码的资源字符串本身。 在此示例中突出显示下面的值`name`参数是 HTML 编码。
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
-注意： 你通常想要仅本地化文本和不 HTML。
+**注意：**你通常想要仅本地化文本和不 HTML。
 
 在最低级别，你可以获取`IStringLocalizerFactory`外[依赖关系注入](dependency-injection.md):
 
@@ -59,7 +59,7 @@ ASP.NET 核心中引入`IStringLocalizer`和`IStringLocalizer<T>`已设计为可
 
 [!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
 
-某些开发人员使用`Startup`类，以包含全局或共享的字符串。  在下面，示例`InfoController`和`SharedResource`本地化人员使用：
+某些开发人员使用`Startup`类，以包含全局或共享的字符串。 在下面，示例`InfoController`和`SharedResource`本地化人员使用：
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
@@ -67,7 +67,7 @@ ASP.NET 核心中引入`IStringLocalizer`和`IStringLocalizer<T>`已设计为可
 
 `IViewLocalizer`服务提供的本地化的字符串[视图](https://docs.microsoft.com/aspnet/core)。 `ViewLocalizer`类实现此接口，并找到视图文件路径中的资源的位置。 下面的代码演示如何使用的默认实现`IViewLocalizer`:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Home/About.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Home/About.cshtml)]
 
 默认实现`IViewLocalizer`查找基于视图的文件名称的资源文件。 没有要使用的全局共享的资源文件的选项。 `ViewLocalizer`实现使用在本地化人员`IHtmlLocalizer`，因此 Razor 不 HTML 编码的本地化的字符串。 你可以参数化资源字符串和`IViewLocalizer`将 HTML 编码的参数，但不是资源字符串。 请考虑以下 Razor 标记：
 
@@ -83,13 +83,11 @@ ASP.NET 核心中引入`IStringLocalizer`和`IStringLocalizer<T>`已设计为可
 
 呈现的视图可能包含的资源文件中的 HTML 标记。
 
-注意：
-- 视图本地化需要"Localization.AspNetCore.TagHelpers"NuGet 包。
-- 你通常想要仅本地化文本和不 HTML。
+**注意：**你通常想要仅本地化文本和不 HTML。
 
 若要使用在视图中的共享的资源文件，将注入`IHtmlLocalizer<T>`:
 
-[!code-HTML[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
+[!code-cshtml[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
 ## <a name="dataannotations-localization"></a>DataAnnotations 本地化
 
@@ -102,7 +100,7 @@ DataAnnotations 错误消息已本地化与`IStringLocalizer<T>`。 使用选项
 
 在 ASP.NET 核心 MVC 1.1.0 和更高版本、 非验证属性已经进行了本地化。 ASP.NET 核心 MVC 1.0 未**不**查找非验证特性的本地化字符串。
 
-<a name=one-resource-string-multiple-classes></a>
+<a name="one-resource-string-multiple-classes"></a>
 ### <a name="using-one-resource-string-for-multiple-classes"></a>为多个类使用一个的资源字符串
 
 下面的代码演示如何使用与多个类别的验证特性的一个资源字符串：
@@ -287,11 +285,11 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 此示例**Localization.StarterWeb**项目上[GitHub](https://github.com/aspnet/entropy)包含 UI，以设置`Culture`。 *Views/Shared/_SelectLanguagePartial.cshtml*文件可以从支持的区域性的列表中选择区域性：
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 *Views/Shared/_SelectLanguagePartial.cshtml*文件添加到`footer`的布局文件，使它将可供所有视图的部分：
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 `SetLanguage`方法会设置区域性 cookie。
 
@@ -317,6 +315,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 * 区域性： 它是一种语言和区域，（可选）。
 * 非特定区域性： 一个具有指定的语言中，但不是区域的区域性。 (例如"en"，"es")
 * 特定区域性： 一个具有指定的语言和区域的区域性。 （有关示例"EN-US"、"EN-GB"、"es CL"）
+* 父区域性： 包含特定区域性的非特定区域性。 （例如，"en"是"EN-US"和"EN-GB"的父区域性）
 * 区域设置： 区域设置是相同的区域性。
 
 ## <a name="additional-resources"></a>其他资源

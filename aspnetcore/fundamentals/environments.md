@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 054b3e9f1e2bcfe1e4a75eca4d9dc6326ee6e44f
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: becdfa647acb6483b39f5421ab881c4817f31c40
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="working-with-multiple-environments"></a>使用多个环境
 
@@ -23,11 +23,11 @@ ms.lasthandoff: 10/01/2017
 
 ASP.NET Core 提供用于跨多个环境，如开发、 过渡和生产控制应用行为的支持。 使用环境变量以指示运行时环境中，允许应用程序配置为该环境。
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="development-staging-production"></a>开发，暂存生产
 
-ASP.NET 核心引用特定[环境变量](https://github.com/aspnet/Home/wiki)，`ASPNETCORE_ENVIRONMENT`来描述中当前运行应用程序的环境。 可以设置此变量您喜欢的任何值，而三个值由约定： `Development`， `Staging`，和`Production`。 你会发现以下示例中使用的值和 ASP.NET Core 提供模板。
+ASP.NET 核心引用一个特定的环境变量，`ASPNETCORE_ENVIRONMENT`来描述中当前运行应用程序的环境。 可以设置此变量您喜欢的任何值，而三个值由约定： `Development`， `Staging`，和`Production`。 你会发现以下示例中使用的值和 ASP.NET Core 提供模板。
 
 当前的环境设置可以检测到以编程方式从应用程序中。 此外，你可以使用环境[标记帮助器](../mvc/views/tag-helpers/index.md)包括中的某些部分你[视图](../mvc/views/index.md)基于当前的应用程序环境。
 
@@ -50,7 +50,7 @@ IIS Express 的配置文件如下所示：
 对项目配置文件所做更改可能会生效，直到重新启动使用的 web 服务器 （具体而言，Kestrel 必须重新启动之前它将检测到其环境所做的更改）。
 
 >[!WARNING]
-> 环境变量存储在*launchSettings.json*未以任何方式进行保护和如果你使用一个将是你的项目，源代码存储库的一部分。 **永远不会存储凭据或此文件中的其他机密数据。** 如果你需要一个位置来存储此类数据，使用*机密 Manager*工具中所述[安全存储在开发过程中的应用程序机密](../security/app-secrets.md#security-app-secrets)。
+> 环境变量存储在*launchSettings.json*未以任何方式进行保护和如果你使用一个将是你的项目，源代码存储库的一部分。 **永远不会存储凭据或此文件中的其他机密数据。** 如果你需要一个位置来存储此类数据，使用*机密 Manager*工具中所述[安全存储在开发过程中的应用程序机密](xref:security/app-secrets)。
 
 ### <a name="staging"></a>过渡
 

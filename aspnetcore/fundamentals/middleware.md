@@ -5,25 +5,25 @@ description: "了解有关 ASP.NET 核心中间件和请求管道。"
 keywords: "ASP.NET 核心，中间件，管道、 委托"
 ms.author: riande
 manager: wpickett
-ms.date: 08/14/2017
+ms.date: 10/14/2017
 ms.topic: article
 ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 3cd15c7e8ed4956e1d451f3bd5935fc175999d1f
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET 核心中间件基础知识
 
-<a name=fundamentals-middleware></a>
+<a name="fundamentals-middleware"></a>
 
 通过[Rick Anderson](https://twitter.com/RickAndMSFT)和[Steve Smith](https://ardalis.com/)
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="what-is-middleware"></a>什么是中间件
 
@@ -74,6 +74,26 @@ Configure 方法 （如下所示） 将添加以下的中间件组件：
 3. 身份验证
 4. MVC
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    app.UseExceptionHandler("/Home/Error"); // Call first to catch exceptions
+                                            // thrown in the following middleware.
+
+    app.UseStaticFiles();                   // Return static files and end pipeline.
+
+    app.UseAuthentication();               // Authenticate before you access
+                                           // secure resources.
+
+    app.UseMvcWithDefaultRoute();          // Add MVC to the request pipeline.
+}
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
@@ -89,11 +109,22 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
+-----------
+
 在上面的代码，`UseExceptionHandler`是添加到管道的第一个中间件组件-因此，它捕获在更高版本调用中发生的任何异常。
 
 静态文件中间件称为尽早在管道中，因此它可以处理请求，而无需通过剩余组件短路。 静态文件中间件提供**没有**授权检查。 由它提供任何文件包括正在*wwwroot*，可公开访问。 请参阅[使用静态文件](xref:fundamentals/static-files)有关来保护静态文件的方法。
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+
+如果请求未由静态文件中间件，它将传递给该标识中间件 (`app.UseAuthentication`)，这将执行身份验证。 标识不会短路未经身份验证的请求。 标识对请求进行身份验证，尽管仅后 MVC 选择特定 Razor 页或控制器和操作时，才会发生授权 （和拒绝）。
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 如果请求未由静态文件中间件，它将传递给该标识中间件 (`app.UseIdentity`)，这将执行身份验证。 标识不会短路未经身份验证的请求。 标识对请求进行身份验证，尽管仅后 MVC 选择特定控制器和操作时，才会发生授权 （和拒绝）。
+
+-----------
 
 下面的示例演示中间排序静态文件的请求将由前响应压缩中间件的静态文件中间件。 静态文件将不压缩此排序的中间件。 从 MVC 响应[UseMvcWithDefaultRoute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_)可以压缩。
 
@@ -107,7 +138,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-<a name=middleware-run-map-use></a>
+<a name="middleware-run-map-use"></a>
 
 ### <a name="use-run-and-map"></a>使用、 运行和映射
 
@@ -175,7 +206,7 @@ ASP.NET 核心附带以下的中间件组件：
 | [静态文件](xref:fundamentals/static-files) | 为静态文件和目录浏览提供服务提供支持。 |
 | [URL 重写中间件](xref:fundamentals/url-rewriting) | 用于重写 Url，并将请求重定向的支持。 |
 
-<a name=middleware-writing-middleware></a>
+<a name="middleware-writing-middleware"></a>
 
 ## <a name="writing-middleware"></a>编写中间件
 

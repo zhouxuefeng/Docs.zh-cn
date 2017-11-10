@@ -2,7 +2,7 @@
 title: "迁移的 HTTP 处理程序和 ASP.NET Core 中间件的模块"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/07/2016
@@ -11,11 +11,11 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: e14664133abf010b80374036e4855fdff71d1d5f
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: eb5049d4d63c224ca74fc39072ae2c0d98ba330d
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>迁移的 HTTP 处理程序和 ASP.NET Core 中间件的模块 
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 09/12/2017
 
 中所示[中间件](../fundamentals/middleware.md)页上，ASP.NET Core 中间件是公开的类`Invoke`方法拍摄`HttpContext`并返回`Task`。 新中间件将如下所示：
 
-<a name=http-modules-usemiddleware></a>
+<a name="http-modules-usemiddleware"></a>
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 09/12/2017
 
 *MyMiddlewareExtensions*帮助器类，更便于配置中的中间件你`Startup`类。 `UseMyMiddleware`方法将您中间件的类添加到请求管道。 所需的中间件服务获取注入到中间件的构造函数。
 
-<a name=http-modules-shortcircuiting-middleware></a>
+<a name="http-modules-shortcircuiting-middleware"></a>
 
 你的模块可能终止请求，例如，如果用户未授权：
 

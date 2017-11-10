@@ -73,7 +73,7 @@ Jane 单击**保存**第一个，看到她更改时浏览器返回到索引页�
 
 ### <a name="detecting-concurrency-conflicts"></a>检测并发冲突
 
-你可以通过处理 Entity Framework 引发的 DbConcurrencyException 异常来解决冲突。为了知道何时引发这些异常，Entity Framework 必须能够检测到冲突。 因此，你必须正确配置数据库和数据模型。 启用冲突检测的某些选项包括：
+您可以通过处理中解决冲突`DbConcurrencyException`实体框架引发的异常。 为了知道何时引发这些异常，实体框架必须能够检测到冲突。 因此，你必须从数据库和数据模型正确配置。 有关启用冲突检测某些选项包括：
 
 * 在数据库表中，包括可以用于确定当行已更改的跟踪列。 然后，你可以配置实体框架可以包括该列在 Where 子句的 SQL 更新或删除命令。
 
