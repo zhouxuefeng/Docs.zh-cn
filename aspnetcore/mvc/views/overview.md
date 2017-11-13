@@ -64,7 +64,7 @@ ms.lasthandoff: 10/03/2017
 
 <span data-ttu-id="0fc0a-156">在此操作返回时， *About.cshtml*视图中的最后一节所示呈现为以下网页：</span><span class="sxs-lookup"><span data-stu-id="0fc0a-156">When this action returns, the *About.cshtml* view shown in the last section is rendered as the following webpage:</span></span>
 
-![有关在 Edge 浏览器中呈现的页面](overview/_static/about-page.png)
+![有关在 Microsoft Edge 浏览器中呈现的页面](overview/_static/about-page.png)
 
 <span data-ttu-id="0fc0a-158">`View`帮助器方法具有好几个重载。</span><span class="sxs-lookup"><span data-stu-id="0fc0a-158">The `View` helper method has several overloads.</span></span> <span data-ttu-id="0fc0a-159">你可以选择指定：</span><span class="sxs-lookup"><span data-stu-id="0fc0a-159">You can optionally specify:</span></span>
 
