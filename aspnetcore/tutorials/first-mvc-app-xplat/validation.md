@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/validation
 ms.openlocfilehash: cbca251ea1ac987036f86054425e3ddcf09bacb2
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 [!INCLUDE[validation](../../includes/mvc-intro/validation.md)]
 
 >[!div class="step-by-step"]
-<span data-ttu-id="e5f94-104">[上一篇 - 添加字段](new-field.md)
-[下一篇 - 检查详细信息和删除方法](xref:tutorials/first-mvc-app/details)</span><span class="sxs-lookup"><span data-stu-id="e5f94-104">[Previous - Add a field](new-field.md)
+<span data-ttu-id="880a0-104">[上一篇 - 添加字段](new-field.md)
+[下一篇 - 检查详细信息和删除方法](xref:tutorials/first-mvc-app/details)</span><span class="sxs-lookup"><span data-stu-id="880a0-104">[Previous - Add a field](new-field.md)
 [Next - Examine the Details and Delete methods](xref:tutorials/first-mvc-app/details)</span></span>  
 
