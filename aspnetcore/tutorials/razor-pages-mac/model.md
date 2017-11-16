@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/model
 ms.openlocfilehash: 648ecd3a782fa489b727982ce5f7a2087539bf38
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>使用 Visual Studio for Mac 在 ASP.NET Core 中向 Razor 页面应用添加模型
 

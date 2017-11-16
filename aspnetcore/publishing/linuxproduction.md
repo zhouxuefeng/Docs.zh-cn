@@ -11,11 +11,11 @@ ms.assetid: 1c33e576-33de-481a-8ad3-896b94fde0e3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/linuxproduction
-ms.openlocfilehash: 1f2b5fc6d769c63110f832a31cd0d0aa8c3298e9
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 01768263fe82dc75a7da0e113b1850c8d788bfd3
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-nginx-and-deploy-to-it"></a>使用 Nginx 在 Linux 上为 ASP.NET Core 设置托管环境，并对其进行部署
 
@@ -158,7 +158,8 @@ Restart=always
 RestartSec=10  # Restart service after 10 seconds if dotnet service crashes
 SyslogIdentifier=dotnet-example
 User=www-data
-Environment=ASPNETCORE_ENVIRONMENT=Production 
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 
 [Install]
 WantedBy=multi-user.target
@@ -288,7 +289,7 @@ static char ngx_http_server_full_string[] = "Server: Your Web Server" CRLF;
 [!code-nginx[Main](../publishing/linuxproduction/nginx.conf?highlight=2)]
 
 #### <a name="secure-nginx-from-clickjacking"></a>保护 Nginx 免受点击劫持的侵害
-点击劫持是收集受感染用户的点击数的恶意技术。 点击劫持诱使受害者（访客）点击受感染的网站。 使用 X-FRAME-OPTIONS 保护你的网站。
+点击劫持是收集受感染用户的点击数的恶意技术。 点击劫持诱使受害者（访问者）点击受感染的网站。 使用 X-FRAME-OPTIONS 保护你的网站。
 
 编辑 nginx.conf 文件：
 

@@ -11,11 +11,11 @@ ms.assetid: 08c9f457-9c24-40f9-a08b-47dc251e4cec
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: c572315d7a801b9b87d5f4cd14b82c5ed27e7a85
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 98af3788652e87f6222551cb4a8e5427b312660c
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 中的新增功能
 
@@ -58,7 +58,7 @@ ASP.NET Core 2.0 包面向 NET Standard 2.0。 这些包可以由其他 .NET Sta
 
 在 ASP.NET Core 2.0 中，已默认将日志记录并入依存关系注入 (DI) 系统。 在 Program.cs 文件（而非 Startup.cs 文件）中添加提供程序并配置筛选。 此外，默认的 `ILoggerFactory` 支持进行筛选，并且你可以使用灵活的方式来进行跨提供程序筛选和特定于提供程序的筛选。
 
-有关详细信息，请参阅[日志记录介绍](xref:fundamentals/logging)。
+有关详细信息，请参阅[日志记录介绍](xref:fundamentals/logging/index)。
 
 ## <a name="authentication-update"></a>身份验证更新
 
