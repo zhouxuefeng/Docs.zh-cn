@@ -10,19 +10,19 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: 617b11cd7652e393c06446c62138802e4a4e90df
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 3ef6fb26eab123c9f6f8275ee1d979b090db0413
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>使用 ASP.NET Core 和 Visual Studio for Windows 创建 Web API
 
 作者：[Rick Anderson](https://twitter.com/RickAndMSFT) 和 [Mike Wasson](https://github.com/mikewasson)
 
-在本教程中，将生成用于管理“待办事项”列表的 Web API。 不会生成 UI。
+本教程构建了用于管理“待办事项”列表的 Web API。 未创建用户界面 (UI)。
 
-本教程有三个版本：
+本教程提供 3 个版本：
 
 * Windows：使用 Visual Studio for Windows 创建 Web API（本教程）
 * macOS：[使用 Visual Studio for Mac 创建 Web API](xref:tutorials/first-web-api-mac)
@@ -52,23 +52,23 @@ ms.lasthandoff: 09/19/2017
 
 ### <a name="launch-the-app"></a>启动应用
 
-在 Visual Studio 中，按 CTRL+F5 启动应用。 Visual Studio 启动浏览器并导航到 `http://localhost:port/api/values`，其中“端口”是随机选择的端口号。 Chrome、Edge 和 Firefox 将显示以下内容：
+在 Visual Studio 中，按 CTRL+F5 启动应用。 Visual Studio 启动浏览器并导航到 `http://localhost:port/api/values`，其中“端口”是随机选择的端口号。 Chrome、Microsoft Edge 和 Firefox 将显示以下输出：
 
 ```
 ["value1","value2"]
-``` 
+```
 
 ### <a name="add-a-model-class"></a>添加模型类
 
-模型是表示应用程序中的数据的对象。 在此示例中，唯一的一个模型是待办事项。
+模型是表示应用程序中的数据的对象。 在此示例中，唯一的模型是待办事项。
 
 添加名为“Models”的文件夹。 在解决方案资源管理器中，右键单击项目。 选择“添加” > “新建文件夹”。 将文件夹命名为“Models”。
 
-注意：模型类可位于项目的任意位置，但按照惯例会使用“Models”文件夹。
+注意：模型类可以出现在项目的任意位置。 Models 文件夹按约定用于模型类。
 
 添加 `TodoItem` 类。 右键单击“Models”文件夹，然后选择“添加” > “类”。 将此类命名为 `TodoItem`，然后选择“添加”。
 
-将生成的代码替换为以下内容：
+使用以下代码更新 `TodoItem` 类：
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 09/19/2017
 
 添加 `TodoContext` 类。 右键单击“Models”文件夹，然后选择“添加” > “类”。 将此类命名为 `TodoContext`，然后选择“添加”。
 
-将生成的代码替换为以下内容：
+将该类替换为以下代码：
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
@@ -92,13 +92,13 @@ ms.lasthandoff: 09/19/2017
 
 ![“添加新项”对话框，“控制器”显示在搜索框中，并且“Web API 控制器”已选中](first-web-api/_static/new_controller.png)
 
-将生成的代码替换为以下内容：
+将该类替换为以下代码：
 
 [!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
-  
+
 ### <a name="launch-the-app"></a>启动应用
 
-在 Visual Studio 中，按 CTRL+F5 启动应用。 Visual Studio 启动浏览器并导航到 `http://localhost:port/api/values`，其中“端口”是随机选择的端口号。 如果使用的是 Chrome、Edge 或 Firefox，则会显示数据。 如果使用的是 IE，IE 将提示你打开或保存 values.json 文件。 导航到刚刚创建的 `Todo` 控制器 `http://localhost:port/api/todo`。
+在 Visual Studio 中，按 CTRL+F5 启动应用。 Visual Studio 启动浏览器并导航到 `http://localhost:port/api/values`，其中“端口”是随机选择的端口号。 导航到位于 `http://localhost:port/api/todo` 的 `Todo` 控制器。
 
 [!INCLUDE[last part of web API](../includes/webApi/end.md)]
 

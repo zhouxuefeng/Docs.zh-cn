@@ -9,12 +9,12 @@ ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
-uid: tutorials/razor-pages/modelz
-ms.openlocfilehash: bd2c3e09366e228fade69f843849e7452196c475
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+uid: tutorials/razor-pages/model
+ms.openlocfilehash: 38f27a1d5ca80cec4b7bc43c3d5473fc829f1b05
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>向 Razor 页面应用添加模型
 
@@ -73,7 +73,21 @@ Update-Database
 
 [!INCLUDE[model 4windows](../../includes/RP/model4Win.md)]
 
-[!INCLUDE[model 4](../../includes/RP/model4.md)]
+[!INCLUDE[model 4](../../includes/RP/model4tbl.md)]
+
+<a name="test"></a>
+### <a name="test-the-app"></a>测试应用
+
+* 运行应用并将 `/Movies` 追加到浏览器中的 URL (`http://localhost:port/movies`)。
+* 测试“创建”链接。
+
+ ![创建页面](../../tutorials/razor-pages/model/_static/conan.png)
+
+<a name="scaffold"></a>
+
+* 测试“编辑”、“详细信息”和“删除”链接。
+
+如果收到 SQL 异常，则验证是否已运行迁移并更新了数据库：
 
 下一个教程介绍由基架创建的文件。
 

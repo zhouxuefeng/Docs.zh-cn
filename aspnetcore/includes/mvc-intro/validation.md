@@ -31,7 +31,7 @@ MVC 和 Entity Framework Core Code First 提供的验证支持是 DRY 原则在�
 ![带有多个 jQuery 客户端验证错误的电影视图表单](../../tutorials/first-mvc-app/validation/_static/val.png)
 
 > [!NOTE]
-> 可能无法在 `Price` 字段中输入小数点或逗号。 若要使 [jQuery 验证](https://jqueryvalidation.org/)支持使用逗号（“,”）表示小数点的的非英语区域设置，以及支持非美国英语日期格式，必须执行使应用全球化的步骤。 有关详细信息，请参阅[其他资源](#additional-resources)。 目前只能输入整数，例如 10。
+> 可能无法在 `Price` 字段中输入十进制逗号。 若要使 [jQuery 验证](https://jqueryvalidation.org/)支持使用逗号（“,”）表示小数点的的非英语区域设置，以及支持非美国英语日期格式，必须执行使应用全球化的步骤。 有关添加十进制逗号的说明，请参阅 [GitHub 问题 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420)。 
 
 请注意表单如何自动呈现每个包含无效值的字段中相应的验证错误消息。 客户端（使用 JavaScript 和 jQuery）和服务器端（若用户禁用 JavaScript）都必定会遇到这些错误。
 

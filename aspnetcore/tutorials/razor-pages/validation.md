@@ -1,7 +1,7 @@
 ---
 title: "添加验证"
 author: rick-anderson
-description: "如何向 Razor 页面添加验证"
+description: "说明如何向 Razor 页面添加验证。"
 keywords: "ASP.NET Core, 验证, DataAnnotations, Razor, Razor 页面"
 ms.author: riande
 manager: wpickett
@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 9a822457d1581a70d59c553eb28133815f395d7d
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e580ee537190c85e74e40c288af1503f136c83d8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>向 Razor 页面添加验证
 
@@ -36,7 +36,12 @@ Razor 页面和 Entity Framework 提供的验证支持是 DRY 原则的极佳示
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
-验证特性用于指定模型属性上强制执行的行为。 `Required` 和 `MinimumLength` 特性表示属性必须具有值；但用户可输入空格来满足验证约束。 `RegularExpression` 特性用于限制可输入的字符。 在上述代码中，`Genre` 和 `Rating` 仅可使用字母（禁用空格、数字和特殊字符）。 `Range` 特性将值限制在指定范围内。 `StringLength` 特性设置字符串的最大长度，且可视情况设置最小长度。 从本质上来说，需要[值类型](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types)（如 `decimal`、`int`、`float`、`DateTime`），但不需要 `[Required]` 特性。
+验证特性用于指定模型属性上强制执行的行为：
+
+* `Required` 和 `MinimumLength` 特性指示属性必须具有一个值。 但是，用户可以随时输入空格以对可以为 null 的类型进行验证约束。 从本质上来说，需要不可以为 null 的[值类型](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types)（如 `decimal`、`int`、`float` 和 `DateTime`），但不需要 `Required` 特性。
+* `RegularExpression` 特性限制用户可以输入的字符。 在上述代码中，`Genre` 和 `Rating` 仅可使用字母（禁用空格、数字和特殊字符）。
+* `Range` 特性将值限制在指定范围内。
+* `StringLength` 特性设置字符串的最大长度，且可视情况设置最小长度。 
 
 让 ASP.NET Core 强制自动执行验证规则有助于提升应用的可靠性。 自动验证模型有助于保护应用，因为添加新代码时无需手动应用它们。
 
@@ -127,6 +132,10 @@ public DateTime ReleaseDate { get; set; }
 以下代码显示组合在一行上的特性：
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+### <a name="publish-to-azure"></a>发布到 Azure
+
+有关如何将该应用发布到 Azure 的说明，请参阅[使用 Visual Studio 将 ASP.NET Core Web 应用发布到 Azure App Service](xref:tutorials/publish-to-azure-webapp-using-vs)。
 
 ## <a name="additional-resources"></a>其他资源
 

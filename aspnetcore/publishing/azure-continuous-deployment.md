@@ -11,11 +11,11 @@ ms.assetid: 2707c7a8-2350-4304-9856-fda58e5c0a16
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/azure-continuous-deployment
-ms.openlocfilehash: a9efad38b1c75bd3a186b4ec85861357ecf744b9
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f7ea2e76fdee19a3d964e42053f0060a0a505e5b
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>使用 Visual Studio 和 Git 将 ASP.NET Core 持续部署到 Azure
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 09/12/2017
 
 * [Visual Studio](https://www.visualstudio.com)
 
-* [ASP.NET Core](https://download.microsoft.com/download/F/6/E/F6ECBBCC-B02F-424E-8E03-D47E9FA631B7/DotNetCore.1.0.1-VS2015Tools.Preview2.0.3.exe)（运行时和工具）
+* [ASP.NET Core](https://www.microsoft.com/net/download/core)（运行时和工具）
 
 * 用于 Windows 的 [Git](https://git-scm.com/downloads)
 
@@ -44,14 +44,16 @@ ms.lasthandoff: 09/12/2017
 
 2. 从“文件”菜单中选择“新建” > “项目”。
 
-3. 选择“ASP.NET Web 应用程序”项目模板。 它出现在“已安装” > “模板” > “Visual C#” > “Web”下。 将项目命名为 `SampleWebAppDemo`。 选择“创建新 Git 存储库”选项，然后单击“确定”。
+3. 选择“ASP.NET Core Web 应用程序”项目模板。 它出现在“已安装” > “模板” > “Visual C#” > “.NET Core”下。 将项目命名为 `SampleWebAppDemo`。 选择“创建新 Git 存储库”选项，然后单击“确定”。
 
    ![“新建项目”对话框](azure-continuous-deployment/_static/01-new-project.png)
 
-4. 在“新建 ASP.NET 项目”对话框中，选择 ASP.NET Core 的“空”模板，然后单击“确定”。
+4. 在“新建 ASP.NET Core 项目”对话框中，选择 ASP.NET Core 的“空”模板，然后单击“确定”。
 
    ![“新建 ASP.NET 项目”对话框](azure-continuous-deployment/_static/02-web-site-template.png)
 
+>[!NOTE]
+    >.NET Core 的最新版本为 2.0
 
 ### <a name="running-the-web-app-locally"></a>本地运行 Web 应用
 
@@ -94,21 +96,17 @@ Git 是一个分布式版本控制系统，可用来部署 Azure App Service Web
 
 1. 如果尚未登录，请先登录 [Azure 门户](https://portal.azure.com)。
 
-2. 单击位于导航窗格底部的“浏览” 。
+2. 单击“应用服务”查看与 Azure 订阅关联的应用服务列表。
 
-3. 单击“Web 应用”查看与 Azure 订阅关联的 Web 应用列表。
+3. 选择在本教程的前一部分中创建的 Web 应用。
 
-4. 选择在本教程的前一部分中创建的 Web 应用。
+4. 在“部署”边栏选项卡中，选择“部署选项” > “选择源” > “本地 Git 存储库”。
 
-5. 如果未显示“设置”边栏选项卡，请选择“Web 应用”边栏选项卡中的“设置”。
+   ![“设置”边栏选项卡：“部署源”边栏选项卡：“选择源”边栏选项卡](azure-continuous-deployment/_static/deployment-options.png)
 
-6. 在“设置”边栏选项卡中，选择“部署源” > “选择源” > “本地 Git 存储库”。
+5. 单击“确定”。
 
-   ![“设置”边栏选项卡：“部署源”边栏选项卡：“选择源”边栏选项卡](azure-continuous-deployment/_static/08-azure-localrepository.png)
-
-7. 单击“确定”。
-
-8. 如果事先未设置部署凭据用于发布 Web 应用或其他应用服务应用，请立即设置：
+6. 如果事先未设置部署凭据用于发布 Web 应用或其他应用服务应用，请立即设置：
 
    * 单击“设置” > “部署凭据”。 “设置部署凭据”边栏选项卡将显示。
 
@@ -116,9 +114,9 @@ Git 是一个分布式版本控制系统，可用来部署 Azure App Service Web
 
    * 单击“保存” 。
 
-9. 在“Web 应用”边栏选项卡中，单击“设置” > “属性”。 将部署到的远程 Git 存储库的 URL 会显示在“GIT URL”下。
+7. 在“Web 应用”边栏选项卡中，单击“设置” > “属性”。 将部署到的远程 Git 存储库的 URL 会显示在“GIT URL”下。
 
-10. 复制“GIT URL”的值，稍后将在本教程中用到。
+8. 复制“GIT URL”的值，稍后将在本教程中用到。
 
    ![Azure 门户：应用程序“属性”边栏选项卡](azure-continuous-deployment/_static/09-azure-giturl.png)
 
@@ -194,7 +192,7 @@ Git 是一个分布式版本控制系统，可用来部署 Azure App Service Web
 
 可以验证是否已成功将 Web 应用从本地环境传输到了 Azure。 你将看到列出的成功部署。
 
-1. 在 [Azure 门户](https://portal.azure.com)中，选择 Web 应用。 然后，选择“设置” > “持续部署”。
+1. 在 [Azure 门户](https://portal.azure.com)中，选择 Web 应用。 然后，选择“部署” > “部署选项”。
 
    ![Azure 门户：“设置”边栏选项卡：显示成功部署的“部署”边栏选项卡](azure-continuous-deployment/_static/13-verify-deployment.png)
 

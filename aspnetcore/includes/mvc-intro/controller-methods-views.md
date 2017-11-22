@@ -5,7 +5,7 @@
 
 ![鼠标悬停在“编辑”链接上的浏览器窗口，显示了 http://localhost:1234/Movies/Edit/5 的链接 URL](../../tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
 
-“编辑”、“详细信息”和“删除”链接是在 Views/Movies/Index.cshtml 文件中由 MVC Core 定位标记帮助程序生成的。
+“编辑”、“详细信息”和“删除”链接是在 Views/Movies/Index.cshtml 文件中由 Core MVC 定位标记帮助程序生成的。
 
 [!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 

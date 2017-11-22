@@ -1,21 +1,20 @@
 ---
 title: "检查详细信息和删除方法"
 author: rick-anderson
-description: "简单 ASP.NET Core MVC 中的详细信息控制器方法和视图。"
+description: "基本 ASP.NET Core MVC 应用中的详细信息控制器方法和视图。"
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 03/07/2017
 ms.topic: get-started-article
-ms.assetid: 870192b4-8d4f-45c7-8c14-83d02bc0ad79
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: bab93a2faa122d9d6d2e71367519baa09bd76bd1
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 43394106c9074f9487e1065a37a88eb017833bae
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="examining-the-details-and-delete-methods"></a>检查详细信息和删除方法
 
@@ -55,6 +54,10 @@ EF 可以使用 `SingleOrDefaultAsync` 方法轻松搜索数据。 该方法中�
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Delete(int id, bool notUsed)
 ```
+
+### <a name="publish-to-azure"></a>发布到 Azure
+
+有关如何使用 Visual Studio 将该应用发布到 Azure 的说明，请参阅[使用 Visual Studio 将 ASP.NET Core Web 应用发布到 Azure App Service](xref:tutorials/publish-to-azure-webapp-using-vs)。  此外，还可以从[命令行](xref:tutorials/publish-to-azure-webapp-using-cli)发布应用。
 
 感谢读完这篇 ASP.NET Core MVC 简介。 我们期待你的意见。 完成本教程后，大力推荐了解 [MVC 和 EF Core 入门](xref:data/ef-mvc/intro)。
 

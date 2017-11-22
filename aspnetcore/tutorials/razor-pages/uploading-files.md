@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 5a3dc302186c7fd0a5730bc2c7599676fb543ba7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 3b54bf0b40c396c8c141966219f65231fb362ca4
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>将文件上传至 ASP.NET Core 中的 Razor 页面
 
@@ -25,6 +25,14 @@ ms.lasthandoff: 09/28/2017
 本教程中的 [Razor 页面 Movie 示例应用](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie)使用简单的模型绑定上传文件，非常适合上传小型文件。 有关流式传输大文件的信息，请参阅[通过流式传输上传大文件](xref:mvc/models/file-uploads#uploading-large-files-with-streaming)。
 
 执行以下步骤，可向示例应用添加电影计划文件上传功能。 每个电影计划由一个 `Schedule` 类表示。 该类包括两个版本的计划。 其中一个版本 (`PublicSchedule`) 提供给客户。 另一个版本 (`PrivateSchedule`) 用于公司员工。 每个版本作为单独的文件进行上传。 本教程演示如何通过单个 POST 将两个文件上传至服务器。
+
+## <a name="add-a-fileupload-class"></a>添加 FileUpload 类
+
+下面，创建 Razor 页以处理一对文件上载。 添加 `FileUpload` 类（此类与页面绑定以获取计划数据）。 右键单击“Models”文件夹。 选择“添加” > “类”。 将类命名为“FileUpload”，并添加以下属性：
+
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
+
+此类有一个属性对应计划标题，另各有一个属性对应计划的两个版本。 3 个属性皆为必需属性，标题长度必须为 3-60 个字符。
 
 ## <a name="add-a-helper-method-to-upload-files"></a>添加用于上传文件的 helper 方法
 
@@ -42,11 +50,9 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="update-the-moviecontext"></a>更新 MovieContext
 
-在 `MovieContext` (*Models/MovieContext.cs*) 中为计划指定 `DbSet`，并向 `OnModelCreating` 方法添加一行，为 `DbSet` 属性设置单数数据库表名称 (`Schedule`)：
+在 `MovieContext` (*Models/MovieContext.cs*) 中为计划指定 `DbSet`：
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13,18)]
-
-注意：如不替代 `OnModelCreating` 以使用单数表名称，实体框架会假定你使用复数数据库表名称（例如 `Movies` 和 `Schedules`）。 开发者对表名称是否应为复数意见不一。 以相同方式配置 `MovieContext` 和数据库。 在这两处，请同时使用单数数据库表名称，或同时使用复数数据库表名称。
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
 ## <a name="add-the-schedule-table-to-the-database"></a>将 Schedule 表添加到数据库
 
@@ -60,14 +66,6 @@ ms.lasthandoff: 09/28/2017
 Add-Migration AddScheduleTable
 Update-Database
 ```
-
-## <a name="add-a-fileupload-class"></a>添加 FileUpload 类
-
-接下来，添加 `FileUpload` 类（此类与页面绑定以获取计划数据）。 右键单击“Models”文件夹。 选择“添加” > “类”。 将类命名为“FileUpload”，并添加以下属性：
-
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
-
-此类有一个属性对应计划标题，另各有一个属性对应计划的两个版本。 3 个属性皆为必需属性，标题长度必须为 3-60 个字符。
 
 ## <a name="add-a-file-upload-razor-page"></a>添加文件上传 Razor 页面
 
@@ -97,7 +95,7 @@ Update-Database
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
-将窗体发布到服务器时，会检查 `ModelState`。 如果无效，会重新生成 `Schedules`，且页面会呈现一个或多个验证消息，陈述页面验证失败的原因。 如果有效，`FileUpload` 属性将用于“OnPostAsync”中，以完成两个计划版本的文件上传，并创建一个用于存储数据的新 `Schedule` 对象。 然后会将此计划保存到数据库：
+将窗体发布到服务器时，会检查 `ModelState`。 如果无效，会重新生成 `Schedule`，且页面会呈现一个或多个验证消息，陈述页面验证失败的原因。 如果有效，`FileUpload` 属性将用于“OnPostAsync”中，以完成两个计划版本的文件上传，并创建一个用于存储数据的新 `Schedule` 对象。 然后会将此计划保存到数据库：
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 

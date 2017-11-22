@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 75fc1edec9050a4690a39d37307f2f95f5d534a5
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e9e9019d5b879498e8800bb579c177dd3ad64061
+ms.sourcegitcommit: 96af03c9f44f7c206e68ae3ef8596068e6b4e5fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>使用 IIS 在 Windows 上托管 ASP.NET Core
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>安装 .NET Core Windows Server 托管捆绑包
 
-1. 在托管系统上安装 [.NET Core Windows Server 托管捆绑包](https://aka.ms/dotnetcore.2.0.0-windowshosting)。 捆绑包可安装 .NET Core 运行时、.NET Core 库和 [ASP.NET Core 模块](xref:fundamentals/servers/aspnet-core-module)。 该模块创建 IIS 与 Kestrel 服务器之间的反向代理。 如果系统没有 Internet 连接，请先获取并安装 [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840)，再安装 .NET Core Windows Server 托管捆绑包。
+1. 在托管系统上安装 [.NET Core Windows Server 托管捆绑包](https://download.microsoft.com/download/5/C/1/5C190037-632B-443D-842D-39085F02E1E8/DotNetCore.2.0.3-WindowsHosting.exe)。 捆绑包可安装 .NET Core 运行时、.NET Core 库和 [ASP.NET Core 模块](xref:fundamentals/servers/aspnet-core-module)。 该模块创建 IIS 与 Kestrel 服务器之间的反向代理。 如果系统没有 Internet 连接，请先获取并安装 [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840)，再安装 .NET Core Windows Server 托管捆绑包。
 
 2. 重启系统，或在命令提示符处依次执行 net stop was /y 和 net start w3svc，了解系统路径的更改。
 
@@ -117,7 +117,7 @@ services.Configure<IISOptions>(options =>
 
 ### <a name="webconfig"></a>web.config
 
-web.config 文件可配置 ASP.NET Core 模块并提供其他 IIS 配置。 web.config 的创建、转换和发布由在项目 (.csproj) 文件 `<Project Sdk="Microsoft.NET.Sdk.Web">` 顶部设置项目 SDK 时所含的 `Microsoft.NET.Sdk.Web` 处理。 要防止 MSBuild 目标转换 web.config 文件，请将 \<IsTransformWebConfigDisabled> 属性添加到项目文件，并将其设置为 `true`：
+web.config 文件主要配置 ASP.NET Core 模块。 它可以提供其他 IIS 配置设置。 web.config 的创建、转换和发布 由 .NET Core Web SDK (`Microsoft.NET.Sdk.Web`) 处理。 SDK 设置在项目文件 (*.csproj*) `<Project Sdk="Microsoft.NET.Sdk.Web">` 的顶部。 要防止 SDK 转换 *web.config* 文件，请将 **\<IsTransformWebConfigDisabled>** 属性添加到项目文件，并将其设置为 `true`：
 
 ```xml
 <PropertyGroup>
@@ -221,7 +221,7 @@ ASP.NET 应用程序使用的数据保护密钥存储在应用程序外部的注
 
 对于独立的 IIS 安装，可以对用于 ASP.NET Core 应用的应用池使用[数据保护 Provision-AutoGenKeys.ps1 PowerShell 脚本](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1)。 此脚本在 HKLM 注册表中创建一个特殊的注册表项（该注册表仅列在工作进程帐户的 ACL 中）。 使用 DPAPI 对密钥静态加密。
 
-在 Web 场方案中，可以将应用配置为使用 UNC 路径存储其数据保护密钥环。 默认情况下，数据保护密钥未加密。 应确保这种共享的文件权限仅限于运行应用所用的 Windows 帐户。 此外，可以选择使用 X509 证书保护静态密钥。 你可能希望考虑这样一种机制：通过该机制，用户可以上传证书、将证书放置在用户信任的证书存储中，并确保在运行用户应用的所有计算机上都可使用这些证书。 有关详细信息，请参阅[配置数据保护](xref:security/data-protection/configuration/overview#data-protection-configuring)。
+在 Web 场方案中，可以将应用配置为使用 UNC 路径存储其数据保护密钥环。 默认情况下，数据保护密钥未加密。 应确保这种共享的文件权限仅限于运行应用所用的 Windows 帐户。 此外，可以选择使用 X509 证书保护静态密钥。 你可能希望考虑这样一种机制：通过该机制，用户可以上传证书、将证书放置在用户信任的证书存储中，并确保在运行用户应用的所有计算机上都可使用这些证书。 有关详细信息，请参阅[配置数据保护](xref:security/data-protection/configuration/overview)。
 
 ### <a name="2-configure-the-iis-application-pool-to-load-the-user-profile"></a>2.配置 IIS 应用程序池以加载用户配置文件
 
@@ -229,7 +229,7 @@ ASP.NET 应用程序使用的数据保护密钥存储在应用程序外部的注
 
 ### <a name="3-machine-wide-policy-for-data-protection"></a>3.数据保护的计算机范围的策略
 
-数据保护系统对以下操作提供有限支持：为使用数据保护 API 的所有应用设置默认[计算机范围的策略](xref:security/data-protection/configuration/machine-wide-policy#data-protection-configuration-machinewidepolicy)。 有关详细信息，请参阅[数据保护](xref:security/data-protection/index)文档。
+数据保护系统对以下操作提供有限支持：为使用数据保护 API 的所有应用设置默认[计算机范围的策略](xref:security/data-protection/configuration/machine-wide-policy)。 有关详细信息，请参阅[数据保护](xref:security/data-protection/index)文档。
 
 ## <a name="configuration-of-sub-applications"></a>配置子应用程序
 
@@ -326,7 +326,7 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 当 Kestrel 在 IIS 之后正常启动，但应用在本地成功运行后无法在系统上运行时，可以临时将环境变量添加到 web.config，以便将 `ASPNETCORE_ENVIRONMENT` 设置为 `Development`。 通过此操作，只要不替代应用启动中的环境，应用在系统上运行时就会显示[开发者异常页](xref:fundamentals/error-handling)。 仅建议对未向 Internet 公开的暂存/测试系统使用此方式设置 `ASPNETCORE_ENVIRONMENT` 的环境变量。 确保在完成时从 web.config 文件中删除环境变量。 有关通过 web.config 为反向代理设置环境变量的信息，请参阅 [aspNetCore 的 environmentVariables 子元素](xref:hosting/aspnet-core-module#setting-environment-variables)。
 
-在大多数情况下，启用应用程序日志记录有助于排查应用问题或反向代理问题。 有关详细信息，请参阅[日志记录](xref:fundamentals/logging)。
+在大多数情况下，启用应用程序日志记录有助于排查应用问题或反向代理问题。 有关详细信息，请参阅[日志记录](xref:fundamentals/logging/index)。
 
 最后一项疑难解答提示涉及在开发计算机上升级 .NET Core SDK 或在应用内升级包版本后无法运行的应用。 在某些情况下，不同的包可能在执行主要升级时中断应用。 可通过以下方式解决大多数问题：删除项目中的 `bin` 和 `obj` 文件夹、清除 `%UserProfile%\.nuget\packages\` 和 `%LocalAppData%\Nuget\v3-cache` 的包缓存、还原项目和确认已在重新部署应用前完全删除系统上以前的部署。
 
