@@ -10,15 +10,15 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/index
-ms.openlocfilehash: cd8e0824da09b42e65a0ad10c4d0f98eb0214f88
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.openlocfilehash: 95a89f11a946bbfacc8eb234151d85bfc3046d6e
+ms.sourcegitcommit: 7444087ee28ca5789e08532605683d1d235212e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-for-mac"></a>使用 ASP.NET Core 和 Visual Studio for Mac 创建 Razor 页面 Web 应用
 
-我们正在撰写此系列的文章。 我们希望可以在两周内完成该系列。
+我们正在撰写此系列的文章。
 
 此系列介绍了在 Mac 上使用 ASP.NET Core 生成 Razor 页面 Web 应用的基础知识。
 
