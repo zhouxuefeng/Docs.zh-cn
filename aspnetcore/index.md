@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core 简介"
 author: rick-anderson
-description: 
+description: "提供 ASP.NET Core 简介。"
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 748c8c0b9dd0e6eab0d7347bbf89ed80c10bdb54
-ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
+ms.openlocfilehash: a075c63fddb9e28a1da37d4ef6647808a0dcb583
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core 简介
 
@@ -35,7 +35,7 @@ ASP.NET Core 具有如下优点：
 
 * 生成 Web UI 和 Web API 的统一场景。
 * [新式客户端框架](xref:client-side/index)与开发工作流的集成。
-* 基于环境的云就绪[配置系统](xref:fundamentals/configuration)。
+* 基于环境的云就绪[配置系统](xref:fundamentals/configuration/index)。
 * 内置[依赖项注入](xref:fundamentals/dependency-injection)。
 * 轻型高性能模块化 HTTP 请求管道。
 * 能够在 IIS 上进行托管或在自己的进程中进行自托管。
