@@ -7,3 +7,10 @@
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
+  
+如果收到错误：
+  ```
+No executable found matching command "dotnet-aspnet-codegenerator"
+  ```
+
+打开项目目录（包含 Program.cs、Startup.cs 和 .csproj 文件的目录）中的命令窗口。

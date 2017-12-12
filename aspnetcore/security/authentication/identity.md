@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 820836eaf3a29c9941e84458f09ac470f8150ba7
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 0679663b3b3b66f9935d0fb24360be2954fcdee1
+ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>在 ASP.NET Core 上的标识简介
 
@@ -32,11 +32,11 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
 1.  使用单个用户帐户创建一个 ASP.NET 核心 Web 应用程序项目。
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    在 Visual Studio 中，选择**文件** -> **新建** -> **项目**。 选择**ASP.NET Web 应用程序**从**新项目**对话框。 选择 ASP.NET Core **Web 应用程序**与**单个用户帐户**作为身份验证方法。
+    在 Visual Studio 中，选择**文件** -> **新建** -> **项目**。 选择**ASP.NET Web 应用程序**从**新项目**对话框。 选择 ASP.NET Core **Web Application(Model-View-Controller)**为 ASP.NET Core 与 2.x**单个用户帐户**作为身份验证方法。
 
     注意： 你必须选择**单个用户帐户**。
  
-    ![“新建项目”对话框](identity/_static/01-mvc.png)
+    ![“新建项目”对话框](identity/_static/01-mvc_2.png)
     
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
     如果使用.NET 核心 CLI，创建新的项目使用``dotnet new mvc --auth Individual``。 这将创建一个新的项目与 Visual Studio 将创建相同的标识模板代码。
@@ -134,7 +134,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
  
 7.  查看数据库。
 
-    如果你的应用使用 SQL Server 数据库 （默认在 Windows 上以及为 Visual Studio 用户），你可以查看数据库中创建的应用。 你可以使用**SQL Server Management Studio**。 或者，从 Visual Studio 中，选择**视图** -> **SQL Server 对象资源管理器**。 连接到**(localdb) \MSSQLLocalDB**。 名称匹配的数据库* *aspnet-<*的你的项目名称*>-<*日期字符串*> * * 显示。
+    如果你的应用使用 SQL Server 数据库 （默认在 Windows 上以及为 Visual Studio 用户），你可以查看数据库中创建的应用。 你可以使用**SQL Server Management Studio**。 或者，从 Visual Studio 中，选择**视图** -> **SQL Server 对象资源管理器**。 连接到**(localdb) \MSSQLLocalDB**。 名称匹配的数据库 **aspnet-<*的你的项目名称*>-<*日期字符串*> * * 显示。
 
     ![在 AspNetUsers 数据库表的上下文菜单](identity/_static/04-db.png)
     

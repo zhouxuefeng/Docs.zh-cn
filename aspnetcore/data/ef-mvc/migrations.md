@@ -11,11 +11,11 @@ ms.assetid: 81f6c9c2-a819-4f3a-97a4-4b0503b56c26
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 638bef0cda14f53a326c66c6a5da3f3c1bb762c6
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 20b05801ac666feef29fd05dd3e4738b1bd50b86
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>迁移的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (10 的第 4)
 
@@ -119,7 +119,7 @@ Done. To undo this action, use 'ef migrations remove'
 dotnet ef database update
 ```
 
-该命令的输出是类似于`migrations add`命令时，只不过你请参阅日志，以将数据库设置的 SQL 命令。 在下面的示例输出中，大部分日志被省略。 如果你不希望查看此级别的日志消息中的详细信息，你可以更改中的日志级别*appsettings。Development.json*文件。 有关详细信息，请参阅[简介日志记录](xref:fundamentals/logging)。
+该命令的输出是类似于`migrations add`命令时，只不过你请参阅日志，以将数据库设置的 SQL 命令。 在下面的示例输出中，大部分日志被省略。 如果你不希望查看此级别的日志消息中的详细信息，你可以更改中的日志级别*appsettings。Development.json*文件。 有关详细信息，请参阅[简介日志记录](xref:fundamentals/logging/index)。
 
 ```text
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]

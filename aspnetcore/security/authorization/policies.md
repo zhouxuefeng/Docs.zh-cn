@@ -1,8 +1,8 @@
 ---
 title: "自定义的基于策略的授权"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "本文档说明如何创建和使用自定义授权策略处理程序，在 ASP.NET Core 应用程序。"
+keywords: "ASP.NET 核心，授权、 自定义策略、 授权策略"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 5021b5d20f6d9b9a4d8889f25b5e41f2c9306f64
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 0281d054204a11acc2cf11cf5fca23a8f70aad8e
+ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="custom-policy-based-authorization"></a>自定义的基于策略的授权
 
-<a name=security-authorization-policies-based></a>
+<a name="security-authorization-policies-based"></a>
 
-实际上[角色授权](roles.md#security-authorization-role-based)和[声明授权](claims.md#security-authorization-claims-based)使使用的要求、 的处理程序的要求并预配置的策略。 这些构建基块，可以快速、 在代码中允许的更丰富且可重复使用，可轻松地测试授权结构的授权评估。
+实际上，[角色授权](roles.md)和[声明授权](claims.md)使使用的要求、 的处理程序的要求，并预先配置的策略。 这些构建基块，可以快速、 在代码中允许的更丰富且可重复使用，可轻松地测试授权结构的授权评估。
 
 组成一个或多个要求和注册在应用程序启动授权服务配置的一部分，在授权策略`ConfigureServices`中*Startup.cs*文件。
 
@@ -58,7 +58,7 @@ public class AlcoholPurchaseRequirementsController : Controller
 
 ## <a name="requirements"></a>要求
 
-授权要求是一个策略可用于评估当前的用户主体的数据参数的集合。 在我们的最小存在时间策略我们的要求是单个参数，最小存在时间。 要求必须实现`IAuthorizationRequirement`。 这是一个空的的标记接口。 参数化的最小年龄要求可能会实现，如下所示;
+授权要求是一个策略可用于评估当前的用户主体的数据参数的集合。 在我们最小存在时间的策略，我们的要求是单个参数，最小存在时间。 要求必须实现`IAuthorizationRequirement`。 这是一个空的的标记接口。 参数化的最小年龄要求可能会实现，如下所示;
 
 ```csharp
 public class MinimumAgeRequirement : IAuthorizationRequirement
@@ -74,13 +74,13 @@ public class MinimumAgeRequirement : IAuthorizationRequirement
 
 一项要求不需要具有数据或属性。
 
-<a name=security-authorization-policies-based-authorization-handler></a>
+<a name="security-authorization-policies-based-authorization-handler"></a>
 
 ## <a name="authorization-handlers"></a>授权处理程序
 
 授权处理程序负责的要求的任何属性的计算。 授权处理程序必须对它们进行评估针对提供`AuthorizationHandlerContext`以确定是否允许授权。 可以有一项要求[多个处理程序](policies.md#security-authorization-policies-based-multiple-handlers)。 处理程序必须继承`AuthorizationHandler<T>`其中 T 是它处理的要求。
 
-<a name=security-authorization-handler-example></a>
+<a name="security-authorization-handler-example"></a>
 
 最小存在时间处理程序可能如下所示：
 
@@ -114,10 +114,11 @@ public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
 }
 ```
 
-在上面的代码中我们首先查找以确定是否当前的用户主体已声明的已发出我们知道的颁发者和信任的出生日期。 如果声明是缺少我们无法授权以便我们返回。 如果我们有声明，我们找出用户已存在多长，并且它们是否符合由要求传入的最小存在时间然后授权已被成功。 授权成功后我们调用`context.Succeed()`要求已成功作为参数传递。
+在上面的代码中，我们首先查找以确定是否当前的用户主体已声明的已发出我们知道的颁发者和信任的出生日期。 如果声明是缺少我们无法授权以便我们返回。 如果我们有声明，我们找出用户已存在多长，并且它们是否符合由要求传入的最小存在时间然后授权已被成功。 授权成功后我们调用`context.Succeed()`要求已成功作为参数传递。
 
-<a name=security-authorization-policies-based-handler-registration></a>
+<a name="security-authorization-policies-based-handler-registration"></a>
 
+### <a name="handler-registration"></a>处理程序注册
 在配置期间，服务集合中必须例如; 注册处理程序
 
 ```csharp
@@ -148,9 +149,9 @@ public void ConfigureServices(IServiceCollection services)
 
 * 若要确保失败，即使其他处理程序要求成功，调用`context.Fail`。
 
-无论你在你的处理程序调用的策略要求要求时，将调用要求的所有处理程序。 这样要求产生副作用，如日志记录，始终会进行即使`context.Fail()`已在另一个处理程序调用。
+无论什么调用在您的处理程序内的策略要求要求时，将调用要求的所有处理程序。 这样要求产生副作用，如日志记录，始终会进行即使`context.Fail()`已在另一个处理程序调用。
 
-<a name=security-authorization-policies-based-multiple-handlers></a>
+<a name="security-authorization-policies-based-multiple-handlers"></a>
 
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>为什么将需要一项要求的多个处理程序？
 
@@ -195,7 +196,7 @@ public class HasTemporaryStickerHandler : AuthorizationHandler<EnterBuildingRequ
 
 可能有情况下实现策略所在简单来表示在代码中。 可以只需提供`Func<AuthorizationHandlerContext, bool>`配置与你的策略时`RequireAssertion`策略生成器。
 
-例如以前`BadgeEntryHandler`，如下所示; 可重写
+例如以前`BadgeEntryHandler`无法，如下所示重写：
 
 ```csharp
 services.AddAuthorization(options =>
@@ -215,7 +216,7 @@ services.AddAuthorization(options =>
 
 `Handle`必须在授权处理程序中实现的方法具有两个参数，`AuthorizationContext`和`Requirement`正在处理。 框架，例如 MVC 或 Jabbr 可用于任何将对象添加到`Resource`属性`AuthorizationContext`通过额外的信息。
 
-例如 MVC 传递的实例的`Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext`其他 MVC 提供中用于访问 HttpContext、 RouteData 和所有内容的资源属性。
+例如，MVC 传递的实例的`Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext`其他 MVC 提供中用于访问 HttpContext、 RouteData 和所有内容的资源属性。
 
 使用`Resource`属性是特定于框架。 使用中的信息`Resource`属性将你授权将策略限制为特定的框架。 应强制转换`Resource`属性使用`as`关键字，并检查该强制转换具有成功以确保你的代码不崩溃与`InvalidCastExceptions`其他框架; 上运行时
 

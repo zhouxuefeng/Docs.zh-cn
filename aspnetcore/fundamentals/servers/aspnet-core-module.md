@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ced1e667acb7d11954aea27de7701db89091fd9
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 1d1f551dbde5f3dd6e71808154c2e5885d588d7c
+ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET 核心模块简介
 
@@ -28,7 +28,7 @@ ASP.NET 核心模块 (ANCM) 允许您在 IIS 中，后面的应用程序中运�
 
 * Windows 7 和 Windows Server 2008 R2 及更高版本
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="what-aspnet-core-module-does"></a>ASP.NET 核心模块的用途
 
@@ -58,7 +58,8 @@ ANCM 具有少数几个其他函数：
 
 ### <a name="install-ancm"></a>安装 ANCM
 
-ASP.NET 核心模块必须安装在 IIS 服务器上和在 IIS Express 在开发计算机上。 对于服务器，纳入 ANCM [.NET 核心 Windows 服务器承载捆绑](https://aka.ms/dotnetcore.2.0.0-windowshosting)。 对于开发计算机，Visual Studio 会自动安装 ANCM 在 IIS Express 中，并在 IIS 中如果计算机上已安装。
+
+ASP.NET 核心模块必须安装在 IIS 服务器上和在 IIS Express 在开发计算机上。 对于服务器，纳入 ANCM [.NET 核心 Windows 服务器承载捆绑](https://aka.ms/dotnetcore-2-windowshosting)。 对于开发计算机，Visual Studio 会自动安装 ANCM 在 IIS Express 中，并在 IIS 中如果计算机上已安装。
 
 ### <a name="install-the-iisintegration-nuget-package"></a>安装 IISIntegration NuGet 包
 
@@ -111,6 +112,12 @@ ASP.NET 核心模块的配置存储在*Web.config*位于应用程序的根文件
 ### <a name="run-with-iis-express-in-development"></a>在开发过程中使用 IIS Express 运行
 
 可以通过使用 ASP.NET Core 模板定义的默认配置文件的 Visual Studio 启动 IIS Express。
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>代理配置使用 HTTP 协议和配对令牌
+
+在 ANCM 和 Kestrel 之间创建的代理服务器使用 HTTP 协议。 使用 HTTP 是一种性能优化其中 ANCM 和 Kestrel 之间的通信发生在上环回地址从网络接口中移出。 没有任何风险的窃听 ANCM 和 Kestrel 从服务器中移出的位置之间的通信。
+
+配对令牌用于保证收到的 Kestrel 请求已通过 IIS 代理和不是来自某些其他源。 创建并设置环境变量到配对的令牌 (`ASPNETCORE_TOKEN`) 通过 ANCM。 配对的令牌还设置到标头 (`MSAspNetCoreToken`) 对每个代理的请求。 IIS 中间件检查每个请求它接收以确认配对的令牌的标头值与匹配的环境变量值。 如果令牌值不匹配，请求是记录，并拒绝。 配对的令牌的环境变量和 ANCM 和 Kestrel 之间的通信无法访问从服务器中移出的位置。 无需知道配对的令牌值，攻击者无法提交绕过检查在 IIS 中间件的请求。
 
 ## <a name="next-steps"></a>后续步骤
 

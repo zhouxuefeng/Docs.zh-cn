@@ -11,27 +11,32 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 7aea4db44764d5d8f47520adb6599e651e0e9000
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: fdb396d8857dc9c118cc19da1f7d1d498dfaacd5
+ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>有关 ASP.NET 核心响应压缩中间件
 
 作者：[Luke Latham](https://github.com/guardrex)
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 网络带宽是有限的资源。 通常减小响应的大小将通常显著增加应用的响应能力。 减小负载大小的一种方法是压缩应用的响应。
 
 ## <a name="when-to-use-response-compression-middleware"></a>何时使用响应压缩中间件
-使用 IIS、 Apache 或 Nginx 中的中间件的性能可能不会匹配，服务器模块中的基于服务器的响应压缩技术。 当你无法使用时，请使用响应压缩中间件：
-* [IIS 动态压缩模块](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-* [Apache mod_deflate 模块](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
-* [NGINX 压缩和解压缩](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
-* [HTTP.sys 服务器](xref:fundamentals/servers/httpsys)(以前称为[WebListener](xref:fundamentals/servers/weblistener))
-* [Kestrel](xref:fundamentals/servers/kestrel)
+使用在 IIS、 Apache 或 Nginx 基于服务器的响应压缩技术。 中间件的性能可能不会与匹配服务器模块。 [HTTP.sys 服务器](xref:fundamentals/servers/httpsys)和[Kestrel](xref:fundamentals/servers/kestrel)当前不提供内置的压缩支持。
+
+当你时，请使用响应压缩中间件：
+
+* 无法使用以下基于服务器的压缩技术：
+  * [IIS 动态压缩模块](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
+  * [Apache mod_deflate 模块](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [NGINX 压缩和解压缩](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+* 直接在上托管：
+  * [HTTP.sys 服务器](xref:fundamentals/servers/httpsys)(以前称为[WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>响应压缩
 通常情况下，本身不压缩任何响应可从响应压缩中受益。 通常本身不压缩的响应包括： CSS、 JavaScript、 HTML、 XML 和 JSON。 本机压缩的资产，如 PNG 文件，你不应将其压缩。 如果你尝试进一步压缩本机压缩的响应，任何小的其他缩短的大小和传输的时间将可能屏蔽按处理压缩所花费的时间。 不压缩小于大约 150-1000年字节 （具体取决于该文件的内容和压缩的效率） 的文件。 压缩的小文件的开销可能会产生大于未压缩的文件的压缩的文件。

@@ -11,11 +11,11 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 92085829d2a37a2aa6080aeb34a5e14be95e02d8
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 40aa105dcf06b269025d0c44e5cd7bffef271e9d
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="model-binding"></a>模型绑定
 
@@ -61,9 +61,19 @@ The link works but generates an error when building with DocFX
 
 绑定发生顺序中此类必须具有公共默认构造函数和绑定的成员必须是公共的可写属性。 在模型绑定情况下将仅为类实例化使用公共默认构造函数，可以设置的属性。
 
-当参数绑定时，模型绑定停止查找 /sample/2015-04-16/17 具有该名称的值和它将在移动下一步的参数绑定。 如果绑定将失败，MVC 将不会引发错误。 你可以通过检查来查询模型状态错误`ModelState.IsValid`属性。
+当参数绑定时，模型绑定停止查找 /sample/2015-04-16/17 具有该名称的值和它将在移动下一步的参数绑定。 否则，默认模型绑定行为将参数设置为其默认值，具体取决于它们的类型：
 
-注意： 控制器的每个条目`ModelState`属性是`ModelStateEntry`包含`Errors property`。 它很少需要自行查询此集合。 请改用 `ModelState.IsValid` 。
+* `T[]`： 使用的类型的数组`byte[]`，绑定设置类型的参数`T[]`到`Array.Empty<T>()`。 类型的数组`byte[]`设置为`null`。
+
+* 引用类型： 绑定创建的类实例使用默认构造函数而无需设置属性。 但是，模型绑定集`string`参数`null`。
+
+* 可以为 null 的类型： 可以为 Null 的类型设置为`null`。 在上面的示例中，模型绑定集`id`到`null`由于它是类型`int?`。
+
+* 值类型： 类型的不可为 null 的值类型`T`设置为`default(T)`。 例如，模型绑定将参数设置`int id`为 0。 请考虑使用模型验证或可以为 null 的类型，而不是依赖于默认值。
+
+如果绑定将失败，MVC 将不会引发错误。 它接受用户输入每个操作应检查`ModelState.IsValid`属性。
+
+注意： 控制器的每个条目`ModelState`属性是`ModelStateEntry`包含`Errors`属性。 它很少需要自行查询此集合。 请改用 `ModelState.IsValid` 。
 
 此外，有 MVC 执行模型绑定时必须考虑一些特殊的数据类型：
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3c38a1730e43586f37cd773bb8daa418736952f
-ms.sourcegitcommit: b3d46df910fb679edb8dd47234db6b4da604eedb
+ms.openlocfilehash: 8d47910beef9195295c8da6ac81b83b3ffe20124
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>用于创建具有 ASP.NET Core 的单页面应用程序使用 JavaScriptServices
 
@@ -98,11 +98,11 @@ ASP.NET 核心[标记帮助程序](xref:mvc/views/tag-helpers/intro)由 SpaServi
 
 标记帮助程序都在项目的命名空间注册通过可发现*_ViewImports.cshtml*文件：
 
-[!code-csharp[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
+[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
 
 这些标记帮助程序抽象化通过利用在 Razor 视图类似于 HTML 的语法直接与低级别 Api 进行通信的复杂性：
 
-[!code-html[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
+[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
 
 ### <a name="the-asp-prerender-module-tag-helper"></a>`asp-prerender-module`标记帮助器
 
@@ -118,7 +118,7 @@ ASP.NET 核心[标记帮助程序](xref:mvc/views/tag-helpers/intro)由 SpaServi
 
 结合了`asp-prerender-module`标记帮助器，`asp-prerender-data`标记帮助器可以用于将上下文信息从 Razor 视图传递到服务器端 JavaScript。 例如，以下标记将传递到的用户数据`main-server`模块：
 
-[!code-html[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
+[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
 
 接收`UserName`自变量使用内置的 JSON 序列化程序序列化和存储在`params.data`对象。 在以下的角度示例中，数据用于构造中的个性化的问候语`h1`元素：
 

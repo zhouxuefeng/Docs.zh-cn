@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
 ms.openlocfilehash: f1abb3558546cd907c78b44d9353d9c9f1f5aff1
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>在 ASP.NET Core WebListener web 服务器实现
 
@@ -42,7 +42,7 @@ WebListener 支持以下功能：
 
 - Windows 7 和 Windows Server 2008 R2 及更高版本
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="when-to-use-weblistener"></a>何时使用 WebListener
 
@@ -86,7 +86,7 @@ WebListener 也是一个不错的选择为内部部署时你需要它提供你�
 
 * 配置要侦听的 Url 和端口 
 
-  默认情况下 ASP.NET Core 将绑定到`http://localhost:5000`。 若要配置 URL 前缀和端口，可以使用`UseURLs`扩展方法，`urls`命令行自变量或 ASP.NET 核心配置系统。 有关详细信息，请参阅[宿主](../../fundamentals/hosting.md)。
+  默认情况下 ASP.NET Core 将绑定到`http://localhost:5000`。 若要配置 URL 前缀和端口，可以使用`UseURLs`扩展方法，`urls`命令行自变量或 ASP.NET 核心配置系统。 有关详细信息，请参阅[托管](../../fundamentals/hosting.md)。
 
   Web 侦听器使用[Http.Sys 前缀字符串格式](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)。 不没有特定于 WebListener 任何前缀字符串格式要求。
 
@@ -157,7 +157,7 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 以下资源提供了几个方案的详细的说明。 请参阅文章`HttpListener`同样适用于`WebListener`，如二者都基于 Http.Sys。
 
-* [如何： 使用 SSL 证书配置端口](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
+* [如何：使用 SSL 证书配置端口](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS 通信-HttpListener 基于托管和客户端证书](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html)这是一个第三方的博客和是相当旧但仍具有有用的信息。
 * [如何： 演练使用 HttpListener 或 Http 服务器非托管代码 （c + +） 为 SSL 简单服务器](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/)这也是有用的信息与较旧的博客。
 * [如何设置 SSL 与.NET 核心 WebListener？](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)

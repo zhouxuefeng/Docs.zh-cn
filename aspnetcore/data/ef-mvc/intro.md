@@ -11,15 +11,17 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 379802f644b977563b0b50354feb1fb9a4c8fabb
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 5095def776f79d0bb76d5a8e94a4228ef0abed75
+ms.sourcegitcommit: a80d35647aff66323160b2cb413b65d79d98f7a6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET 核心 MVC 和使用 Visual Studio (第 1 个 10) 的实体框架核心入门
 
 通过[Tom Dykstra](https://github.com/tdykstra)和[Rick Anderson](https://twitter.com/RickAndMSFT)
+
+提供了本教程的 Razor 页版本[此处](xref:data/ef-rp/intro)。 Razor 页版本是易于遵循，涵盖详细 EF 功能。 我们建议你遵循[本教程 Razor 页版本](xref:data/ef-rp/intro)。
 
 Contoso 大学示例 web 应用程序演示如何创建使用 Entity Framework (EF) 核心 2.0 和 Visual Studio 2017 ASP.NET 核心 2.0 MVC web 应用程序。
 
@@ -64,7 +66,7 @@ EF 核心 2.0 是 EF 的最新版本，但还没有的 EF 的所有功能 6.x。
 
 * 从左窗格中，选择**已安装 > Visual C# > Web**。
 
-* 选择**ASP.NET 核心 Web 应用程序**项目模板。
+* 选择“ASP.NET Core Web 应用程序”项目模板。
 
 * 输入**ContosoUniversity**作为名称，然后单击**确定**。
 
@@ -192,7 +194,7 @@ ASP.NET 核心实现[依赖关系注入](../../fundamentals/dependency-injection
 
 [!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
 
-连接字符串的名称均在通过传递给上下文上调用的方法`DbContextOptionsBuilder`对象。 以进行本地开发， [ASP.NET 核心配置系统](../../fundamentals/configuration.md)读取中的连接字符串*appsettings.json*文件。
+连接字符串的名称均在通过传递给上下文上调用的方法`DbContextOptionsBuilder`对象。 以进行本地开发， [ASP.NET 核心配置系统](xref:fundamentals/configuration/index)读取中的连接字符串*appsettings.json*文件。
 
 添加`using`语句`ContosoUniversity.Data`和`Microsoft.EntityFrameworkCore`命名空间，然后生成项目。
 

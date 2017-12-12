@@ -1,8 +1,8 @@
 ---
 title: "启用跨源请求 (CORS)"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "本文档介绍了 CORS，作为一种标准允许或拒绝 ASP.NET Core 应用程序中的跨域请求。"
+keywords: "ASP.NET 核心，CORS，跨源"
 ms.author: riande
 manager: wpickett
 ms.date: 05/17/2017
@@ -11,11 +11,11 @@ ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e441ce1c50139a5b33865eec8e8d99764258730d
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5398b6ad6531710de2b8000cb368e5fa607ae7ff
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>启用跨源请求 (CORS)
 
@@ -219,7 +219,7 @@ $.ajax({
 
 [!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
-<a name=cors-how-cors-works></a>
+<a name="cors-how-cors-works"></a>
 
 ## <a name="how-cors-works"></a>CORS 的工作原理
 
@@ -240,7 +240,7 @@ User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6
 Host: myservice.azurewebsites.net
 ```
 
-如果服务器允许该请求，则将设置访问控制的允许的域标头。 此标头的值匹配的 Origin 标头，或是通配符值"*"，允许任何来源的含义。:
+如果服务器允许该请求，则将在响应中设置的访问控制的允许的域标头。 此标头的值匹配的 Origin 标头请求，或是通配符值"*"，允许任何来源的含义：
 
 ```
 HTTP/1.1 200 OK

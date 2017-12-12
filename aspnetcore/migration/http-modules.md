@@ -11,11 +11,11 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: eb5049d4d63c224ca74fc39072ae2c0d98ba330d
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: f217e5264742826f285444dcbaea4b28b97c4d7e
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>迁移的 HTTP 处理程序和 ASP.NET Core 中间件的模块 
 
@@ -169,11 +169,11 @@ HTTP 处理程序如下所示：
 
 一些模块和处理程序已在存储的配置选项*Web.config*。但是，在 ASP.NET 核心中新的配置模型使用代替了*Web.config*。
 
-新[配置系统](../fundamentals/configuration.md)为你提供了这些选项，以解决此问题：
+新[配置系统](xref:fundamentals/configuration/index)为你提供了这些选项，以解决此问题：
 
 * 直接注入到中间件，选项中所示[下一节](#loading-middleware-options-through-direct-injection)。
 
-* 使用[选项模式](../fundamentals/configuration.md#options-config-objects):
+* 使用[选项模式](xref:fundamentals/configuration/options):
 
 1.  创建一个类来保存中间件的选项，例如：
 
@@ -384,7 +384,7 @@ public async Task Invoke(HttpContext httpContext)
 
 * [HTTP 处理程序和 HTTP 模块概述](https://docs.microsoft.com/iis/configuration/system.webserver/)
 
-* [配置](../fundamentals/configuration.md)
+* [配置](xref:fundamentals/configuration/index)
 
 * [应用程序启动](../fundamentals/startup.md)
 

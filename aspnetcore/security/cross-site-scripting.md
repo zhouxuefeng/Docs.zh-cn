@@ -1,8 +1,8 @@
 ---
 title: "防止跨站点脚本"
 author: rick-anderson
-description: 
-keywords: "ASP.NET 核心"
+description: "本文档介绍跨站点脚本 (XSS) 和寻址 ASP.NET Core 应用程序中的此漏洞的技术。"
+keywords: "ASP.NET 核心，XSS，漏洞"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 95790927-2bfe-445e-b1fd-429c2c7030ce
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: 1816977837efd82f374a03d9f776db21358e2850
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fdb26a8338b98135cfc3f6bce9d87285e9a7eb12
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="preventing-cross-site-scripting"></a>防止跨站点脚本
 
-<a name=security-cross-site-scripting></a>
+作者：[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 跨站点脚本 (XSS) 是一个安全漏洞，这会使攻击者将客户端脚本 (通常是 JavaScript) 放入网页。 当其他用户加载受影响的页的攻击者脚本将运行时，从而使攻击者窃取 cookie 和会话令牌更改通过 DOM 操作网页的内容或将浏览器重定向到另一页。 当应用程序接受用户输入，并输出它在页中而不验证、 编码或转义它时，通常会发生 XSS 漏洞。
 
@@ -183,7 +183,7 @@ var example = "\"Quoted Value with spaces and &\"";
 >[!WARNING]
 > 不要使用不受信任的输入的 URL 路径的一部分。 始终将不受信任的输入传递作为查询字符串值。
 
-<a name=security-cross-site-scripting-customization></a>
+<a name="security-cross-site-scripting-customization"></a>
 
 ## <a name="customizing-the-encoders"></a>自定义编码器
 

@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 455b992dc10129278f8e23366aac9d8bcbf5594c
-ms.sourcegitcommit: ef9784dd7500f22fb98b3591ebd73d57d4f67544
+ms.openlocfilehash: 7deccf135ddd21729206ebed58ddc8aca52c1deb
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>在 ASP.NET Core 中承载
 
-通过[Luke Latham](https://github.com/guardrex)
+作者：[Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core 应用配置和启动*主机*，即负责应用程序启动和生存期管理。 至少，主机配置服务器和请求处理管道。
+ASP.NET Core 应用可配置和启动一个*主机*，负责应用启动和生存期管理。 至少，主机配置服务器和请求处理管道。
 
 ## <a name="setting-up-a-host"></a>设置主机
 
@@ -40,12 +40,12 @@ ASP.NET Core 应用配置和启动*主机*，即负责应用程序启动和生�
   * [用户的机密信息](xref:security/app-secrets)运行的应用`Development`环境。
   * 环境变量。
   * 命令行参数。
-* 配置[日志记录](xref:fundamentals/logging)与控制台和调试输出[日志筛选](xref:fundamentals/logging#log-filtering)日志记录配置部分中指定的规则*appsettings.json*或*appsettings。{环境}.json*文件。
+* 配置[日志记录](xref:fundamentals/logging/index)与控制台和调试输出[日志筛选](xref:fundamentals/logging/index#log-filtering)日志记录配置部分中指定的规则*appsettings.json*或*appsettings。{环境}.json*文件。
 * 当运行 IIS 之后，可让[IIS 集成](xref:publishing/iis)通过配置的基路径和端口服务器应对其侦听时使用[ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)。 该模块将创建 IIS 和 Kestrel 之间的反向代理。 此外可以配置应用到[捕获启动错误](#capture-startup-errors)。 有关 IIS 默认选项，请参阅[IIS 选项部分中的主机与 IIS 的 Windows 上的 ASP.NET 核心](xref:publishing/iis#iis-options)。
 
 *内容根*确定主机搜索内容的文件，如 MVC 视图文件的位置。 默认内容根是[Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory)。 这会导致从根文件夹中启动应用时将 web 项目的根文件夹用作内容的根 (例如，调用[dotnet 运行](/dotnet/core/tools/dotnet-run)项目文件夹中)。 这是默认值中使用[Visual Studio](https://www.visualstudio.com/)和[dotnet 新模板](/dotnet/core/tools/dotnet-new)。
 
-请参阅[ASP.NET 核心中的配置](xref:fundamentals/configuration)有关应用程序配置的详细信息。
+请参阅[ASP.NET 核心中的配置](xref:fundamentals/configuration/index)有关应用程序配置的详细信息。
 
 > [!NOTE]
 > 作为使用静态的替代方法`CreateDefaultBuilder`方法，创建从宿主[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)是一种受支持的方法与 ASP.NET 核心 2.x。 请参阅 ASP.NET Core 1.x 选项卡的详细信息。
@@ -403,7 +403,7 @@ var host = new WebHostBuilder()
 
 ## <a name="overriding-configuration"></a>重写配置
 
-使用[配置](configuration.md)如何配置主机。 在以下示例中，主机配置 （可选） 中指定*hosting.json*文件。 从加载的任何配置*hosting.json*文件可能会重写通过命令行自变量。 生成的配置 (在`config`) 用于配置与主机`UseConfiguration`。
+使用[配置](xref:fundamentals/configuration/index)如何配置主机。 在以下示例中，主机配置 （可选） 中指定*hosting.json*文件。 从加载的任何配置*hosting.json*文件可能会重写通过命令行自变量。 生成的配置 (在`config`) 用于配置与主机`UseConfiguration`。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

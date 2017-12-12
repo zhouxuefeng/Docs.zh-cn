@@ -1,8 +1,8 @@
 ---
 title: "密钥管理"
 author: rick-anderson
-description: 
-keywords: "ASP.NET 核心"
+description: "本文档概述了 ASP.NET 核心数据保护密钥管理 Api 的实现详细信息。"
+keywords: "ASP.NET 核心，数据保护、 密钥管理"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 507c00edc5bade2427151ecadfed581817e4d088
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d9e38fd5c8de2b10ad24fe557aa6e3063e40236e
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="key-management"></a>密钥管理
 
-<a name=data-protection-implementation-key-management></a>
+<a name="data-protection-implementation-key-management"></a>
 
-数据保护系统自动管理的主要密钥用于保护和取消保护负载的生存期。 每个密钥可以存在于一个四个阶段。
+数据保护系统自动管理的主要密钥用于保护和取消保护负载的生存期。 每个密钥可以中四个阶段之一存在：
 
 * 创建密钥存在于密钥环，但尚未激活。 密钥不应用于新保护操作直到足够的时间已过的密钥已有机会传播到使用此密钥环的所有计算机。
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 08/11/2017
 
 数据保护系统的原因会立即生成新密钥，而不是回退到不同的密钥是生成新密钥应视为已激活新密钥之前的所有键的隐式过期时间。 大致了解是，新密钥可能已配置了不同的算法或静态加密机制比旧的密钥，并且系统应首选的当前配置，而回退。
 
-没有异常。 如果应用程序开发人员可以[禁用自动密钥生成](../configuration/overview.md#data-protection-configuring-disable-automatic-key-generation)，然后数据保护系统必须选择内容的默认密钥。 在此回退方案中，系统将选择具有最新的激活日期、 非吊销键，而且会优先有时间传播到群集中其他计算机的密钥。 回调系统可以结束因此选择过期的默认密钥。 回调系统将永远不会选择将吊销的键用作默认密钥，并将如果密钥环为空或已被吊销的每个键通过然后系统将产生在初始化时出错。
+没有异常。 如果应用程序开发人员可以[禁用自动密钥生成](xref:security/data-protection/configuration/overview#disableautomatickeygeneration)，然后数据保护系统必须选择内容的默认密钥。 在此回退方案中，系统将选择具有最新的激活日期、 非吊销键，而且会优先有时间传播到群集中其他计算机的密钥。 回调系统可以结束因此选择过期的默认密钥。 回调系统将永远不会选择将吊销的键用作默认密钥，并将如果密钥环为空或已被吊销的每个键通过然后系统将产生在初始化时出错。
 
-<a name=data-protection-implementation-key-management-expiration></a>
+<a name="data-protection-implementation-key-management-expiration"></a>
 
 ## <a name="key-expiration-and-rolling"></a>密钥的过期和滚动
 
@@ -62,24 +62,24 @@ ms.lasthandoff: 08/11/2017
 services.AddDataProtection()
        // use 14-day lifetime instead of 90-day lifetime
        .SetDefaultKeyLifetime(TimeSpan.FromDays(14));
-   ```
+```
 
-管理员还可以更改默认系统范围，尽管 SetDefaultKeyLifetime 显式调用将覆盖任何系统范围的策略。 默认密钥生存期不能短于 7 天。
+管理员还可以更改默认系统范围内，但显式调用`SetDefaultKeyLifetime`将覆盖任何系统范围的策略。 默认密钥生存期不能短于 7 天。
 
-## <a name="automatic-keyring-refresh"></a>自动 keyring 刷新
+## <a name="automatic-key-ring-refresh"></a>自动密钥环刷新
 
 数据保护系统初始化时，它从基础存储库读取密钥环，并将其缓存在内存中。 此缓存允许未命中的后备存储的情况下继续保护和取消保护操作。 大约每隔 24 小时或当前的默认密钥过期，不管先满足后，系统会自动查看更改的后备存储。
 
 >[!WARNING]
 > 开发人员应极少数情况下 （如果有） 需要直接使用密钥管理 Api。 数据保护系统将执行自动密钥管理，如上面所述。
 
-数据保护系统公开接口 IKeyManager 可以用于检查和更改的密钥链。 DI 系统提供的 IDataProtectionProvider 实例还可以提供供你使用的 IKeyManager 实例。 或者，可以直接从拔出 IKeyManager 通过 IServiceProvider 以下示例所示。
+数据保护系统公开接口`IKeyManager`可用来检查和更改的密钥链。 DI 系统提供的实例`IDataProtectionProvider`还可以提供的实例`IKeyManager`供你使用。 或者，你可以请求`IKeyManager`直接从`IServiceProvider`以下示例所示。
 
-修改键环 （显式创建一个新密钥或执行吊销） 的任何操作将使内存中缓存失效。 保护或取消保护的后续调用将导致数据保护系统读取密钥环，并重新创建缓存。
+修改键环 （显式创建一个新密钥或执行吊销） 的任何操作将使内存中缓存失效。 下次调用`Protect`或`Unprotect`将导致数据保护系统读取密钥环，并重新创建缓存。
 
-下面的示例演示如何使用 IKeyManager 接口来检查和操作密钥环，包括撤销的现有密钥和手动生成新密钥。
+下面的示例演示如何使用`IKeyManager`接口来检查和操作密钥环，包括撤销的现有密钥和手动生成新密钥。
 
-[!code-none[Main](key-management/samples/key-management.cs)]
+[!code-csharp[Main](key-management/samples/key-management.cs)]
 
 ## <a name="key-storage"></a>密钥存储
 

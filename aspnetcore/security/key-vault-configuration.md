@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: c5d8506c1bc8e6364d01596a0c82e1da41eea4ca
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 352d125b9042c603b59ed9bda0e99b6a49c7ab9f
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure 密钥保管库配置提供程序
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/01/2017
 1. 创建密钥保管库并设置应用程序的指南的 Azure Active Directory (Azure AD)[开始使用 Azure 密钥保管库](https://azure.microsoft.com/documentation/articles/key-vault-get-started/)。
   * 将机密添加到密钥保管库使用[AzureRM 密钥保管库 PowerShell 模块](/powershell/module/azurerm.keyvault)可从[PowerShell 库](https://www.powershellgallery.com/packages/AzureRM.KeyVault)、 [Azure 密钥保管库 REST API](/rest/api/keyvault/)，或[Azure 门户](https://portal.azure.com/)。 机密创建为*手动*或*证书*机密。 *证书*机密是使用应用程序和服务的证书，但不是支持配置提供程序。 应使用*手动*选项可创建带有配置提供程序使用的名称-值对机密。
     * 创建简单的机密的名称-值对。 Azure 密钥保管库密钥名称被限制为字母数字字符和短划线。
-    * 分层值 （配置节） 使用`--`（两个短划线） 作为分隔符，在此示例。 通常用于分隔的子项中的一部分的冒号[ASP.NET 核心配置](xref:fundamentals/configuration)，机密名称中不允许出现。 因此，两个短划线的使用和机密加载到应用程序的配置时交换冒号。
+    * 分层值 （配置节） 使用`--`（两个短划线） 作为分隔符，在此示例。 通常用于分隔的子项中的一部分的冒号[ASP.NET 核心配置](xref:fundamentals/configuration/index)，机密名称中不允许出现。 因此，两个短划线的使用和机密加载到应用程序的配置时交换冒号。
     * 创建两个*手动*具有以下名称-值对的机密。 第一个密钥是一个简单的名称和值，并第二个密钥创建一个部分和子项中的密钥名称机密值：
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
@@ -146,7 +146,7 @@ Configuration.Reload();
 禁用和过期机密引发`KeyVaultClientException`。 若要防止你的应用引发，替换你的应用程序或更新的过期已禁用/机密。
 
 ## <a name="troubleshooting"></a>疑难解答
-当应用程序失败时加载使用提供程序的配置时，将一条错误消息写入到[ASP.NET 日志记录基础结构](xref:fundamentals/logging)。 以下条件将阻止从加载的配置：
+当应用程序失败时加载使用提供程序的配置时，将一条错误消息写入到[ASP.NET 日志记录基础结构](xref:fundamentals/logging/index)。 以下条件将阻止从加载的配置：
 * 应用程序未正确配置 Azure Active Directory 中。
 * Azure 密钥保管库中不存在密钥保管库。
 * 应用程序未授权访问密钥保管库。
@@ -157,7 +157,7 @@ Configuration.Reload();
 * 配置密钥 （名称） 不正确的应用中的你正在试图加载的值。
 
 ## <a name="additional-resources"></a>其他资源
-* <xref:fundamentals/configuration>
+* [配置](xref:fundamentals/configuration/index)
 * [Microsoft Azure： 密钥保管库](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure： 密钥保管库文档](https://docs.microsoft.com/azure/key-vault/)
 * [如何生成和传输受 HSM 保护密钥的 Azure 密钥保管库](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)

@@ -1,8 +1,8 @@
 ---
 title: "基于声明的授权"
 author: rick-anderson
-description: 
-keywords: "ASP.NET 核心"
+description: "本文档说明如何在 ASP.NET Core 应用中添加声明授权检查。"
+keywords: "ASP.NET 核心，授权，声明"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: 737be5cd-3511-4f1c-b0ce-65403fb5eed3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: fca75952429d48b02c2c4350b79e29a1957599dc
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: eebaddabdd360f34b6ff44e8f4f9f1f10fda6406
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="claims-based-authorization"></a>基于声明的授权
 
-<a name=security-authorization-claims-based></a>
+<a name="security-authorization-claims-based"></a>
 
-创建一个标识时它可能会分配一个或多个由受信任方发出的声明。 声明为名称值对，表示哪些主题为，可以不哪些的主题。 例如，你可能具有的驱动程序许可证，本地驱动的许可证颁发机构签发。 驱动程序的许可证对其具有你的出生日期。 在这种情况下将声明名称`DateOfBirth`，声明值将是你为出生日期，例如`8th June 1970`和颁发者是驱动的许可证颁发机构。 基于声明的授权，简单地说，将检查声明的值，并允许对基于该值资源的访问。 例如，如果你想夜间俱乐部访问授权过程可能是：
+创建一个标识时它可能会分配一个或多个由受信任方发出的声明。 声明为名称值对，表示哪些主题为，可以不哪些的主题。 例如，你可能具有驱动程序的许可证，本地驱动的许可证颁发机构签发。 驱动程序的许可证对其具有你的出生日期。 在这种情况下将声明名称`DateOfBirth`，声明值将是你为出生日期，例如`8th June 1970`和颁发者是驱动的许可证颁发机构。 基于声明的授权，简单地说，将检查声明的值，并允许对基于该值资源的访问。 例如，如果你想夜间俱乐部访问授权过程可能是：
 
 门安全负责人将评估你的出生声明，并且它们是否在授予你访问之前信任颁发者 （驱动许可证机构） 的日期的值。
 
@@ -105,7 +105,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="multiple-policy-evaluation"></a>多个策略评估
 
-如果将多个策略应用到的控制器或操作然后所有策略都必须都通过然后授予访问权限。 例如: 
+如果将多个策略应用到的控制器或操作，然后授予访问权限之前也必须传递所有策略。 例如: 
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -124,4 +124,4 @@ public class SalaryController : Controller
 
 在上例中任何标识了满足`EmployeeOnly`策略可以访问`Payslip`在控制器上强制执行该策略的操作。 但是为了调用`UpdateSalary`标识必须满足的操作*同时*`EmployeeOnly`策略和`HumanResources`策略。
 
-如果你希望更复杂的策略，如将出生声明的日期，计算年龄字段从它，然后检查年龄为 21 或更低版本，则需要编写[自定义策略处理程序](policies.md#security-authorization-policies-based)。
+如果你希望更复杂的策略，如将出生声明的日期，计算年龄字段从它，然后检查年龄为 21 或更低版本，则需要编写[自定义策略处理程序](policies.md)。

@@ -1,7 +1,7 @@
 ---
 title: "在 ASP.NET 核心中的浏览器链接"
 author: ncarandini
-description: "了解如何浏览器链接是链接使用一个或多个 web 浏览器在开发环境的 Visual Studio 功能。"
+description: "说明如何浏览器链接是链接使用一个或多个 web 浏览器在开发环境的 Visual Studio 功能。"
 keywords: "ASP.NET 核心，浏览器链接，CSS 同步"
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: b69d085e8bee4cdac2dff08b46a95a8869e263b7
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="browser-link-in-aspnet-core"></a>在 ASP.NET 核心中的浏览器链接 
 
@@ -81,7 +81,7 @@ if (env.IsDevelopment())
 * 刷新 web 应用程序在多个浏览器中的一次。
 * 打开**浏览器链接仪表板**。
 * 启用或禁用**Browser Link**。 注意： 默认情况下，Visual Studio 2017 (15.3) 中禁用浏览器链接。
-* 启用或禁用 CSS 自动同步。
+* 启用或禁用[CSS 自动同步](#enable-or-disable-css-auto-sync)。
 
 > [!NOTE]
 > 某些 Visual Studio 插件，最值得注意的是*Web 扩展包 2015年*和*Web 扩展包 2017年*，提供扩展的功能的浏览器链接，但某些其他功能不与 ASP 配合使用。NET 核心项目。

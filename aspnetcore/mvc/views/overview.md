@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: f40feb0466854080cc749a83c546ce857d850902
-ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
+ms.openlocfilehash: 4530d2f500dd887bf649a753283fb3e4af995322
+ms.sourcegitcommit: c2f6c593d81fbd90e6ddd672fe0a5636d06b615a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>在 ASP.NET Core MVC 视图
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/29/2017
 
 在**M**odel-**V**查看-**C**ontroller (MVC) 模式，*视图*处理应用程序的数据的演示文稿和用户交互。 视图是 HTML 模板与嵌入[Razor 标记](xref:mvc/views/razor)。 Razor 标记是代码与 HTML 标记来生成一个发送到客户端的网页交互。
 
-ASP.NET 核心 mvc 视图是*.cshtml*文件使用[C# 编程语言](/dotnet/csharp/)Razor 标记中。 通常情况下，查看文件会被分成文件夹为每个应用程序的名为[控制器](xref:mvc/controllers/actions)。 文件夹存储在中*视图*根目录下的应用程序的文件夹：
+ASP.NET 核心 mvc 视图是*.cshtml*文件使用[C# 编程语言](/dotnet/csharp/)Razor 标记中。 通常情况下，查看文件会被分成文件夹为每个应用程序的名为[控制器](xref:mvc/controllers/actions)。 文件夹存储在*视图*根目录下的应用程序的文件夹：
 
 ![Visual Studio 解决方案资源管理器中的视图文件夹是使用主文件夹打开状态以显示 About.cshtml、 Contact.cshtml 和 Index.cshtml 文件打开](overview/_static/views_solution_explorer.png)
 
@@ -40,13 +40,13 @@ ASP.NET 核心 mvc 视图是*.cshtml*文件使用[C# 编程语言](/dotnet/cshar
 视图可帮助建立[ **S**eparation **o**f **C**oncerns (SoC) 设计](http://deviq.com/separation-of-concerns/)隔开的用户界面标记的 MVC 应用程序中应用程序的其他部分。 以下 SoC 设计可让你的应用程序模块化，提供以下几个好处：
 
 * 应用程序更容易维护，因为它被更好地组织。 视图通常由应用程序功能分组。 这使得更轻松地找到相关的视图，在功能上工作时。
-* 部分应用程序不紧密耦合。 你可以生成和更新单独从业务逻辑和数据访问组件的应用程序的视图。 无需具有更新的应用程序其他部分，你可以修改应用程序的视图。
+* 松散耦合的应用程序的部分。 你可以生成和更新单独从业务逻辑和数据访问组件的应用程序的视图。 无需具有更新的应用程序其他部分，你可以修改应用程序的视图。
 * 很容易地测试应用程序的用户界面部分，因为视图的单独单位。
 * 由于更好地组织，它是不太可能将用户界面的意外重复部分。
 
 ## <a name="creating-a-view"></a>创建视图
 
-特定于控制器的视图中创建*视图 / [ControllerName]*文件夹。 控制器之间共享的视图都将置于*视图/共享*文件夹。 若要创建一个视图，添加新文件，并为其提供其关联的控制器操作具有相同的名称*.cshtml*文件扩展名。 若要创建的视图*有关*中的操作*主页*控制器，创建*About.cshtml*文件中*视图/主页*文件夹：
+特定于控制器的视图中创建*视图 / [ControllerName]*文件夹。 控制器之间共享的视图都将置于*视图/共享*文件夹。 若要创建一个视图，添加新文件，并为其提供其关联的控制器操作具有相同的名称*.cshtml*文件扩展名。 若要创建与对应的视图*有关*中的操作*主页*控制器，创建*About.cshtml*文件中*视图/主页*文件夹：
 
 [!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
@@ -88,7 +88,7 @@ ASP.NET 核心 mvc 视图是*.cshtml*文件使用[C# 编程语言](/dotnet/cshar
 
 当操作返回的视图时，捗个称*视图发现*发生。 此过程确定哪些视图文件使用基于视图名称。 
 
-当操作返回`View`方法 (`return View();`) 和视图未指定，则操作名称用作视图名称。 例如，*有关*`ActionResult`控制器的方法名称用于搜索名为的视图文件*About.cshtml*。 首先，运行时查看*视图 / [ControllerName]*视图的文件夹。 如果找不到匹配的视图存在，它将搜索*共享*视图的文件夹。
+默认行为`View`方法 (`return View();`) 是返回具有与从中调用它的操作方法相同的名称的视图。 例如，*有关*`ActionResult`控制器的方法名称用于搜索名为的视图文件*About.cshtml*。 首先，运行时查看*视图 / [ControllerName]*视图的文件夹。 如果找不到匹配的视图存在，它将搜索*共享*视图的文件夹。
 
 它并不重要如果隐式返回`ViewResult`与`return View();`或显式传递到的视图名称`View`方法替换`return View("<ViewName>");`。 在这两种情况下，查看发现搜索匹配的视图文件顺序如下：
 
@@ -127,7 +127,7 @@ return View("./About");
 
 视图模型用于将数据传递给视图允许视图以充分利用*强*类型检查。 *强类型化*(或*强类型*) 意味着每个变量和常量具有显式定义的类型 (例如， `string`， `int`，或`DateTime`)。 在编译时被检查的类型视图中使用的有效性。
 
-工具，如[Visual Studio](https://www.visualstudio.com/vs/)或[Visual Studio Code](https://code.visualstudio.com/)，还可以列出成员 （模型属性） 时将它们添加到视图中，它可帮助你编写代码错误较少更快。 此功能称为[IntelliSense](/visualstudio/ide/using-intellisense) Microsoft 工具中。
+[Visual Studio](https://www.visualstudio.com/vs/)和[Visual Studio Code](https://code.visualstudio.com/)列表使用一种称为功能的强类型类成员[IntelliSense](/visualstudio/ide/using-intellisense)。 当你想要查看的视图模型属性时，键入后跟句号 viewmodel 的变量名称 (`.`)。 这有助于更快地编写代码错误较少。
 
 指定模型使用`@model`指令。 使用与模型`@Model`:
 
@@ -181,7 +181,12 @@ namespace WebApplication1.ViewModels
 > [!NOTE]
 > 你可以随意使用相同的类进行 viewmodel 类型和你的业务模型类型。 但是，使用单独的模型允许您的视图以独立变化的业务逻辑和数据从应用的访问部分。 分隔的模型和 viewmodel 还提供了安全好处时模型使用[模型绑定](xref:mvc/models/model-binding)和[验证](xref:mvc/models/validation)用户发送到应用的数据。
 
+
+<a name="VD_VB"></a>
+
 ### <a name="weakly-typed-data-viewdata-and-viewbag"></a>弱类型化数据 （ViewData 和 ViewBag）
+
+注意：`ViewBag`在 Razor 页中不可用。
 
 除了强类型化的视图，视图还可以访问*弱类型*(也称为*松散类型化*) 的数据集合。 与强类型不同*弱类型*(或*松散类型*) 意味着你不显式声明要使用的数据类型。 用于传递少量入和移出控制器和视图的数据，可以使用弱类型化数据的集合。
 
@@ -194,6 +199,9 @@ namespace WebApplication1.ViewModels
 此集合可以通过引用`ViewData`或`ViewBag`控制器和视图上的属性。 `ViewData`属性是弱类型化对象的字典。 `ViewBag`属性是周围的包装器`ViewData`为基础提供动态属性`ViewData`集合。
 
 `ViewData`和`ViewBag`动态解析在运行时。 因为它们未提供编译时类型检查，两者都通常更容易出错比使用视图模型。 出于上述原因，一些开发人员更愿意按最小方式或从不使用`ViewData`和`ViewBag`。
+
+
+<a name="VD"></a>
 
 **ViewData**
 
@@ -237,6 +245,8 @@ public IActionResult SomeAction()
 
 **ViewBag**
 
+注意：`ViewBag`在 Razor 页中不可用。
+
 `ViewBag`是[DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata)对象，它提供对存储在对象的动态访问`ViewData`。 `ViewBag`可以更便捷地使用，因为它不需要强制转换。 下面的示例演示如何使用`ViewBag`与使用相同的结果与`ViewData`上面：
 
 ```csharp
@@ -267,6 +277,8 @@ public IActionResult SomeAction()
 ```
 
 **同时使用 ViewData 和 ViewBag**
+
+注意：`ViewBag`在 Razor 页中不可用。
 
 由于`ViewData`和`ViewBag`引用相同的基础`ViewData`集合，你可以同时使用`ViewData`和`ViewBag`和混合和匹配它们时读取和写入值之间。
 
@@ -306,6 +318,8 @@ public IActionResult SomeAction()
 
 **ViewData 和 ViewBag 之间的差异的摘要**
 
+ `ViewBag`不是 Razor 页中可用的。
+
 * `ViewData`
   * 派生自[ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)，因此它有可能有用，如字典属性`ContainsKey`， `Add`， `Remove`，和`Clear`。
   * 字典中的键是字符串，因此允许有空白。 示例：`ViewData["Some Key With Whitespace"]`
@@ -316,7 +330,7 @@ public IActionResult SomeAction()
 
 **何时使用 ViewData 或 ViewBag**
 
-同时`ViewData`和`ViewBag`有同样传递数据在控制器和视图间的信息量很小的有效方法。 要选择哪一到使用 （或两者） 取决于你的组织的首选项或个人首选项。 通常情况下，开发人员在他们使用一个或另一个中保持一致。 它们使用`ViewData`everywhere 或使用`ViewBag`无处不在但你欢迎混合和匹配它们。 因为二者都在运行时动态解析并且因此容易导致运行时错误，请谨慎使用它们。 一些开发人员完全避免它们。
+同时`ViewData`和`ViewBag`有同样传递数据在控制器和视图间的信息量很小的有效方法。 要使用哪一种根据首选项。 可以混合和匹配`ViewData`和`ViewBag`对象，然而，该代码是以易于读取和使用一致的一种方法的情况下维护。 这两种方法是在运行时动态解析和因此容易导致运行时错误。 一些开发团队避免它们。
 
 ### <a name="dynamic-views"></a>动态视图
 

@@ -11,17 +11,17 @@ ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 3bc6d3f85d8ea7fb9b72b18cfd9c5ec2d07293b0
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 2cf82df78c250cdfdd808d49acfc06dc2ea82f5f
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="view-components"></a>查看组件
 
 作者：[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="introducing-view-components"></a>查看组件简介
 
@@ -89,23 +89,23 @@ ms.lasthandoff: 10/01/2017
 
 若要使用视图组件，请调用以下命令，在视图内：
 
-```html
+```cshtml
 @Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
 ```
 
 参数将传递给`InvokeAsync`方法。 `PriorityList`视图在文章中开发的组件调用从*Views/Todo/Index.cshtml*视图文件。 在下面的示例，`InvokeAsync`方法调用包含两个参数：
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>调用视图组件作为标记帮助器
 
 有关 ASP.NET 核心 1.1 和更高版本，你可以调用将视图组件作为[标记帮助器](xref:mvc/views/tag-helpers/intro):
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 有关标记帮助程序 Pascal 大小写形式类和方法的参数转换为其[降低 kebab 用例](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)。 用于调用视图组件标记帮助程序使用`<vc></vc>`元素。 视图组件按如下方式指定：
 
-```html
+```cshtml
 <vc:[view-component-name]
   parameter1="parameter1 value"
   parameter2="parameter2 value">
@@ -114,7 +114,7 @@ ms.lasthandoff: 10/01/2017
 
 注意： 若要将视图组件用作标记帮助程序，你必须注册包含视图组件使用的程序集`@addTagHelper`指令。 例如，如果你视图组件是一个程序集称为"MyWebApp"中，添加以下指令到`_ViewImports.cshtml`文件：
 
-```csharp
+```cshtml
 @addTagHelper *, MyWebApp
 ```
 
@@ -122,11 +122,11 @@ ms.lasthandoff: 10/01/2017
 
 `InvokeAsync`本教程中使用的方法：
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 在标记帮助器标记：
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 在此示例中更高版本，`PriorityList`视图组件将成为`priority-list`。 查看组件的参数作为特性中 kebab 小写进行传递。
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 10/01/2017
 
 * 创建*视图/共享/组件/PriorityList*文件夹。 此文件夹名称必须与视图组件类的名称或减后缀类的名称匹配 (如果我们遵循约定，并且使用*ViewComponent*中的类名称后缀)。 如果你使用`ViewComponent`属性，类名称需要匹配所指定的属性。
 
-* 创建*Views/Shared/Components/PriorityList/Default.cshtml* Razor 视图：[!code-html[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* 创建*Views/Shared/Components/PriorityList/Default.cshtml* Razor 视图：[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
    Razor 查看所花费的列表`TodoItem`并显示它们。 如果视图组件`InvokeAsync`方法不满足 （如我们的示例），视图的名称*默认*由用于约定的视图名称。 更高版本在教程中，我将向你演示如何将传递视图的名称。 若要覆盖特定控制器的默认样式，请将视图添加到特定于控制器的视图文件夹 (例如*Views/Todo/Components/PriorityList/Default.cshtml)*。
     
@@ -180,7 +180,7 @@ ms.lasthandoff: 10/01/2017
 
 * 添加`div`包含到底部的优先级列表组件调用*Views/Todo/index.cshtml*文件：
 
-    [!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
+    [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
 
 标记`@await Component.InvokeAsync`显示调用查看组件的语法。 第一个参数是我们想要调用或调用组件的名称。 后续参数传递给该组件。 `InvokeAsync`可以采用任意数量的自变量。
 
@@ -202,13 +202,13 @@ ms.lasthandoff: 10/01/2017
 
 复制*Views/Shared/Components/PriorityList/Default.cshtml*文件到名为视图*Views/Shared/Components/PriorityList/PVC.cshtml*。 添加标题以指示正在使用 PVC 视图。
 
-[!code-html[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
+[!code-cshtml[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
 
 更新*Views/TodoList/Index.cshtml*:
 
 <!-- Views/TodoList/Index.cshtml is never imported, so change to test tutorial -->
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 运行应用程序并验证 PVC 视图。
 
@@ -244,7 +244,7 @@ ms.lasthandoff: 10/01/2017
 
 添加`using`语句与你 Razor 查看文件，并使用`nameof`运算符：
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
 ## <a name="additional-resources"></a>其他资源
 

@@ -10,11 +10,11 @@ ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 000b14ddc1adb56c029d3da8ab0754215403ba79
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: 8eeb5d71575fd819239da6dd63dd31e323fb0556
+ms.sourcegitcommit: 96af03c9f44f7c206e68ae3ef8596068e6b4e5fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>使用受授权的用户数据创建 ASP.NET Core 应用
 
@@ -186,7 +186,7 @@ dotnet user-secrets set SeedUserPW <PW>
 
 ### <a name="add-a-contact-operations-requirements-class"></a>添加联系人的操作要求类
 
-添加`ContactOperationsRequirements`类到*授权*文件夹。 此类包含要求我们的应用程序支持：
+添加`ContactOperations`类到*授权*文件夹。 此类包含要求我们的应用程序支持：
 
 [!code-csharp[Main](secure-data/samples/final/Authorization/ContactOperations.cs)]
 

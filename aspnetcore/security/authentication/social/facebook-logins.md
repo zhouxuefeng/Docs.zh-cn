@@ -1,8 +1,8 @@
 ---
 title: "在 ASP.NET Core Facebook 外部登录安装程序"
 author: rick-anderson
-description: "在 ASP.NET Core Facebook 外部登录安装程序"
-keywords: ASP.NET Core
+description: "本教程演示的集成到现有的 ASP.NET Core 应用程序的 Facebook 帐户用户身份验证。"
+keywords: "ASP.NET 核心，Facebook 登录名，身份验证"
 ms.author: riande
 manager: wpickett
 ms.date: 08/01/2017
@@ -11,23 +11,21 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 2b478ce38e98977a7c52e9317b5bc6fa0d6624b7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 826ac826c22dae81e5dbea08a11a62cac0b1068a
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-facebook-authentication"></a>配置 Facebook 身份验证
 
-<a name=security-authentication-facebook-logins></a>
-
 作者：[Valeriy Novytskyy](https://github.com/01binary) 和 [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-本教程演示如何使用户可以使用示例 ASP.NET 核心 2.0 项目上创建其 Facebook 帐户登录[上一页](index.md)。 我们首先按照创建 Facebook 应用程序 ID[官方步骤](https://www.facebook.com/unsupportedbrowser)。
+本教程演示如何使用户可以使用示例 ASP.NET 核心 2.0 项目上创建其 Facebook 帐户登录[上一页](index.md)。 我们首先按照创建 Facebook 应用程序 ID[官方步骤](https://developers.facebook.com)。
 
 ## <a name="create-the-app-in-facebook"></a>在 Facebook 中创建应用程序
 
-*  导航到[开发人员的 Facebook](https://www.facebook.com/unsupportedbrowser)页上，并登录。 如果你还没有的 Facebook 帐户，使用**注册 Facebook**创建一个的登录页上的链接。
+*  导航到[开发人员的 Facebook](https://developers.facebook.com)页上，并登录。 如果你还没有的 Facebook 帐户，使用**注册 Facebook**创建一个的登录页上的链接。
 
 * 点击**创建应用**创建一个新的应用程序 id。 右上角的按钮
 
@@ -64,6 +62,13 @@ ms.lasthandoff: 09/28/2017
 ## <a name="store-facebook-app-id-and-app-secret"></a>存储 Facebook 应用程序 ID 和应用程序密码
 
 链接敏感设置，例如 Facebook`App ID`和`App Secret`到你应用程序配置中使用[机密 Manager](xref:security/app-secrets)。 对于此教程的目的，命名为令牌`Authentication:Facebook:AppId`和`Authentication:Facebook:AppSecret`。
+
+执行以下命令以安全地存储`App ID`和`App Secret`使用密钥管理器：
+
+```console
+dotnet user-secrets set Authentication:Facebook:AppId <app-id>
+dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
+```
 
 ## <a name="configure-facebook-authentication"></a>配置 Facebook 身份验证
 

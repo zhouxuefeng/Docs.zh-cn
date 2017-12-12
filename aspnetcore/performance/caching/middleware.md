@@ -1,26 +1,24 @@
 ---
 title: "响应缓存在 ASP.NET 核心中的中间件"
 author: guardrex
-description: "配置和 ASP.NET Core 应用程序中使用的缓存响应的中间件。"
-keywords: "ASP.NET 核心响应缓存，缓存，ResponseCache，ResponseCaching，缓存控制、 VaryByQueryKeys、 中间件"
+description: "了解如何配置和 ASP.NET Core 应用中使用缓存响应的中间件。"
 ms.author: riande
 manager: wpickett
 ms.date: 08/22/2017
 ms.topic: article
-ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: bc3350a7ef15c5c38aa072bab15cbddc7d0ee0fa
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: f3312d0c333b47169c71891eea79f03be0abcfa3
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>响应缓存在 ASP.NET 核心中的中间件
 
 通过[Luke Latham](https://github.com/guardrex)和[John Luo](https://github.com/JunTaoLuo)
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 本文档提供有关如何配置 ASP.NET Core 应用中的响应缓存中间件的详细信息。 该中间件确定响应何时可缓存、 存储响应和从缓存充当响应。 有关 HTTP 缓存功能的简介和`ResponseCache`属性，请参阅[响应缓存](response.md)。
 
@@ -112,13 +110,13 @@ if (responseCachingFeature != null)
 
 [将来对该中间件增强](https://github.com/aspnet/ResponseCaching/issues/96)将允许配置的中间件缓存方案其中请求`Cache-Control`决定提供缓存的响应时应忽略标头。 如果搜索更好地控制缓存行为浏览其他缓存功能的 ASP.NET Core。 请参见下面的主题：
 
-* [内存中缓存中 ASP.NET Core 简介](xref:performance/caching/memory)
+* [内存中缓存](xref:performance/caching/memory)
 * [使用分布式缓存](xref:performance/caching/distributed)
 * [缓存 ASP.NET Core MVC 中的标记帮助器](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [分布式的缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>疑难解答
-如果缓存行为未按预期，，确认响应是否可缓存并且能够从缓存提供的检查请求的传入标头和响应的传出标头。 启用[日志记录](xref:fundamentals/logging)可帮助在调试时。 中间件日志缓存行为和从缓存中时检索的响应。
+如果缓存行为未按预期，，确认响应是否可缓存并且能够从缓存提供的检查请求的传入标头和响应的传出标头。 启用[日志记录](xref:fundamentals/logging/index)可帮助在调试时。 中间件日志缓存行为和从缓存中时检索的响应。
 
 当测试和故障排除缓存行为，浏览器可能设置影响不可取的方法中的缓存的请求标头。 例如，浏览器可能设置`Cache-Control`标头到`no-cache`刷新页面时。 以下工具可以显式设置请求标头，，和测试缓存的首选：
 
@@ -148,3 +146,9 @@ if (responseCachingFeature != null)
 
 * [应用程序启动](xref:fundamentals/startup)
 * [中间件](xref:fundamentals/middleware)
+* [内存中缓存](xref:performance/caching/memory)
+* [使用分布式缓存](xref:performance/caching/distributed)
+* [检测更改令牌更改](xref:fundamentals/primitives/change-tokens)
+* [响应缓存](xref:performance/caching/response)
+* [缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [分布式的缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

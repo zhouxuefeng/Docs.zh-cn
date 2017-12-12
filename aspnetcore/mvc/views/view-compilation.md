@@ -5,17 +5,17 @@ description: "参考文档，以解释如何启用 MVC Razor 视图编译和 ASP
 keywords: "ASP.NET 核心，Razor 视图编译、 Razor 预编译、 Razor 预编译"
 ms.author: riande
 manager: wpickett
-ms.date: 08/16/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.assetid: ab4705b7-1638-1638-bc97-ea7f292fe92a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-compilation
-ms.openlocfilehash: bfee2e5e8f71c99465be79589a77f0e173097b23
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 873f6203f9e7b5bb14968dcec3f8d8e5548bd834
+ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Razor 视图编译和 ASP.NET Core 中的预编译
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/24/2017
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-如果你的项目以.NET Framework 为目标，包括对的包引用`Microsoft.AspNetCore.Mvc.Razor.ViewCompilation`:
+如果你的项目以.NET Framework 为目标，包括对的包引用[Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/):
 
 ```xml
 <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.ViewCompilation" Version="2.0.0" PrivateAssets="All" />
@@ -54,3 +54,7 @@ ASP.NET 核心 2.x 项目模板隐式设置`MvcRazorCompileOnPublish`到`true`�
 [!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
 
 ---
+
+A *< 文件 > 的内容。PrecompiledViews.dll*如果预编译成功，则会生成包含已编译的 Razor 视图中，文件。 例如，下面的屏幕截图描绘的内容*Index.cshtml*内*WebApplication1.PrecompiledViews.dll*:
+
+![DLL 中的 razor 视图](view-compilation/_static/razor-views-in-dll.png)

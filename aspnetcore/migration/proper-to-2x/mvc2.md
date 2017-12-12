@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc2
-ms.openlocfilehash: e0691b276b63ee12d3163ac48d1392696fb97aa6
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 8005d23ad00774e488eecc9771f36a244a051126
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>迁移 ASP.NET ASP.NET 核心 2.0
 
@@ -107,7 +107,7 @@ ASP.NET Core 可以将应用程序的配置数据存储在任何文件中，并�
 services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
 ````
 
-注意：若要获取 ASP.NET Core 配置的更深入的参考信息，请参阅 [ASP.NET Core 中的配置](xref:fundamentals/configuration)。
+注意：若要获取 ASP.NET Core 配置的更深入的参考信息，请参阅 [ASP.NET Core 中的配置](xref:fundamentals/configuration/index)。
 
 ## <a name="native-dependency-injection"></a>本机依存关系注入
 生成大型可缩放应用程序时，一个重要的目标是将组件和服务松散耦合。 [依存关系注入](xref:fundamentals/dependency-injection)是用于实现此目标的热门技术，并且它是 ASP.NET Core 的本机组件。

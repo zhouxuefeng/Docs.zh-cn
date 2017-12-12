@@ -1,31 +1,29 @@
 ---
-title: "使用分布式缓存"
+title: "使用 ASP.NET Core 中分布式缓存"
 author: ardalis
-description: 
-keywords: ASP.NET Core,
+description: "了解如何使用分布式缓存来提高性能和可伸缩性的 ASP.NET Core 应用，尤其是在托管在云中或服务器场环境中时，才。"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 870f082d-6d43-453d-b311-45f3aeb4d2c5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: abf680fef9de175082c1e4f4cebc2b9648f18a28
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="working-with-a-distributed-cache"></a>使用分布式缓存
+# <a name="working-with-a-distributed-cache-in-aspnet-core"></a>使用 ASP.NET Core 中分布式缓存
 
 通过[Steve Smith](https://ardalis.com/)
 
 分布式的缓存可以提高性能和可伸缩性的 ASP.NET Core 应用，尤其是在托管在云中或服务器场环境中。 此文章介绍了如何使用 ASP.NET 核心内置的分布式的缓存抽象和实现。
 
-[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
-## <a name="what-is-a-distributed-cache"></a>什么是分发的缓存
+## <a name="what-is-a-distributed-cache"></a>什么是分布式的缓存
 
 分布式的缓存共享由多个应用程序服务器 (请参阅[缓存的基础知识](memory.md#caching-basics))。 在缓存中的信息不存储在单独的 web 服务器的内存和缓存的数据可供所有应用程序的服务器。 这提供了几个优点：
 
@@ -68,7 +66,7 @@ ms.lasthandoff: 09/12/2017
 
    2. 配置的特定实现`IDistributedCache`中你`Startup`类的`ConfigureServices`方法，并将其添加到容器存在。
 
-   3. 从应用程序的 [`Middleware](../../fundamentals/middleware.md) or MVC controller classes, request an instance of `IDistributedCache 从构造函数。 实例将由提供[依赖关系注入](../../fundamentals/dependency-injection.md)(DI)。
+   3. 从应用程序的[中间件](../../fundamentals/middleware.md)MVC 控制器类，请求的实例或`IDistributedCache`从构造函数。 实例将由提供[依赖关系注入](../../fundamentals/dependency-injection.md)(DI)。
 
 > [!NOTE]
 > 没有无需使用的单一实例或作用域生存期`IDistributedCache`实例 (至少对于内置实现)。 你还可以创建一个实例，只要你可能需要一个 (而不是使用[依赖关系注入](../../fundamentals/dependency-injection.md))，但这会导致你的代码更难若要测试，并且与冲突[显式依赖关系原则](http://deviq.com/explicit-dependencies-principle/)。
@@ -86,7 +84,7 @@ ms.lasthandoff: 09/12/2017
 > [!NOTE]
 > 由于`IDistributedCache`中配置`ConfigureServices`方法，它可供`Configure`作为参数的方法。 将其添加作为参数将允许通过 DI 提供配置的实例。
 
-## <a name="using-a-redis-distributed-cache"></a>使用 Redis 分布式缓存
+## <a name="using-a-redis-distributed-cache"></a>使用分布式的 Redis 缓存
 
 [Redis](https://redis.io/)是一个开放源代码内存中数据存储区，通常用来作为分布式缓存。 你可以在本地，使用它，并且你可以配置[Azure Redis 缓存](https://azure.microsoft.com/services/cache/)为你的 Azure 托管的 ASP.NET Core 应用。 ASP.NET Core 应用程序将配置为使用缓存实现`RedisDistributedCache`实例。
 
@@ -105,7 +103,7 @@ SqlServerCache 实现允许分布式的缓存使用作为其后备存储的 SQL 
 
 若要使用 sql 缓存工具，添加`SqlConfig.Tools`到`<ItemGroup>`元素*.csproj*文件，运行 dotnet 还原。
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+[!code-xml[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
 
 通过运行以下命令来测试 SqlConfig.Tools
 
@@ -136,8 +134,13 @@ C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create "Data Source=(loc
 
 在决定的哪一种实现`IDistributedCache`是适合你的应用，选择 Redis 之间，SQL Server 基于现有基础结构和环境、 性能要求和你的团队的体验。 如果你的团队更喜欢使用 Redis，它是一个理想的选择。 如果你的团队倾向于 SQL Server，您可以确信中以及该实现。 请注意，传统的缓存解决方案将存储数据的内存中用于进行快速检索的数据。 你应在缓存中存储常用的数据并将整个数据存储在 SQL Server 或 Azure 存储空间等后端持久存储区中。 Redis 缓存是为你提供高吞吐量和低延迟相比 SQL 缓存的缓存解决方案。
 
-其他资源：
+## <a name="additional-resources"></a>其他资源
 
-* [在内存中缓存](memory.md)
 * [Redis 在 Azure 上的缓存](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [在 Azure 上的 SQL 数据库](https://azure.microsoft.com/documentation/services/sql-database/)
+* [内存中缓存](xref:performance/caching/memory)
+* [检测更改令牌更改](xref:fundamentals/primitives/change-tokens)
+* [响应缓存](xref:performance/caching/response)
+* [响应缓存中间件](xref:performance/caching/middleware)
+* [缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [分布式的缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

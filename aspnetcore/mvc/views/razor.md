@@ -1,99 +1,104 @@
 ---
 title: "有关 ASP.NET 核心的 razor 语法参考"
 author: rick-anderson
-description: "详细信息 Razor 语法"
-keywords: "ASP.NET 核心 Razor"
+description: "了解如何将基于服务器的代码嵌入到网页的 Razor 标记语法。"
+keywords: "ASP.NET 核心，Razor，Razor 指令"
 ms.author: riande
 manager: wpickett
-ms.date: 07/04/2017
+ms.date: 10/18/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 0e65f0e9f672f9f93256ebc039ea0db2e4ef5ae0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e3c3149254d602db1fcc6d42360690be026189a5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET 核心的 razor 语法
 
-通过[Taylor Mullen](https://twitter.com/ntaylormullen)和[Rick Anderson](https://twitter.com/RickAndMSFT)
+通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Luke Latham](https://github.com/guardrex)， [Taylor Mullen](https://twitter.com/ntaylormullen)，和[Dan Vicarel](https://github.com/Rabadash8820)
 
-## <a name="what-is-razor"></a>什么是 Razor？
-
-Razor 是才能嵌入到网页的服务器基于代码的标记语法。 Razor 语法包含 Razor 标记，C# 和 HTML。 通常包含 Razor 文件具有*.cshtml*文件扩展名。
+Razor 是用于将基于服务器的代码嵌入到网页的标记的语法。 Razor 语法组成 Razor 标记、 C# 和 HTML。 通常包含 Razor 文件具有*.cshtml*文件扩展名。
 
 ## <a name="rendering-html"></a>呈现 HTML
 
-默认 Razor 语言为 HTML。 从 Razor 呈现 HTML 在某一 HTML 文件中是没有什么不同。 使用以下标记 Razor 文件：
-
-```html
-<p>Hello World</p>
-```
-
-呈现为保持不变`<p>Hello World</p>`服务器。
+默认 Razor 语言为 HTML。 呈现 HTML Razor 标记是呈现 HTML 中，某一 HTML 文件没有什么不同。  HTML 标记中的*.cshtml* Razor 文件呈现服务器保持不变。
 
 ## <a name="razor-syntax"></a>Razor 语法
 
-Razor 支持 C#，并使用`@`转换到 C# 的 HTML 中的符号。 Razor C# 表达式的计算结果，并将它们呈现的 HTML 输出中。 Razor 可以从 HTML 转换为 C# 或 Razor 特定标记。 当`@`符号后跟[Razor 保留关键字](#razor-reserved-keywords)转为 Razor 特定标记，否则它可以转换为纯 C#。
+Razor 支持 C#，并使用`@`转换到 C# 的 HTML 中的符号。 Razor C# 表达式的计算结果，并将它们呈现的 HTML 输出中。
 
-<a name=escape-at-label></a>
+当`@`符号后跟[Razor 保留关键字](#razor-reserved-keywords)，它可以转换为 Razor 特定于标记。 否则，它将转换为纯 C#。
 
-HTML 包含`@`符号可能需要使用第二个进行转义`@`符号。 例如: 
+要转义`@`符号在 Razor 标记中，请使用第二个`@`符号：
 
 ```cshtml
 <p>@@Username</p>
 ```
 
-将会呈现在以下 HTML:
+代码以 HTML 格式呈现与单个`@`符号：
 
-```cshtml
+```html
 <p>@Username</p>
 ```
 
-<a name=razor-email-ref></a>
+HTML 特性和内容包含电子邮件地址不处理`@`转换字符的形式的符号。 下面的示例中的电子邮件地址是不触及 Razor 分析：
 
-HTML 特性和内容包含电子邮件地址不处理`@`转换字符的形式的符号。
-
-   `<a href="mailto:Support@contoso.com">Support@contoso.com</a>`
+```cshtml
+<a href="mailto:Support@contoso.com">Support@contoso.com</a>
+```
 
 ## <a name="implicit-razor-expressions"></a>隐式 Razor 表达式
 
-隐式 Razor 表达式开头`@`跟 C# 代码。 例如: 
+隐式 Razor 表达式开头`@`跟 C# 代码：
 
-```html
+```cshtml
 <p>@DateTime.Now</p>
 <p>@DateTime.IsLeapYear(2016)</p>
 ```
 
-除了 C#`await`关键字隐式表达式不能包含空格。 例如，你可以只要 C# 语句已清除结束 intermingle 空格：
+除了 C#`await`关键字，隐式表达式不能包含空格。 如果 C# 语句已清除结束，则可以混合空格：
 
-```html
+```cshtml
 <p>@await DoSomething("hello", "world")</p>
 ```
 
+隐式表达式**无法**包含 C# 泛型，括号内的字符作为 (`<>`) 都会被解释为 HTML 标记。 下面的代码是**不**有效：
+
+```cshtml
+<p>@GenericMethod<int>()</p>
+```
+
+前面的代码生成编译器错误类似于以下项之一：
+
+ * 未关闭的"int"元素。  所有元素都必须为自结束或具有匹配的结束标记。
+ *  无法将方法组 GenericMethod 为非委托 object 类型的转换。 是否希望调用的方法？ 
+ 
+泛型方法调用必须包装在[显式 Razor 表达式](#explicit-razor-expressions)或[Razor 代码块](#razor-code-blocks)。 此限制不适用于*.vbhtml* Razor 文件，因为 Visual Basic 语法将泛型类型参数，而不是括号周围的括号。
+
 ## <a name="explicit-razor-expressions"></a>显式 Razor 表达式
 
-显式 Razor 表达式组成 @ 符号与平衡括号。 例如，若要呈现最后一周的时间：
+显式 Razor 表达式组成`@`与平衡括号的符号。 若要呈现最后一周的时间，请使用以下 Razor 标记：
 
-```html
+```cshtml
 <p>Last week this time: @(DateTime.Now - TimeSpan.FromDays(7))</p>
 ```
 
-中的所有内容 @ （） 括号是计算并呈现到输出。
+中的任何内容`@()`括号是计算并呈现到输出。
 
-隐式表达式通常不能包含空格。 例如，在下面的代码中，一周不是从当前时间减去：
+在上一节中所述的隐式表达式通常不能包含空格。 在下面的代码中，从当前时间中减去不一周：
 
-[!code-html[Main](razor/sample/Views/Home/Contact.cshtml?range=20)]
+[!code-cshtml[Main](razor/sample/Views/Home/Contact.cshtml?range=17)]
 
-这将会呈现以下 HTML:
+代码将以下 HTML 呈现：
 
 ```html
 <p>Last week: 7/7/2016 4:39:52 PM - TimeSpan.FromDays(7)</p>
 ```
 
-可以使用显式表达式将文本与表达式结果串联起来：
+显式表达式可以用于将文本与表达式结果串联起来：
 
 ```cshtml
 @{
@@ -103,70 +108,91 @@ HTML 特性和内容包含电子邮件地址不处理`@`转换字符的形式的
 <p>Age@(joe.Age)</p>
 ```
 
-如果没有显式的表达式，`<p>Age@joe.Age</p>`将被视为电子邮件地址和`<p>Age@joe.Age</p>`将呈现。 在作为显式表达式，写入时`<p>Age33</p>`呈现。
+如果没有显式的表达式，`<p>Age@joe.Age</p>`视为电子邮件地址，和`<p>Age@joe.Age</p>`呈现。 在作为显式表达式，写入时`<p>Age33</p>`呈现。
 
-<a name=expression-encoding-label></a>
+
+显式表达式可以用于呈现输出中的泛型方法*.cshtml*文件。 在隐式表达式中，括号内的字符 (`<>`) 都会被解释为 HTML 标记。 以下标记是**不**有效 Razor:
+
+```cshtml
+<p>@GenericMethod<int>()</p>
+```
+
+前面的代码生成编译器错误类似于以下项之一：
+
+ * 未关闭的"int"元素。  所有元素都必须为自结束或具有匹配的结束标记。
+ *  无法将方法组 GenericMethod 为非委托 object 类型的转换。 是否希望调用的方法？ 
+ 
+ 以下标记显示正确的方式写入此代码。  作为显式表达式编写的代码：
+
+```cshtml
+<p>@(GenericMethod<int>())</p>
+```
+
+注意： 此限制不适用于*.vbhtml* Razor 文件。  与*.vbhtml* Razor 文件，Visual Basic 语法将泛型类型参数，而不是括号周围的括号。
 
 ## <a name="expression-encoding"></a>表达式编码
 
-C# 表达式，其计算结果为字符串是 HTML 编码。 C# 表达式的计算结果为`IHtmlContent`呈现直接通过*IHtmlContent.WriteTo*。 C# 表达式不计算结果为*IHtmlContent*转换为字符串 (由*ToString*) 和编码然后将它们呈现。 例如，以下 Razor 标记：
+C# 表达式，其计算结果为字符串是 HTML 编码。 C# 表达式的计算结果为`IHtmlContent`呈现直接通过`IHtmlContent.WriteTo`。 C# 表达式不计算结果为`IHtmlContent`转换为字符串`ToString`它们在呈现之前进行编码。
 
 ```cshtml
 @("<span>Hello World</span>")
 ```
 
-将此呈现 HTML:
+代码将以下 HTML 呈现：
 
 ```html
 &lt;span&gt;Hello World&lt;/span&gt;
 ```
 
-该浏览器将呈现为：
+HTML 的浏览器所示：
 
-`<span>Hello World</span>`
+```
+<span>Hello World</span>
+```
 
-`HtmlHelper``Raw`输出不是编码而呈现为 HTML 标记。
+`HtmlHelper.Raw`输出没有编码，但呈现为 HTML 标记。
 
->[!WARNING]
-> 使用`HtmlHelper.Raw`未净化的用户输入会带来安全风险。 用户输入可能包含恶意 JavaScript 或其他攻击。 对用户输入会很困难，请不要使用`HtmlHelper.Raw`用户输入。
-
-以下 Razor 标记：
+> [!WARNING]
+> 使用`HtmlHelper.Raw`未净化的用户输入会带来安全风险。 用户输入可能包含恶意 JavaScript 或其他攻击。 对用户输入会很困难。 避免使用`HtmlHelper.Raw`需要用户输入。
 
 ```cshtml
 @Html.Raw("<span>Hello World</span>")
 ```
 
-将此呈现 HTML:
+代码将以下 HTML 呈现：
 
 ```html
 <span>Hello World</span>
 ```
 
-<a name=razor-code-blocks-label></a>
-
 ## <a name="razor-code-blocks"></a>Razor 代码块
 
-Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，则不会呈现代码块内的 C# 代码。 代码块中和表达式 Razor 页共享相同的作用域和按顺序定义 （即，在代码块中的声明将更高版本的代码块和表达式的作用域中）。
+Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，C# 代码块内的代码不呈现。 代码块和在视图中的表达式共享相同的作用域和按顺序定义：
 
-```none
+```cshtml
 @{
-    var output = "Hello World";
+    var quote = "The future depends on what you do today. - Mahatma Gandhi";
 }
 
-<p>The rendered result: @output</p>
+<p>@quote</p>
+
+@{
+    quote = "Hate cannot drive out hate, only love can do that. - Martin Luther King, Jr.";
+}
+
+<p>@quote</p>
 ```
 
-将会呈现在：
+代码将以下 HTML 呈现：
 
 ```html
-<p>The rendered result: Hello World</p>
+<p>The future depends on what you do today. - Mahatma Gandhi</p>
+<p>Hate cannot drive out hate, only love can do that. - Martin Luther King, Jr.</p>
 ```
-
-<a name=implicit-transitions-label></a>
 
 ### <a name="implicit-transitions"></a>隐式转换
 
-代码块中的默认语言为 C# 中，而是可以转换回 HTML。 代码块中的 HTML 将转换回呈现 HTML:
+代码块中的默认语言为 C# 中，而是 Razor 页可以转换回 HTML:
 
 ```cshtml
 @{
@@ -175,11 +201,9 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 }
 ```
 
-<a name=explicit-delimited-transition-label></a>
-
 ### <a name="explicit-delimited-transition"></a>带分隔符的显式转换
 
-若要定义一个小节应呈现的 HTML 代码块，括住的字符要呈现具有 Razor`<text>`标记：
+若要定义的子部分的应呈现的 HTML 代码块，周围呈现的字符与 Razor **\<文本 >**标记：
 
 ```cshtml
 @for (var i = 0; i < people.Length; i++)
@@ -189,11 +213,14 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 }
 ```
 
-通常，当你想要呈现不括在的 HTML 标记的 HTML 时，可使用此方法。 没有 HTML 或 Razor 标记，则会收到 Razor 运行时错误。
+使用此方法来呈现不包围的 HTML 标记的 HTML。 没有 HTML 或 Razor 标记，Razor 运行时错误时发生。
 
-<a name=explicit-line-transition-with-label></a>
+**\<文本 >**标记可用于在呈现内容时控制空白：
 
-### <a name="explicit-line-transition-with-"></a>使用显式行转换`@:`
+* 仅之间的内容**\<文本 >**标记的呈现。 
+* 之前或之后有空格**\<文本 >**的 HTML 输出中将显示标记。
+
+### <a name="explicit-line-transition-with-"></a>显式行转换与 @:
 
 若要在代码块内以 html 格式呈现整个行的其余内容，使用`@:`语法：
 
@@ -205,22 +232,22 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 }
 ```
 
-而无需`@:`在上面的代码中，你会收到一个运行时错误 Razor。
+而无需`@:`在代码中，生成 Razor 运行时错误。
 
-<a name=control-structures-razor-label></a>
+警告： 额外`@`Razor 文件中的字符会导致编译器错误语句在块中更高版本。 这些编译器错误可能很难了解因为实际错误发生之前所报告的错误。  组合到单个代码块的多个隐式/显式表达式后，此错误很常见。
 
 ## <a name="control-structures"></a>控件结构
 
-控制结构是一种扩展的代码块。 所有方面的代码块 （过渡到标记中，内联 C#） 也都适用于以下结构。
+控制结构是一种扩展的代码块。 所有方面的代码块 （过渡到标记中，内联 C#） 也都适用于以下结构：
 
-### <a name="conditionals-if-else-if-else-and-switch"></a>条件语句`@if`， `else if`，`else`和`@switch`
+### <a name="conditionals-if-else-if-else-and-switch"></a>条件语句@if，否则; 否则，和@switch
 
-`@if`系列控制代码的运行时：
+`@if`当代码运行时的控件：
 
 ```cshtml
 @if (value % 2 == 0)
 {
-    <p>The value was even</p>
+    <p>The value was even.</p>
 }
 ```
 
@@ -229,7 +256,7 @@ Razor 代码块开头`@`，并且通过包括`{}`。 与不同的是表达式，
 ```cshtml
 @if (value % 2 == 0)
 {
-    <p>The value was even</p>
+    <p>The value was even.</p>
 }
 else if (value >= 1337)
 {
@@ -237,11 +264,11 @@ else if (value >= 1337)
 }
 else
 {
-    <p>The value was not large and is odd.</p>
+    <p>The value is odd and small.</p>
 }
 ```
 
-你可以使用 switch 语句如下：
+以下标记显示如何使用交换语句：
 
 ```cshtml
 @switch (value)
@@ -253,26 +280,27 @@ else
         <p>Your number is 1337!</p>
         break;
     default:
-        <p>Your number was not 1 or 1337.</p>
+        <p>Your number wasn't 1 or 1337.</p>
         break;
 }
 ```
 
-### <a name="looping-for-foreach-while-and-do-while"></a>循环`@for`， `@foreach`， `@while`，和`@do while`
+### <a name="looping-for-foreach-while-and-do-while"></a>循环@for， @foreach， @while，和@do时
 
-你可以呈现包含循环的控制语句的模板化 HTML。 例如，若要呈现的人员列表：
+模板化 HTML 可以呈现包含循环的控制语句。  若要呈现的人员列表：
 
 ```cshtml
 @{
     var people = new Person[]
     {
-          new Person("John", 33),
-          new Person("Doe", 41),
+          new Person("Weston", 33),
+          new Person("Johnathon", 41),
+          ...
     };
 }
 ```
 
-你可以使用任何以下循环语句：
+支持以下循环语句：
 
 `@for`
 
@@ -323,30 +351,31 @@ else
 } while (i < people.Length);
 ```
 
-### <a name="compound-using"></a>复合`@using`
+### <a name="compound-using"></a>复合@using
 
-使用 C# 语句用于确保释放对象。 在 Razor 此相同的机制可以用于创建包含其他内容的 HTML 帮助器。 例如，我们可以利用 HTML 帮助器呈现窗体标记与`@using`语句：
+在 C# 中，`using`语句用于确保释放对象。 在 Razor，相同的机制用于创建包含其他内容的 HTML 帮助器。 在下面的代码中，HTML 帮助器呈现窗体标记与`@using`语句：
+
 
 ```cshtml
 @using (Html.BeginForm())
 {
     <div>
         email:
-        <input type="email" id="Email" name="Email" value="" />
-        <button type="submit"> Register </button>
+        <input type="email" id="Email" value="">
+        <button>Register</button>
     </div>
 }
 ```
 
-你还可以执行类似上面使用的作用域级别操作[标记帮助程序](tag-helpers/index.md)。
+可以使用执行作用域级操作[标记帮助程序](xref:mvc/views/tag-helpers/intro)。
 
-### <a name="try-catch-finally"></a>`@try`, `catch`, `finally`
+### <a name="try-catch-finally"></a>@trycatch，finally
 
 异常处理是类似于 C#:
 
-[!code-html[Main](razor/sample/Views/Home/Contact7.cshtml)]
+[!code-cshtml[Main](razor/sample/Views/Home/Contact7.cshtml)]
 
-### `@lock`
+### <a name="lock"></a>@lock
 
 Razor 具有的功能来保护与 lock 语句的关键部分：
 
@@ -359,146 +388,139 @@ Razor 具有的功能来保护与 lock 语句的关键部分：
 
 ### <a name="comments"></a>注释
 
-Razor 支持 C# 和 HTML 注释。 以下标记：
+Razor 支持 C# 和 HTML 注释：
 
 ```cshtml
 @{
-    /* C# comment. */
-    // Another C# comment.
+    /* C# comment */
+    // Another C# comment
 }
 <!-- HTML comment -->
 ```
 
-作为由服务器呈现：
+代码将以下 HTML 呈现：
 
-```cshtml
+```html
 <!-- HTML comment -->
 ```
 
-在呈现页之前，将服务器中删除 razor 注释。 使用 razor`@*  *@`来分隔注释。 下面的代码是加上注释，以便服务器将不会呈现任何标记：
+在呈现网页之前，将服务器中删除 razor 注释。 使用 razor`@*  *@`来分隔注释。 下面的代码是加上注释，因此服务器不呈现任何标记：
 
 ```cshtml
 @*
- @{
-     /* C# comment. */
-     // Another C# comment.
- }
- <!-- HTML comment -->
+    @{
+        /* C# comment */
+        // Another C# comment
+    }
+    <!-- HTML comment -->
 *@
 ```
 
-<a name=razor-directives-label></a>
-
 ## <a name="directives"></a>指令
 
-保留的关键字以下的隐式表达式由表示 razor 指令`@`符号。 通常，一个指令将更改分析页面的方式，或者启用 Razor 页内的不同功能。
+保留的关键字以下的隐式表达式由表示 razor 指令`@`符号。 指令通常会更改的方式视图分析或启用不同的功能。
 
-了解如何 Razor 生成视图的代码将更加轻松地了解指令的工作原理。 Razor 页用于生成 C# 文件中。 例如，此 Razor 页：
+了解如何 Razor 生成视图的代码，使更易于理解指令的工作方式。
 
 [!code-html[Main](razor/sample/Views/Home/Contact8.cshtml)]
 
-生成类似于下面的类：
+在代码中生成类似于下面的类：
 
 ```csharp
 public class _Views_Something_cshtml : RazorPage<dynamic>
 {
     public override async Task ExecuteAsync()
     {
-        var output = "Hello World";
+        var output = "Getting old ain't for wimps! - Anonymous";
 
-        WriteLiteral("/r/n<div>Output: ");
+        WriteLiteral("/r/n<div>Quote of the Day: ");
         Write(output);
         WriteLiteral("</div>");
     }
 }
 ```
 
-[查看生成的视图的 Razor C# 类](#razor-customcompilationservice-label)说明如何查看此生成的类。
+在本文中，部分中更高版本[查看生成的视图的 Razor C# 类](#viewing-the-razor-c-class-generated-for-a-view)说明如何查看此生成的类。
 
-### `@using`
+### <a name="using"></a>@using
 
-`@using`指令将添加 c#`using`指令至生成的 razor 页：
+`@using`指令添加 C#`using`指令到生成的视图：
 
-[!code-html[Main](razor/sample/Views/Home/Contact9.cshtml)]
+[!code-cshtml[Main](razor/sample/Views/Home/Contact9.cshtml)]
 
-### `@model`
+### <a name="model"></a>@model
 
-`@model`指令指定的模型传递给 Razor 页的类型。 它使用以下语法：
+`@model`指令指定的模型传递到视图类型：
 
 ```cshtml
 @model TypeNameOfModel
 ```
 
-例如，如果使用单个用户帐户创建的 ASP.NET 核心 MVC 应用*Views/Account/Login.cshtml* Razor 视图包含以下模型声明：
+在 ASP.NET 核心 MVC 应用程序使用单个用户帐户创建*Views/Account/Login.cshtml*视图包含以下模型声明：
 
 ```cshtml
 @model LoginViewModel
 ```
 
-在前面的类示例中，生成的类继承自`RazorPage<dynamic>`。 通过添加`@model`控制什么继承。 例如
-
-```cshtml
-@model LoginViewModel
-```
-
-生成下面的类
+生成的类继承自`RazorPage<dynamic>`:
 
 ```csharp
 public class _Views_Account_Login_cshtml : RazorPage<LoginViewModel>
 ```
 
-Razor 页公开`Model`属性访问的模型传递到页。
+Razor 公开`Model`属性访问的模型传递给视图：
 
 ```cshtml
 <div>The Login Email: @Model.Email</div>
 ```
 
-`@model`指令指定此属性的类型 (通过指定`T`中`RazorPage<T>`页生成的类派生自)。 如果没有指定`@model`指令`Model`属性的类型将为`dynamic`。 模型的值从控制器传递到该视图。 请参阅[强类型模型和@model关键字](../../tutorials/first-mvc-app/adding-model.md#strongly-typed-models-keyword-label)有关详细信息。
+`@model`指令指定此属性的类型。 指令指定`T`中`RazorPage<T>`，生成类，派生自的视图。 如果`@model`指令不会指定，`Model`属性属于类型`dynamic`。 模型的值从控制器传递到该视图。 有关详细信息，请参阅 [强类型模型和@model关键字。
 
-### `@inherits`
+### <a name="inherits"></a>@inherits
 
-`@inherits`指令可完全控制 Razor 页继承的类：
+`@inherits`指令提供的视图继承的类的完全控制：
 
 ```cshtml
 @inherits TypeNameOfClassToInheritFrom
 ```
 
-例如，假设我们有以下自定义 Razor 页类型：
+下面的代码是自定义的 Razor 页类型：
 
 [!code-csharp[Main](razor/sample/Classes/CustomRazorPage.cs)]
 
-将生成以下 Razor `<div>Custom text: Hello World</div>`。
+`CustomText`视图中显示：
 
-[!code-html[Main](razor/sample/Views/Home/Contact10.cshtml)]
+[!code-cshtml[Main](razor/sample/Views/Home/Contact10.cshtml)]
 
-不能使用`@model`和`@inherits`同一页面上。 你可以`@inherits`中*_ViewImports.cshtml* Razor 页导入的文件。 例如，如果在 Razor 视图导入以下*_ViewImports.cshtml*文件：
+代码将以下 HTML 呈现：
 
-[!code-html[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
-
-以下的强类型化的 Razor 页面
-
-[!code-html[Main](razor/sample/Views/Home/Login1.cshtml)]
-
-生成此 HTML 标记：
-
-```cshtml
-<div>The Login Email: Rick@contoso.com</div>
-<div>Custom text: Hello World</div>
+```html
+<div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
-当传递"[Rick@contoso.com](mailto:Rick@contoso.com)"模型中：
+ `@model`和`@inherits`可以在同一个视图中使用。  `@inherits`可以采用*_ViewImports.cshtml*视图导入的文件：
 
-   请参阅[布局](layout.md)了解详细信息。
+[!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 
-### `@inject`
+下面的代码是强类型化视图的一个示例：
 
-`@inject`指令使你能够注入从服务你[服务容器](../../fundamentals/dependency-injection.md)到使用你 Razor 页。 请参阅[到视图的依赖关系注入](dependency-injection.md)。
+[!code-cshtml[Main](razor/sample/Views/Home/Login1.cshtml)]
 
-<a name="functions"></a>
+如果"rick@contoso.com"传递在模型中，视图将生成以下的 HTML 标记：
 
-### `@functions`
+```html
+<div>The Login Email: rick@contoso.com</div>
+<div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
+```
 
-`@functions`指令，可将函数级的内容添加到你 Razor 页。 语法为：
+### <a name="inject"></a>@inject
+
+
+`@inject`指令，Razor 页后，可以将从服务注入[服务容器](xref:fundamentals/dependency-injection)到视图。 有关详细信息，请参阅[到视图的依赖关系注入](xref:mvc/views/dependency-injection)。
+
+### <a name="functions"></a>@functions
+
+`@functions`指令，Razor 页后，可以将函数级内容添加到视图：
 
 ```cshtml
 @functions { // C# Code }
@@ -506,31 +528,31 @@ Razor 页公开`Model`属性访问的模型传递到页。
 
 例如: 
 
-[!code-html[Main](razor/sample/Views/Home/Contact6.cshtml)]
+[!code-cshtml[Main](razor/sample/Views/Home/Contact6.cshtml)]
 
-生成以下的 HTML 标记：
+代码生成以下的 HTML 标记：
 
-```cshtml
+```html
 <div>From method: Hello</div>
 ```
 
-生成 Razor 的 C# 如下所示：
+下面的代码是生成的 Razor C# 类：
 
 [!code-csharp[Main](razor/sample/Classes/Views_Home_Test_cshtml.cs?range=1-19)]
 
-### `@section`
+### <a name="section"></a>@section
 
-`@section`结合使用指令[布局页](layout.md)启用视图呈现中呈现的 HTML 页面的不同部分的内容。 请参阅[部分](layout.md#layout-sections-label)有关详细信息。
+`@section`结合使用指令[布局](xref:mvc/views/layout)以启用要呈现的 HTML 页面的不同部分中的内容视图。 有关详细信息，请参阅[部分](xref:mvc/views/layout#layout-sections-label)。
 
 ## <a name="tag-helpers"></a>标记帮助程序
 
-以下[标记帮助程序](tag-helpers/index.md)指令中提供的链接详细介绍。
+有三个指令属于[标记帮助程序](xref:mvc/views/tag-helpers/intro)。
 
-* [@addTagHelper](tag-helpers/intro.md#add-helper-label)
-* [@removeTagHelper](tag-helpers/intro.md#remove-razor-directives-label)
-* [@tagHelperPrefix](tag-helpers/intro.md#prefix-razor-directives-label)
-
-<a name=razor-reserved-keywords-label></a>
+| 指令 | 函数 |
+| --------- | -------- |
+| [@addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | 使得标记帮助程序适用于一个视图。 |
+| [@removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | 删除之前从视图添加标记帮助程序。 |
+| [@tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | 指定要启用标记帮助器支持，并若要使标记帮助器使用显式标记前缀。 |
 
 ## <a name="razor-reserved-keywords"></a>Razor 保留关键字
 
@@ -541,9 +563,9 @@ Razor 页公开`Model`属性访问的模型传递到页。
 * 继承
 * 模型
 * section
-* 帮助器 （不支持 ASP.NET Core。）
+* （当前不支持 ASP.NET Core） 的帮助器
 
-可以使用转义 razor 关键字`@(Razor Keyword)`，例如`@(functions)`。 请参阅下面的完整示例。
+与转义 razor 关键字`@(Razor Keyword)`(例如， `@(functions)`)。
 
 ### <a name="c-razor-keywords"></a>C# Razor 关键字
 
@@ -562,42 +584,39 @@ Razor 页公开`Model`属性访问的模型传递到页。
 * using
 * while
 
-C# Razor 关键字需要双使用转义`@(@C# Razor Keyword)`，例如`@(@case)`。 第一个`@`转义 Razor 分析器中，第二个`@`转义 C# 分析器。 请参阅下面的完整示例。
+C# Razor 关键字必须使用双转义`@(@C# Razor Keyword)`(例如， `@(@case)`)。 第一个`@`转义 Razor 分析器。 第二个`@`转义 C# 分析器。
 
 ### <a name="reserved-keywords-not-used-by-razor"></a>不使用 Razor 的保留的关键字
 
 * namespace
 * 类
 
-<a name=razor-customcompilationservice-label></a>
-
 ## <a name="viewing-the-razor-c-class-generated-for-a-view"></a>查看生成的视图的 Razor C# 类
 
 将下面的类添加到 ASP.NET 核心 MVC 项目：
 
-[!code-csharp[Main](razor/sample/Services/CustomCompilationService.cs)]
+[!code-csharp[Main](razor/sample/Utilities/CustomTemplateEngine.cs)]
 
-重写`ICompilationService`由 MVC 具有上述类; 添加
+重写`RazorTemplateEngine`添加通过与 MVC`CustomTemplateEngine`类：
 
-[!code-csharp[Main](razor/sample/Startup.cs?highlight=4&range=29-33)]
+[!code-csharp[Main](razor/sample/Startup.cs?highlight=4&range=10-14)]
 
-在上设置断点`Compile`方法`CustomCompilationService`和视图，以及`compilationContent`。
+在上设置断点`return csharpDocument`的语句`CustomTemplateEngine`。 当在断点处停止程序执行时，查看值`generatedCode`。
 
-![CompilationContent 文本可视化工具视图](razor/_static/tvr.png)
+![GeneratedCode 文本可视化工具视图](razor/_static/tvr.png)
 
-<a name="case"></a>
 ## <a name="view-lookups-and-case-sensitivity"></a>视图的查找，并区分大小写
 
-Razor 视图引擎视图执行区分大小写的查找。 但是，由基础源确定实际查找：
+Razor 视图引擎视图执行区分大小写的查找。 但是，由基础文件系统确定实际查找：
 
 * 文件基于的源： 
+  * 在操作系统上使用区分大小写的文件系统 (例如，Windows)，物理文件提供程序查找是区分大小写的。 例如，`return View("Test")`与匹配的结果将导致*/Views/Home/Test.cshtml*， */Views/home/test.cshtml*，和任何其他大小写变体。
+  * 在区分大小写的文件系统 (例如，Linux，OSX，且`EmbeddedFileProvider`)，查找是区分大小写。 例如，`return View("Test")`专门匹配*/Views/Home/Test.cshtml*。
+* 预编译视图： 使用 ASP.NET Core 2.0 及更高版本，查找预编译视图是在所有操作系统上不区分。 行为是在 Windows 上的物理文件提供程序的行为相同。 如果两个预编译的视图仅大小写不同，查找的结果是不确定的。
 
-    * 在操作系统上使用区分大小写的文件系统 （如 Windows)，物理文件提供程序查找是区分大小写的。 例如`return View("Test")`将导致`/Views/Home/Test.cshtml`，`/Views/home/test.cshtml`和所有其他大小写变体可能会发现。
-    * 在区分大小写的文件系统，其中包括 Linux，OSX 和`EmbeddedFileProvider`，查找是区分大小写。 例如，`return View("Test")`将专门查找`/Views/Home/Test.cshtml`。
-        
-* 预编译的视图：
+开发人员建议以匹配的文件和目录名称的大小写的大小写：
 
-   * ASP.Net 核心 2.0 和更高版本，查找预编译视图是在所有操作系统上不区分。 行为是在 Windows 上的物理文件提供程序的行为相同。 
-   注意： 如果两个预编译的视图仅大小写不同，查找的结果是不确定的。
-
-开发人员建议以匹配到区域，控制器和操作的名称的大小写的文件和目录名称的大小写。 这将确保你的部署保持不可知的基础的文件系统。
+    * 区域、 控制器和操作名称。 
+    * Razor 的页数。
+    
+匹配用例以确保部署找到其视图而不考虑基础文件系统。

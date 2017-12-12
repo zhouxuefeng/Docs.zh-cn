@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: ff0a1a34ee6b025be6312a81f1a0bcdd07026adb
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: 46b92a1cab6fb2cd06eff44feb6a55788fca5c2a
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>依赖关系注入到控制器
 
@@ -89,7 +89,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstr
 
 ## <a name="accessing-settings-from-a-controller"></a>从控制器的访问设置
 
-访问应用程序或配置设置从控制器中的是通用模式。 此访问都应该使用中所述的选项模式[配置](../../fundamentals/configuration.md)。 你通常应该不会请求设置直接从你使用依赖关系注入的控制器。 更好的方法是请求`IOptions<T>`实例，其中`T`是你需要配置类。
+访问应用程序或配置设置从控制器中的是通用模式。 此访问都应该使用中所述的选项模式[配置](xref:fundamentals/configuration/index)。 你通常应该不会请求设置直接从你使用依赖关系注入的控制器。 更好的方法是请求`IOptions<T>`实例，其中`T`是你需要配置类。
 
 若要使用的选项模式，你需要创建一个类，表示的选项，例如这个：
 
@@ -100,7 +100,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstr
 [!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
 
 > [!NOTE]
-> 在上面的列表中，我们在配置应用程序读取从 JSON 格式的文件的设置。 如上面的注释代码中所示，还可以完全在代码中，配置设置。 请参阅[配置](../../fundamentals/configuration.md)有关进一步的配置选项。
+> 在上面的列表中，我们在配置应用程序读取从 JSON 格式的文件的设置。 如上面的注释代码中所示，还可以完全在代码中，配置设置。 请参阅[配置](xref:fundamentals/configuration/index)有关进一步的配置选项。
 
 一旦你指定的强类型的配置对象 (在这种情况下， `SampleWebSettings`) 并将它添加到服务集合中，你可以从那里请求任何控制器或操作的方法请求的实例，通过`IOptions<T>`(在这种情况下， `IOptions<SampleWebSettings>`). 下面的代码演示如何一个将请求从控制器的设置：
 

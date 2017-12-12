@@ -11,11 +11,11 @@ ms.assetid: 67bd162b-bfb7-4750-9e7f-705228b5288c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: daf6dd8024863e02e40ad002a0a7da388f5a2ec7
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: b59782bccce00f3940da4ec8bcff768aff8fa4ef
+ms.sourcegitcommit: ccf08615ad59bc6f654560de33b93396113a2eb0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>更新相关的数据的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (7 个 10)
 
@@ -219,7 +219,7 @@ HttpGet`Edit`方法设置选定的项，基于部门已分配给过程中正在�
 
 <a id="notepad"></a>
 > [!NOTE] 
-> 当你将代码粘贴到 Visual Studio 时，分行符将更改在将中断代码的方式。  按 Ctrl + Z 一次撤消的自动格式设置。  这将修复分行符，使它们看起来像所示。 缩进不一定是完美的但`@</tr><tr>`， `@:<td>`， `@:</td>`，和`@:</tr>`行都必须在单独的行所示，或你将获取运行时错误。 与所选的新代码块，按 tab 键三次到了新代码与现有代码的行。
+> 当你将代码粘贴到 Visual Studio 时，分行符将更改在将中断代码的方式。  按 Ctrl + Z 一次撤消的自动格式设置。  这将修复分行符，使它们看起来像所示。 缩进不一定是完美的但`@</tr><tr>`， `@:<td>`， `@:</td>`，和`@:</tr>`行都必须在单独的行所示，或你将获取运行时错误。 与所选的新代码块，按 tab 键三次到了新代码与现有代码的行。 你可以检查此问题的状态[此处](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html)。
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 

@@ -1,8 +1,8 @@
 ---
 title: "密码哈希"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "本文档说明如何使用 ASP.NET Core 数据保护 Api 的密码执行哈希。"
+keywords: "ASP.NET 核心，数据保护、 密码哈希"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 982a1eb2-1e6f-4909-896f-82784364472d
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: d4b39bf7feba8a29e0b5c9e56d53a85b82977b7e
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: da9f505f58f18f7ab3b93753bae079eb976b3939
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="password-hashing"></a>密码哈希
 

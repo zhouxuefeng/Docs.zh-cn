@@ -1,5 +1,5 @@
 ---
-title: "ASP.NET 核心 MVC 的概述"
+title: "ASP.NET Core MVC 概述"
 author: ardalis
 description: "了解如何 ASP.NET 核心 MVC 是用于生成 web 应用的丰富的框架和 Api 使用模型-视图-控制器设计模式。"
 keywords: ASP.NET Core
@@ -12,12 +12,12 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
 ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="overview-of-aspnet-core-mvc"></a>ASP.NET 核心 MVC 的概述
+# <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC 概述
 
 通过[Steve Smith](https://ardalis.com/)
 
@@ -183,7 +183,7 @@ ASP.NET Core 提供的内置支持[依赖关系注入 (DI)](../fundamentals/depe
 
 [区域](controllers/areas.md)提供一种方法进行分区到较小功能分组中的大型 ASP.NET 核心 MVC Web 应用。 一个区域实际上是在应用程序内的 MVC 结构。 在 MVC 项目中，逻辑组件，如模型、 控制器和视图保留在不同的文件夹和 MVC 使用命名约定来创建这些组件之间的关系。 对于大型应用，它可能会更有利分区成单独的功能的高级别区域的应用程序。 例如，电子商务应用程序与多个业务单位，例如签出、 计费和搜索等等。这些部门的每个具有其自己的逻辑组件视图、 控制器和模型。
 
-### <a name="web-apis"></a>Web Api
+### <a name="web-apis"></a>Web API
 
 除了正在很好的平台，用于构建网站，ASP.NET 核心 MVC 还具有很好的生成 Web Api 的支持。 你可以构建可以覆盖广泛的客户端包括浏览器和移动设备的服务。
 

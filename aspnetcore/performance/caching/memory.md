@@ -1,28 +1,26 @@
 ---
 title: "ASP.NET 核心中的内存中缓存"
 author: rick-anderson
-description: "演示如何在 ASP.NET Core 中的内存中缓存数据。"
-keywords: "ASP.NET 核心，缓存中中的内存性能"
+description: "了解如何在 ASP.NET Core 中的内存中缓存数据。"
 ms.author: riande
 manager: wpickett
 ms.date: 12/14/2016
 ms.topic: article
-ms.assetid: 819511cf-d33e-410a-b5a9-bef7fa64d2f3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ce865427b6ca44c76888908fdeea9cd45c881c4
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 23312e73b4530b24b8479e2d379f16315b672ca4
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>内存中缓存中 ASP.NET Core 简介
+# <a name="in-memory-caching-in-aspnet-core"></a>ASP.NET 核心中的内存中缓存
 
 通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [John Luo](https://github.com/JunTaoLuo)，和[Steve Smith](https://ardalis.com/)
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 ## <a name="caching-basics"></a>缓存的基础知识
 
@@ -89,7 +87,7 @@ Web 场中的非粘性会话需要[分布式缓存](distributed.md)以避免缓�
 
 使用`CancellationTokenSource`允许多个缓存条目被逐出作为一个组。 与`using`在上面的代码的模式，在内部创建的缓存条目`using`块将继承触发器和过期时间设置。
 
-### <a name="additional-notes"></a>附加说明
+## <a name="additional-notes"></a>附加说明
 
 - 当使用的回调以重新填充缓存项：
 
@@ -98,7 +96,11 @@ Web 场中的非粘性会话需要[分布式缓存](distributed.md)以避免缓�
 
 - 当一个缓存条目用于创建另一个时，子复制父项的过期的令牌和基于时间的过期时间设置。 子级不是通过手动删除过期的或更新的父项。
 
-### <a name="other-resources"></a>其他资源
+## <a name="additional-resources"></a>其他资源
 
-* [使用分布式缓存](distributed.md)
-* [响应缓存中间件](middleware.md)
+* [使用分布式缓存](xref:performance/caching/distributed)
+* [检测更改令牌更改](xref:fundamentals/primitives/change-tokens)
+* [响应缓存](xref:performance/caching/response)
+* [响应缓存中间件](xref:performance/caching/middleware)
+* [缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [分布式的缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

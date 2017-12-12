@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: bba0eafe3917fa850b3a07df8df6448409f4062d
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 83b2647df8beec1feae33400224dacf9823be9b4
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>在 ASP.NET Core 中的应用程序启动
 
@@ -30,7 +30,7 @@ ASP.NET Core 应用需要`Startup`类，该类名为`Startup`按照约定。 指
 
 或者，你可以定义固定`Startup`将通过调用而不考虑环境中使用的类`UseStartup<TStartup>`。 此为推荐方法。
 
-`Startup`类构造函数可以接受的依赖项，通过提供[依赖关系注入](xref:fundamentals/dependency-injection)。 常见方法是使用`IHostingEnvironment`设置[配置](xref:fundamentals/configuration)源。
+`Startup`类构造函数可以接受的依赖项，通过提供[依赖关系注入](xref:fundamentals/dependency-injection)。 常见方法是使用`IHostingEnvironment`设置[配置](xref:fundamentals/configuration/index)源。
 
 `Startup`类必须包含`Configure`方法并且可以根据需要包含`ConfigureServices`方法，这两种应用程序启动时调用。 类还可包含[这些方法的特定于环境的版本](xref:fundamentals/environments#startup-conventions)。 `ConfigureServices`如果存在之前, 调用`Configure`。
 
@@ -38,7 +38,7 @@ ASP.NET Core 应用需要`Startup`类，该类名为`Startup`按照约定。 指
 
 ## <a name="the-configureservices-method"></a>ConfigureServices 方法
 
-[ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_)方法是可选的; 但如果使用，则将不调用之前`Configure`web 主机的方法。 Web 主机可以配置某些服务之前``Startup``调用方法 (请参阅[承载](xref:fundamentals/hosting))。 按照约定，[配置选项](xref:fundamentals/configuration)在此方法中设置。
+[ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_)方法是可选的; 但如果使用，则将不调用之前`Configure`web 主机的方法。 Web 主机可以配置某些服务之前``Startup``调用方法 (请参阅[承载](xref:fundamentals/hosting))。 按照约定，[配置选项](xref:fundamentals/configuration/index)在此方法中设置。
 
 对于需要大量的安装程序的功能有`Add[Service]`上的扩展方法[IServiceCollection](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection)。 此示例摘自默认网站模板配置应用程序，以将服务用于实体框架、 标识和 MVC:
 
@@ -76,5 +76,5 @@ ASP.NET 核心依赖关系注入应用程序的启动期间提供服务。 你�
 
 * [使用多个环境](xref:fundamentals/environments)
 * [中间件](xref:fundamentals/middleware)
-* [日志记录](xref:fundamentals/logging)
-* [配置](xref:fundamentals/configuration)
+* [日志记录](xref:fundamentals/logging/index)
+* [配置](xref:fundamentals/configuration/index)

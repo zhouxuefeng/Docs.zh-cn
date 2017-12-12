@@ -10,23 +10,23 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 280819a6a0afb72311f0d50f7d3b83a942e9fcc3
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 897d9b360ceeb5fbb0863ff1c1fcec039e1a8b8f
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>安全存储在 ASP.NET Core 在开发过程中的应用程序机密
 
 通过[Rick Anderson](https://twitter.com/RickAndMSFT)， [Daniel Roth](https://github.com/danroth27)，和[Scott Addie](https://scottaddie.com) 
 
-本文档说明如何在开发中使用密钥管理器工具需要机密放在代码外部。 最重要的一点是你应永远不会将密码或其他敏感数据存储在源代码中，且你不应在开发和测试模式下使用生产机密。 你可以改用[配置](../fundamentals/configuration.md)系统环境变量读取这些值或从值存储使用密钥管理器工具。 密码管理器工具可帮助避免敏感数据被签入源代码管理。 [配置](../fundamentals/configuration.md)系统可以读取此文章中所述的密钥管理器工具与存储的机密。
+本文档说明如何在开发中使用密钥管理器工具需要机密放在代码外部。 最重要的一点是你应永远不会将密码或其他敏感数据存储在源代码中，且你不应在开发和测试模式下使用生产机密。 你可以改用[配置](xref:fundamentals/configuration/index)系统环境变量读取这些值或从值存储使用密钥管理器工具。 密码管理器工具可帮助避免敏感数据被签入源代码管理。 [配置](xref:fundamentals/configuration/index)系统可以读取此文章中所述的密钥管理器工具与存储的机密。
 
 密码管理器工具仅用于开发。 您可以保护与 Azure 的测试和生产机密[Microsoft Azure 密钥保管库](https://azure.microsoft.com/services/key-vault/)配置提供程序。 请参阅[Azure 密钥保管库配置提供程序](https://docs.microsoft.com/aspnet/core/security/key-vault-configuration)有关详细信息。
 
 ## <a name="environment-variables"></a>环境变量
 
-若要避免在代码中或在本地配置文件中存储应用程序机密，请在环境变量中存储机密。 你可以设置[配置](../fundamentals/configuration.md)框架，以读取从环境变量的值，通过调用`AddEnvironmentVariables`。 然后可以使用环境变量来重写的所有以前指定的配置源的配置值。
+若要避免在代码中或在本地配置文件中存储应用程序机密，请在环境变量中存储机密。 你可以设置[配置](xref:fundamentals/configuration/index)框架，以读取从环境变量的值，通过调用`AddEnvironmentVariables`。 然后可以使用环境变量来重写的所有以前指定的配置源的配置值。
 
 例如，如果使用单个用户帐户创建新的 ASP.NET 核心 web 应用程序，它将添加到的默认连接字符串*appsettings.json*与键项目文件中的`DefaultConnection`。 默认连接字符串为安装程序以使用 LocalDB，在用户模式下运行，而且不需要密码。 当你部署到测试或生产服务器应用程序时，你可以重写`DefaultConnection`密钥用于测试或生产数据库包含 （可能有敏感凭据） 的连接字符串的环境变量设置的值服务器。
 
@@ -127,4 +127,4 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 
 ## <a name="additional-resources"></a>其他资源
 
-* [配置](../fundamentals/configuration.md)
+* [配置](xref:fundamentals/configuration/index)

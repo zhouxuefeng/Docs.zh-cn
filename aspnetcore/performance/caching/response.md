@@ -1,26 +1,24 @@
 ---
 title: "响应缓存在 ASP.NET 核心"
 author: rick-anderson
-description: "了解如何使用缓存来降低带宽并提高性能的响应。"
-keywords: "ASP.NET 核心，缓存，HTTP 标头的响应"
+description: "了解如何使用缓存到较低带宽要求的响应，并增加的 ASP.NET Core 应用的性能。"
 ms.author: riande
 manager: wpickett
 ms.date: 09/20/2017
 ms.topic: article
-ms.assetid: cb42035a-60b0-472e-a614-cb79f443f654
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 79d9246632aae0fe9c3629fd7202842836828151
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 104cfb2eab706a2ec6278b4d1c461f70b0af5df1
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="response-caching-in-aspnet-core"></a>响应缓存在 ASP.NET 核心
 
 通过[John Luo](https://github.com/JunTaoLuo)， [Rick Anderson](https://twitter.com/RickAndMSFT)， [Steve Smith](https://ardalis.com/)，和[Luke Latham](https://github.com/guardrex)
 
-[查看或下载的示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample)([如何下载](xref:tutorials/index#how-to-download-a-sample))
+[查看或下载示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample)（[如何下载](xref:tutorials/index#how-to-download-a-sample)）
 
 响应缓存可减少客户端或代理对 web 服务器的请求数。 响应缓存还可减少量工作的 web 服务器执行程序生成响应。 响应缓存由标头，指定你希望客户端、 代理和缓存响应的中间件如何控制。
 
@@ -179,4 +177,9 @@ Cache-Control: public,max-age=60
 
 * [在缓存中 HTTP 规范中](https://tools.ietf.org/html/rfc7234#section-3)
 * [缓存控制](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [内存中缓存](xref:performance/caching/memory)
+* [使用分布式缓存](xref:performance/caching/distributed)
+* [检测更改令牌更改](xref:fundamentals/primitives/change-tokens)
 * [响应缓存中间件](xref:performance/caching/middleware)
+* [缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [分布式的缓存标记帮助器](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

@@ -2,7 +2,7 @@
 title: "使用 ASP.NET Core 中的 Bower"
 author: rick-anderson
 description: "管理 Bower 的客户端包。"
-keywords: "ASP.NET 核心、 bower"
+keywords: ASP.NET Core,bower
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5d9acc59b6f40dc8a336f59925d639fff007c4e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 183e748cbf87b1973941eacb3fb1008f4041bb2a
+ms.sourcegitcommit: 532a323f99a37c4d7894c95cee3f7a04b594dcec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>管理 ASP.NET Core 中的 Bower 的客户端包
 
@@ -78,7 +78,7 @@ Bower 使用[语义版本控制](http://semver.org/)来组织依赖关系。 语
 
 ## <a name="exploring-the-client-side-build-process"></a>浏览客户端生成过程
 
-大多数 ASP.NET Core 项目模板已配置为使用 Bower。 此下一个演练中创建空的 ASP.NET Core 项目启动，并手动添加每个部分，以便您可以如何在项目中使用 Bower 获取获得感觉。 你看到可以项目结构会发生什么情况，并且不会进行运行时输出为每个配置更改。
+大多数 ASP.NET Core 项目模板已配置为使用 Bower。 此下一个演练中创建空的 ASP.NET Core 项目启动，并手动添加每个部分，以便您可以如何在项目中使用 Bower 获取获得感觉。 你可以查看到的项目结构和运行时，输出会和每个配置更改会发生什么情况。
 
 将客户端生成过程用于 Bower 的常规步骤如下：
 

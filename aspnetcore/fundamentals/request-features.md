@@ -12,16 +12,16 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/request-features
 ms.openlocfilehash: b689d82d16c6ef55485691b3474a070765c8144b
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="request-features-in-aspnet-core"></a>请求中的新 ASP.NET 核心功能
 
 通过[Steve Smith](https://ardalis.com/)
 
-Web 服务器实现在接口中定义的与 HTTP 请求和响应相关的详细信息。 服务器实现和中间件使用这些接口来创建和修改应用程序的托管管道。
+与 HTTP 请求和响应相关的 Web 服务器实现详细信息在接口中定义。 服务器实现和中间件使用这些接口来创建和修改应用程序的托管管道。
 
 ## <a name="feature-interfaces"></a>功能接口
 
