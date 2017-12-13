@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: dfe8136dccb0e98a9fc6b1395161ccb442392c76
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c66bb3a9d766e02c7775906cdd547a0e12c15336
+ms.sourcegitcommit: b38796ea3806bf39b89806adfa681b2a33762907
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="updating-the-generated-pages"></a>更新生成的页面
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/10/2017
 * 在其他浏览器窗口中，选择同一电影的“删除”链接，然后删除此电影。
 * 在之前的浏览器窗口中，将更改发布到电影。
 
-当两个或更多客户端同时更新记录时，生产代码通常将检测到并发冲突。 有关详细信息，请参阅[处理并发冲突](xref:data/ef-mvc/concurrency)。
+当两个或更多客户端同时更新记录时，生产代码通常将检测到并发冲突。 有关详细信息，请参阅[处理并发冲突](xref:data/ef-rp/concurrency)。
 
 ### <a name="posting-and-binding-review"></a>发布和绑定审阅
 

@@ -5,19 +5,21 @@ description:
 keywords: ASP.NET Core
 ms.author: tdykstra
 manager: wpickett
-ms.date: 03/15/2017
+ms.date: 10/15/2017
 ms.topic: get-started-article
 ms.assetid: 9918be4c-2096-404f-9b2a-ed5cde90042a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/index
-ms.openlocfilehash: d1c9faf4babeb3423139418aecc88411e8bfc852
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d3b60eedd46bd657f01cd6b32da7e42d6af6b1c2
+ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="getting-started-with-aspnet-core-and-entity-framework-core-using-visual-studio"></a>借助 Visual Studio 使用 ASP.NET Core 和 Entity Framework Core 入门
+
+注意：[此处](xref:data/ef-rp/intro)提供了本教程的 Razor 页面版本。 Razor 页面版本更加通俗易懂，并介绍了更多 EF 功能。
 
 下面的一系列教程介绍如何创建使用 Entity Framework Core 进行数据访问的 ASP.NET Core MVC Web 应用程序。 这些教程需要 Visual Studio 2017。
 

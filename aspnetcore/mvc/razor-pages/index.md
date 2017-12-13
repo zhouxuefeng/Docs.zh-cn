@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 3112faa38bb9702f6856097e315c413f0974010d
-ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
+ms.openlocfilehash: 36dd2ad01f93ab1093bad84a58504a150c70ea16
+ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/03/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core 中的 Razor 页面介绍
 
@@ -23,6 +23,8 @@ ms.lasthandoff: 09/28/2017
 Razor 页面是 ASP.NET Core MVC 的一个新功能，它可以使基于页面的编码方式更简单高效。
 
 若要查找使用模型视图控制器方法的教程，请参阅 [ASP.NET Core MVC 入门](xref:tutorials/first-mvc-app/start-mvc)。
+
+本文档介绍 Razor 页面。 它并不是分步教程。 如果认为某些部分难以理解，请参阅[Razor 页面入门](xref:tutorials/razor-pages/razor-pages-start)。
 
 <a name="prerequisites"></a>
 
@@ -106,6 +108,10 @@ Razor 页面功能旨在简化 Web 浏览器常用的模式。 [模型绑定](xr
 数据模型：
 
 [!code-cs[main](index/sample/RazorPagesContacts/Data/Customer.cs)]
+
+数据库上下文：
+
+[!code-cs[main](index/sample/RazorPagesContacts/Data/AppDbContext.cs)]
 
 Pages/Create.cshtml 视图文件：
 
@@ -313,7 +319,7 @@ Pages/_ViewImports.cshtml 文件设置以下命名空间：
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET 在[控制器](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)上公开了 [TempData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller#Microsoft_AspNetCore_Mvc_Controller_TempData) 属性。 此属性可存储数据，直至数据被读取。 `Keep` 和 `Peek` 方法可用于检查数据，而不执行删除。 多个请求需要数据时，`TempData` 有助于进行重定向。
+ASP.NET 在[控制器](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)上公开了 [TempData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) 属性。 此属性可存储数据，直至数据被读取。 `Keep` 和 `Peek` 方法可用于检查数据，而不执行删除。 多个请求需要数据时，`TempData` 有助于进行重定向。
 
 `[TempData]` 是 ASP.NET Core 2.0 中的新属性，在控制器和页面上受支持。
 
@@ -373,10 +379,43 @@ public string Message { get; set; }
 
 [!code-cs[main](index/sample/RazorPagesContacts/StartupAdvanced.cs?name=snippet_1)]
 
-目前，可以使用 `RazorPagesOptions` 设置页面的根目录，或者为页面添加应用程序模型约定。 我们希望将来可以通过这种方式实现更多扩展功能。
+目前，可以使用 `RazorPagesOptions` 设置页面的根目录，或者为页面添加应用程序模型约定。 通过这种方式，我们在将来会实现更多扩展功能。
 
 若要预编译视图，请参阅 [Razor 视图编译](xref:mvc/views/view-compilation)。
 
 [下载或查看示例代码](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/index/sample).
 
 请参阅 [ASP.NET Core 中的 Razor 页面入门](xref:tutorials/razor-pages/razor-pages-start)，这篇文章以本文为基础编写。
+
+### <a name="specify-that-razor-pages-are-at-the-content-root"></a>指定 Razor 页面位于内容根目录中
+
+默认情况下，Razor 页面位于 /Pages 目录的根位置。 向 [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) 添加 [WithRazorPagesAtContentRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.withrazorpagesatcontentroot)，以指定 Razor 页面位于应用的内容根目录 ([ContentRootPath](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.contentrootpath)) 中：
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        ...
+    })
+    .WithRazorPagesAtContentRoot();
+```
+
+### <a name="specify-that-razor-pages-are-at-a-custom-root-directory"></a>指定 Razor 页面位于自定义根目录中
+
+向 [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) 添加 [WithRazorPagesRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvccorebuilderextensions.withrazorpagesroot)，以指定 Razor 页面位于应用中自定义根目录位置（提供相对路径）：
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        ...
+    })
+    .WithRazorPagesRoot("/path/to/razor/pages");
+```
+
+## <a name="see-also"></a>请参阅
+
+* [Razor 页面入门](xref:tutorials/razor-pages/razor-pages-start)
+* [Razor 页面授权约定](xref:security/authorization/razor-pages-authorization)
+* [Razor 页面自定义路由和页面模型提供程序](xref:mvc/razor-pages/razor-pages-convention-features)
+* [Razor 页面单位与集成测试](xref:testing/razor-pages-testing)

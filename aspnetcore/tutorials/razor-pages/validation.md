@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: e580ee537190c85e74e40c288af1503f136c83d8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bd794ae2217c2a56f36cd46c2f12f1c80f6b4f2b
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>向 Razor 页面添加验证
 
@@ -132,6 +132,8 @@ public DateTime ReleaseDate { get; set; }
 以下代码显示组合在一行上的特性：
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+[Razor 页面和 EF Core 入门](xref:data/ef-rp/intro)显示了 Razor 页面的更多高级 EF Core 操作。
 
 ### <a name="publish-to-azure"></a>发布到 Azure
 

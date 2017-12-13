@@ -11,11 +11,11 @@ ms.assetid: 8dc28498-00ee-4d66-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 7469546494ec54bfe36bc5bd2f5f9702889ddf4a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a29bab9cf0712936fa9c3f2b4bb3b275a46fe6f6
+ms.sourcegitcommit: e641c5794525f983485621860926d8ab4e7360c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -110,7 +110,7 @@ Update-Database
 
 `Add-Migration` 命令创建代码以创建初始数据库架构。 此架构基于（Data/MvcMovieContext.cs 文件中的）`DbContext` 中指定的模型。 `Initial` 参数用于为迁移命名。 可以使用任意名称，但是按照惯例应选择描述迁移的名称。 有关详细信息，请参阅[迁移简介](xref:data/ef-mvc/migrations#introduction-to-migrations)。
 
-`Update-Database` 命令在用于创建数据库的 Migrations/\<time-stamp>_InitialCreate.cs 文件中运行 `Up` 方法。
+`Update-Database` 命令在用于创建数据库的 Migrations/\<time-stamp>_Initial.cs 文件中运行 `Up` 方法。
 
 <a name="cli"></a> 还可以使用命令行接口 (CLI) 来执行前面的步骤，而不使用 PMC：
 
@@ -118,7 +118,7 @@ Update-Database
 * 从控制台（在项目目录中）运行以下命令：
 
   ```console
-  dotnet ef migrations add InitialCreate
+  dotnet ef migrations add Initial
   dotnet ef database update
   ```     
   

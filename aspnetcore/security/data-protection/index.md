@@ -1,8 +1,8 @@
 ---
 title: "ASP.NET Core 中的数据保护"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "此文档充当各 ASP.NET Core 数据保护主题的目录。"
+keywords: "ASP.NET Core, 数据保护"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 1f402da8-1052-4970-9835-9f9f16a02dbc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/index
-ms.openlocfilehash: 39f2ca96f8542de033274ea957b5c7736948c981
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8b42e65bb6121355120a6f4fbe8cd4d1fea153de
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="data-protection-in-aspnet-core-consumer-apis-configuration-extensibility-apis-and-implementation"></a>ASP.NET Core 中的数据保护：使用者 API、配置、扩展性 API 和实现
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/11/2017
 
 * [扩展性 API](extensibility/index.md)
 
-  * [Core 加密扩展性](extensibility/core-crypto.md)
+  * [核心加密扩展性](extensibility/core-crypto.md)
 
   * [密钥管理扩展性](extensibility/key-management.md)
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 08/11/2017
 
 * [实现](implementation/index.md)
 
-  * [已验证的加密详细信息。](implementation/authenticated-encryption-details.md)
+  * [已验证的加密详细信息](implementation/authenticated-encryption-details.md)
 
   * [子项派生和已验证的加密](implementation/subkeyderivation.md)
 
