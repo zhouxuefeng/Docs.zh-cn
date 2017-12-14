@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 36dd2ad01f93ab1093bad84a58504a150c70ea16
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: a66b5ea32c2090b9944cd61f90f7fe011a823e82
+ms.sourcegitcommit: 3511552becb081fb860a23d6c9b6c4efcab74577
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core 中的 Razor 页面介绍
 
@@ -123,7 +123,7 @@ Pages/Create.cshtml.cs 代码隐藏视图文件：
 
 按照惯例，`PageModel` 类称为 `<PageName>Model`并且它与页面位于同一个命名空间中。
 
-使用 `PageModel` 代码隐藏文件支持单元测试，但是需要你编写显式构造函数和类。 未使用 `PageModel` 代码隐藏文件的页面支持运行时编译，这在开发过程中可以作为一种优势。  <!-- review: advantage because you can make changes and refresh the browser without explicitly compiling the app -->
+使用 `PageModel` 类，可以将页面的逻辑与其展示分离开来。 它定义了页面处理程序，用于处理发送到页面的请求和用于呈现页面的数据。 借助这种分离，可以通过[依赖关系注入](xref:fundamentals/dependency-injection)管理页面依赖关系，并对页面执行[单元测试](xref:testing/razor-pages-testing)。
 
 页面包含 `OnPostAsync` 处理程序方法，它在 `POST` 请求上运行（当用户发布窗体时）。 可以为任何 HTTP 谓词添加处理程序方法。 最常见的处理程序是：
 
