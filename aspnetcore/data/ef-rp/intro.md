@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: d3bcf9aaf7fa809825a0ba8631ee52d3860b090d
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: 98fe1b0c2dcf2e133d921b2cc8695bd2056c5ec0
+ms.sourcegitcommit: a33737ea24e1ea9642e461d1bc90d6701f889436
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>开始使用 Razor 页和使用 Visual Studio (第 1 个 8) 的实体框架核心
 
@@ -71,9 +71,9 @@ Contoso 大学示例 web 应用程序演示如何创建使用 Entity Framework (
 
 突出显示所做的更改。
 
-[!code-html[](intro/samples/cu/Pages/_Layout.cshtml?highlight=6,29,35-39,47&range=1-50)]
+[!code-html[](intro/samples/cu/Pages/_Layout.cshtml?highlight=6,29,35-38,47&range=1-50)]
 
-在*Views/Home/Index.cshtml*，将文件的内容替换为以下代码以将有关 ASP.NET 和 MVC 的文本替换为此应用相关的文本：
+在*Pages/Index.cshtml*，将文件的内容替换为以下代码以将有关 ASP.NET 和 MVC 的文本替换为此应用相关的文本：
 
 [!code-html[](intro/samples/cu/Pages/Index.cshtml)]
 
@@ -279,7 +279,7 @@ The system cannot find the file specified.
 
 右键单击**学生**表，然后单击**查看数据**以查看创建的列和插入到表的行。
 
-*.Mdf*和*.ldf* DB 文件位于*C:\Users\<yourusername >*文件夹。
+*.Mdf*和*.ldf* DB 文件位于*C:\Users\\ <yourusername>* 文件夹。
 
 `EnsureCreated`称为应用程序启动，允许以下工作流：
 
