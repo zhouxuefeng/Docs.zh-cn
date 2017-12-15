@@ -11,17 +11,17 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 5095def776f79d0bb76d5a8e94a4228ef0abed75
-ms.sourcegitcommit: a80d35647aff66323160b2cb413b65d79d98f7a6
+ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET 核心 MVC 和使用 Visual Studio (第 1 个 10) 的实体框架核心入门
 
 通过[Tom Dykstra](https://github.com/tdykstra)和[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-提供了本教程的 Razor 页版本[此处](xref:data/ef-rp/intro)。 Razor 页版本是易于遵循，涵盖详细 EF 功能。 我们建议你遵循[本教程 Razor 页版本](xref:data/ef-rp/intro)。
+提供了本教程的 Razor 页版本[此处](xref:data/ef-rp/intro)。 Razor 页面版本更加通俗易懂，并介绍了更多 EF 功能。 我们建议你遵循[本教程 Razor 页版本](xref:data/ef-rp/intro)。
 
 Contoso 大学示例 web 应用程序演示如何创建使用 Entity Framework (EF) 核心 2.0 和 Visual Studio 2017 ASP.NET 核心 2.0 MVC web 应用程序。
 
@@ -244,15 +244,10 @@ CRUD 操作方法和视图的自动创建被称为基架。 基架与不同从�
 
 * 右键单击**控制器**文件夹中的**解决方案资源管理器**和选择**添加 > 新建基架项**。
 
-* 在“添加 MVC 依赖项”对话框中，选择“最小依赖项”，然后选择“添加”。
+如果**添加 MVC 依赖项**此时将显示对话框：
 
-  ![添加依赖项](intro/_static/add-depend.png)
-
-  Visual Studio 添加搭建基架控制器所需的依赖关系。 项目文件中的唯一更改是添加`Microsoft.VisualStudio.Web.CodeGeneration.Design`包。
-
-  A *ScaffoldingReadMe.txt*这可以删除创建文件。
-
-* 同样，右键单击**控制器**文件夹中的**解决方案资源管理器**和选择**添加 > 新建基架项**。
+* [更新到最新版本的 Visual Studio](https://www.visualstudio.com/downloads/)。 15.5 之前的 visual Studio 版本中显示此对话框。
+* 如果你不能更新，则选择**添加**，然后再次按照添加控制器步骤。
 
 * 在**添加基架**对话框中：
 

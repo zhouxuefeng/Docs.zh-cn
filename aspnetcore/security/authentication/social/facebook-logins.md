@@ -11,11 +11,11 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 826ac826c22dae81e5dbea08a11a62cac0b1068a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 058670b4f699288e1acbe76bae08dcebf69346b8
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configuring-facebook-authentication"></a>配置 Facebook 身份验证
 
@@ -25,9 +25,9 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="create-the-app-in-facebook"></a>在 Facebook 中创建应用程序
 
-*  导航到[开发人员的 Facebook](https://developers.facebook.com)页上，并登录。 如果你还没有的 Facebook 帐户，使用**注册 Facebook**创建一个的登录页上的链接。
+*  导航到[Facebook 开发人员应用](https://developers.facebook.com/apps/)页上，并登录。 如果你还没有的 Facebook 帐户，使用**注册 Facebook**创建一个的登录页上的链接。
 
-* 点击**创建应用**创建一个新的应用程序 id。 右上角的按钮
+* 点击**添加新的应用程序**创建一个新的应用程序 id。 右上角的按钮
 
    ![Microsoft Edge 中打开 Facebook 开发人员门户](index/_static/FBMyApps.png)
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/10/2017
 
    ![创建新的应用程序 ID 窗体](index/_static/FBNewAppId.png)
 
-* 当出现时**选择一个产品**提示，单击**Set Up**上**Facebook 登录名**卡。
+* 上**选择一个产品**页上，单击**Set Up**上**Facebook 登录名**卡。
 
    ![产品安装程序页](index/_static/FBProductSetup.png)
-
+  
 * **快速入门**向导将启动与**选择一个平台**作为第一页。 现在跳过该向导，通过单击**设置**左侧菜单中的链接：
 
    ![跳过快速启动](index/_static/FBSkipQuickStart.png)
@@ -72,13 +72,6 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 
 ## <a name="configure-facebook-authentication"></a>配置 Facebook 身份验证
 
-在本教程使用的项目模板可确保[Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook)已安装包。
-
-* 若要使用 Visual Studio 2017 安装此包，请右键单击项目并选择**管理 NuGet 包**。
-* 若要使用.NET 核心 CLI 安装，请在项目目录中执行以下命令：
-
-   `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
-
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 添加中的 Facebook 服务`ConfigureServices`中的方法*Startup.cs*文件：
@@ -98,6 +91,13 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 [!INCLUDE[default settings configuration](includes/default-settings.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+安装[Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook)包。
+
+* 若要使用 Visual Studio 2017 安装此包，请右键单击项目并选择**管理 NuGet 包**。
+* 若要使用.NET 核心 CLI 安装，请在项目目录中执行以下命令：
+
+   `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
 
 添加在 Facebook 中间件`Configure`中的方法*Startup.cs*文件：
 

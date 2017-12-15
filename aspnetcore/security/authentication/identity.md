@@ -1,21 +1,21 @@
 ---
 title: "在 ASP.NET Core 上的标识简介"
 author: rick-anderson
-description: "ASP.NET Core 应用上使用标识"
+description: "与 ASP.NET Core 应用使用标识"
 keywords: "ASP.NET 核心，标识，授权安全"
 ms.author: riande
 manager: wpickett
-ms.date: 07/07/2017
+ms.date: 12/15/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 0679663b3b3b66f9935d0fb24360be2954fcdee1
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 7daf0267a6dc659afbd188ce87e35ca40816a31d
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>在 ASP.NET Core 上的标识简介
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 11/28/2017
 
 ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员身份系统。 用户可以创建帐户和登录名使用的用户名和密码或它们可以使用如 Facebook、 Google、 Microsoft 帐户、 Twitter 或其他外部登录提供程序。
 
-你可以配置 ASP.NET 核心标识来使用 SQL Server 数据库来存储用户名、 密码和配置文件数据。 或者，你可以使用你自己的持久存储区，例如 Azure 表存储。 本文档包含用于 Visual Studio 以及有关使用 CLI 的说明。
+你可以配置 ASP.NET 核心标识来使用 SQL Server 数据库来存储用户名、 密码和配置文件数据。 或者，你可以使用你自己的持久存储区，例如，Azure 表存储。 本文档包含用于 Visual Studio 以及有关使用 CLI 的说明。
 
 ## <a name="overview-of-identity"></a>标识的概述
 
@@ -39,9 +39,9 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
     ![“新建项目”对话框](identity/_static/01-mvc_2.png)
     
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-    如果使用.NET 核心 CLI，创建新的项目使用``dotnet new mvc --auth Individual``。 这将创建一个新的项目与 Visual Studio 将创建相同的标识模板代码。
+    如果使用.NET 核心 CLI，创建新的项目使用``dotnet new mvc --auth Individual``。 此命令创建一个新的项目与 Visual Studio 将创建相同的标识模板代码。
  
-    创建的项目包含`Microsoft.AspNetCore.Identity.EntityFrameworkCore`包，其中将保持的标识数据和架构与 SQL Server 使用[实体框架核心](https://docs.microsoft.com/ef/)。
+    创建的项目包含`Microsoft.AspNetCore.Identity.EntityFrameworkCore`包，其中的标识数据和 SQL Server 使用的架构仍然存在[实体框架核心](https://docs.microsoft.com/ef/)。
     
     ---
  

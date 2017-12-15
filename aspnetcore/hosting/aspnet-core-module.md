@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: ac52b791e02ce52da35fe8d599465076d251b4da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0759f16ada531774a3945f67495e5f634e6154e
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET 核心模块配置参考
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/10/2017
 | startupTimeLimit | <p>可选的整数属性。</p><p>以秒为单位，模块将等待启动侦听端口的进程的可执行文件的持续时间。 如果超过此时间限制，该模块将终止的进程。 该模块将尝试重新启动该过程，在它接收新请求，并将继续尝试重新启动在后续的传入请求的过程，除非应用程序启动失败时**rapidFailsPerMinute**数最后一个滚动分钟内的时间。</p><p>默认值为 120。</p> |
 | shutdownTimeLimit | <p>可选的整数属性。</p><p>以秒为单位为其模块将等待正常关闭的可执行文件的持续时间时*app_offline.htm*检测到文件。</p><p>默认值为 10。</p> |
 | rapidFailsPerMinute | <p>可选的整数属性。</p><p>指定在指定的进程的次数**processPath**允许每分钟崩溃。 如果超出此限制，该模块将停止启动剩余秒数的进程。</p><p>默认值为 10。</p> |
-| requestTimeout | <p>可选的 timespan 属性。</p><p>指定 ASP.NET 核心模块将等待侦听 %aspnetcore_port%的进程的响应的持续时间。</p><p>默认值为“00:02:00”。</p> |
+| requestTimeout | <p>可选的 timespan 属性。</p><p>指定 ASP.NET 核心模块将等待侦听 %aspnetcore_port%的进程的响应的持续时间。</p><p>默认值为“00:02:00”。</p><p>`requestTimeout`必须指定整分钟数，否则它将默认为 2 分钟。</p> |
 | stdoutLogEnabled | <p>可选布尔属性。</p><p>如果为 true， **stdout**和**stderr**中指定的进程的**processPath**将重定向到中指定的文件**stdoutLogFile**.</p><p>默认值为 False。</p> |
 | stdoutLogFile | <p>可选的字符串属性。</p><p>为其指定的相对或绝对文件路径**stdout**和**stderr**中指定的进程从**processPath**将记录。 相对路径是相对于站点的根目录。 从任何路径。 将相对站点根和所有其他路径将被视为绝对路径。 路径中提供的任何文件夹必须存在于要创建的日志文件的模块的顺序。 进程 ID，时间戳 (*yyyyMdhms*)，和文件扩展名 (*.log*) 以下划线分隔符将添加到最后一个段**stdoutLogFile**提供。</p><p>默认值为 `aspnetcore-stdout`。</p> |
 | forwardWindowsAuthToken | “真”或“假”。</p><p>如果为 true，则令牌将转发到侦听作为每个请求的标头 MS ASPNETCORE WINAUTHTOKEN 的 %aspnetcore_port%的子进程。 它是该进程可以在每个请求此令牌上调用 CloseHandle 责任。</p><p>默认值为 true。</p> |

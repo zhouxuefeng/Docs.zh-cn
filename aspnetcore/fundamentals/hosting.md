@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 7deccf135ddd21729206ebed58ddc8aca52c1deb
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: dfec2a67112d40b528b97c847da3dda8ef1e63bd
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>在 ASP.NET Core 中承载
 
@@ -48,7 +48,7 @@ ASP.NET Core 应用可配置和启动一个*主机*，负责应用启动和生�
 请参阅[ASP.NET 核心中的配置](xref:fundamentals/configuration/index)有关应用程序配置的详细信息。
 
 > [!NOTE]
-> 作为使用静态的替代方法`CreateDefaultBuilder`方法，创建从宿主[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)是一种受支持的方法与 ASP.NET 核心 2.x。 请参阅 ASP.NET Core 1.x 选项卡的详细信息。
+> 作为使用静态的替代方法`CreateDefaultBuilder`方法，创建从宿主[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)是一种受支持的方法与 ASP.NET 核心 2.x。 有关详细信息，请参阅 ASP.NET Core 1.x 选项卡。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -254,7 +254,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="prevent-hosting-startup"></a>阻止托管启动
 
-可防止托管启动程序集，包括应用程序的程序集的自动加载。
+可防止托管启动程序集，包括承载应用程序的程序集所配置的启动程序集的自动加载。 请参阅[从外部程序集使用 IHostingStartup 添加应用程序功能](xref:hosting/ihostingstartup)有关详细信息。
 
 **密钥**: preventHostingStartup  
 **类型**: *bool* (`true`或`1`)  

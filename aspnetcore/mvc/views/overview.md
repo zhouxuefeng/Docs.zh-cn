@@ -5,21 +5,22 @@ description: "了解视图如何处理应用程序的数据表示和 ASP.NET 核
 keywords: "ASP.NET 核心查看，MVC、 razor、 视图模型、 viewdata、 viewbag"
 ms.author: riande
 manager: wpickett
-ms.date: 09/26/2017
+ms.date: 12/12/2017
 ms.topic: article
-ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 4530d2f500dd887bf649a753283fb3e4af995322
-ms.sourcegitcommit: c2f6c593d81fbd90e6ddd672fe0a5636d06b615a
+ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>在 ASP.NET Core MVC 视图
 
 通过[Steve Smith](https://ardalis.com/)和[Luke Latham](https://github.com/guardrex)
+
+本文档说明 ASP.NET 核心 MVC 应用程序中使用的视图。 在 Razor 页上的信息，请参阅[简介 Razor 页](xref:mvc/razor-pages/index)。
 
 在**M**odel-**V**查看-**C**ontroller (MVC) 模式，*视图*处理应用程序的数据的演示文稿和用户交互。 视图是 HTML 模板与嵌入[Razor 标记](xref:mvc/views/razor)。 Razor 标记是代码与 HTML 标记来生成一个发送到客户端的网页交互。
 

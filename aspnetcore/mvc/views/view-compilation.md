@@ -5,17 +5,17 @@ description: "参考文档，以解释如何启用 MVC Razor 视图编译和 ASP
 keywords: "ASP.NET 核心，Razor 视图编译、 Razor 预编译、 Razor 预编译"
 ms.author: riande
 manager: wpickett
-ms.date: 12/05/2017
+ms.date: 12/13/2017
 ms.topic: article
 ms.assetid: ab4705b7-1638-1638-bc97-ea7f292fe92a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 873f6203f9e7b5bb14968dcec3f8d8e5548bd834
-ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
+ms.openlocfilehash: 6839892c104673af0fd0fd074d368f3f42259d76
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Razor 视图编译和 ASP.NET Core 中的预编译
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/05/2017
 
 调用视图时，则 razor 视图是在运行时编译。 ASP.NET 核心 1.1.0 和更高版本可以根据需要编译 Razor 视图以及如何将它们部署与应用&mdash;称为预编译的过程。 默认情况下，ASP.NET Core 2.x 项目模板启用预编译。
 
-> [!NOTE]
+> [!IMPORTANT]
 > 在执行时，razor 视图预编译是当前不可用[独立的部署 (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) ASP.NET 核心 2.0 中。 2.1 版本时，此功能将被用于 Scd。 有关详细信息，请参阅[视图编译失败适用于 Windows 上的 Linux 跨编译时](https://github.com/aspnet/MvcPrecompilation/issues/102)。
 
 预编译的注意事项：
@@ -54,6 +54,12 @@ ASP.NET 核心 2.x 项目模板隐式设置`MvcRazorCompileOnPublish`到`true`�
 [!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
 
 ---
+
+准备适用于的应用[framework 相关部署](/dotnet/core/deploying/#framework-dependent-deployments-fdd)通过执行如下所示在项目根目录命令：
+
+```console
+dotnet publish -c Release
+```
 
 A *< 文件 > 的内容。PrecompiledViews.dll*如果预编译成功，则会生成包含已编译的 Razor 视图中，文件。 例如，下面的屏幕截图描绘的内容*Index.cshtml*内*WebApplication1.PrecompiledViews.dll*:
 

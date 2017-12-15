@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: 44eaac4f3f4ad55cbc9b5ca9fae6e406ceff3d3c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 66f6e4542dd208a986b256acd4bd1d0381aa46c6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core 教程
 
@@ -38,7 +38,6 @@ ms.lasthandoff: 11/10/2017
    * [在 Mac 或 Linux 上使用 Visual Studio Code 创建 Web 应用](first-mvc-app-xplat/index.md)
 
 * [借助 Visual Studio 使用 ASP.NET Core 和 Entity Framework Core 入门](../data/ef-mvc/index.md)
-* [使用 Yeoman 生成项目](../client-side/yeoman.md)
 * [创作标记帮助程序](../mvc/views/tag-helpers/authoring.md)
 * [创建简单的视图组件](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
 * [使用 dotnet watch 开发 ASP.NET Core 应用程序](dotnet-watch.md)
