@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 2455bbed891179466de8fb6ade3b0a8e66eadee6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b87ae7420e1295030e90c30e97b1e331413ce263
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 <a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>故障排除 HTTP 405 错误后发布 Web API 2 应用程序
 ====================
@@ -44,7 +44,7 @@ Web API 应用程序通常使用多个常见的 HTTP 谓词： GET、 POST、 PU
 | **获取** | 此方法用于从和检索数据的 URI，它可能最常用的 HTTP 方法。 |
 | **HEAD** | 此方法具有非常类似于 GET 方法中，只不过它实际不于请求 URI 中检索数据-它只需检索 HTTP 状态。 |
 | **发布** | 此方法通常用于将新数据发送到 URI;POST 通常用于提交窗体数据。 |
-| **PUT** | 此方法通常用于原始数据到 URI;PUT 通常用于提交到 Web API 应用程序的 JSON 或 XML 数据。 |
+| **PUT** | 此方法通常用于将原始数据发送到 URI;PUT 通常用于提交到 Web API 应用程序的 JSON 或 XML 数据。 |
 | **删除** | 此方法用于从 URI 中删除数据。 |
 | **选项** | 此方法通常用于检索所支持的 uri 的 HTTP 方法的列表。 |
 | **复制移动** | 这两种方法用于 WebDAV，和它们的目的是一目了然。 |
