@@ -31,7 +31,7 @@ ASP.NET 核心引用一个特定的环境变量，`ASPNETCORE_ENVIRONMENT`来描
 
 当前的环境设置可以检测到以编程方式从应用程序中。 此外，你可以使用环境[标记帮助器](../mvc/views/tag-helpers/index.md)包括中的某些部分你[视图](../mvc/views/index.md)基于当前的应用程序环境。
 
-注意： 在 Windows 和 macOS 上，指定的环境名称是区分大小写。 是否将变量设置为`Development`或`development`或`DEVELOPMENT`结果将是相同的。 但是，Linux 是**区分大小写**默认情况下的操作系统。 环境变量、 文件名和设置需要区分大小写。
+注意： 在 Windows 和 macOS 上，指定的环境名称是不区分大小写。 是否将变量设置为`Development`或`development`或`DEVELOPMENT`结果将是相同的。 但是，Linux 是**区分大小写**默认情况下的操作系统。 环境变量、 文件名和设置需要区分大小写。
 
 ### <a name="development"></a>开发
 
