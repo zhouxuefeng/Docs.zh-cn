@@ -11,11 +11,11 @@ ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: 9fc0d6c3e9691f8c3fa0d769ac53c3337d822fc5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9cc637f469dcb7097ee1b3996fde8a4ebac8d7ff
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>启用使用 Facebook、Google 和其他外部提供程序的身份验证
 
@@ -46,6 +46,13 @@ ms.lasthandoff: 11/10/2017
 ![“新建 Web 应用程序”对话框](index/_static/select-project.png)
 
 请注意：本教程适用于可从向导顶部选择的 ASP.NET Core 2.0 SDK 版本。
+
+## <a name="apply-migrations"></a>应用迁移
+
+* 运行应用并选择“登录”链接。
+* 选择“以新用户身份注册”链接。
+* 输入新帐户的电子邮件地址和密码，再选择“注册”。
+* 按照说明操作来应用迁移。
 
 ## <a name="require-ssl"></a>要求 SSL
 

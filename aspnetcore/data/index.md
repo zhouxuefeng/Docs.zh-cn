@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/index
-ms.openlocfilehash: b3bcd15a078ed2125d14c3e94311e385a1db9683
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: bc19cbf0093e8a7f26af82d19f597cc805e04309
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-data-in-aspnet-core"></a>在 ASP.NET Core 中使用数据 
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/02/2017
    * [更新相关数据](xref:data/ef-rp/update-related-data)
    * [处理并发冲突](xref:data/ef-rp/concurrency)
 
-*   [借助 Visual Studio 使用 ASP.NET Core 和 Entity Framework Core 入门](ef-mvc/index.md)
+*   [ASP.NET Core MVC 和 Entity Framework Core 入门（使用 Visual Studio）](ef-mvc/index.md)
     *   [入门](ef-mvc/intro.md)
     *   [创建、读取、更新和删除操作](xref:data/ef-mvc/crud)
     *   [排序、筛选、分页和分组](xref:data/ef-mvc/sort-filter-page)

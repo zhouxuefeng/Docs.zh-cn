@@ -5,16 +5,16 @@ description: "了解 ASP.NET Core 中的记录框架。 发现内置日志记录
 keywords: "ASP.NET Core,日志记录,日志记录提供程序,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,scopes"
 ms.author: tdykstra
 manager: wpickett
-ms.date: 11/15/2017
+ms.date: 12/15/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: f7f5f08799513aa07223995410f2125407c58c94
-ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
+ms.openlocfilehash: 737de614625ce560df1c3d7cfd9810f9433c153d
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>ASP.NET Core 中的日志记录简介
 
@@ -587,7 +587,13 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-无需安装提供程序包或调用 `AddAzureWebAppDiagnostics` 扩展方法。 将应用部署到 Azure App Service 时，提供程序对应用自动可用。
+如果面向 .NET Core，无需安装提供程序包或显式调用 `AddAzureWebAppDiagnostics`。 将应用部署到 Azure App Service 时，提供程序对应用自动可用。
+
+如果面向 .NET Framework，需要向项目添加提供程序包并调用 `AddAzureWebAppDiagnostics`：
+
+```csharp
+logging.AddAzureWebAppDiagnostics();
+```
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
