@@ -5,18 +5,17 @@ description: "了解有关 ASP.NET 核心 mvc 模型验证。"
 keywords: "ASP.NET 核心，MVC，验证"
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 12/18/2016
 ms.topic: article
 ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3f3f7010d7744d59ce2dd88b323418423b3ae08
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>ASP.NET 核心 mvc 模型验证简介
 
@@ -84,7 +83,7 @@ MVC 将继续验证域，直到达到最大错误 (默认情况下为 200) 数�
 
 ## <a name="handling-model-state-errors"></a>处理模型状态错误
 
-在正在调用的每个控制器操作之前，将执行模型验证和操作方法负责检查`ModelState.IsValid`并相应地作出反应。 在许多情况下，正确的反应是返回某种类型的错误响应，理想情况下详细说明模型验证失败的原因。
+在正在调用的每个控制器操作之前，将执行模型验证和操作方法负责检查`ModelState.IsValid`并相应地作出反应。 在许多情况下，正确的反应是返回错误响应，理想情况下详细说明模型验证失败的原因。
 
 某些应用程序会选择遵守标准的约定来处理模型验证错误，在该情况下筛选器可能会为适当的位置，若要实现此类策略。 你应测试你的操作与有效和无效的模型状态的行为方式。
 
@@ -98,7 +97,7 @@ MVC 将继续验证域，直到达到最大错误 (默认情况下为 200) 数�
 
 ## <a name="custom-validation"></a>自定义验证
 
-验证特性适用于大多数验证需求。 但是，一些的验证规则是特定于你的业务，它们不只是一般数据验证如确保字段是必需的或符合到一系列的值。 对于这些情况下，自定义验证的特性是不错的解决方案。 在 MVC 创建你自己的自定义验证特性很容易。 只需从继承`ValidationAttribute`，并重写`IsValid`方法。 `IsValid`方法接受两个参数，第一种是已命名的对象*值*第二项是`ValidationContext`对象名为*validationContext*。 *值*从验证你的自定义验证程序的字段引用的实际值。
+验证特性适用于大多数验证需求。 但是，一些的验证规则是特定于你的业务。 你的规则可能不是常见数据验证技术，如确保字段是必需的或符合一系列的值。 对于这些情况下，自定义验证的特性是不错的解决方案。 在 MVC 创建你自己的自定义验证特性很容易。 只需从继承`ValidationAttribute`，并重写`IsValid`方法。 `IsValid`方法接受两个参数，第一种是已命名的对象*值*第二项是`ValidationContext`对象名为*validationContext*。 *值*从验证你的自定义验证程序的字段引用的实际值。
 
 在下面的示例中，业务规则规定，用户不可能设置流派为*经典*对于影片之后 1960年发布。 `[ClassicMovie]`属性会首先，检查流派，如果它是标准，然后它检查发布日期是否晚于 1960年。 如果它将被释放后 1960年，验证将失败。 此属性接受一个表示可用于验证数据的年份的整数参数。 你可以捕获该特性的构造函数中参数的值，如下所示：
 
@@ -145,11 +144,11 @@ MVC 将继续验证域，直到达到最大错误 (默认情况下为 200) 数�
 </form>
 ```
 
-因此，客户端验证防止提交，直到该窗体是有效。 提交按钮运行 JavaScript 提交窗体或显示错误消息。
+客户端验证阻止提交，直到该窗体是有效。 提交按钮运行 JavaScript 提交窗体或显示错误消息。
 
 MVC 确定基于.NET 数据类型的属性，可能使用重写的类型属性值`[DataType]`属性。 基`[DataType]`属性不会实际的服务器端验证。 浏览器选择自己的错误消息，并显示这些错误，但他们希望，但是 jQuery 验证非介入式包可以替代的消息，并与其他一致地显示它们。 发生这种情况最明显时用户应用`[DataType]`如子类`[EmailAddress]`。
 
-### <a name="adding-validation-to-dynamic-forms"></a>将验证添加到动态窗体：
+### <a name="add-validation-to-dynamic-forms"></a>将验证添加到动态窗体
 
 因为第一次加载页面时项目，jQuery 非介入式验证都会将验证逻辑和参数传递到 jQuery 验证中，则动态生成的窗体将不会自动出现验证。 相反，你必须告知 jQuery 非介入式验证要在创建后立即分析动态窗体。 例如，下面的代码演示可能设置通过 AJAX 添加窗体上的客户端验证的方式。
 
@@ -172,7 +171,7 @@ $.get({
 
 `$.validator.unobtrusive.parse()`方法接受它的一个参数的 jQuery 选择器。 此方法指示 jQuery 非介入式验证分析`data-`该选择器中的窗体的属性。 这些特性的值然后传递给 jQuery 验证插件中，这样窗体表现出所需的客户端验证规则。
 
-### <a name="adding-validation-to-dynamic-controls"></a>将验证添加到动态控件：
+### <a name="add-validation-to-dynamic-controls"></a>将验证添加到动态控件
 
 你还可以更新窗体上的验证规则，当单个控件，如`<input/>`s 和`<select/>`s，动态生成。 不能将传递到这些元素选择器`parse()`方法直接因为周围的窗体已分析并不会更新。  相反，你首先删除现有的验证数据，然后重新分析整个窗体，如下所示：
 

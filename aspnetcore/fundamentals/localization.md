@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a3fdbf8a1ab4ca397824a46da445fa34ddd35204
+ms.sourcegitcommit: 4be61844141d3cfb6f263636a36aebd26e90fb28
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>全球化和 ASP.NET Core 的本地化
 
@@ -77,7 +77,7 @@ ASP.NET 核心中引入`IStringLocalizer`和`IStringLocalizer<T>`已设计为可
 
 法语资源文件可以包含以下信息：
 
-| 键 | 值 |
+| 键 | “值” |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b> ` |
 
@@ -124,7 +124,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ASP.NET 核心，可指定两个区域性值，`SupportedCultures`和`SupportedUICultures`。 [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo)对象`SupportedCultures`确定得到的依赖于区域性的函数，如日期、 时间、 数字和货币格式的结果。 `SupportedCultures`此外确定文本、 大小写约定和字符串比较的排序顺序。 请参阅[CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture)有关服务器如何获取区域性的详细信息。 `SupportedUICultures`确定就会转换字符串 (从*.resx*文件) 按查找[ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager)。 `ResourceManager`只需查找区域性特定字符串由决定`CurrentUICulture`。 .NET 中的每个线程都具有`CurrentCulture`和`CurrentUICulture`对象。 ASP.NET 核心呈现依赖于区域性的函数时检查这些值。 例如，如果当前线程的区域性设置为"EN-US"（英语，美国），`DateTime.Now.ToLongDateString()`显示"星期四，2016 年 2 月 18，"，但如果`CurrentCulture`设置为"ES-ES"（西班牙语、 西班牙） 则输出将为"jueves，18 de febrero de 2016"。
 
-## <a name="working-with-resource-files"></a>使用资源文件
+## <a name="resource-files"></a>资源文件
 
 资源文件是用于将可本地化的字符串与代码分离的有用机制。 非默认语言已翻译的字符串将被隔离*.resx*资源文件。 例如，你可能想要创建名为西班牙语资源文件*Welcome.es.resx*包含转换字符串。 "es"是西班牙语的语言代码。 在 Visual Studio 中创建此资源文件：
 
@@ -172,19 +172,21 @@ ASP.NET 核心，可指定两个区域性值，`SupportedCultures`和`SupportedU
 
 如果不使用`ResourcesPath`选项， *.resx*文件视图将位于视图所在的文件夹。
 
-如果你删除"法国"区域性指示符，并具有设置为法语 （通过 cookie 或其他机制） 的区域性，请将读取默认资源文件，并已本地化字符串。 资源管理器指定的默认资源或回退资源，在执行任何操作符合您请求正在提供 *.resx 文件而不进行区域性指示符的区域性。 如果你想要仅返回密钥，如果缺少区域性所请求资源必须具有默认资源文件。
+## <a name="culture-fallback-behavior"></a>区域性回退行为
 
-### <a name="generating-resource-files-with-visual-studio"></a>使用 Visual Studio 的生成资源文件
+例如，如果删除了"法国"区域性指示符，而且必须设置为法语的区域性，将读取默认资源文件，并已本地化字符串。 资源管理器指定的默认值或回退资源时执行任何操作符合您请求的区域性。 如果你想要仅返回密钥，如果缺少区域性所请求资源必须具有默认资源文件。
+
+### <a name="generate-resource-files-with-visual-studio"></a>生成使用 Visual Studio 的资源文件
 
 如果你在而无需在文件名中区域性情况下将在 Visual Studio 中创建资源文件 (例如， *Welcome.resx*)，Visual Studio 将创建一个 C# 类的属性为每个字符串。 这通常是你不想使用 ASP.NET Core;通常不需要默认*.resx*资源文件 (一个*.resx*文件而无需区域性名称)。 我们建议你创建*.resx*使用区域性名称的文件 (例如*Welcome.fr.resx*)。 当你创建*.resx*使用区域性名称，Visual Studio 的文件将不会生成的类文件。 我们预计许多开发人员将**不**创建默认语言资源文件。
 
-### <a name="adding-other-cultures"></a>添加其他区域性
+### <a name="add-other-cultures"></a>添加其他区域性
 
 每个语言和区域性的组合 （以外的默认语言） 需要唯一的资源文件。 通过创建新的资源文件的 ISO 语言代码中的文件名称的一部分创建不同的区域性和区域设置的资源文件 (例如， **en-我们**， **fr ca**，和**en gb**)。 这些 ISO 代码位于之间的文件名称和*.resx*文件扩展名，如*Welcome.es MX.resx* （西班牙语/墨西哥）。 若要指定的区域性的、 非特定语言，删除国家/地区代码 (`MX`在前面的示例)。 非特定区域性的西班牙语资源文件的名称*Welcome.es.resx*。
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>实现策略来选择用于每个请求的语言/区域性  
 
-### <a name="configuring-localization"></a>配置本地化
+### <a name="configure-localization"></a>配置本地化
 
 在配置本地化`ConfigureServices`方法：
 
@@ -236,7 +238,7 @@ Cookie 格式`c=%LANGCODE%|uic=%LANGCODE%`，其中`c`是`Culture`和`uic`是`UI
 
 [接受语言标头](https://www.w3.org/International/questions/qa-accept-lang-locales)是可在大多数浏览器设置，最初用于指定用户的语言。 此设置指示浏览器已设置为发送或从基础操作系统已继承。 浏览器请求的 Accept 语言 HTTP 标头不是一种可靠的方法来检测用户的首选的语言 (请参阅[在浏览器中设置语言首选项](https://www.w3.org/International/questions/qa-lang-priorities.en.php))。 生产应用程序应包括用户可以自定义区域性他们选择一种方法。
 
-### <a name="setting-the-accept-language-http-header-in-ie"></a>在 IE 中设置 Accept 语言 HTTP 标头
+### <a name="set-the-accept-language-http-header-in-ie"></a>在 IE 中设置 Accept 语言 HTTP 标头
 
 1. 从齿轮图标，点击**Internet 选项**。
 
@@ -252,7 +254,7 @@ Cookie 格式`c=%LANGCODE%|uic=%LANGCODE%`，其中`c`是`Culture`和`uic`是`UI
 
 6. 点击语言，然后点击**移**。
 
-### <a name="using-a-custom-provider"></a>使用自定义提供程序
+### <a name="use-a-custom-provider"></a>使用自定义提供程序
 
 假设你想要让客户在数据库中存储其语言和区域性。 你可以编写一个提供程序来查找用户的这些值。 下面的代码演示如何添加自定义提供程序：
 
@@ -281,7 +283,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 使用`RequestLocalizationOptions`添加或删除本地化提供程序。
 
-### <a name="setting-the-culture-programmatically"></a>以编程方式设置区域性
+### <a name="set-the-culture-programmatically"></a>以编程方式将区域性设置
 
 此示例**Localization.StarterWeb**项目上[GitHub](https://github.com/aspnet/entropy)包含 UI，以设置`Culture`。 *Views/Shared/_SelectLanguagePartial.cshtml*文件可以从支持的区域性的列表中选择区域性：
 

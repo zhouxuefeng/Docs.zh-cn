@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 8adb96c7261a2e7b1556f0daddcf6f135862b53a
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: dd2eb3d3996bc0bf277c8d5e772c8568ef9f147e
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>在 ASP.NET Core 中的应用程序启动
 
@@ -121,4 +121,4 @@ Web 主机提供某些服务可供`Startup`类构造函数。 应用程序添加
 * [中间件](xref:fundamentals/middleware)
 * [日志记录](xref:fundamentals/logging/index)
 * [配置](xref:fundamentals/configuration/index)
-* [StartupLoader 类： FindStartupType 方法 （引用源）](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116))
+* [StartupLoader 类： FindStartupType 方法 （引用源）](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116)

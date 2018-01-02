@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: fdb396d8857dc9c118cc19da1f7d1d498dfaacd5
-ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
+ms.openlocfilehash: 68e8c89f6e5485f25d1a551ab3e524f0e9c53d0d
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>有关 ASP.NET 核心响应压缩中间件
 
@@ -45,13 +45,13 @@ ms.lasthandoff: 11/17/2017
 
 | `Accept-Encoding`标头值 | 支持的中间件 | 描述                                                 |
 | :-----------------------------: | :------------------: | ----------------------------------------------------------- |
-| `br`                            | No                   | Brotli 压缩的数据格式                               |
-| `compress`                      | No                   | UNIX"压缩"的数据格式                                 |
-| `deflate`                       | No                   | "deflate"内的"zlib"数据格式的压缩的数据     |
-| `exi`                           | No                   | W3C 高效 XML 交换                               |
+| `br`                            | 否                   | Brotli 压缩的数据格式                               |
+| `compress`                      | 否                   | UNIX"压缩"的数据格式                                 |
+| `deflate`                       | 否                   | "deflate"内的"zlib"数据格式的压缩的数据     |
+| `exi`                           | 否                   | W3C 高效 XML 交换                               |
 | `gzip`                          | 是 （默认值）        | gzip 文件格式                                            |
 | `identity`                      | 是                  | "没有编码"标识符： 响应必须进行编码。 |
-| `pack200-gzip`                  | No                   | Java 存档的网络传输格式                   |
+| `pack200-gzip`                  | 否                   | Java 存档的网络传输格式                   |
 | `*`                             | 是                  | 编码不显式请求的任何可用内容     |
 
 有关详细信息，请参阅[IANA 官方内容编码列表](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry)。
@@ -183,7 +183,7 @@ Gzip 压缩提供程序默认为最快的压缩级别 (`CompressionLevel.Fastest
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
-## <a name="middlware-issue-when-behind-an-nginx-reverse-proxy"></a>Middlware 问题时后面 Nginx 反向代理
+## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>后面 Nginx 反向代理时的中间件问题
 当请求代理 nginx，`Accept-Encoding`删除标头。 这可以防止该中间件压缩响应。 有关详细信息，请参阅[NGINX： 压缩和解压缩](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)。 此问题将跟踪[找出传递压缩 nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123)。
 
 ## <a name="working-with-iis-dynamic-compression"></a>使用 IIS 动态压缩

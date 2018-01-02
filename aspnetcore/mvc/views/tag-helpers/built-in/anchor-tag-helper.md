@@ -5,17 +5,17 @@ description: "演示如何使用定位点标记帮助器"
 keywords: "ASP.NET Core, 标记帮助程序"
 ms.author: riande
 manager: wpickett
-ms.date: 02/14/2017
+ms.date: 12/20/2017
 ms.topic: article
 ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: e3754c4313f01bc746ccb8efe11611ae213e3955
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 503ad7c4ce8c4f08b2a06dbe9f985566f54d3ca2
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="anchor-tag-helper"></a>定位点标记帮助器
 
@@ -25,15 +25,12 @@ ms.lasthandoff: 11/10/2017
 
 下面的扬声器控制器是本文档中的示例中使用。
 
-<br/>
 **SpeakerController.cs** 
 
 [!code-csharp[SpeakerController](sample/TagHelpersBuiltInAspNetCore/src/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs)]
 
 
 ## <a name="anchor-tag-helper-attributes"></a>定位点标记帮助器属性
-
-- - -
 
 ### <a name="asp-controller"></a>asp 控制器
 
@@ -51,13 +48,10 @@ ms.lasthandoff: 11/10/2017
 
 如果`asp-controller`指定和`asp-action`不是默认`asp-action`将当前正在执行的视图的默认控制器方法。 即，在上面的示例中，如果`asp-action`留出，和从生成此定位点标记帮助器*HomeController*的`Index`视图 (**/主页**)，将生成的标记：
 
-
 ```html
 <a href="/Home">All Speakers</a>
 ```
 
-- - -
-  
 ### <a name="asp-action"></a>asp 操作
 
 `asp-action`是将包含控制器中的操作方法的名称在生成`href`。 例如，下面的代码将设置生成`href`以指向扬声器详细信息页：
@@ -76,9 +70,33 @@ ms.lasthandoff: 11/10/2017
  
 如果该属性`asp-action`是`Index`，则任何操作不追加到的 URL，从而导致默认`Index`所调用方法。 指定的操作 （或默认），必须存在于中引用的控制器`asp-controller`。
 
-- - -
-  
-<a name="route"></a>
+### <a name="asp-page"></a>asp 页面
+
+使用`asp-page`中的定位点标记，若要设置其 URL 为指向特定页属性。 前缀的页名称以正斜杠"/"创建 URL。 下面的示例中的 URL 指向的当前目录中的"发言人"页。
+
+```cshtml
+<a asp-page="/Speakers">All Speakers</a>
+```
+
+`asp-page`中前面的代码示例属性呈现在类似于下面的代码段的视图中的 HTML 输出：
+
+```html
+<a href="/items?page=%2FSpeakers">Speakers</a>
+``
+
+The `asp-page` attribute is mutually exclusive with the `asp-route`, `asp-controller`, and `asp-action` attributes. However, `asp-page` can be used with `asp-route-id` to control routing, as the following code sample demonstrates:
+
+```
+cshtml<a asp-page="/Speaker" asp-route-id="@speaker.Id">视图扬声器</a>
+```
+
+The `asp-route-id` produces the following output:
+
+```html
+https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
+```
+
+
 ### <a name="asp-route-value"></a>asp 的路由的 {value}
 
 `asp-route-`是一个通配符路由前缀。 任何 put 后尾随 dash 将解释为潜在的路由参数值。 如果未找到默认路由，则此路由前缀将追加到为请求参数和值生成的 href。 否则它将在路由模板中进行替换。
@@ -91,7 +109,7 @@ public IActionResult AnchorTagHelper(string id)
     var speaker = new SpeakerData()
     {
         SpeakerId = 12
-    };      
+    };
     return View(viewName, speaker);
 }
 ```
@@ -136,22 +154,17 @@ app.UseMvc(routes =>
 
 生成的 HTML 将然后是，如下所示，因为**speakerid**匹配的路由中未找到：
 
-
 ```html
 <a href='/Speaker/Detail?speakerid=12'>SpeakerId: 12</a>
 ```
 
 如果任一`asp-controller`或`asp-action`未指定，则相同的默认处理后面，如在`asp-route`属性。
 
-- - -
-
 ### <a name="asp-route"></a>asp 路由
 
 `asp-route`使您能够创建链接直接到命名路由的 URL。 使用路由特性，路由可以命名为中所示`SpeakerController`和中使用其`Evaluations`方法。
 
 `Name = "speakerevals"`告知定位点标记帮助器以生成直接指向该控制器方法使用的 URL 的路由`/Speaker/Evaluations`。 如果`asp-controller`或`asp-action`指定除了`asp-route`，生成的路由可能不是你的预期。 `asp-route`不应与属性任一使用`asp-controller`或`asp-action`以避免路由冲突。
-
-- - -
 
 ### <a name="asp-all-route-data"></a>asp 所有路线数据
 
@@ -168,8 +181,8 @@ app.UseMvc(routes =>
             {"currentYear", "true"}
         };
 }
-<a asp-route="speakerevalscurrent" 
-   asp-all-route-data="dict">SpeakerEvals</a>
+<a asp-route="speakerevalscurrent"
+asp-all-route-data="dict">SpeakerEvals</a>
 ```
 
 上面的代码生成以下 URL: http://localhost/Speaker/EvaluationsCurrent?speakerId=11&currentYear=true
@@ -177,8 +190,6 @@ app.UseMvc(routes =>
 单击该链接后，控制器方法`EvaluationsCurrent`调用。 因为该控制器具有匹配什么从已创建的两个字符串参数调用`asp-all-route-data`字典。
 
 如果字典匹配项中的任何密钥传送参数，这些值将替换为相应的路由中和其他的不匹配的值会转换为请求参数。
-
-- - -
 
 ### <a name="asp-fragment"></a>asp 片段
 
@@ -193,36 +204,22 @@ app.UseMvc(routes =>
 
 构建客户端应用程序时，哈希标记很有用。 它们可用于轻松的标记和在 JavaScript 中，例如搜索。
 
-- - -
-
 ### <a name="asp-area"></a>asp 区域
 
 `asp-area`设置 ASP.NET Core 使用设置适当的路由的区域名称。 下面是如何区域属性将导致重新路由映射的示例。 设置`asp-area`博客前缀目录`Areas/Blogs`到关联的控制器和视图此定位点标记的路由。
 
 * 项目名称
-
-  * *wwwroot*
-
-  * *区域*
-
-    * *博客*
-
-      * *控制器*
-
-        * *HomeController.cs*
-
-      * *视图*
-
-        * *主页*
-
+  * wwwroot
+  * 区域
+    * 博客
+      * 控制器
+        * HomeController.cs
+      * 视图
+        * 主页
           * Index.cshtml
-          
-          * *AboutBlog.cshtml*
-          
-  * *控制器*
-  
+          * AboutBlog.cshtml
+  * 控制器
 
-        
 指定一个区域标记，它是有效的如```area="Blogs"```引用时```AboutBlog.cshtml```文件将如下所示使用定位点标记帮助器。
 
 ```cshtml
@@ -238,8 +235,6 @@ app.UseMvc(routes =>
 > [!TIP]
 > Web 应用程序中的工作的 MVC 区域，路由模板必须包括如果它存在到区域的引用。 该模板，这是第二个参数的`routes.MapRoute`方法调用中，将显示为：`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
 
-- - -
-
 ### <a name="asp-protocol"></a>asp 协议
 
 `asp-protocol`可用于指定一种协议 (如`https`) 在你的 URL。 示例包括协议的定位点标记帮助器将如下所示：
@@ -251,8 +246,6 @@ app.UseMvc(routes =>
 ```<a href="https://localhost/Home/About">About</a>```
 
 在示例中的域是 localhost，但定位点标记帮助程序生成 URL 时使用网站的公共域。
-
-- - -
 
 ## <a name="additional-resources"></a>其他资源
 

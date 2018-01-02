@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: 571d683636244565b184cfec49061ec656377f11
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: acbd987438edeea13f29547dc471f9a211e87b04
+ms.sourcegitcommit: 1de159820a572c08955ee77cc8b1caa3d7aa938c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>开始使用 Razor 页和使用 Visual Studio (第 1 个 8) 的实体框架核心
 
@@ -26,9 +26,11 @@ Contoso 大学示例 web 应用程序演示如何创建使用 Entity Framework (
 
 [下载或查看已完成的应用程序。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [下载说明](xref:tutorials/index#how-to-download-a-sample)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 [!INCLUDE[install 2.0](../../includes/install2.0.md)]
+
+熟悉[Razor 页](xref:mvc/razor-pages/index)。 新的程序员应完成[入门 Razor 页](xref:tutorials/razor-pages/razor-pages-start)开始这一系列之前。
 
 ## <a name="troubleshooting"></a>疑难解答
 

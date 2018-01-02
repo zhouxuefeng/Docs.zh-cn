@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 24c6a35a6b663ebb0f8d0e3e7988322fa5d9018c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6790cd0deb36c9fb297ccd4df371f763dba17844
+ms.sourcegitcommit: 17b025bd33f4474f0deaafc6d0447a4e72bcad87
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/27/2017
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>不需要在 ASP.NET 中，做什么和要改为执行的操作
 ====================
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
     - [UrlPathEncode](#urlpathencode)
 - [可靠性和性能](#performance)
 
-    - [PreSendRequestHeaders 和 PreSendRequestContext](#presend)
+    - [PreSendRequestHeaders 和 PreSendRequestContent](#presend)
     - [异步页事件的 Web 窗体](#asyncevents)
     - [即发即弃工作](#fire)
     - [请求实体正文](#requestentity)
@@ -200,11 +200,13 @@ UrlPathEncode 方法已添加到.NET Framework 解决了非常具体的浏览器
 
 <a id="presend"></a>
 
-### <a name="presendrequestheaders-and-presendrequestcontext"></a>PreSendRequestHeaders 和 PreSendRequestContext
+### <a name="presendrequestheaders-and-presendrequestcontent"></a>PreSendRequestHeaders 和 PreSendRequestContent
 
 建议： 不要使用托管的模块中使用这些事件。 相反，编写本机 IIS 模块来执行所需的任务。 请参阅[创建本机代码 HTTP 模块](https://msdn.microsoft.com/en-us/library/ms693629.aspx)。
 
-你可以使用[PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx)和[PreSendRequestContext](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx)事件的本机 IIS 模块，但不要带有实现 IHttpModule 的托管模块使用它们。 设置这些属性可能会导致具有异步请求的问题。
+你可以使用[PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx)和[PreSendRequestContent](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx)事件的本机 IIS 模块。
+> [!WARNING]
+> 不要使用`PreSendRequestHeaders`和`PreSendRequestContent`与实现的托管模块`IHttpModule`。 设置这些属性可能会导致具有异步请求的问题。 应用程序请求路由 (ARR) 和 websocket 的组合可能会导致访问冲突异常可能会导致崩溃 w3wp。 例如，iiscore ！W3_CONTEXT_BASE::GetIsLastNotification + 68 iiscore.dll 中的已导致访问冲突的异常 (0xC0000005)。
 
 <a id="asyncevents"></a>
 

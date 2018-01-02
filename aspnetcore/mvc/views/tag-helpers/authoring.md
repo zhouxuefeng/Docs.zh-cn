@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6858b6b8ec89a5e5ffa9e5f8dddb905f38e16603
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cbe46ee1d3cd9f7a30a87d364074f1302f9af7ab
+ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>在 ASP.NET 核心，使用示例演练中的创作标记帮助程序
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="a-minimal-tag-helper"></a>最小的标记帮助器
 
-在本部分中，你编写的标记帮助程序更新的电子邮件标记。 例如: 
+在本部分中，你编写的标记帮助程序更新的电子邮件标记。 例如:
 
 ```html
 <email>Support</email>
@@ -76,9 +76,18 @@ ms.lasthandoff: 11/10/2017
     
     上面的代码中使用通配符语法来指定在我们的程序集中的所有标记帮助程序都将提供。 之后的第一个字符串`@addTagHelper`指定要加载的标记帮助程序 (使用"*"的所有标记帮助程序)，和第二个字符串"AuthoringTagHelpers"指定标记帮助程序是中的程序集。 另请注意第二行使中使用通配符的语法的 ASP.NET 核心 MVC 标记帮助器 (中讨论了这些帮助器[简介标记帮助程序](intro.md)。)它是`@addTagHelper`Razor 视图提供的标记帮助程序的指令。 或者，你可以提供完全限定的名称 (FQN) 的标记帮助程序，如下所示：
     
-    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
+```csharp
+@using AuthoringTagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper AuthoringTagHelpers.TagHelpers.EmailTagHelper, AuthoringTagHelpers
+```
     
-    若要将标记帮助器添加到使用 FQN 的视图，你首先添加 FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`)，，然后是程序集名称 (*AuthoringTagHelpers*)。 大多数开发人员会更喜欢使用通配符语法。 [标记帮助器简介](intro.md)进入标记帮助器添加、 删除、 层次结构中，和通配符语法中的详细信息。
+<!--
+the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
+    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
+-->
+    
+若要将标记帮助器添加到使用 FQN 的视图，你首先添加 FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`)，，然后是程序集名称 (*AuthoringTagHelpers*)。 大多数开发人员会更喜欢使用通配符语法。 [标记帮助器简介](intro.md)进入标记帮助器添加、 删除、 层次结构中，和通配符语法中的详细信息。
     
 3.  更新中的标记*Views/Home/Contact.cshtml*使用这些更改的文件：
 
