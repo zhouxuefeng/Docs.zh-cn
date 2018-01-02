@@ -11,13 +11,13 @@ ms.assetid: 9918be4c-2096-404f-9b2a-ed5cde90042a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/index
-ms.openlocfilehash: d3b60eedd46bd657f01cd6b32da7e42d6af6b1c2
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: 8111f01488468470722e0734d59b18e10cebf416
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="getting-started-with-aspnet-core-and-entity-framework-core-using-visual-studio"></a>借助 Visual Studio 使用 ASP.NET Core 和 Entity Framework Core 入门
+# <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio"></a>ASP.NET Core MVC 和 Entity Framework Core 入门（使用 Visual Studio）
 
 注意：[此处](xref:data/ef-rp/intro)提供了本教程的 Razor 页面版本。 Razor 页面版本更加通俗易懂，并介绍了更多 EF 功能。
 

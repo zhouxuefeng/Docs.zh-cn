@@ -11,15 +11,15 @@ ms.assetid: 959ff4ca-be2d-1638-ac04-789e7f7146ff
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/index
-ms.openlocfilehash: 8a6fa695a1b1ad660f7f5b1aeb520d5372a273a8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4083dea74548099ee3ba8d963110bb2c3c8ae00a
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-aspnet-core-mvc-app-with-visual-studio-code"></a>使用 Visual Studio Code 创建 ASP.NET Core MVC 应用
 
-下面的一系列教程介绍使用 Visual Studio 生成 ASP.NET Core MVC Web 应用所涉及的基础知识。 
+本系列教程介绍了使用 Visual Studio Code 生成 ASP.NET Core MVC Web 应用所涉及的基础知识。 
 
 [!INCLUDE[consider RP](../../includes/razor.md)]
 
