@@ -5,24 +5,24 @@ author: tfitzmac
 description: "本教程演示如何使用 ASP.NET Web 页 (Razor) 时 （更改） 的现有数据库条目更新。 它假定你已完成序列 th..."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 6fdb365c1449e6c54dfdbe492211700211f61005
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aabf572e254de9861719fdc502340353482919b4
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>引入了 ASP.NET Web 页-更新数据库数据
 ====================
 通过[Tom FitzMacken](https://github.com/tfitzmac)
 
-> 本教程演示如何使用 ASP.NET Web 页 (Razor) 时 （更改） 的现有数据库条目更新。 它假定你已完成通过系列[输入数据通过使用窗体使用的 ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251582)。
+> 本教程演示如何使用 ASP.NET Web 页 (Razor) 时 （更改） 的现有数据库条目更新。 它假定你已完成通过系列[输入数据通过使用窗体使用的 ASP.NET Web Pages](entering-data.md)。
 > 
 > 你将学习：
 > 
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > 当你第一次看到此代码中，但在每个情况下，你要将参数传递给以特定顺序的方法时，我们没有提到问题&mdash;也就是说，在该参数在该方法中定义的顺序。 有关`db.Execute`和`Validation.RequireFields`，如果你混合传递的值的顺序，你将收到一条错误消息页运行时或至少一些奇怪的结果。 显然，你必须知道传递中的参数顺序。 （在 WebMatrix 中，IntelliSense 可帮助你了解算出名称、 类型和参数的顺序。）
 > 
-> 作为按顺序传递值的替代方法，你可以使用*命名参数*。 (按顺序传递参数被称为使用*位置参数*。)对于命名参数，你可以将其值传递时显式包括到参数的名称。 你使用命名的参数已多次这些教程中。 例如: 
+> 作为按顺序传递值的替代方法，你可以使用*命名参数*。 (按顺序传递参数被称为使用*位置参数*。)对于命名参数，你可以将其值传递时显式包括到参数的名称。 你使用命名的参数已多次这些教程中。 例如:
 > 
 > [!code-csharp[Main](updating-data/samples/sample8.cs)]
 > 
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/10/2017
 
 此标记和代码是类似于中有*AddMovie*页。 没有略有不同的提交按钮的文本。 与*AddMovie*页上，没有`Html.ValidationSummary`将显示验证错误，如果有任何的调用。 此时我们要离开掉调用`Validation.Message`，因为错误将显示在摘要的验证。 如前面的教程中所述，你可以在各种组合中使用验证摘要和单独的错误消息。
 
-再次请注意，`method`属性`<form>`元素设置为`post`。 与*AddMovie.cshtml*页上，此页进行更改到数据库。 因此，应执行此窗体`POST`操作。 (有关详细信息之间的差异`GET`和`POST`操作，请参阅[GET、 POST 和 HTTP 谓词安全](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety)边栏在教程中 HTML 窗体上。)
+再次请注意，`method`属性`<form>`元素设置为`post`。 与*AddMovie.cshtml*页上，此页进行更改到数据库。 因此，应执行此窗体`POST`操作。 (有关详细信息之间的差异`GET`和`POST`操作，请参阅[GET、 POST 和 HTTP 谓词安全](form-basics.md#GET,_POST,_and_HTTP_Verb_Safety)边栏在教程中 HTML 窗体上。)
 
 正如你在前面的教程中，看到`value`的文本框中的属性正在设置 Razor 代码使用了预加载它们。 这一次，不过，你使用的变量，如`title`和`genre`而不是该任务的`Request.Form["title"]`:
 
@@ -224,7 +224,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > 当然，`Query`方法可能返回只有一行的数据库。 但是，ASP.NET 始终会将结果`Query`作为集合的方法。 即使该方法返回一个行，必须从集合中提取该单个行。 因此，在情况下，你*知道*您就会得到只有一个行，它就会执行更方便地使用`QuerySingle`。
 > 
-> 有几个其他执行特定类型的数据库操作的方法。 你可以查找数据库中的方法的列表[ASP.NET 网页 API 快速参考](https://go.microsoft.com/fwlink/?LinkID=202907#Data)。
+> 有几个其他执行特定类型的数据库操作的方法。 你可以查找数据库中的方法的列表[ASP.NET 网页 API 快速参考](../../api-reference/asp-net-web-pages-api-reference.md#Data)。
 
 
 ## <a name="making-validation-for-the-id-more-robust"></a>使验证 ID 更可靠
@@ -308,7 +308,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="additional-resources"></a>其他资源
 
-- [使用 Razor 语法的 ASP.NET Web 编程简介](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [使用 Razor 语法的 ASP.NET Web 编程简介](introducing-razor-syntax-c.md)
 - [SQL UPDATE 语句](http://www.w3schools.com/sql/sql_update.asp)W3Schools 站点上
 
 >[!div class="step-by-step"]

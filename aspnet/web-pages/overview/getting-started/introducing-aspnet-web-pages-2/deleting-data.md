@@ -5,24 +5,24 @@ author: tfitzmac
 description: "本教程演示了如何删除单个数据库条目。 它假定你已完成的 ASP.NET Web pa。 在更新数据库数据通过一系列..."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: aef31b6170cc3bba2421eb8c2c41e83aadc129c5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>引入了 ASP.NET Web 页-删除数据库数据
 ====================
 通过[Tom FitzMacken](https://github.com/tfitzmac)
 
-> 本教程演示了如何删除单个数据库条目。 它假定你已完成通过系列[更新数据库数据中的 ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251583)。
+> 本教程演示了如何删除单个数据库条目。 它假定你已完成通过系列[更新数据库数据中的 ASP.NET Web Pages](updating-data.md)。
 > 
 > 你将学习：
 > 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/10/2017
 
 此链接将调用一个名为页*DeleteMovie*并将其传递所选电影的 ID。
 
-本教程将不会进行此链接的构造方式，有关详细信息，因为它是几乎与**编辑**从前面的教程的链接 ([更新数据库数据中的 ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251583))。
+本教程将不会进行此链接的构造方式，有关详细信息，因为它是几乎与**编辑**从前面的教程的链接 ([更新数据库数据中的 ASP.NET Web Pages](updating-data.md))。
 
 ## <a name="creating-the-delete-page"></a>创建删除页
 
@@ -169,7 +169,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="additional-resources"></a>其他资源
 
-- [使用 Razor 语法的 ASP.NET Web 编程简介](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [使用 Razor 语法的 ASP.NET Web 编程简介](../introducing-razor-syntax-c.md)
 - [SQL DELETE 语句](http://www.w3schools.com/sql/sql_delete.asp)W3Schools 站点上
 
 >[!div class="step-by-step"]

@@ -11,11 +11,11 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 4713c2bed04af784e74586daa10ec847262a1345
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20e3d974e7790cd01f78f8db09225b5887f1772a
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-data-protection-in-aspnet-core"></a>在 ASP.NET 核心中配置数据保护
 
@@ -193,7 +193,6 @@ serviceCollection.AddDataProtection()
 通常\*类型属性必须指向具体，可实例化 （通过公共的无参数 ctor) 实现的[SymmetricAlgorithm](/dotnet/api/system.security.cryptography.symmetricalgorithm)和[KeyedHashAlgorithm](/dotnet/api/system.security.cryptography.keyedhashalgorithm)，不过系统特殊的情况下等某些值`typeof(Aes)`为方便起见。
 
 > [!NOTE]
-> `SymmetricAlgorithm`必须具有的密钥长度 > = 128 位的块大小 > = 64 位，并且它必须支持使用 PKCS #7 填充 CBC 模式下的加密。 `KeyedHashAlgorithm`的摘要大小必须 > = 128 位，并且它必须支持密钥长度等于 length 哈希算法的摘要。 `KeyedHashAlgorithm`并非是严格要求要 HMAC。
 > SymmetricAlgorithm 必须 ≥ 128 位的密钥长度和块大小的 ≥ 64 位，并且它必须支持使用 PKCS #7 填充 CBC 模式下的加密。 KeyedHashAlgorithm 的摘要大小必须 > = 128 位，并且它必须支持密钥长度等于 length 哈希算法的摘要。 KeyedHashAlgorithm 不是绝对必需，要 HMAC。
 
 ### <a name="specifying-custom-windows-cng-algorithms"></a>指定自定义 Windows CNG 算法

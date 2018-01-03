@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 7a3f1bfa8bec830216af37d89aa588a921485e6b
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: 1ecdf010f7c283a0a08b224d570a5bc5cdf536df
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor 页单元和集成测试，在 ASP.NET 核心
 
@@ -57,7 +57,7 @@ dotnet test
 * 一条消息都由描述`Message`类 (*Data/Message.cs*) 具有两个属性： `Id` （密钥） 和`Text`（消息）。 `Text`属性是必需的限制为 200 个字符。
 * 消息存储使用[实体框架的内存中数据库](/ef/core/providers/in-memory/)&#8224;。
 * 此应用程序包含在其数据库上下文类中，数据访问层 (DAL) `AppDbContext` (*Data/AppDbContext.cs*)。 DAL 方法将被标记`virtual`，这样，模拟在测试中使用的方法。
-* 在开发环境中，消息存储区使用三条消息进行初始化。 这些*设定种子消息*也用在测试。
+* 如果数据库为空应用程序启动时，消息存储区初始化与三条消息。 这些*设定种子消息*也用在测试。
 
 &#8224;EF 主题，[测试以及 InMemory](/ef/core/miscellaneous/testing/in-memory)，说明如何使用内存中数据库来使用 MSTest 测试。 本主题使用[xUnit](https://xunit.github.io/)测试框架。 测试概念和测试跨不同测试框架的实现是类似，但不是完全相同。
 
