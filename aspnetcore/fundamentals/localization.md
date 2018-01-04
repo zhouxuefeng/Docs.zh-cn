@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: a3fdbf8a1ab4ca397824a46da445fa34ddd35204
-ms.sourcegitcommit: 4be61844141d3cfb6f263636a36aebd26e90fb28
+ms.openlocfilehash: d1f8cf5607fdd08bf0dadc224ae0fdba7ec696bc
+ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>全球化和 ASP.NET Core 的本地化
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/22/2017
 
 国际化涉及[全球化](https://docs.microsoft.com/dotnet/api/system.globalization)和[本地化](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization)。 全球化是设计支持不同的区域性的应用程序的过程。 全球化添加输入、 显示和一组定义与特定的地理区域相关的语言脚本的输出的支持。
 
-本地化是调整的全球化的应用，你已经处理进行了本地化分析，为特定的区域性/区域设置的过程。  有关详细信息请参阅**全球化和本地化条款**接近本文档的结尾。
+本地化是调整的全球化的应用，你已经处理进行了本地化分析，为特定的区域性/区域设置的过程。 有关详细信息请参阅**全球化和本地化条款**接近本文档的结尾。
 
 应用程序本地化涉及以下过程：
 
@@ -305,7 +305,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 [可本地化性](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review)是中间的过程，用于验证的全球化的应用是否准备好进行本地化。
 
-[RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)设置格式的区域性名称为"<languagecode2>-< country/regioncode2 >"，其中<languagecode2>是语言代码，< country/regioncode2 > 是子区域性代码。 例如，`es-CL`为西班牙语 （智利）`en-US`为英语 （美国） 和`en-AU`以表示英语 （澳大利亚）。 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)是两个字母小写区域性代码与语言相关 ISO 639 和两个字母大写子区域性代码关联的国家或地区与 ISO 3166 的组合。  请参阅[语言区域性名称](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx)。
+[RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)设置格式的区域性名称为`<languagecode2>-<country/regioncode2>`，其中`<languagecode2>`的语言代码和`<country/regioncode2>`是子区域性代码。 例如，`es-CL`为西班牙语 （智利）`en-US`为英语 （美国） 和`en-AU`以表示英语 （澳大利亚）。 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)是两个字母小写区域性代码与语言相关 ISO 639 和两个字母大写子区域性代码关联的国家或地区与 ISO 3166 的组合。 请参阅[语言区域性名称](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx)。
 
 国际化常缩写为"I18N"。 缩写采用第一个和最后一个字母并它们，因此 18 之间号的数量代表数量的第一个之间的字母"I"和最后一个"N"。 这同样适用于全球化 (G11N) 和本地化 (L10N)。
 

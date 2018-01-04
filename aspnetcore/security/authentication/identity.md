@@ -5,17 +5,17 @@ description: "与 ASP.NET Core 应用使用标识"
 keywords: "ASP.NET 核心，标识，授权安全"
 ms.author: riande
 manager: wpickett
-ms.date: 12/15/2017
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 7daf0267a6dc659afbd188ce87e35ca40816a31d
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 7af53bfad2b77558a06003cbc6534236235054c4
+ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>在 ASP.NET Core 上的标识简介
 
@@ -32,11 +32,20 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
 1.  使用单个用户帐户创建一个 ASP.NET 核心 Web 应用程序项目。
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    在 Visual Studio 中，选择**文件** -> **新建** -> **项目**。 选择**ASP.NET Web 应用程序**从**新项目**对话框。 选择 ASP.NET Core **Web Application(Model-View-Controller)**为 ASP.NET Core 与 2.x**单个用户帐户**作为身份验证方法。
+    在 Visual Studio 中，选择**文件** -> **新建** -> **项目**。 选择**ASP.NET 核心 Web 应用程序**单击**确定**。 
 
-    注意： 你必须选择**单个用户帐户**。
+    ![“新建项目”对话框](identity/_static/01-new-project.png)
+
+    选择 ASP.NET Core **Web 应用程序 （模型-视图-控制器）** asp.net 核心 2.x，然后选择**更改身份验证**。 
+
+    ![“新建项目”对话框](identity/_static/02-new-project.png)
+
+    出现一个对话框，产品/服务身份验证选项。 选择**单个用户帐户**单击**确定**以返回到上一个对话框。
+
+    ![“新建项目”对话框](identity/_static/03-new-project-auth.png)
+    
+    选择**单个用户帐户**指示 Visual Studio 来创建模型、 Viewmodel、 视图、 控制器和其他资产所需的身份验证作为项目模板的一部分。
  
-    ![“新建项目”对话框](identity/_static/01-mvc_2.png)
     
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
     如果使用.NET 核心 CLI，创建新的项目使用``dotnet new mvc --auth Individual``。 此命令创建一个新的项目与 Visual Studio 将创建相同的标识模板代码。
@@ -77,7 +86,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
 
     启动应用程序，然后单击**注册**链接。
 
-    如果这是你要执行此操作的第一个时间，你可能需要运行迁移。 应用程序会提示您**应用迁移**:
+    如果这是你要执行此操作的第一个时间，你可能需要运行迁移。 应用程序会提示您**应用迁移**。 如果需要请刷新页面。
     
     ![将应用迁移网页](identity/_static/apply-migrations.png)
     
@@ -100,9 +109,9 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
  
     用户可以通过单击登录**登录**链接顶部的站点，或可能的登录页导航它们，如果用户尝试访问要求获得授权的站点的一部分。 当用户提交的登录页中上, 窗体``AccountController````Login``调用操作。
 
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
- 
     ``Login``操作调用``PasswordSignInAsync``上``_signInManager``对象 (提供给``AccountController``通过依赖关系注入)。
+
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
     基``Controller``类会公开``User``你可以从控制器方法访问的属性。 例如，可以枚举`User.Claims`并做出授权决策。 有关详细信息，请参阅[授权](xref:security/authorization/index)。
  
@@ -139,6 +148,35 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
     ![在 AspNetUsers 数据库表的上下文菜单](identity/_static/04-db.png)
     
     展开的数据库并将其**表**，然后右键单击**dbo。AspNetUsers**表，然后选择**查看数据**。
+
+8. 确认标识在有效运行
+
+    默认值*ASP.NET 核心 Web 应用程序*项目模板，用户可以访问应用程序中的任何操作，而无到登录名。 若要验证 ASP.NET 标识工作原理，添加`[Authorize]`属性设为`About`操作`Home`控制器。
+ 
+    ```cs
+    [Authorize]
+    public IActionResult About()
+    {
+        ViewData["Message"] = "Your application description page.";
+        return View();
+    }
+    ```
+    
+    # <a name="visual-studiotabvisualstudio"></a>[Visual Studio](#tab/visualstudio)     
+
+    运行项目使用**Ctrl** + **F5**并导航到**有关**页。 仅经过身份验证的用户可以访问**有关**现在，页，以便 ASP.NET 将你重定向到登录页来登录或注册。
+
+    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+    打开命令窗口并导航到项目的根目录包含`.csproj`文件。 运行`dotnet run`命令以运行应用程序：
+
+    ```cs
+    dotnet run 
+    ```
+
+    浏览的输出中指定的 URL`dotnet run`命令。 URL 应指向`localhost`与生成的端口号。 导航到**有关**页。 仅经过身份验证的用户可以访问**有关**现在，页，以便 ASP.NET 将你重定向到登录页来登录或注册。
+
+    ---
 
 ## <a name="identity-components"></a>标识组件
 
