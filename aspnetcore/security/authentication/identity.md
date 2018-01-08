@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 7af53bfad2b77558a06003cbc6534236235054c4
-ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
+ms.openlocfilehash: 4a5d3622a22b70daa22333cafe58f8831bf0918e
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>在 ASP.NET Core 上的标识简介
 
@@ -32,28 +32,29 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
 1.  使用单个用户帐户创建一个 ASP.NET 核心 Web 应用程序项目。
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    在 Visual Studio 中，选择**文件** -> **新建** -> **项目**。 选择**ASP.NET 核心 Web 应用程序**单击**确定**。 
+
+    在 Visual Studio 中，选择**文件** -> **新建** -> **项目**。 选择**ASP.NET 核心 Web 应用程序**单击**确定**。
 
     ![“新建项目”对话框](identity/_static/01-new-project.png)
 
-    选择 ASP.NET Core **Web 应用程序 （模型-视图-控制器）** asp.net 核心 2.x，然后选择**更改身份验证**。 
+    选择 ASP.NET Core **Web 应用程序 （模型-视图-控制器）** asp.net 核心 2.x，然后选择**更改身份验证**。
 
     ![“新建项目”对话框](identity/_static/02-new-project.png)
 
     出现一个对话框，产品/服务身份验证选项。 选择**单个用户帐户**单击**确定**以返回到上一个对话框。
 
     ![“新建项目”对话框](identity/_static/03-new-project-auth.png)
-    
+
     选择**单个用户帐户**指示 Visual Studio 来创建模型、 Viewmodel、 视图、 控制器和其他资产所需的身份验证作为项目模板的一部分。
- 
-    
+
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
     如果使用.NET 核心 CLI，创建新的项目使用``dotnet new mvc --auth Individual``。 此命令创建一个新的项目与 Visual Studio 将创建相同的标识模板代码。
- 
+
     创建的项目包含`Microsoft.AspNetCore.Identity.EntityFrameworkCore`包，其中的标识数据和 SQL Server 使用的架构仍然存在[实体框架核心](https://docs.microsoft.com/ef/)。
-    
+
     ---
- 
+
 2.  配置标识服务，并添加中的中间件`Startup`。
 
     标识服务添加到中的应用程序`ConfigureServices`中的方法`Startup`类：
@@ -162,7 +163,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
     }
     ```
     
-    # <a name="visual-studiotabvisualstudio"></a>[Visual Studio](#tab/visualstudio)     
+    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
     运行项目使用**Ctrl** + **F5**并导航到**有关**页。 仅经过身份验证的用户可以访问**有关**现在，页，以便 ASP.NET 将你重定向到登录页来登录或注册。
 

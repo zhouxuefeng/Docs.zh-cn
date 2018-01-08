@@ -10,15 +10,15 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/index
-ms.openlocfilehash: 2ffa2361077c4c2719a458c59bebecf1cb0e9879
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f27bfaf49dac3ca9eccf8e968606c0264564b1fa
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-code"></a>使用 ASP.NET Core 和 Visual Studio Code 创建 Razor 页面 Web 应用
 
-我们正在撰写此系列的文章。 我们希望可以在两周内完成该系列。
+我们正在撰写此系列的文章。
 
 此系列介绍了使用 Visual Studio Code 在 ASP.NET Core 中生成 Razor 页面 Web 应用的基础知识。
 
