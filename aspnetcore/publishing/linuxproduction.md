@@ -11,11 +11,11 @@ ms.assetid: 1c33e576-33de-481a-8ad3-896b94fde0e3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/linuxproduction
-ms.openlocfilehash: 01768263fe82dc75a7da0e113b1850c8d788bfd3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c7b949fc922c605aa4554c158200a4123c4eb1c
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-nginx-and-deploy-to-it"></a>使用 Nginx 在 Linux 上为 ASP.NET Core 设置托管环境，并对其进行部署
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/10/2017
 * 确保 Web 应用程序在启动时作为守护程序运行
 * 配置进程管理工具以帮助重新启动 Web 应用程序
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>系统必备
 
 1. 使用具有 sudo 特权的标准用户帐户访问 Ubuntu 16.04 服务器
 2. 现有 ASP.NET Core 应用程序
@@ -45,8 +45,6 @@ ms.lasthandoff: 11/10/2017
  - 从命令行中，运行 `dotnet yourapp.dll`
  - 在浏览器中，导航到 `http://<serveraddress>:<port>` 以确认应用在 Linux 上正常运行。 
  
-注意：使用 [Yeoman](xref:client-side/yeoman) 为新项目创建新 的 ASP.NET Core 应用。
-
 ## <a name="configure-a-reverse-proxy-server"></a>配置反向代理服务器
 
 反向代理是为动态 Web 应用程序提供服务的常见设置。 反向代理终止 HTTP 请求，并将其转发到 ASP.NET Core 应用程序。
@@ -123,7 +121,7 @@ server {
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection keep-alive;
-        proxy_set_header Host $host;
+        proxy_set_header Host $http_host;
         proxy_cache_bypass $http_upgrade;
     }
 }

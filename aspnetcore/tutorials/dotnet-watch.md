@@ -11,11 +11,11 @@ ms.assetid: 563ffb3f-d369-4aa5-bf0a-7300b4e7832c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 9baf2ce2a1270a728616a8a2ab45deca9a9cde6f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1b26beaa41f4b38e0cfd2c8300cb521a3dcce47d
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>使用 dotnet watch 开发 ASP.NET Core 应用
 
@@ -65,7 +65,7 @@ Application started. Press Ctrl+C to shut down.
 
 ## <a name="running-net-core-cli-commands-using-dotnet-watch"></a>使用 `dotnet watch` 运行 .NET Core CLI 命令
 
-`dotnet watch` 可用于运行任何 [.NET Core CLI 命令](/dotnet/core/tools#cli-commands) 例如: 
+`dotnet watch` 可用于运行任何 [.NET Core CLI 命令](/dotnet/core/tools#cli-commands) 例如:
 
 | 命令 | 带 watch 的命令 |
 | ---- | ----- |
@@ -111,6 +111,6 @@ public static int Product(int a, int b)
 
 ## <a name="dotnet-watch-in-github"></a>GitHub 中的 dotnet-watch
 
-dotnet-watch 是 GitHub [DotNetTools 存储库](https://github.com/aspnet/DotNetTools/tree/dev/src/Microsoft.DotNet.Watcher.Tools)的一部分。
+dotnet-watch 是 GitHub [DotNetTools 存储库](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch)的一部分。
 
-[dotnet-watch 自述文件](https://github.com/aspnet/DotNetTools/blob/dev/src/Microsoft.DotNet.Watcher.Tools/README.md)的 [MSBuild 部分](https://github.com/aspnet/DotNetTools/blob/dev/src/Microsoft.DotNet.Watcher.Tools/README.md#msbuild)阐释了如何通过被监视的 MSBuild 项目文件配置 dotnet-watch。 [dotnet-watch 自述文件](https://github.com/aspnet/DotNetTools/blob/dev/src/Microsoft.DotNet.Watcher.Tools/README.md)介绍了本教程中没有的 dotnet-watch 相关信息。
+[dotnet-watch 自述文件](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md)的 [MSBuild 部分](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch#msbuild)阐释了如何通过被监视的 MSBuild 项目文件配置 dotnet-watch。 [dotnet-watch 自述文件](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md)介绍了本教程中没有的 dotnet-watch 相关信息。
