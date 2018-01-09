@@ -11,11 +11,11 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe0ba2e4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/index
-ms.openlocfilehash: b4770a91a735cf9c7304e03b848f9593bacb1455
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 926aecb243153b92d70d5aa5a689eeec4dc8415a
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="client-side-development-in-aspnet-core"></a>ASP.NET Core 中的客户端开发
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/asp-net-core.html)
 - [使用浏览器链接](xref:client-side/using-browserlink)
 - [对 SPA 使用 JavaScriptServices](xref:client-side/spa-services)
-- [使用 SPA 项目模板（预览版）](xref:spa/index)
+- [使用 SPA 项目模板 (RC)](xref:spa/index)
     - [Angular 项目模板](xref:spa/angular)
     - [React 项目模板](xref:spa/react)
     - [带 Redux 的 React 项目模板](xref:spa/react-with-redux)

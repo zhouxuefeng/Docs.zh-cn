@@ -153,7 +153,7 @@
 ## [捆绑和缩小](xref:client-side/bundling-and-minification)
 ## [使用浏览器链接](xref:client-side/using-browserlink)
 ## [对 SPA 使用 JavaScriptServices](xref:client-side/spa-services)
-## [使用 SPA 项目模板（预览版）](xref:spa/index)
+## [使用 SPA 项目模板 (RC)](xref:spa/index)
 ### [Angular 项目模板](xref:spa/angular)
 ### [React 项目模板](xref:spa/react)
 ### [带 Redux 的 React 项目模板](xref:spa/react-with-redux)
