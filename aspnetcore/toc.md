@@ -70,7 +70,6 @@
 ### [日志记录与 LoggerMessage](xref:fundamentals/logging/loggermessage)
 ## [错误处理](fundamentals/error-handling.md)
 ## [文件提供程序](fundamentals/file-providers.md)
-## [使用静态文件](fundamentals/static-files.md)
 ## [承载](fundamentals/hosting.md)
 ## [会话和应用程序状态](fundamentals/app-state.md)
 ## [服务器](fundamentals/servers/index.md)
