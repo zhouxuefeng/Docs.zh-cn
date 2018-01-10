@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 841c638b2cacaab7970f2b173fee488972957b63
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 en-我们 /
 
@@ -302,7 +302,7 @@ dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outD
 
 从第二个选项卡中删除测试部门。并发错误是显示来自数据库的当前值。 单击**删除**删除的实体，除非`RowVersion`已 updated.department 已被删除。
 
-请参阅[继承](xref:data/ef-mvc/inheritance)如何对数据模型中的继承的指令。
+请参阅[继承](xref:data/ef-mvc/inheritance)如何继承数据模型。
 
 ### <a name="additional-resources"></a>其他资源
 

@@ -5,17 +5,17 @@ description: "了解如何 ASP.NET 核心 MVC 是用于生成 web 应用的丰�
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/08/2018
 ms.topic: article
 ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33c293e15c0a7f18bbace9dc564fe11d93a7d509
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC 概述
 
@@ -38,7 +38,7 @@ ASP.NET 核心 MVC 是一个丰富的框架，用于生成 web 应用和 Api 使
 
 ### <a name="model-responsibilities"></a>模型职责
 
-一个 MVC 应用程序中的模型表示的应用程序和任何业务逻辑或由它执行的操作的状态。 应在模型中，以及用于永久保存应用程序的状态的任何实现逻辑封装业务逻辑。 强类型化视图通常将使用专门设计为包含数据的视图模型类型在该视图; 上显示控制器将创建并填充这些 ViewModel 实例从模型。
+一个 MVC 应用程序中的模型表示的应用程序和任何业务逻辑或由它执行的操作的状态。 应在模型中，以及用于永久保存应用程序的状态的任何实现逻辑封装业务逻辑。 强类型化视图通常使用设计为包含数据的视图模型类型在该视图上显示。 控制器创建并填充从模型这些 ViewModel 实例。
 
 > [!NOTE]
 > 有多种方法来组织中使用 MVC 体系结构模式的应用程序的模型。 深入了解某些[不同种类的模型类型](http://deviq.com/kinds-of-models/)。
@@ -142,12 +142,12 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
     {
       // work with the model
     }
-    // If we got this far, something failed, redisplay form
+    // At this point, something failed, redisplay form
     return View(model);
 }
 ```
 
-框架将处理验证请求数据在客户端和服务器上。 模型类型上指定的验证逻辑添加到以非介入式批注的形式呈现的视图和浏览器中使用采用强制执行[jQuery 验证](https://jqueryvalidation.org/)。
+该框架将处理客户端和服务器验证的请求数据。 模型类型上指定的验证逻辑添加到以非介入式批注的形式呈现的视图和浏览器中使用采用强制执行[jQuery 验证](https://jqueryvalidation.org/)。
 
 ### <a name="dependency-injection"></a>依赖关系注入
 
@@ -181,11 +181,11 @@ ASP.NET Core 提供的内置支持[依赖关系注入 (DI)](../fundamentals/depe
 
 ### <a name="areas"></a>区域
 
-[区域](controllers/areas.md)提供一种方法进行分区到较小功能分组中的大型 ASP.NET 核心 MVC Web 应用。 一个区域实际上是在应用程序内的 MVC 结构。 在 MVC 项目中，逻辑组件，如模型、 控制器和视图保留在不同的文件夹和 MVC 使用命名约定来创建这些组件之间的关系。 对于大型应用，它可能会更有利分区成单独的功能的高级别区域的应用程序。 例如，电子商务应用程序与多个业务单位，例如签出、 计费和搜索等等。这些部门的每个具有其自己的逻辑组件视图、 控制器和模型。
+[区域](controllers/areas.md)提供一种方法进行分区到较小功能分组中的大型 ASP.NET 核心 MVC Web 应用。 区域是应用程序内部的 MVC 结构。 在 MVC 项目中，逻辑组件，如模型、 控制器和视图保留在不同的文件夹和 MVC 使用命名约定来创建这些组件之间的关系。 对于大型应用，它可能会更有利分区成单独的功能的高级别区域的应用程序。 例如，电子商务应用程序与多个业务单位，例如签出、 计费和搜索等等。这些部门的每个具有其自己的逻辑组件视图、 控制器和模型。
 
 ### <a name="web-apis"></a>Web API
 
-除了正在很好的平台，用于构建网站，ASP.NET 核心 MVC 还具有很好的生成 Web Api 的支持。 你可以构建可以覆盖广泛的客户端包括浏览器和移动设备的服务。
+除了正在很好的平台，用于构建网站，ASP.NET 核心 MVC 还具有很好的生成 Web Api 的支持。 你可以构建覆盖广泛的客户端包括浏览器和移动设备的服务。
 
 Framework 包括内置的支持通过 HTTP 内容协商支持[格式设置数据](models/formatting.md)作为 JSON 或 XML。 编写[自定义格式化程序](advanced/custom-formatters.md)添加您自己的格式的支持。
 
@@ -213,7 +213,7 @@ Framework 包括内置的支持通过 HTTP 内容协商支持[格式设置数据
 
 在 MVC razor 视图可以为强类型根据您的模型。 控制器可以将强类型化的模型传递给启用您的视图具有类型检查和 IntelliSense 支持的视图。
 
-例如，下面的视图定义的类型的模型`IEnumerable<Product>`:
+例如，下面的视图中呈现的类型的模型`IEnumerable<Product>`:
 
 ```cshtml
 @model IEnumerable<Product>

@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 91a62bfa-ea3a-41f9-a2e1-e90d2c8fc8ca
 ms.technology: 
 ms.prod: .net-framework
-ms.openlocfilehash: ab5eaaa32a8f678b2aa4e2a0b30b674dbd6d6e9c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 733a0839c77bcfc96214bdf235ce8fe22ee2d3cf
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="aspnet-webhooks-source-code-and-nuget-packages"></a>ASP.NET Webhook 源代码和 NuGet 包
 
@@ -22,11 +22,9 @@ Microsoft ASP.NET Webhook 是模块的 Microsoft ASP.NET 系列的一部分，�
 
 你正在阅读此联机文档现在还作为承载[GitHub 上的开放源代码](http://docs.asp.net/en/latest/contribute/style-guide.html#style-guide)和还接受的贡献。
 
-## <a name="nuget-packages"></a>Nuget 包
+## <a name="nuget-packages"></a>NuGet 包
 
-Microsoft ASP.NET Webhook 也是作为预览 Nuget 包，这意味着你可以选择在 Visual Studio 中的预览标志，若要查看这些提供的。
-
-[Nuget 包](https://nuget.org/packages?q=Microsoft.AspNet.WebHooks)devided 为三个部分：
+[NuGet 包](https://nuget.org/packages?q=Microsoft.AspNet.WebHooks)分为三个部分：
 
 * [常见](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Common)： 发送者和接收者之间共享的常见包。
 

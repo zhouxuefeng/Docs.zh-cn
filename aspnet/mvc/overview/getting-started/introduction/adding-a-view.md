@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: cf0bb7984ad3460f8784193f7bb407c9b0ad50db
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 <a name="adding-a-view"></a>添加视图
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/03/2018
 
 `Index`上面方法使用视图模板来生成对浏览器的 HTML 响应。 控制器方法 (也称为[操作方法](http://rachelappel.com/asp.net-mvc-actionresults-explained))，如`Index`上面，方法通常返回[ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (或从派生的类[ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx))，不基元类型喜欢字符串。
 
-右键单击*Views\HelloWorld*文件夹，然后单击**添加**，然后单击**MVC 5 视图页 (Razor 布局) 与**。
+右键单击*Views\HelloWorld*文件夹，然后单击**添加**，然后单击**布局 (Razor) 使用的 MVC 5 视图页**。
   
 ![](adding-a-view/_static/image1.png)   
   

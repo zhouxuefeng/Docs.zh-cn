@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: 6279d3b4ac3be102449089dc66eeeb0495cfc4c0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee660667251ec4a64f2b3e83f39214e9defcea03
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>使用 Cookie 而无需 ASP.NET 核心标识的身份验证
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/10/2017
 
 `AuthenticationScheme`传递给`AddAuthentication`设置应用程序的默认身份验证方案。 `AuthenticationScheme`当有多个实例的 cookie 身份验证，并且希望时非常有用[授权与特定方案](xref:security/authorization/limitingidentitybyscheme)。 设置`AuthenticationScheme`到`CookieAuthenticationDefaults.AuthenticationScheme`方案提供的"Cookie"的值。 你可以提供任何字符串值，用于区分方案。
 
-在`Configure`方法，请使用`UseAuthentication`方法来调用设置身份验证中间件`HttpContext.User`属性。 调用`UseAuthentication`方法之前调用`AddMvcWithDefaultRoute`在 MVC 应用程序或`AddMvc`Razor 页面应用程序中：
+在`Configure`方法，请使用`UseAuthentication`方法来调用设置身份验证中间件`HttpContext.User`属性。 调用`UseAuthentication`方法之前调用`UseMvcWithDefaultRoute`或`UseMvc`:
 
 [!code-csharp[Main](cookie/sample/Startup.cs?name=snippet2)]
 
@@ -113,7 +113,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions()
 | [CookieHttpOnly](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiehttponly?view=aspnetcore-1.1) | 一个标志，指示该 cookie 应仅服务器访问。 更改此值与`false`允许客户端脚本来访问 cookie 和可能打开你的应用 cookie 被盗应你的应用具备[跨站点脚本 (XSS)](xref:security/cross-site-scripting)漏洞。 默认值为 `true`。 |
 | [CookiePath](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiepath?view=aspnetcore-1.1) | 用于隔离在相同的主机名上运行的应用程序。 如果必须在运行的应用程序`/app1`并且想要限制对该应用的 cookie，请将设置`CookiePath`属性`/app1`。 通过这样做，cookie 是仅可在上找到对请求`/app1`和其下的任何应用程序。 |
 | [CookieSecure](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiesecure?view=aspnetcore-1.1) | 一个标志，指示是否创建的 cookie 应被限制为 HTTPS (`CookieSecurePolicy.Always`)，HTTP 或 HTTPS (`CookieSecurePolicy.None`)，或请求的同一个协议 (`CookieSecurePolicy.SameAsRequest`)。 默认值为 `CookieSecurePolicy.SameAsRequest`。 |
-| [描述](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.description?view=aspnetcore-1.1) | 有关提供给应用程序的身份验证类型的其他信息。 |
+| [说明](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.description?view=aspnetcore-1.1) | 有关提供给应用程序的身份验证类型的其他信息。 |
 | [ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.expiretimespan?view=aspnetcore-1.1) | `TimeSpan`直到身份验证票证到期。 它添加到当前时间来创建票证的到期时间。 若要使用`ExpireTimeSpan`，必须设置`IsPersistent`到`true`中`AuthenticationProperties`传递给`SignInAsync`。 默认值为 14 天。 |
 | [SlidingExpiration](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.slidingexpiration?view=aspnetcore-1.1) | 一个标志，指示是否重置时超过一半的 cookie 的到期日期`ExpireTimeSpan`时间间隔。 新的 exipiration 时间向前移动，为当前日期加上`ExpireTimespan`。 [绝对 cookie 到期时间](xref:security/authentication/cookie#absolute-cookie-expiration)可以通过使用设置`AuthenticationProperties`类调用时`SignInAsync`。 绝对到期时间可通过限制的身份验证 cookie 是有效的时间量来提高您的应用程序的安全性。 默认值为 `true`。 |
 

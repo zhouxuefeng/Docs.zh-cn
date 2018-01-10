@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 4a5d3622a22b70daa22333cafe58f8831bf0918e
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: fc8e076af92bd8f9a95e73abb66ce32cae8ab9cf
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>在 ASP.NET Core 上的标识简介
 
@@ -25,6 +25,8 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
 
 你可以配置 ASP.NET 核心标识来使用 SQL Server 数据库来存储用户名、 密码和配置文件数据。 或者，你可以使用你自己的持久存储区，例如，Azure 表存储。 本文档包含用于 Visual Studio 以及有关使用 CLI 的说明。
 
+[查看或下载的示例代码。](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [（如何下载）](https://docs.microsoft.com/en-us/aspnet/core/tutorials/index#how-to-download-a-sample)
+
 ## <a name="overview-of-identity"></a>标识的概述
 
 在本主题中，你将了解如何使用 ASP.NET 核心标识来添加功能，用于注册、 登录，并注销用户。 有关创建使用 ASP.NET 核心标识应用的更多详细说明，请参阅本文末尾的后续步骤部分。
@@ -33,7 +35,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-    在 Visual Studio 中，选择**文件** -> **新建** -> **项目**。 选择**ASP.NET 核心 Web 应用程序**单击**确定**。
+    在 Visual Studio 中，选择**文件** > **新建** > **项目**。 选择**ASP.NET 核心 Web 应用程序**单击**确定**。
 
     ![“新建项目”对话框](identity/_static/01-new-project.png)
 
@@ -144,7 +146,7 @@ ASP.NET 核心标识是允许你向你的应用程序添加登录功能的成员
  
 7.  查看数据库。
 
-    如果你的应用使用 SQL Server 数据库 （默认在 Windows 上以及为 Visual Studio 用户），你可以查看数据库中创建的应用。 你可以使用**SQL Server Management Studio**。 或者，从 Visual Studio 中，选择**视图** -> **SQL Server 对象资源管理器**。 连接到**(localdb) \MSSQLLocalDB**。 名称匹配的数据库 **aspnet-<*的你的项目名称*>-<*日期字符串*> * * 显示。
+    如果你的应用使用 SQL Server 数据库 （默认在 Windows 上以及为 Visual Studio 用户），你可以查看数据库中创建的应用。 你可以使用**SQL Server Management Studio**。 或者，从 Visual Studio 中，选择**视图** > **SQL Server 对象资源管理器**。 连接到**(localdb) \MSSQLLocalDB**。 名称匹配的数据库 **aspnet-<*的你的项目名称*>-<*日期字符串*> * * 显示。
 
     ![在 AspNetUsers 数据库表的上下文菜单](identity/_static/04-db.png)
     

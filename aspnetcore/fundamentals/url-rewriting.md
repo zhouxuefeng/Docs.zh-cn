@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: dde0b5673c9885db2fecbb24b384752e5ddf70eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 754af24f4dcf054dd89eaa5f237ab680bf2d1172
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL 重写在 ASP.NET 核心中的中间件
 
@@ -120,7 +120,7 @@ app.UseRewriter(options);
 ![使用跟踪的请求和响应的开发人员工具的浏览器窗口](url-rewriting/_static/add_redirect_to_https_permanent.png)
 
 ### <a name="url-rewrite"></a>URL 重写
-使用`AddRewrite`创建用于 Url 重写规则。 第一个参数将包含有关在传入的 URL 路径匹配你正则表达式。 第二个参数是替换字符串。 第三个参数， `skipRemainingRules: {true|false}`，是否要跳过其他重写规则，如果在应用的当前规则指示该中间件。
+使用`AddRewrite`若要创建的规则重写 Url。 第一个参数将包含有关在传入的 URL 路径匹配你正则表达式。 第二个参数是替换字符串。 第三个参数， `skipRemainingRules: {true|false}`，是否要跳过其他重写规则，如果在应用的当前规则指示该中间件。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -152,7 +152,7 @@ app.UseRewriter(options);
 | --------------------------------- | :---: |
 | `/rewrite-rule/1234/5678`         | 是   |
 | `/my-cool-rewrite-rule/1234/5678` | No    |
-| `/anotherrewrite-rule/1234/5678`  | No    |
+| `/anotherrewrite-rule/1234/5678`  | 否    |
 
 以下`^rewrite-rule/`部分的表达式中，有两个捕获组， `(\d+)/(\d+)`。 `\d`表示*匹配数字 （数字）*。 加号 (`+`) 意味着*匹配一个或多个前面的字符*。 因此，该 URL 必须包含大量跟正斜杠跟另一个数字。 组被注入到重写 URL 作为这些捕获`$1`和`$2`。 重写规则替换字符串将放在查询字符串的捕获的组。 所请求的路径的`/rewrite-rule/1234/5678`重新编写，以便获取处的资源`/rewritten?var1=1234&var2=5678`。 如果出现在原始请求查询字符串，它被保留在 URL 重写时。
 

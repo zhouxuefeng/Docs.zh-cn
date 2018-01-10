@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 0ee8827ad3d5464e1645a40d453054b9e23641cf
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 054b60206cafc3d6dd5775436995638d7f5700cf
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>在 ASP.NET Core 中承载
 
@@ -874,7 +874,17 @@ public class Startup
 
 **适用于仅 ASP.NET Core 2.0**
 
-如果主机生成的将注入`IStartup`直接插入依赖关系注入容器而不是调用`UseStartup`或`Configure`，可能会发生以下错误： `Unhandled Exception: System.ArgumentException: A valid non-empty application name must be provided`。
+主机可能生成的将注入`IStartup`直接插入依赖关系注入容器而不是调用`UseStartup`或`Configure`:
+
+```csharp
+services.AddSingleton<IStartup, Startup>();
+```
+
+如果主机生成这种方式，可能会发生以下错误：
+
+```
+Unhandled Exception: System.ArgumentException: A valid non-empty application name must be provided.
+```
 
 这是因为[applicationName(ApplicationKey)](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostdefaults#Microsoft_AspNetCore_Hosting_WebHostDefaults_ApplicationKey) （当前程序集） 需扫描`HostingStartupAttributes`。 如果应用程序手动插入`IStartup`到依赖关系注入容器中，添加对的以下调用`WebHostBuilder`具有指定的程序集名称：
 
