@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 68e8c89f6e5485f25d1a551ab3e524f0e9c53d0d
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 86244179115fe6a7d0f7298495086a96ee9570d9
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>有关 ASP.NET 核心响应压缩中间件
 
@@ -187,7 +187,7 @@ Gzip 压缩提供程序默认为最快的压缩级别 (`CompressionLevel.Fastest
 当请求代理 nginx，`Accept-Encoding`删除标头。 这可以防止该中间件压缩响应。 有关详细信息，请参阅[NGINX： 压缩和解压缩](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)。 此问题将跟踪[找出传递压缩 nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123)。
 
 ## <a name="working-with-iis-dynamic-compression"></a>使用 IIS 动态压缩
-如果你有一个 active IIS 动态压缩模块你想要禁用的应用程序的服务器级别配置，可以进行此操作而添加到你*web.config*文件。 有关详细信息，请参阅[禁用 IIS 模块](xref:hosting/iis-modules#disabling-iis-modules)。
+如果你有一个 active IIS 动态压缩模块你想要禁用的应用程序的服务器级别配置，可以进行此操作而添加到你*web.config*文件。 有关详细信息，请参阅[禁用 IIS 模块](xref:host-and-deploy/iis/modules#disabling-iis-modules)。
 
 ## <a name="troubleshooting"></a>疑难解答
 使用之类的工具[Fiddler](http://www.telerik.com/fiddler)， [Firebug](http://getfirebug.com/)，或[Postman](https://www.getpostman.com/)，这允许你设置`Accept-Encoding`请求标头并研究响应标头、 大小和正文。 响应压缩中间件压缩满足以下条件的响应：

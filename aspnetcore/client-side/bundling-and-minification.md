@@ -5,17 +5,17 @@ description: "了解如何通过应用绑定和缩减技术优化 ASP.NET 核心
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/01/2017
+ms.date: 01/10/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: c271b7ef386bacedbd45fbe9f62c9c486db55b36
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="bundling-and-minification"></a>绑定和缩减
 
@@ -75,7 +75,7 @@ MVC 和 Razor 页项目模板提供了*bundleconfig.json*配置文件用于定�
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
-捆绑选项包括：
+配置选项包括：
 
 * `outputFileName`： 要输出的捆绑文件名称。 可以包含中的相对路径*bundleconfig.json*文件。 **必填**
 * `inputFiles`： 要将捆绑在一起的文件的数组。 这些是配置文件的相对路径。 **可选**，* 空值会在空的输出文件。 [组合](http://www.tldp.org/LDP/abs/html/globbingref.html)支持模式。
@@ -91,6 +91,9 @@ MVC 和 Razor 页项目模板提供了*bundleconfig.json*配置文件用于定�
 ## <a name="build-time-execution-of-bundling-and-minification"></a>生成时执行的绑定和缩减
 
 [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) NuGet 包启用的绑定执行并在生成时的缩减。 包插入[MSBuild 目标](/visualstudio/msbuild/msbuild-targets)在生成和清理时间运行。 *Bundleconfig.json*文件分析由生成过程以生成基于定义的配置的输出文件。
+
+> [!NOTE]
+> BuildBundlerMinifier 属于在为其 Microsoft 不提供支持的 GitHub 上的社区主导项目。 应归档问题[此处](https://github.com/madskristensen/BundlerMinifier/issues)。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
@@ -176,6 +179,9 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
 
+> [!NOTE]
+> BundlerMinifier.Core 属于在为其 Microsoft 不提供支持的 GitHub 上的社区主导项目。 应归档问题[此处](https://github.com/madskristensen/BundlerMinifier/issues)。
+
 此包扩展以包括.NET 核心 CLI *dotnet 捆绑*工具。 在包管理器控制台 (PMC) 窗口中或在命令行界面，可以执行以下命令：
 
 ```console
@@ -243,6 +249,9 @@ dotnet bundle
 ### <a name="use-the-bundler--minifier-extension"></a>使用捆绑包 （&） Minifier 扩展
 
 Visual Studio[捆绑包 （&) Minifier](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier)扩展会转换为 Gulp。
+
+> [!NOTE]
+> 捆绑包 （&） Minifier 扩展属于在为其 Microsoft 不提供支持的 GitHub 上的社区主导项目。 应归档问题[此处](https://github.com/madskristensen/BundlerMinifier/issues)。
 
 右键单击*bundleconfig.json*文件在解决方案资源管理器中，然后选择**捆绑包 （&) Minifier** > **转换到的 Gulp...**:
 

@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 3eb19aa090d0a979ceaf4edc56752472ba47ae84
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 9127c3d7180422c0e3dbd813340dd485bf360c81
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="working-with-multiple-environments"></a>使用多个环境
 
@@ -31,7 +31,7 @@ ASP.NET 核心引用一个特定的环境变量，`ASPNETCORE_ENVIRONMENT`来描
 
 当前的环境设置可以检测到以编程方式从应用程序中。 此外，你可以使用环境[标记帮助器](../mvc/views/tag-helpers/index.md)包括中的某些部分你[视图](../mvc/views/index.md)基于当前的应用程序环境。
 
-注意： 在 Windows 和 macOS 上，指定的环境名称是不区分大小写。 是否将变量设置为`Development`或`development`或`DEVELOPMENT`结果将是相同的。 但是，Linux 是**区分大小写**默认情况下的操作系统。 环境变量、 文件名和设置需要区分大小写。
+注意： 在 Windows 和 macOS 上，指定的环境名称是区分大小写。 是否将变量设置为`Development`或`development`或`DEVELOPMENT`结果将是相同的。 但是，Linux 是**区分大小写**默认情况下的操作系统。 环境变量、 文件名和设置需要区分大小写。
 
 ### <a name="development"></a>开发
 
@@ -96,7 +96,7 @@ $Env:ASPNETCORE_ENVIRONMENT = "Development"
 
 **web.config**
 
-请参阅*设置环境变量*部分[ASP.NET 核心模块配置引用](xref:hosting/aspnet-core-module#setting-environment-variables)主题。
+请参阅*设置环境变量*部分[ASP.NET 核心模块配置引用](xref:host-and-deploy/aspnet-core-module#setting-environment-variables)主题。
 
 **每个 IIS 应用程序池**
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d1f551dbde5f3dd6e71808154c2e5885d588d7c
-ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
+ms.openlocfilehash: 5eef9405c0c3d219755d7cffa5d45c3df45ddb5c
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET 核心模块简介
 
@@ -54,7 +54,7 @@ ANCM 具有少数几个其他函数：
 
 ## <a name="how-to-use-ancm-in-aspnet-core-apps"></a>如何在 ASP.NET Core 应用中使用 ANCM
 
-本部分概述了设置的 IIS 服务器和 ASP.NET Core 应用程序的过程。 有关详细说明，请参阅[发布到 IIS](../../publishing/iis.md)。
+本部分概述了设置的 IIS 服务器和 ASP.NET Core 应用程序的过程。 有关详细说明，请参阅[使用 IIS 的 Windows 上的主机](xref:host-and-deploy/iis/index)。
 
 ### <a name="install-ancm"></a>安装 ANCM
 
@@ -107,7 +107,7 @@ ANCM 生成要分配给后端进程的动态端口。 `UseIISIntegration`方法�
 
 ### <a name="configure-ancm-options-in-webconfig"></a>在 Web.config 中配置 ANCM 选项
 
-ASP.NET 核心模块的配置存储在*Web.config*位于应用程序的根文件夹中的文件。 此文件中的设置指向启动命令并启动 ASP.NET Core 应用的自变量。 有关 Web.config 的示例代码和配置选项的指南，请参阅[ASP.NET 核心模块配置参考](../../hosting/aspnet-core-module.md)。
+ASP.NET 核心模块的配置存储在*web.config*位于应用程序的根文件夹中的文件。 此文件中的设置指向启动命令并启动 ASP.NET Core 应用的自变量。 有关示例*web.config*代码和指南的配置选项，请参阅[ASP.NET 核心模块配置参考](xref:host-and-deploy/aspnet-core-module)。
 
 ### <a name="run-with-iis-express-in-development"></a>在开发过程中使用 IIS Express 运行
 
@@ -125,5 +125,5 @@ ASP.NET 核心模块的配置存储在*Web.config*位于应用程序的根文件
 
 * [本文的示例应用](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)
 * [ASP.NET 核心模块的源代码](https://github.com/aspnet/AspNetCoreModule)
-* [ASP.NET Core 模块配置参考](../../hosting/aspnet-core-module.md)
-* [发布到 IIS](../../publishing/iis.md)
+* [ASP.NET Core 模块配置参考](xref:host-and-deploy/aspnet-core-module)
+* [使用 IIS 在 Windows 上进行托管](xref:host-and-deploy/iis/index)

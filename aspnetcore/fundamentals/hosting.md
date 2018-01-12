@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 054b60206cafc3d6dd5775436995638d7f5700cf
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 8adc58d67f103e8d1fc8fe197cf392752bdaf660
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>在 ASP.NET Core 中承载
 
@@ -41,7 +41,7 @@ ASP.NET Core 应用配置和启动*主机*。 主机负责应用程序启动和�
   * 环境变量。
   * 命令行参数。
 * 配置[日志记录](xref:fundamentals/logging/index)控制台和调试输出。 日志记录包含[日志筛选](xref:fundamentals/logging/index#log-filtering)日志记录配置部分中指定的规则*appsettings.json*或*appsettings。 {环境}.json*文件。
-* 当运行 IIS 之后，可让[IIS 集成](xref:publishing/iis)。 配置的基路径和服务器应对其侦听时使用的端口[ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)。 该模块将创建 IIS 和 Kestrel 之间的反向代理。 此外可以配置应用到[捕获启动错误](#capture-startup-errors)。 有关 IIS 默认选项，请参阅[IIS 选项部分中的主机与 IIS 的 Windows 上的 ASP.NET 核心](xref:publishing/iis#iis-options)。
+* 当运行 IIS 之后，可让[IIS 集成](xref:host-and-deploy/iis/index)。 配置的基路径和使用时，该服务器侦听的端口[ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)。 该模块将创建 IIS 和 Kestrel 之间的反向代理。 此外可以配置应用到[捕获启动错误](#capture-startup-errors)。 有关 IIS 默认选项，请参阅[IIS 选项部分中的主机与 IIS 的 Windows 上的 ASP.NET 核心](xref:host-and-deploy/iis/index#iis-options)。
 
 *内容根*确定主机搜索内容的文件，如 MVC 视图文件的位置。 应用程序启动时从项目的根文件夹，则会将项目的根文件夹用作内容的根。 这是默认值中使用[Visual Studio](https://www.visualstudio.com/)和[dotnet 新模板](/dotnet/core/tools/dotnet-new)。
 
@@ -60,7 +60,7 @@ ASP.NET Core 应用配置和启动*主机*。 主机负责应用程序启动和�
 
 *内容根*确定主机搜索内容的文件，如 MVC 视图文件的位置。 默认内容根获得的`UseContentRoot`通过[Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory?view=netcore-1.1)。 应用程序启动时从项目的根文件夹，则会将项目的根文件夹用作内容的根。 这是默认值中使用[Visual Studio](https://www.visualstudio.com/)和[dotnet 新模板](/dotnet/core/tools/dotnet-new)。
 
-若要使用 IIS 的反向代理，调用[UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions)生成主机的一部分。 `UseIISIntegration`不配置*服务器*、 like [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1)未。 `UseIISIntegration`配置的基路径和服务器应对其侦听时使用的端口[ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)创建 Kestrel 和 IIS 之间的反向代理。 要 IIS 用于 ASP.NET Core`UseKestrel`和`UseIISIntegration`必须指定。 `UseIISIntegration`仅当在 IIS 或 IIS Express 后面运行时激活。 有关详细信息，请参阅[简介 ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)和[ASP.NET 核心模块配置引用](xref:hosting/aspnet-core-module)。
+若要使用 IIS 的反向代理，调用[UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions)生成主机的一部分。 `UseIISIntegration`不配置*服务器*、 like [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1)未。 `UseIISIntegration`配置的基路径和使用时，该服务器侦听的端口[ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)创建 Kestrel 和 IIS 之间的反向代理。 要 IIS 用于 ASP.NET Core`UseKestrel`和`UseIISIntegration`必须指定。 `UseIISIntegration`仅当在 IIS 或 IIS Express 后面运行时激活。 有关详细信息，请参阅[简介 ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)和[ASP.NET 核心模块配置引用](xref:host-and-deploy/aspnet-core-module)。
 
 配置主机 （和 ASP.NET Core 应用） 的最小实现包括指定服务器和应用程序的请求管道的配置项：
 
@@ -266,7 +266,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="prevent-hosting-startup"></a>阻止托管启动
 
-可防止托管启动程序集，包括承载应用程序的程序集所配置的启动程序集的自动加载。 请参阅[从外部程序集使用 IHostingStartup 添加应用程序功能](xref:hosting/ihostingstartup)有关详细信息。
+可防止托管启动程序集，包括承载应用程序的程序集所配置的启动程序集的自动加载。 请参阅[从外部程序集使用 IHostingStartup 添加应用程序功能](xref:host-and-deploy/ihostingstartup)有关详细信息。
 
 **密钥**: preventHostingStartup  
 **类型**: *bool* (`true`或`1`)  
@@ -908,7 +908,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ## <a name="additional-resources"></a>其他资源
 
-* [发布到使用 IIS 的 Windows](../publishing/iis.md)
-* [将发布到 Linux 使用 Nginx](../publishing/linuxproduction.md)
-* [将发布到使用 Apache 的 Linux](../publishing/apache-proxy.md)
-* [在 Windows 服务中的主机](xref:hosting/windows-service)
+* [使用 IIS 在 Windows 上进行托管](xref:host-and-deploy/iis/index)
+* [在 Linux 上使用 Nginx 进行托管](xref:host-and-deploy/linux-nginx)
+* [在 Linux 上使用 Apache 进行托管](xref:host-and-deploy/linux-apache)
+* [在 Windows 服务中的主机](xref:host-and-deploy/windows-service)

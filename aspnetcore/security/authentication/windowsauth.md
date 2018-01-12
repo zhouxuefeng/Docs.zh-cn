@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-548ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 703f924d049a267cb8bee22e63e6669b13099c53
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5ceffe5b7f7e3ef4f6158b6b7b7d571a21ee130
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>在 ASP.NET Core 应用程序配置 Windows 身份验证
 
@@ -80,7 +80,7 @@ IIS 使用[ASP.NET 核心模块](xref:fundamentals/servers/aspnet-core-module)(A
 
 ![Visual Studio 发布对话框](windowsauth/_static/vs-publish-app.png)
 
-详细了解[发布到 IIS](xref:publishing/iis)。
+详细了解[发布到 IIS](xref:host-and-deploy/iis/index)。
 
 启动应用程序来验证使用 Windows 身份验证。
 
@@ -134,7 +134,7 @@ services.AddAuthentication(IISDefaults.AuthenticationScheme);
 services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
 ```
 
-### <a name="impersonation"></a>模拟
+### <a name="impersonation"></a>Impersonation
 
 ASP.NET 核心未实现模拟。 使用应用程序池或进程标识的所有请求的应用程序标识使用运行应用。 如果你需要显式执行代表用户操作，使用`WindowsIdentity.RunImpersonated`。 在此上下文中运行的单个操作，然后关闭上下文。
 

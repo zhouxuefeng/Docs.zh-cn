@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: d63502a32e38eb192b40f21f5cd57d20048154e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c20ed37e1e54273929593dddc9fe1180f1492d6
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>高级的主题的 EF 内核，它们有 ASP.NET 核心 MVC 教程 (10/10)
 
@@ -163,7 +163,7 @@ ORDER BY [t].[ID]
 
 * ChangeTracker.Entries
 
-如果您跟踪的大量实体，并且你调用这些方法之一多次在循环中，你可能会显著的性能改进，通过暂时关闭自动更改检测使用`ChangeTracker.AutoDetectChangesEnabled`属性。 例如: 
+如果您跟踪的大量实体，并且你调用这些方法之一多次在循环中，你可能会显著的性能改进，通过暂时关闭自动更改检测使用`ChangeTracker.AutoDetectChangesEnabled`属性。 例如:
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
@@ -192,7 +192,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 有关 EF 核心的详细信息，请参阅[实体框架的核心文档](https://docs.microsoft.com/ef/core)。 一本书中也有：[中操作的实体框架内核](https://www.manning.com/books/entity-framework-core-in-action)。
 
-有关如何部署 web 应用程序，你已生成后的信息，请参阅[发布和部署](../../publishing/index.md)。
+有关如何部署 web 应用的信息，请参阅[主机并将其部署](xref:host-and-deploy/index)。
 
 有关其他身份验证和授权，如与 ASP.NET 核心 MVC 相关的主题信息请参阅[ASP.NET 核心文档](https://docs.microsoft.com/aspnet/core/)。
 

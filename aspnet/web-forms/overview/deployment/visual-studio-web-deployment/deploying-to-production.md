@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2a8b165c149ceacba49a193c25e4a66a701ea0d6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>使用 Visual Studio 的 ASP.NET Web 部署： 将部署到生产
 ====================
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="create-a-staging-environment"></a>创建过渡环境
 
 > [!NOTE]
-> 由于在撰写本教程时，Azure App Service 添加用于自动执行许多解决具有过渡和生产环境的进程的新功能。 请参阅[设置过渡环境在 Azure App Service 的 web 应用的](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/)。
+> 由于在撰写本教程时，Azure App Service 添加了新功能来自动执行许多创建过渡和生产环境的过程。 请参阅[设置过渡环境在 Azure App Service 的 web 应用的](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/)。
 
 
 中所述[部署到测试环境教程](deploying-to-iis.md)、 最可靠的测试环境是在具有就像生产网站托管提供商的网站。 许多托管服务提供商，您将不得不重量此功能的优势与重要的其他成本，但在 Azure 中，你可以创建其他的免费 web 应用程序作为你的过渡应用。 你还需要一个数据库，并为该通过生产数据库的费用的额外费用将为无或最小。 在 Azure 中您支付你使用的数据库存储量而不是每个数据库，并将过渡环境中使用的其他存储量将最小。
