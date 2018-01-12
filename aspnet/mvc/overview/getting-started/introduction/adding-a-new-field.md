@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: c10eb343259b58052fd1f2411dbdc2196eafc858
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 7427b4f7c6b7a00fe795053aac0f612471a163cd
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="adding-a-new-field"></a>添加新字段
 ====================
@@ -161,7 +161,7 @@ Code First 迁移创建中的另一个类文件*迁移*文件夹 (同名*{日期
 
 `add-migration`命令指示迁移框架在检查当前的电影模型与当前的电影 DB 架构并创建必要的代码以将数据库迁移到新的模型。 名称*评级*是任意参数并用于命名迁移文件。 是很有帮助，若要使用的迁移步骤有意义的名称。
 
-此命令完成时，Visual Studio 将打开定义新的类文件`DbMIgration`派生类，然后在`Up`方法你可以看到创建的新列的代码。
+此命令完成时，Visual Studio 将打开定义新的类文件`DbMigration`派生类，然后在`Up`方法你可以看到创建的新列的代码。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample11.cs)]
 

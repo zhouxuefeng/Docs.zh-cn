@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: a7664d16a056424ee51db2208152cb5d35d8e5d9
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 10457d154f5fda875f7d1054d48daeeba3a50b7c
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="search"></a>搜索
 ====================
@@ -123,7 +123,7 @@ Visual Studio 2013 具有良好的改善时显示和编辑视图文件。 使用
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-该代码使用`AddRange`方法的泛型`List`集合，以便添加到列表的所有非重复的风格。 (而无需`Distinct`修饰符，将添加重复的风格 — 例如，将在我们的示例中两次添加喜剧)。 代码然后将存储的列表中的风格`ViewBag.movieGenre`对象。 存储类别数据 （此类电影风格的） 作为[此时](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx)对象在`ViewBag`，则访问一个下拉列表框中的类别数据是典型的 MVC 应用程序的方法。
+该代码使用`AddRange`方法的泛型`List`集合，以便添加到列表的所有非重复的风格。 (而无需`Distinct`修饰符，将添加重复的风格 — 例如，将在我们的示例中两次添加喜剧)。 代码然后将存储的列表中的风格`ViewBag.MovieGenre`对象。 存储类别数据 （此类电影风格的） 作为[此时](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx)对象在`ViewBag`，则访问一个下拉列表框中的类别数据是典型的 MVC 应用程序的方法。
 
 下面的代码演示如何检查`movieGenre`参数。 如果不为空，则进一步对代码约束电影查询，以限制到指定的流派所选的影片。
 
@@ -141,7 +141,7 @@ Visual Studio 2013 具有良好的改善时显示和编辑视图文件。 使用
 
 [!code-cshtml[Main](adding-search/samples/sample15.cshtml)]
 
-参数"movieGenre"提供的密钥`DropDownList`用于查找帮助`IEnumerable<SelectListItem>`中`ViewBag`。 `ViewBag`已填充的操作方法中：
+参数"MovieGenre"提供的密钥`DropDownList`用于查找帮助`IEnumerable<SelectListItem>`中`ViewBag`。 `ViewBag`已填充的操作方法中：
 
 [!code-csharp[Main](adding-search/samples/sample16.cs?highlight=10)]
 
